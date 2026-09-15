@@ -21,7 +21,7 @@ Scripts expect the derived tables in 'data/' of this repository plus the non-dis
 
 - Sentinel-2 L2A reflectance: Copernicus Data Space (https://dataspace.copernicus.eu), tiles and dates as listed in the study registry.
 - Google Earth historical imagery: fixed-camera, north-up screenshots exported under Google Earth terms; pixel sizes recorded per reference frame.
-- ERA5 (10 m wind): Copernicus Climate Data Store, https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels . GLORYS12V1 (current): Copernicus Marine Service, https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030 . WAVERYS (wave): Copernicus Marine Service, https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_WAV_001_032 . IBTrACS: NOAA NCEI, https://www.ncei.noaa.gov/products/international-best-track-archive . Tide model pre-registration FES2022b: AVISO, https://www.aviso.altimetry.fr/en/data/products/auxiliary-products/global-tide-fes/release-fes22.html (tide sensitivity check not executed, data not obtained at analysis time).
+- ERA5 (10 m wind): Copernicus Climate Data Store, https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels . GLORYS12V1 (current): Copernicus Marine Service, https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030 . WAVERYS (wave): Copernicus Marine Service, https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_WAV_001_032 . IBTrACS: NOAA NCEI, https://www.ncei.noaa.gov/products/international-best-track-archive .
 - All outlines are visible waterlines at acquisition time; no tidal normalization was applied.
 
 ## Data not included
