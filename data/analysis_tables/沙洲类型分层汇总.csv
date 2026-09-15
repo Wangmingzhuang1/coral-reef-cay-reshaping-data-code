@@ -1,0 +1,9 @@
+﻿sensor,net_area_type,two_axis_type,n_cays,median_relative_change,median_late_cv,median_centroid_path_normalized
+google_earth,Net-area stable (<25%),Morphologically stable,5,-0.0033394376817838,0.0238958340491041,0.6140002786386349
+google_earth,Net-area stable (<25%),Net-stable but reworking,13,-0.0412667946257197,0.1455829948442784,4.159415009456458
+google_earth,Moderate net change (25-<50%),Moderate transformation,10,-0.2927376052347434,0.2681238770870808,7.559996850114386
+google_earth,Major net change (>=50%),Major transformation,9,0.5224985198342217,0.2414827379500401,8.423964516427581
+sentinel2,Net-area stable (<25%),Morphologically stable,6,-0.0154540197897619,0.0211182727430113,0.8470888135317498
+sentinel2,Net-area stable (<25%),Net-stable but reworking,39,-0.0733590733590733,0.0759985913397117,4.538285827527378
+sentinel2,Moderate net change (25-<50%),Moderate transformation,7,0.3724137931034483,0.0604663400873707,6.462652338319999
+sentinel2,Major net change (>=50%),Major transformation,4,0.8370473927023626,0.359098938853006,5.363907533198486

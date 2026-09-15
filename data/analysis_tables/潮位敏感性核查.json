@@ -1,0 +1,40 @@
+{
+  "tide_contract": {
+    "model_name": "FES2022b",
+    "variable": "ocean_tide_elevation",
+    "grid": "ocean_tide_extrapolated",
+    "prediction_library": "pyfes",
+    "citation": "The FES2022 Tide product was funded by CNES, produced by LEGOS, NOVELTIS and CLS and made freely available by AVISO. CNES, 2024. FES2022 (Finite Element Solution) Ocean Tide (Version 2024) [Data set]. CNES. https://doi.org/10.24400/527896/A01-2024.004",
+    "url": "https://www.aviso.altimetry.fr/en/data/products/auxiliary-products/global-tide-fes/release-fes22.html",
+    "use": "observation-condition sensitivity proxy, not a geomorphic mechanism variable",
+    "required_fields": [
+      "image_id",
+      "sensor",
+      "acquisition_datetime_utc",
+      "sand_cay_center_lon",
+      "sand_cay_center_lat",
+      "tide_elevation_m",
+      "tide_model",
+      "tide_grid",
+      "prediction_library_version",
+      "prediction_status"
+    ]
+  },
+  "observation_inputs": {
+    "rows": 1827,
+    "ready_for_prediction": 1778,
+    "missing_time_or_coordinates": 49
+  },
+  "prediction": {
+    "prediction_attempted": true,
+    "ready_observations": 1778,
+    "fes_config": "C:\\Users\\wmz\\Desktop\\沙洲演化驱动与植被作用项目\\data\\environment\\tide\\fes2022b\\ocean_tide.yaml",
+    "data_present": false,
+    "status": "blocked_missing_aviso_fes2022b_data",
+    "message": "AVISO FES2022b access is required. Download the extrapolated ocean tide elevation grids, then provide a PyFES ocean_tide.yaml configuration before rerunning this script."
+  },
+  "interval_sensitivity": {
+    "rows": 0,
+    "transitions": 0
+  }
+}

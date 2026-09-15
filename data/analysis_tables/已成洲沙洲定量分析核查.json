@@ -1,0 +1,302 @@
+{
+  "input_intervals": 2395,
+  "boundary_valid": 2356,
+  "core_time_window": 1156,
+  "stable_both_ends": 2395,
+  "quality_good_both": 2388,
+  "sample_funnel": {
+    "window_days": [
+      90,
+      365
+    ],
+    "input_intervals": 2395,
+    "sequential_steps": {
+      "boundary_valid": {
+        "remaining_intervals": 2356,
+        "excluded_at_this_step": 39,
+        "remaining_cays": 121,
+        "remaining_reefs": 106
+      },
+      "window_valid": {
+        "remaining_intervals": 1132,
+        "excluded_at_this_step": 1224,
+        "remaining_cays": 86,
+        "remaining_reefs": 76
+      },
+      "positive_initial_area": {
+        "remaining_intervals": 1132,
+        "excluded_at_this_step": 0,
+        "remaining_cays": 86,
+        "remaining_reefs": 76
+      },
+      "positive_interval_years": {
+        "remaining_intervals": 1132,
+        "excluded_at_this_step": 0,
+        "remaining_cays": 86,
+        "remaining_reefs": 76
+      },
+      "stable_both_ends": {
+        "remaining_intervals": 1132,
+        "excluded_at_this_step": 0,
+        "remaining_cays": 86,
+        "remaining_reefs": 76
+      },
+      "quality_good_both": {
+        "remaining_intervals": 1130,
+        "excluded_at_this_step": 2,
+        "remaining_cays": 86,
+        "remaining_reefs": 76
+      },
+      "typhoon_available": {
+        "remaining_intervals": 977,
+        "excluded_at_this_step": 153,
+        "remaining_cays": 72,
+        "remaining_reefs": 66
+      },
+      "primary_sensor": {
+        "remaining_intervals": 872,
+        "excluded_at_this_step": 105,
+        "remaining_cays": 55,
+        "remaining_reefs": 53
+      }
+    },
+    "final_analysis": 872,
+    "final_by_sensor": {
+      "sentinel2": 872
+    }
+  },
+  "analysis_intervals": 872,
+  "analysis_cays": 55,
+  "analysis_reefs": 53,
+  "strong_typhoon_intervals": 20,
+  "r34_intervals": 18,
+  "excluded_reefs": [
+    "GBR_066"
+  ],
+  "analysis_unit": "same-cay adjacent observation interval",
+  "core_window_days": [
+    90,
+    365
+  ],
+  "stage_rule": "both endpoint manual development-stage labels are present; bare and vegetated cays are retained",
+  "quality_rule": "both endpoint quality grades are A or B",
+  "primary_response": "annualized gross boundary mobility normalized by initial area",
+  "secondary_responses": [
+    "annualized log area change",
+    "annualized erosion fraction",
+    "annualized deposition fraction",
+    "annualized centroid displacement normalized by equivalent radius"
+  ],
+  "inference_boundary": "Paired comparisons and within-cay fixed-effect regressions estimate associations. They do not identify causal typhoon effects.",
+  "typhoon_interval_exposure_gate": {
+    "definition": "formal exposure = cay-bearing R34 quadrant or <=100 km with nearest center wind >=17.5 m/s",
+    "formal_exposed_intervals": 20,
+    "formal_exposed_cays": 13,
+    "cays_with_both_exposure_states": 13,
+    "minimum_exposed_intervals": 30,
+    "minimum_contrast_cays": 10,
+    "status": "exploratory_below_exposure_gate"
+  },
+  "centroid_warning": "Only centroid displacement magnitude is used. Geographic bearing remains provisional until reference-frame north orientation is verified.",
+  "unified_forcing_vegetation_model": {
+    "sensor": "sentinel2_only",
+    "analysis_contract_version": "2026-09-11-s2only-interval-gate-2",
+    "analysis_contract_sha256": "fa3e9b6fb52043467eb1bef52261e14af5f3270bd55514322e6ef0d6bffb8626",
+    "primary_response": "log annualized gross boundary mobility (within-cay)",
+    "secondary_responses": [
+      "along-axis shift z",
+      "cross-axis shift z"
+    ],
+    "moderator": "interval-start vegetation fraction (z-scored)",
+    "predefined_interactions": [
+      "wave_hs_p90 x vegetation",
+      "cross current x vegetation"
+    ],
+    "robustness_specifications": [
+      "within-cay fixed effects clustered by cay",
+      "within-cay fixed effects clustered by reef",
+      "tide-adjusted sensitivity on identical complete sample when tide table exists",
+      "predefined interval-window sensitivity",
+      "±1 pixel mask-boundary perturbation sensitivity"
+    ],
+    "diagnostics": "VIF, residual skew/kurtosis, studentized outliers, Cook's distance, random-intercept variance, ICC, convergence status and model likelihood",
+    "tide_status": "not_attempted",
+    "wind_increment": {
+      "rows": 150,
+      "comparison": [
+        {
+          "model": "coverage",
+          "term": "wind_complete_subset",
+          "n_intervals": 809,
+          "n_cays": 51,
+          "n_reefs": 49.0,
+          "coverage_by_sensor": {
+            "sentinel2": 809
+          },
+          "analysis_scope": NaN,
+          "aic_flow_wave": NaN,
+          "aic_flow_wave_wind": NaN,
+          "bic_flow_wave": NaN,
+          "bic_flow_wave_wind": NaN,
+          "adj_r2_flow_wave": NaN,
+          "adj_r2_flow_wave_wind": NaN,
+          "ml_lr_p_value": NaN,
+          "partial_f_p_value": NaN,
+          "joint_wind_cluster_p_value": NaN,
+          "wind_along_coefficient": NaN,
+          "wind_cross_coefficient": NaN,
+          "wind_along_p": NaN,
+          "wind_cross_p": NaN,
+          "comparison_note": NaN,
+          "joint_wind_cluster_fdr_q_value": NaN
+        },
+        {
+          "model": "increment",
+          "term": "log_gross_mobility",
+          "n_intervals": 808,
+          "n_cays": 50,
+          "n_reefs": NaN,
+          "coverage_by_sensor": NaN,
+          "analysis_scope": "all_intervals_pulse_adjusted",
+          "aic_flow_wave": 1048.7666266475549,
+          "aic_flow_wave_wind": 1046.2124856288178,
+          "bic_flow_wave": 1105.101371349808,
+          "bic_flow_wave_wind": 1111.9363544481132,
+          "adj_r2_flow_wave": 0.2640419528435787,
+          "adj_r2_flow_wave_wind": 0.2681487522249699,
+          "ml_lr_p_value": 0.03773865005201148,
+          "partial_f_p_value": 0.03994348956218539,
+          "joint_wind_cluster_p_value": 0.14217183750402354,
+          "wind_along_coefficient": -0.2851848275462492,
+          "wind_cross_coefficient": -0.3107258775835172,
+          "wind_along_p": 0.18070761584118164,
+          "wind_cross_p": 0.23780888215798268,
+          "comparison_note": "AIC/BIC/adjusted R2 and nested tests use ordinary maximum-likelihood OLS on identical rows; coefficient inference and the joint wind test use cay-clustered robust covariance.",
+          "joint_wind_cluster_fdr_q_value": 0.21325775625603532
+        },
+        {
+          "model": "increment",
+          "term": "along_shift",
+          "n_intervals": 808,
+          "n_cays": 50,
+          "n_reefs": NaN,
+          "coverage_by_sensor": NaN,
+          "analysis_scope": "all_intervals_pulse_adjusted",
+          "aic_flow_wave": 1111.3398720135906,
+          "aic_flow_wave_wind": 1107.7938204409975,
+          "bic_flow_wave": 1167.6746167158437,
+          "bic_flow_wave_wind": 1173.5176892602929,
+          "adj_r2_flow_wave": 0.1478024484403172,
+          "adj_r2_flow_wave_wind": 0.15359758036346527,
+          "ml_lr_p_value": 0.022982418088902758,
+          "partial_f_p_value": 0.024535074397895793,
+          "joint_wind_cluster_p_value": 0.49821317746409544,
+          "wind_along_coefficient": 0.07282651144579687,
+          "wind_cross_coefficient": 0.4518156817198219,
+          "wind_along_p": 0.8494853192967132,
+          "wind_cross_p": 0.3254589181324459,
+          "comparison_note": "AIC/BIC/adjusted R2 and nested tests use ordinary maximum-likelihood OLS on identical rows; coefficient inference and the joint wind test use cay-clustered robust covariance.",
+          "joint_wind_cluster_fdr_q_value": 0.49821317746409544
+        },
+        {
+          "model": "increment",
+          "term": "cross_shift",
+          "n_intervals": 808,
+          "n_cays": 50,
+          "n_reefs": NaN,
+          "coverage_by_sensor": NaN,
+          "analysis_scope": "all_intervals_pulse_adjusted",
+          "aic_flow_wave": 911.4105840187074,
+          "aic_flow_wave_wind": 897.9102567953687,
+          "bic_flow_wave": 967.7453287209605,
+          "bic_flow_wave_wind": 963.6341256146641,
+          "adj_r2_flow_wave": 0.18746540164863468,
+          "adj_r2_flow_wave_wind": 0.2028718951726095,
+          "ml_lr_p_value": 0.00015843540111461622,
+          "partial_f_p_value": 0.00018437259667786614,
+          "joint_wind_cluster_p_value": 0.017491097294420943,
+          "wind_along_coefficient": -0.6644731150453735,
+          "wind_cross_coefficient": -0.08932479859793357,
+          "wind_along_p": 0.006809099249652538,
+          "wind_cross_p": 0.6929213994756753,
+          "comparison_note": "AIC/BIC/adjusted R2 and nested tests use ordinary maximum-likelihood OLS on identical rows; coefficient inference and the joint wind test use cay-clustered robust covariance.",
+          "joint_wind_cluster_fdr_q_value": 0.05247329188326283
+        },
+        {
+          "model": "increment",
+          "term": "log_gross_mobility",
+          "n_intervals": 789,
+          "n_cays": 50,
+          "n_reefs": NaN,
+          "coverage_by_sensor": NaN,
+          "analysis_scope": "no_typhoon_pulse_intervals",
+          "aic_flow_wave": 1023.3052639113769,
+          "aic_flow_wave_wind": 1021.460478780418,
+          "bic_flow_wave": 1074.6836934406815,
+          "bic_flow_wave_wind": 1082.1804409514143,
+          "adj_r2_flow_wave": 0.26740908031344235,
+          "adj_r2_flow_wave_wind": 0.27094175902170525,
+          "ml_lr_p_value": 0.053804801667084616,
+          "partial_f_p_value": 0.056458941130582765,
+          "joint_wind_cluster_p_value": 0.18023401061331953,
+          "wind_along_coefficient": -0.3046427464627918,
+          "wind_cross_coefficient": -0.2723554133764403,
+          "wind_along_p": 0.1684567300486514,
+          "wind_cross_p": 0.3204295144595736,
+          "comparison_note": "AIC/BIC/adjusted R2 and nested tests use ordinary maximum-likelihood OLS on identical rows; coefficient inference and the joint wind test use cay-clustered robust covariance.",
+          "joint_wind_cluster_fdr_q_value": 0.27035101591997934
+        },
+        {
+          "model": "increment",
+          "term": "along_shift",
+          "n_intervals": 789,
+          "n_cays": 50,
+          "n_reefs": NaN,
+          "coverage_by_sensor": NaN,
+          "analysis_scope": "no_typhoon_pulse_intervals",
+          "aic_flow_wave": 1096.4055524110588,
+          "aic_flow_wave_wind": 1091.0142495799273,
+          "bic_flow_wave": 1147.7839819403634,
+          "bic_flow_wave_wind": 1151.7342117509236,
+          "adj_r2_flow_wave": 0.1523986614411198,
+          "adj_r2_flow_wave_wind": 0.16026898720303606,
+          "ml_lr_p_value": 0.00913491480360922,
+          "partial_f_p_value": 0.00986972519837378,
+          "joint_wind_cluster_p_value": 0.5194824370258864,
+          "wind_along_coefficient": 0.01926440701481337,
+          "wind_cross_coefficient": 0.5294599119660095,
+          "wind_along_p": 0.961560242606424,
+          "wind_cross_p": 0.31331400140748716,
+          "comparison_note": "AIC/BIC/adjusted R2 and nested tests use ordinary maximum-likelihood OLS on identical rows; coefficient inference and the joint wind test use cay-clustered robust covariance.",
+          "joint_wind_cluster_fdr_q_value": 0.5194824370258864
+        },
+        {
+          "model": "increment",
+          "term": "cross_shift",
+          "n_intervals": 789,
+          "n_cays": 50,
+          "n_reefs": NaN,
+          "coverage_by_sensor": NaN,
+          "analysis_scope": "no_typhoon_pulse_intervals",
+          "aic_flow_wave": 898.3942415319041,
+          "aic_flow_wave_wind": 885.1916576687795,
+          "bic_flow_wave": 949.7726710612087,
+          "bic_flow_wave_wind": 945.9116198397759,
+          "adj_r2_flow_wave": 0.18028107151498252,
+          "adj_r2_flow_wave_wind": 0.19589288012352535,
+          "ml_lr_p_value": 0.00018386809516010387,
+          "partial_f_p_value": 0.00021186266651992765,
+          "joint_wind_cluster_p_value": 0.018323417822462128,
+          "wind_along_coefficient": -0.679946553244582,
+          "wind_cross_coefficient": -0.050733763470402184,
+          "wind_along_p": 0.006012661163349609,
+          "wind_cross_p": 0.8144742358283951,
+          "comparison_note": "AIC/BIC/adjusted R2 and nested tests use ordinary maximum-likelihood OLS on identical rows; coefficient inference and the joint wind test use cay-clustered robust covariance.",
+          "joint_wind_cluster_fdr_q_value": 0.05497025346738638
+        }
+      ]
+    },
+    "wind_status": "fitted_on_wind_complete_subset",
+    "inference_boundary": "Within-cay associations with cluster-robust SE; not causal."
+  }
+}

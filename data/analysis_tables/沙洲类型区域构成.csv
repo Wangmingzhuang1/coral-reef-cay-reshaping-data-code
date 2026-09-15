@@ -1,0 +1,18 @@
+﻿sensor,region,net_area_type,n_cays
+google_earth,MEDF,Net-area stable (<25%),6
+google_earth,MEDF,Moderate net change (25-<50%),5
+google_earth,MEDF,Major net change (>=50%),6
+google_earth,NH,Net-area stable (<25%),11
+google_earth,NH,Moderate net change (25-<50%),4
+google_earth,NH,Major net change (>=50%),2
+google_earth,OTHER,Net-area stable (<25%),1
+google_earth,OTHER,Moderate net change (25-<50%),1
+google_earth,OTHER,Major net change (>=50%),1
+sentinel2,GBR,Net-area stable (<25%),25
+sentinel2,GBR,Moderate net change (25-<50%),1
+sentinel2,GBR,Major net change (>=50%),2
+sentinel2,MEDF,Net-area stable (<25%),16
+sentinel2,MEDF,Moderate net change (25-<50%),4
+sentinel2,MEDF,Major net change (>=50%),2
+sentinel2,OTHER,Net-area stable (<25%),4
+sentinel2,OTHER,Moderate net change (25-<50%),2

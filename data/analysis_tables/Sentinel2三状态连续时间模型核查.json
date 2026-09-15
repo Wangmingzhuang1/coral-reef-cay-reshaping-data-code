@@ -1,0 +1,31 @@
+{
+  "model": "three-state continuous-time Markov chain; panel-observation likelihood",
+  "states": {
+    "low_cover": "人工 none 或 sparse，且与颜色代理相容",
+    "partial_cover": "人工 partial，且与颜色代理相容",
+    "dominant_cover": "人工 dominant，且与颜色代理相容"
+  },
+  "primary_window_days": [
+    30,
+    365
+  ],
+  "primary_n_pairs": 1503,
+  "primary_n_cays": 65,
+  "primary_n_state_changes": 172,
+  "left_censoring": "每条沙洲序列首次观测之前的状态历时未知。",
+  "right_censoring": "每条沙洲序列末次观测之后的状态历时未知。",
+  "measurement_error_handling": "主分析排除人工标签与颜色代理冲突的记录；仅完全一致标签和更严格间隔窗口为敏感性分析。",
+  "not_estimated": [
+    "隐马尔可夫观测误差层",
+    "半马尔可夫非指数停留时间",
+    "ENSO 或台风对转移率的协变量效应",
+    "从水下沉积体到成岛的完整发育时间"
+  ],
+  "bootstrap": {
+    "unit": "sand_cay_id",
+    "replicates_requested": 100,
+    "replicates_completed": 100,
+    "seed": 20260913
+  },
+  "primary_negative_log_likelihood": 645.5191596447514
+}

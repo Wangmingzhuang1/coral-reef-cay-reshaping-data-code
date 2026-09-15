@@ -1,0 +1,154 @@
+{
+  "n_records": 2975,
+  "n_ok": 2615,
+  "status_counts": {
+    "ok": 2615,
+    "missing_mask": 359,
+    "missing_image": 1
+  },
+  "sensor_counts": {
+    "sentinel2": 1839,
+    "google_earth": 776
+  },
+  "automatic_state_counts": {
+    "none": 947,
+    "partial": 653,
+    "sparse": 638,
+    "dominant": 377
+  },
+  "manual_state_counts": {
+    "none": 1172,
+    "dominant": 545,
+    "partial": 518,
+    "sparse": 378
+  },
+  "evaluation": {
+    "n": 2613,
+    "exact_accuracy": 0.5434366628396479,
+    "within_one_class_accuracy": 0.8970531955606582,
+    "quadratic_weighted_kappa": 0.6710055991779998,
+    "mean_vegetation_fraction_by_manual_state": {
+      "dominant": 0.4278256928708668,
+      "none": 0.059003519883519,
+      "partial": 0.25271879822091436,
+      "sparse": 0.08727535672667745
+    },
+    "confusion_matrix": {
+      "none": {
+        "none": 694,
+        "sparse": 343,
+        "partial": 120,
+        "dominant": 15
+      },
+      "sparse": {
+        "none": 172,
+        "sparse": 138,
+        "partial": 59,
+        "dominant": 9
+      },
+      "partial": {
+        "none": 47,
+        "sparse": 112,
+        "partial": 297,
+        "dominant": 62
+      },
+      "dominant": {
+        "none": 34,
+        "sparse": 44,
+        "partial": 176,
+        "dominant": 291
+      }
+    }
+  },
+  "evaluation_by_sensor": {
+    "google_earth": {
+      "n": 774,
+      "exact_accuracy": 0.5400516795865633,
+      "within_one_class_accuracy": 0.8501291989664083,
+      "quadratic_weighted_kappa": 0.5855597677015536,
+      "mean_vegetation_fraction_by_manual_state": {
+        "dominant": 0.41196104143308715,
+        "none": 0.07553960029504536,
+        "partial": 0.2257910653910679,
+        "sparse": 0.0890600236039168
+      },
+      "confusion_matrix": {
+        "none": {
+          "none": 268,
+          "sparse": 97,
+          "partial": 57,
+          "dominant": 14
+        },
+        "sparse": {
+          "none": 46,
+          "sparse": 28,
+          "partial": 21,
+          "dominant": 1
+        },
+        "partial": {
+          "none": 7,
+          "sparse": 19,
+          "partial": 35,
+          "dominant": 8
+        },
+        "dominant": {
+          "none": 23,
+          "sparse": 14,
+          "partial": 49,
+          "dominant": 87
+        }
+      }
+    },
+    "sentinel2": {
+      "n": 1839,
+      "exact_accuracy": 0.5448613376835236,
+      "within_one_class_accuracy": 0.9168026101141925,
+      "quadratic_weighted_kappa": 0.7067955393411729,
+      "mean_vegetation_fraction_by_manual_state": {
+        "dominant": 0.4352036087276837,
+        "none": 0.04920768963973436,
+        "partial": 0.2568569130655901,
+        "sparse": 0.08666781055570236
+      },
+      "confusion_matrix": {
+        "none": {
+          "none": 426,
+          "sparse": 246,
+          "partial": 63,
+          "dominant": 1
+        },
+        "sparse": {
+          "none": 126,
+          "sparse": 110,
+          "partial": 38,
+          "dominant": 8
+        },
+        "partial": {
+          "none": 40,
+          "sparse": 93,
+          "partial": 262,
+          "dominant": 54
+        },
+        "dominant": {
+          "none": 11,
+          "sparse": 30,
+          "partial": 127,
+          "dominant": 204
+        }
+      }
+    }
+  },
+  "spectral_composition_check": {
+    "n_ok": 2615,
+    "min_sum": 0.9999999999999998,
+    "max_sum": 1.0000000000000002,
+    "all_sums_within_1e_minus_6": true
+  },
+  "interpretation": {
+    "light_substrate": "高亮度、低饱和度的灰白色裸露基质；颜色不能区分珊瑚断枝与沙",
+    "vegetation": "满足绿色色相、饱和度和绿色过量指数阈值的绿色植被信号；不是物种、覆盖度或生物量",
+    "dark_olive_anomaly": "相对灰白裸沙更暗或呈橄榄褐色的光谱异常；不能解释为结皮、藻类、湿沙或阴影",
+    "unclassified": "不符合绿色植被、灰白基质或暗色异常规则的残余像元",
+    "core_margin_structure": "内部植被比例≥0.45 且边缘裸沙比例≥0.40 的植被核心+裸沙边缘结构"
+  }
+}

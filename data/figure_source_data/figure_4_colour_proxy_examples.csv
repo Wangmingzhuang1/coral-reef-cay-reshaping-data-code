@@ -1,0 +1,4 @@
+﻿image_id,sand_cay_id,reef_id,date,automatic_vegetation_state,vegetation_fraction,example_label
+MEDF_053__cay_001__2019-02-14,MEDF_053_cay_001,MEDF_053,2019-02-14,none,0.0266558966074313,Low proxy
+MEDF_040__cay_001__2011-02-22,MEDF_040_cay_001,MEDF_040,2011-02-22,sparse,0.13279258400927,Moderate proxy
+GBR_095__cay_001__2025-07-14,GBR_095_cay_001,GBR_095,2025-07-14,dominant,0.8460355489364457,High proxy

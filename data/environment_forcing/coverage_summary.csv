@@ -1,0 +1,3 @@
+﻿index_path,size,sum
+data\training\temporal_prediction\google_earth_primary\index\samples_index.csv,584,207
+data\training\temporal_prediction\sentinel2_pretraining\index\samples_index.csv,1450,34

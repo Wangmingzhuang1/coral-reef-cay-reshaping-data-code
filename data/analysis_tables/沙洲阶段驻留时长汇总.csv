@@ -1,0 +1,10 @@
+﻿sensor,surface_state,n_runs,n_completed,n_left_censored,n_right_censored,median_observed_span_years_completed,q25_observed_span_years_completed,q75_observed_span_years_completed,median_observed_span_years_ongoing,n_ongoing
+google_earth,bright_bare,168,89,45,34,1.0,1.0,1.0,1.0,34
+google_earth,high_green,58,24,11,23,1.0,1.0,1.0,1.0,23
+google_earth,low_green,83,38,24,21,1.0,1.0,1.0,1.0,21
+google_earth,moderate_green,80,30,21,29,1.0,1.0,1.0,1.0,29
+google_earth,spectral_transition,16,6,8,2,1.0,1.0,1.0,4.0,2
+sentinel2,bright_bare,56,22,18,23,1.0,1.0,1.0,3.0,23
+sentinel2,high_green,28,12,8,10,1.0,1.0,2.0,2.5,10
+sentinel2,low_green,66,30,21,18,1.0,1.0,1.75,2.0,18
+sentinel2,moderate_green,64,34,19,15,1.0,1.0,2.0,5.0,15

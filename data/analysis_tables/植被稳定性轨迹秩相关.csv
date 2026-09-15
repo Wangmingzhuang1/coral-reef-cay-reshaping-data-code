@@ -1,0 +1,13 @@
+﻿sensor,analysis_unit,outcome,n,spearman_rho,two_sided_p_value,fdr_q_value
+google_earth,cay_trajectory,centroid_net_normalized,37,-0.4300744806268707,0.007888881193723,0.0236666435811691
+google_earth,cay_trajectory,centroid_path_normalized,37,-0.4571179451981449,0.0044509444239931,0.0236666435811691
+google_earth,cay_trajectory,perimeter_max_adjacent_ratio,37,-0.3397707531157439,0.0396412570157117,0.0594618855235676
+google_earth,cay_trajectory,orientation_max_step_deg,37,-0.2902109237692679,0.0814358443216251,0.0977230131859502
+google_earth,cay_trajectory,abs_relative_change,37,-0.3488249527078885,0.0343478749599827,0.0594618855235676
+google_earth,cay_trajectory,abs_elongation_relative_change,37,-0.1937122175898315,0.250644692733956,0.250644692733956
+sentinel2,cay_trajectory,centroid_net_normalized,56,-0.4343189261861104,0.0008243171925097,0.0012364757887645
+sentinel2,cay_trajectory,centroid_path_normalized,56,-0.4808750711149222,0.0001758696009178,0.0003517392018357
+sentinel2,cay_trajectory,perimeter_max_adjacent_ratio,56,-0.7012476602162802,1.7551028253089072e-09,1.0530616951853443e-08
+sentinel2,cay_trajectory,orientation_max_step_deg,56,-0.5015894792110015,8.212000748458906e-05,0.0002463600224537
+sentinel2,cay_trajectory,abs_relative_change,56,-0.3235002610912442,0.0150139300414222,0.0150139300414222
+sentinel2,cay_trajectory,abs_elongation_relative_change,56,-0.3844471086742628,0.0034402916531019,0.0041283499837223

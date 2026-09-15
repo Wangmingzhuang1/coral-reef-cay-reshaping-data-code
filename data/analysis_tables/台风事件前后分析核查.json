@@ -1,0 +1,147 @@
+{
+  "analysis_unit": "typhoon event - sand cay - Sentinel-2 - fixed reference frame",
+  "analysis_contract_version": "2026-09-11-s2only-interval-gate-2",
+  "analysis_contract_sha256": "fa3e9b6fb52043467eb1bef52261e14af5f3270bd55514322e6ef0d6bffb8626",
+  "excluded_reefs": [
+    "GBR_066"
+  ],
+  "event_definition": "inside the cay-bearing IBTrACS R34 quadrant, or nearest distance <=100 km with local nearest wind >=17.5 m/s",
+  "pairing_funnel": {
+    "direct_event_cay_records": 1639,
+    "direct_storms": 230,
+    "direct_cays": 126,
+    "event_cay_records_with_any_observation": 309,
+    "event_cay_records_inside_observation_span": 52,
+    "event_cay_records_with_pre_image": 26,
+    "event_cay_records_with_post_image": 24,
+    "event_cay_records_with_same_frame_pair": 12,
+    "isolated_same_frame_pairs": 11
+  },
+  "main_pre_window": [
+    -60,
+    -5
+  ],
+  "main_post_window": [
+    5,
+    60
+  ],
+  "competing_event_rule": "exclude pairs containing another relevant event between images",
+  "main_valid_pairs": 11,
+  "main_storms": 6,
+  "main_cays": 11,
+  "main_reefs": 11,
+  "main_sensor_counts": {
+    "sentinel2": 11
+  },
+  "main_extreme_response_pairs_pending_review": 0,
+  "matched_control_pairs": 10,
+  "matched_independent_storms": 5,
+  "extended_analysis_rule": {
+    "window_days": 90,
+    "radius_km": 250,
+    "status": "exploratory_dose_only",
+    "minimum_independent_storms_for_inference": 5
+  },
+  "extended_valid_pairs": 66,
+  "extended_storms": 18,
+  "extended_cays": 32,
+  "extended_reefs": 31,
+  "mechanism_tests": {
+    "M1_spatial_fingerprint": {
+      "pairs": 70,
+      "strict_pairs": 8,
+      "extended_pairs": 62,
+      "concentrated_tests": 1,
+      "total_tests": 10
+    },
+    "M2_directional_dose_response": {
+      "pairs": 71,
+      "models": 5
+    },
+    "M1_resolution_audit": {
+      "rows": 154,
+      "stats": [
+        {
+          "scope": "pair_extended_sentinel2",
+          "n": 132,
+          "median_area_relative_difference": 0.0,
+          "median_centroid_offset_m": 0.0,
+          "max_centroid_offset_m": 1.7820691223482776,
+          "median_one_pixel_angular_jitter_deg": NaN,
+          "max_one_pixel_angular_jitter_deg": NaN,
+          "mean_axial_residual_deg": NaN,
+          "resultant_length": NaN,
+          "rayleigh_p_value": NaN,
+          "median_pixel_size_m": NaN
+        },
+        {
+          "scope": "pair_strict_sentinel2",
+          "n": 22,
+          "median_area_relative_difference": 0.0,
+          "median_centroid_offset_m": 0.0,
+          "max_centroid_offset_m": 2.8421709430404007e-13,
+          "median_one_pixel_angular_jitter_deg": NaN,
+          "max_one_pixel_angular_jitter_deg": NaN,
+          "mean_axial_residual_deg": NaN,
+          "resultant_length": NaN,
+          "rayleigh_p_value": NaN,
+          "median_pixel_size_m": NaN
+        },
+        {
+          "scope": "jitter_extended_sentinel2",
+          "n": 128,
+          "median_area_relative_difference": NaN,
+          "median_centroid_offset_m": NaN,
+          "max_centroid_offset_m": NaN,
+          "median_one_pixel_angular_jitter_deg": 5.45318418074427,
+          "max_one_pixel_angular_jitter_deg": 89.99999427042206,
+          "mean_axial_residual_deg": NaN,
+          "resultant_length": NaN,
+          "rayleigh_p_value": NaN,
+          "median_pixel_size_m": NaN
+        },
+        {
+          "scope": "jitter_strict_sentinel2",
+          "n": 19,
+          "median_area_relative_difference": NaN,
+          "median_centroid_offset_m": NaN,
+          "max_centroid_offset_m": NaN,
+          "median_one_pixel_angular_jitter_deg": 6.44051175108953,
+          "max_one_pixel_angular_jitter_deg": 36.651979017174405,
+          "mean_axial_residual_deg": NaN,
+          "resultant_length": NaN,
+          "rayleigh_p_value": NaN,
+          "median_pixel_size_m": NaN
+        },
+        {
+          "scope": "google_earth_axis_deposition",
+          "n": 205,
+          "median_area_relative_difference": NaN,
+          "median_centroid_offset_m": NaN,
+          "max_centroid_offset_m": NaN,
+          "median_one_pixel_angular_jitter_deg": NaN,
+          "max_one_pixel_angular_jitter_deg": NaN,
+          "mean_axial_residual_deg": -3.2924515320174557,
+          "resultant_length": 0.13510299201485468,
+          "rayleigh_p_value": 0.023710725451144922,
+          "median_pixel_size_m": 1.388889
+        },
+        {
+          "scope": "google_earth_axis_erosion",
+          "n": 205,
+          "median_area_relative_difference": NaN,
+          "median_centroid_offset_m": NaN,
+          "max_centroid_offset_m": NaN,
+          "median_one_pixel_angular_jitter_deg": NaN,
+          "max_one_pixel_angular_jitter_deg": NaN,
+          "mean_axial_residual_deg": 1.2808666887230638,
+          "resultant_length": 0.37558570725384727,
+          "rayleigh_p_value": 2.7603525105335346e-13,
+          "median_pixel_size_m": 1.388889
+        }
+      ]
+    }
+  },
+  "tide_matching_status": "not_attempted",
+  "inference_warning": "Event pairs and matched controls are observational and sparse. A non-significant matched contrast means the current CI cannot identify a general excess event effect; it does not demonstrate that typhoons have no effect. Tide, cloud/water color, unmeasured wave/current forcing, and storm-direction alignment remain alternative explanations."
+}

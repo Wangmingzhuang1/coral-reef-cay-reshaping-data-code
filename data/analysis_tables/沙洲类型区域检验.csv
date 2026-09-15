@@ -1,0 +1,3 @@
+﻿status,n,rows,columns,chi_square,permutation_p_value,sensor
+ok,37,3,3,3.869281045751634,0.483,google_earth
+ok,56,3,3,5.55978835978836,0.2122,sentinel2

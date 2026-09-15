@@ -1,0 +1,7 @@
+﻿region,sensor,strong_typhoon_exposure,n_intervals,n_cays,n_reefs
+GBR,sentinel2,0,484,27,27
+GBR,sentinel2,1,15,11,11
+MEDF,sentinel2,0,349,25,23
+NH,sentinel2,0,13,2,2
+NH,sentinel2,1,5,2,2
+OTHER,sentinel2,0,6,1,1

@@ -1,0 +1,7 @@
+﻿sensor,analysis_unit,outcome,n,spearman_rho,two_sided_p_value,fdr_q_value
+sentinel2,cay_trajectory,centroid_net_normalized,56,-0.4343189261861104,0.0008243171925097,0.0012364757887645
+sentinel2,cay_trajectory,centroid_path_normalized,56,-0.4808750711149222,0.0001758696009178,0.0003517392018357
+sentinel2,cay_trajectory,perimeter_max_adjacent_ratio,56,-0.7012476602162802,1.755102825308907e-09,1.0530616951853443e-08
+sentinel2,cay_trajectory,orientation_max_step_deg,56,-0.5015894792110015,8.212000748458906e-05,0.0002463600224537
+sentinel2,cay_trajectory,abs_relative_change,56,-0.3235002610912442,0.0150139300414222,0.0150139300414222
+sentinel2,cay_trajectory,abs_elongation_relative_change,56,-0.3844471086742628,0.0034402916531019,0.0041283499837223

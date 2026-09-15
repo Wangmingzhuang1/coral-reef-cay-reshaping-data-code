@@ -1,0 +1,4 @@
+﻿Index,sand_cay_id,reef_id,region,mean_same_vs_opposite,n_heldout
+10,GBR_039_cay_001,GBR_039,GBR,0.1129561944739964,33
+37,MEDF_015_cay_001,MEDF_015,MEDF,0.1282130817733978,36
+51,NH_015_cay_001,NH_015,NH,0.041826465466736,21

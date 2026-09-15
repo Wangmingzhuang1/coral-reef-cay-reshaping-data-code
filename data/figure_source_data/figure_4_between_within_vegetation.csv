@@ -1,0 +1,3 @@
+﻿outcome,specification,term,n_intervals,n_cays,n_reefs,coefficient,se_type,standard_error,ci95_low,ci95_high,two_sided_p_value,vif,vif_unstable,fdr_q_value,label
+log_gross_mobility,between_within_random_intercept,veg_between_z,809,51,49,-0.1992835128031966,mixedlm_model_se,0.0727246053500005,-0.3418211200790866,-0.0567459055273066,0.006139269067622,1.2242996266587407,False,0.0199526244697718,Between cays
+log_gross_mobility,between_within_random_intercept,veg_within_z,809,51,49,0.0148661352926315,mixedlm_model_se,0.0173516378276981,-0.0191424499224396,0.0488747205077027,0.391579254326222,1.0820702299391791,False,0.439278459067937,Within cay

@@ -1,0 +1,4 @@
+﻿dose,status,n_storms,n_pairs,storm_median_dose,storm_median_response,spearman_rho,two_sided_p_value,interpretation,fdr_q_value
+nearest_distance_km,exploratory_only,18,66,155.825,0.2146120432273993,-0.3333333333333333,0.1764631968135273,Exploratory dose association clustered by storm; no causal dose effect,0.1764631968135273
+local_duration_within_250km_h,exploratory_only,18,66,18.0,0.2146120432273993,0.373320343455527,0.1270231259401031,Exploratory dose association clustered by storm; no causal dose effect,0.1764631968135273
+wind_at_nearest_ms,exploratory_only,15,45,18.0,0.2116161130328717,-0.4003803811985695,0.1391840833610034,Exploratory dose association clustered by storm; no causal dose effect,0.1764631968135273

@@ -1,0 +1,21 @@
+﻿pattern_class,track_id,n_points
+Persistent reworking,MEDF_053|MEDF_053_cay_001|sentinel2|MEDF_053__s2frame_w72.980380_s2.313185_e72.985146_n2.316168,48
+Persistent reworking,OTHER_006|OTHER_006_cay_001|sentinel2|OTHER_006__s2frame_w165.222268_s11.563763_e165.231191_n11.577866,40
+Persistent reworking,OTHER_008|OTHER_008_cay_001|sentinel2|OTHER_008__s2frame_w165.241721_s11.543741_e165.258432_n11.561354,39
+Persistent reworking,GBR_058|GBR_058_cay_001|sentinel2|GBR_058__s2frame_w151.772665_s-23.252846_e151.790195_n-23.238778,36
+Persistent reworking,GBR_055|GBR_055_cay_001|sentinel2|GBR_055__s2frame_w152.443424_s-21.790265_e152.465048_n-21.776997,36
+Complex,GBR_039|GBR_039_cay_001|sentinel2|GBR_039__s2frame_w144.875835_s-14.209325_e144.900372_n-14.189774,33
+Complex,NH_015|NH_015_cay_001|google_earth|NH_015__frame_321_221_977_1011_656_790,30
+Complex,MEDF_026|MEDF_026_cay_001|sentinel2|MEDF_026__s2frame_w73.129679_s5.225928_e73.163570_n5.240336,27
+Complex,GBR_008|GBR_008_cay_001|sentinel2|GBR_008__s2frame_w143.194687_s-10.645317_e143.234981_n-10.625482,25
+Complex,MEDF_007|MEDF_007_cay_001|sentinel2|MEDF_007__s2frame_w72.815287_s5.587752_e72.836456_n5.602445,25
+Net contraction,MEDF_015|MEDF_015_cay_001|sentinel2|MEDF_015__s2frame_w72.941386_s5.535943_e72.946042_n5.538869,36
+Net contraction,MEDF_027|MEDF_027_cay_001|sentinel2|MEDF_027__s2frame_w73.166479_s5.231743_e73.170571_n5.237482,35
+Net contraction,NH_TX_013|NH_TX_013_cay_001|google_earth|NH_TX_013__frame_291_271_1152_971_861_700,13
+Net contraction,NH_JY_010|NH_JY_010_cay_001|google_earth|NH_JY_010__frame_481_92_1654_1011_1173_919,10
+Net contraction,OTHER_025|OTHER_025_cay_001|google_earth|OTHER_025__frame_469_117_1052_1007_583_890,10
+Net growth,OTHER_008|OTHER_008_cay_002|sentinel2|OTHER_008__s2frame_w165.241721_s11.543741_e165.258432_n11.561354,22
+Net growth,MEDF_034|MEDF_034_cay_001|google_earth|MEDF_034__frame_377_213_1613_894_1236_681,13
+Net growth,MEDF_023|MEDF_023_cay_001|google_earth|MEDF_023__frame_121_192_1732_975_1611_783,10
+Net growth,MEDF_041|MEDF_041_cay_001|google_earth|MEDF_041__frame_352_333_1690_846_1338_513,5
+Net growth,NH_002|NH_002_cay_002|google_earth|NH_002__frame_339_71_1552_1034_1213_963,5

@@ -1,0 +1,32 @@
+{
+  "n_color_valid_observations": 2615,
+  "label_status_counts": {
+    "confirmed": 1420,
+    "compatible": 924,
+    "conflict": 269,
+    "missing_manual_label": 2
+  },
+  "review_priority_counts": {
+    "none": 2023,
+    "low": 323,
+    "high": 178,
+    "critical": 91
+  },
+  "temporal_outlier_count": 1,
+  "n_retained_for_categorical_analysis": 2344,
+  "n_excluded_from_categorical_analysis": 271,
+  "three_level_cover_status_counts": {
+    "confirmed": 1420,
+    "compatible": 924,
+    "conflict": 269,
+    "missing_manual_label": 2
+  },
+  "n_retained_for_three_level_analysis": 2344,
+  "three_level_definition": {
+    "low_cover": "人工 none 或 sparse；对应低覆盖状态",
+    "partial_cover": "人工 partial；对应局部覆盖状态",
+    "dominant_cover": "人工 dominant；对应优势覆盖状态"
+  },
+  "continuous_variable": "vegetation_fraction 保留全部有效颜色观测，不受四级标签冲突影响。",
+  "rule": "人工标签与颜色状态相差不超过一级时保留；相差两级及以上进入复核且不参与分类分组。"
+}

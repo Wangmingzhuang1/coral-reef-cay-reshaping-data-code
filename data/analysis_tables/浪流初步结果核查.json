@@ -1,0 +1,8 @@
+{
+  "core_intervals": 1043,
+  "cays": 79,
+  "reefs": 69,
+  "sentinel2_cays": 61,
+  "google_earth_cays": 46,
+  "interpretation": "Unadjusted descriptive associations only; site exposure, reef geometry, storm events, wind, tide and repeated observations remain confounders."
+}

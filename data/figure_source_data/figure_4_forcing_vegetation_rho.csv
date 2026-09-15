@@ -1,0 +1,9 @@
+﻿vegetation_group,driver,outcome,n,spearman_rho,two_sided_p_value
+vegetated,wave_hs_p90,gross_mobility_fraction_per_year,607,-0.3547125810442085,1.9510982196684769e-19
+vegetated,wave_hs_p90,centroid_shift_normalized_per_year,607,-0.3516647052089443,4.1408249082863224e-19
+vegetated,current_cross_mean,centroid_cross_shift_normalized_per_year,607,0.2130508729577544,1.163423641717649e-07
+vegetated,current_along_mean,centroid_along_shift_normalized_per_year,607,0.31723555007456,1.1707524880039765e-15
+bare,wave_hs_p90,gross_mobility_fraction_per_year,228,0.0030880603437428,0.9630133452960944
+bare,wave_hs_p90,centroid_shift_normalized_per_year,228,-0.0077834307844339,0.9069527474835152
+bare,current_cross_mean,centroid_cross_shift_normalized_per_year,228,0.5359869673992611,2.346106476971784e-18
+bare,current_along_mean,centroid_along_shift_normalized_per_year,228,0.1751007667486435,0.0080507102868856

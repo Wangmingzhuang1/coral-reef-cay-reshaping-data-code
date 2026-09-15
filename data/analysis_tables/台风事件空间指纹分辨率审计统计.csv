@@ -1,0 +1,7 @@
+﻿scope,n,median_area_relative_difference,median_centroid_offset_m,max_centroid_offset_m,median_one_pixel_angular_jitter_deg,max_one_pixel_angular_jitter_deg,mean_axial_residual_deg,resultant_length,rayleigh_p_value,median_pixel_size_m
+pair_extended_sentinel2,132,0.0,0.0,1.7820691223482776,,,,,,
+pair_strict_sentinel2,22,0.0,0.0,2.842170943040401e-13,,,,,,
+jitter_extended_sentinel2,128,,,,5.45318418074427,89.99999427042206,,,,
+jitter_strict_sentinel2,19,,,,6.44051175108953,36.651979017174405,,,,
+google_earth_axis_deposition,205,,,,,,-3.292451532017456,0.1351029920148546,0.0237107254511449,1.388889
+google_earth_axis_erosion,205,,,,,,1.2808666887230638,0.3755857072538472,2.7603525105335346e-13,1.388889

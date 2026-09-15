@@ -1,0 +1,33 @@
+{
+  "n_observations": 2621,
+  "observation_counts_by_sensor": {
+    "sentinel2": 1839,
+    "google_earth": 776,
+    "qsat_2017": 6
+  },
+  "n_observations_with_color": 2615,
+  "n_transitions": 2410,
+  "transition_counts_by_sensor": {
+    "sentinel2": 1768,
+    "google_earth": 642
+  },
+  "n_transitions_with_boundary_change": 2371,
+  "n_transitions_with_typhoon_data": 2048,
+  "n_intervals_with_strong_typhoon": 109,
+  "n_intervals_with_r34": 98,
+  "typhoon_exposure_definition": "R34 uses the cay-bearing-specific IBTrACS quadrant at the nearest track point; strong exposure is quadrant-R34 or <=100 km with nearest center wind >=17.5 m/s.",
+  "mask_perturbation": {
+    "perturbation_pixels": [
+      -1,
+      0,
+      1
+    ],
+    "rows": 7230,
+    "transitions": 2410,
+    "status_counts": {
+      "ok": 7113,
+      "mask_unavailable_or_shape_mismatch": 117
+    }
+  },
+  "direction_warning": "质心方向已按图像上方暂作北向换算；正式解释方位前必须逐参考框架核验北向。"
+}

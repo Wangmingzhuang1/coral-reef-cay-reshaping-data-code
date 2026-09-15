@@ -1,0 +1,153 @@
+{
+  "analysis_type": "interval forcing alignment and exploratory rank association; no predictive or causal model fitted",
+  "analysis_contract_version": "2026-09-11-s2only-interval-gate-2",
+  "analysis_contract_sha256": "fa3e9b6fb52043467eb1bef52261e14af5f3270bd55514322e6ef0d6bffb8626",
+  "forcing_window": "(time_t, time_t1]",
+  "core_interval_days": [
+    90,
+    365
+  ],
+  "sensitivity_interval_days": [
+    [
+      60,
+      365
+    ],
+    [
+      90,
+      365
+    ],
+    [
+      120,
+      365
+    ]
+  ],
+  "input_transitions": 2395,
+  "era5": {
+    "transitions_with_source_reef": 2217,
+    "complete_intervals": 2214,
+    "complete_intervals_with_local_typhoon_days": 102,
+    "local_typhoon_days_across_complete_intervals": 407
+  },
+  "wind_typhoon_day_partition": {
+    "definition": "A local typhoon day has an IBTrACS track point in the cay-specific R34 quadrant or is within 100 km of a >=17.5 m/s storm center.",
+    "source_file": "C:\\Users\\wmz\\Desktop\\沙洲演化驱动与植被作用项目\\outputs\\台风局地强风日.csv",
+    "wind_complete_sentinel2_intervals_with_local_typhoon_days": 19,
+    "wind_complete_sentinel2_local_typhoon_days": 51
+  },
+  "glorys": {
+    "transitions_with_source_reef": 2217,
+    "complete_intervals": 2212
+  },
+  "waverys": {
+    "transitions_with_source_reef": 2217,
+    "complete_intervals": 2212
+  },
+  "complete_flow_wave_intervals": 2212,
+  "complete_flow_wave_wind_intervals": 2212,
+  "complete_flow_wave_wind_sentinel2_intervals": 925,
+  "core_complete_intervals": 1043,
+  "core_by_sensor": {
+    "sentinel2": 925,
+    "google_earth": 118
+  },
+  "core_reefs": 69,
+  "core_sand_cays": 79,
+  "sensor_consistency": {
+    "google_earth": {
+      "core_intervals": 118,
+      "core_cays": 46,
+      "core_reefs": 38,
+      "median_interval_days": 231.0,
+      "iqr_interval_days": [
+        144.25,
+        328.75
+      ],
+      "median_observation_gap_days": 350.0,
+      "median_observations_per_year": 0.4442998617573233,
+      "fraction_day_precision_both_ends": 0.9915254237288136,
+      "cays_shared_with_other_sensor": 28
+    },
+    "sentinel2": {
+      "core_intervals": 925,
+      "core_cays": 61,
+      "core_reefs": 56,
+      "median_interval_days": 120.0,
+      "iqr_interval_days": [
+        103.0,
+        145.0
+      ],
+      "median_observation_gap_days": 95.0,
+      "median_observations_per_year": 3.898978021978022,
+      "fraction_day_precision_both_ends": 0.0,
+      "cays_shared_with_other_sensor": 28
+    }
+  },
+  "north_verification": {
+    "test": "near-simultaneous cross-sensor major-axis bearing agreement (mod 180)",
+    "shared_cays": 56,
+    "axis_pair_window_days": 120,
+    "axis_bearing_pairs": 302,
+    "median_abs_axis_diff_deg": 6.666143447909917,
+    "resultant_length_mod180": 0.7623820682730283,
+    "pass_thresholds": {
+      "resultant_length_min": 0.7,
+      "median_abs_diff_max_deg": 20.0
+    },
+    "cross_sensor_pass": true,
+    "n_frames": 159,
+    "n_frames_verified": 159,
+    "n_frames_spec_only": 0,
+    "n_frames_flagged": 0,
+    "direction_status_stamp": "verified_north_up_2026-09-07"
+  },
+  "directional_analysis": {
+    "axis_convention": "skimage orientation verified with synthetic masks; geographic axis unit vector (east, north) = (sin phi, -cos phi)",
+    "predefined_pairs": [
+      {
+        "driver": "current_along_mean",
+        "outcome": "centroid_along_shift_normalized_per_year"
+      },
+      {
+        "driver": "current_along_mean",
+        "outcome": "major_axis_change_m_per_year"
+      },
+      {
+        "driver": "wave_hs_p90",
+        "outcome": "centroid_cross_shift_normalized_per_year"
+      },
+      {
+        "driver": "wave_hs_p90",
+        "outcome": "gross_mobility_fraction_per_year"
+      },
+      {
+        "driver": "wave_vector_cross_mean",
+        "outcome": "minor_axis_change_m_per_year"
+      }
+    ],
+    "primary_sensor": "sentinel2",
+    "warning": "Directional decomposition inherits the north-up assumption; associations remain observational."
+  },
+  "background_pulse": {
+    "regime_rule": "pulse = interval contains strong typhoon or R34 exposure; otherwise background",
+    "n_by_regime": {
+      "google_earth": {
+        "background": 100,
+        "typhoon_pulse": 18
+      },
+      "sentinel2": {
+        "background": 906,
+        "typhoon_pulse": 19
+      }
+    },
+    "recovery": {
+      "n_pulse_with_post": 18,
+      "median_post_to_background_ratio": 0.9681129242794309,
+      "fraction_recovered_ratio_le_1": 0.5,
+      "fraction_recovered_ratio_le_1p5": 0.8333333333333334,
+      "median_post_area_relative_to_pre": 0.9928152455650183,
+      "wilcoxon_p_post_vs_background": 0.9661178588867188
+    },
+    "warning": "Post-event recovery is descriptive; mean reversion and tide aliasing remain alternative explanations."
+  },
+  "interpretation_warning": "Wind, current and wave fields are coarse-grid external forcing proxies. Associations cannot separate storm, tide, reef geometry, registration, sensor or unresolved near-reef processes, and do not establish a primary driver."
+}

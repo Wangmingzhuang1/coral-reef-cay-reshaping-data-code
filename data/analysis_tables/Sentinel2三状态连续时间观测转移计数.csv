@@ -1,0 +1,10 @@
+﻿from_state,to_state,n_pairs,median_interval_days,n_cays
+dominant_cover,dominant_cover,263,105.0,18
+dominant_cover,low_cover,24,100.0,9
+dominant_cover,partial_cover,20,112.5,8
+low_cover,dominant_cover,22,110.0,10
+low_cover,low_cover,767,100.0,44
+low_cover,partial_cover,45,110.0,15
+partial_cover,dominant_cover,21,120.0,9
+partial_cover,low_cover,40,103.5,16
+partial_cover,partial_cover,301,100.0,23
