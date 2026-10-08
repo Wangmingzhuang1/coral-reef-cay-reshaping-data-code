@@ -1,135 +1,140 @@
 {
-  "analysis_type": "descriptive and rank-association only; no predictive model fitted",
-  "analysis_contract_version": "2026-09-10-coverage-aware-1",
-  "analysis_contract_sha256": "25b1173530fdb5f8280c6ea014a984a09acc4df2357bb4b3be06507178194cf9",
-  "valid_intervals": 2356,
-  "core_intervals": 1219,
-  "core_rule": {
-    "minimum_interval_days": 90,
-    "maximum_interval_days": 730,
-    "sensitivity_windows": [
-      [
-        90,
-        540
-      ],
-      [
-        90,
-        730
-      ],
-      [
-        120,
-        730
-      ]
-    ],
-    "reason": "减少过短观测间隔的配准/像元噪声，以及过长间隔中无法分辨事件时序的累计变化。"
-  },
-  "mask_perturbation_sensitivity": {
-    "status": "completed",
-    "perturbation_pixels": [
-      -1,
-      1
-    ]
-  },
-  "M4_vegetation_sector_contrast": {
-    "transitions": 1064,
-    "strata": [
-      {
-        "stratum": "all",
-        "mean_mobility_difference": -0.16726795593127253,
-        "bootstrap_ci_high": -0.06806305313548677,
-        "wilcoxon_p_value": 7.813380015359587e-13,
-        "supported_negative": true
-      },
-      {
-        "stratum": "background",
-        "mean_mobility_difference": -0.12836211531485228,
-        "bootstrap_ci_high": -0.04449987919085077,
-        "wilcoxon_p_value": 9.268125651075158e-12,
-        "supported_negative": true
-      },
-      {
-        "stratum": "pulse",
-        "mean_mobility_difference": -0.8420830535195272,
-        "bootstrap_ci_high": -0.0739656182796055,
-        "wilcoxon_p_value": 0.026542377874708988,
-        "supported_negative": true
-      },
-      {
-        "stratum": "window_90_540",
-        "mean_mobility_difference": -0.10125743534410815,
-        "bootstrap_ci_high": -0.02886980933960887,
-        "wilcoxon_p_value": 1.339726417772008e-08,
-        "supported_negative": true
-      },
-      {
-        "stratum": "window_120_730",
-        "mean_mobility_difference": -0.1843611715721407,
-        "bootstrap_ci_high": -0.0804317476431351,
-        "wilcoxon_p_value": 7.470981939788776e-05,
-        "supported_negative": true
-      }
-    ]
-  },
-  "M7_M9_sector_causal_lag": [
+  "analysis_contract_version": "2026-09-30-observation-keys-3",
+  "analysis_contract_sha256": "231ca3161530fa5282e3fe0a73480139798d46ad9c1572729fa17cb8bde2ecb3",
+  "primary_window_days": [
+    90,
+    730
+  ],
+  "n_valid_intervals": 2352,
+  "n_core_intervals": 1217,
+  "n_core_cays": 96,
+  "sector_contrasts": [
+    {
+      "stratum": "all",
+      "n_transitions": 1063,
+      "n_cays": 66,
+      "status": "ok",
+      "mean_mobility_difference": -0.17162868967466638,
+      "median_mobility_difference": -0.05490814949461564,
+      "bootstrap_ci_low": -0.3074071891714215,
+      "bootstrap_ci_high": -0.07224782044846248,
+      "wilcoxon_p_value": 1.2060970187152603e-13,
+      "mean_retreat_difference": 0.0008388958947446836,
+      "supported_negative": true
+    },
+    {
+      "stratum": "background",
+      "n_transitions": 1041,
+      "n_cays": 65,
+      "status": "ok",
+      "mean_mobility_difference": -0.1341834785799537,
+      "median_mobility_difference": -0.054794841718296655,
+      "bootstrap_ci_low": -0.24312609687738612,
+      "bootstrap_ci_high": -0.05276080224738496,
+      "wilcoxon_p_value": 9.68583566135713e-13,
+      "mean_retreat_difference": -0.037707152901582296,
+      "supported_negative": true
+    },
+    {
+      "stratum": "pulse",
+      "n_transitions": 22,
+      "n_cays": 14,
+      "status": "ok",
+      "mean_mobility_difference": -1.9434679964744823,
+      "median_mobility_difference": -0.070859211161828,
+      "bootstrap_ci_low": -5.265952435862341,
+      "bootstrap_ci_high": -0.06782515686479786,
+      "wilcoxon_p_value": 0.010324478149414062,
+      "mean_retreat_difference": 1.8247678412118533,
+      "supported_negative": true
+    },
+    {
+      "stratum": "window_90_540",
+      "n_transitions": 635,
+      "n_cays": 62,
+      "status": "ok",
+      "mean_mobility_difference": -0.10474167727095994,
+      "median_mobility_difference": -0.0589973959755167,
+      "bootstrap_ci_low": -0.1780497693308115,
+      "bootstrap_ci_high": -0.031916293336776126,
+      "wilcoxon_p_value": 4.455201750482601e-09,
+      "mean_retreat_difference": -0.08912049437288305,
+      "supported_negative": true
+    },
+    {
+      "stratum": "window_120_730",
+      "n_transitions": 317,
+      "n_cays": 61,
+      "status": "ok",
+      "mean_mobility_difference": -0.1889883043975256,
+      "median_mobility_difference": -0.059500979879131166,
+      "bootstrap_ci_low": -0.3028612932715864,
+      "bootstrap_ci_high": -0.08855212439841435,
+      "wilcoxon_p_value": 3.709501053310941e-05,
+      "mean_retreat_difference": -0.025519298805781777,
+      "supported_negative": true
+    }
+  ],
+  "adjacent_sector_associations": [
     {
       "test": "M7_forward",
       "scheme": "within_cay",
       "status": "ok",
-      "n_sectors": 5057.0,
+      "n_sectors": 5068.0,
+      "n_transitions": 487,
+      "n_cays": 62,
+      "coefficient": -0.09759444967402812,
+      "cluster_robust_se": 0.13155491817572473,
+      "ci95_low": -0.3554373512875624,
+      "ci95_high": 0.1602484519395061,
+      "p_value": 0.45817622535367986,
+      "note": NaN,
+      "fdr_q_value": 0.45817622535367986
+    },
+    {
+      "test": "M7_forward",
+      "scheme": "within_transition",
+      "status": "ok",
+      "n_sectors": 5067.0,
       "n_transitions": 486,
       "n_cays": 62,
-      "coefficient": -0.10100357740716348,
-      "cluster_robust_se": 0.13179999919392463,
-      "ci95_low": -0.3593268289896639,
-      "ci95_high": 0.15731967417533693,
-      "p_value": 0.4434741769117754,
+      "coefficient": -0.5026777323260884,
+      "cluster_robust_se": 0.12950874821241418,
+      "ci95_low": -0.7565102145052862,
+      "ci95_high": -0.24884525014689046,
+      "p_value": 0.00010384868759511364,
       "note": NaN,
-      "fdr_q_value": 0.4434741769117754
-    },
-    {
-      "test": "M7_forward",
-      "scheme": "within_transition",
-      "status": "ok",
-      "n_sectors": 5056.0,
-      "n_transitions": 485,
-      "n_cays": 62,
-      "coefficient": -0.5030838890875233,
-      "cluster_robust_se": 0.12959684955100031,
-      "ci95_low": -0.7570890467173399,
-      "ci95_high": -0.24907873145770681,
-      "p_value": 0.00010363731916246476,
-      "note": NaN,
-      "fdr_q_value": 0.00041454927664985906
+      "fdr_q_value": 0.0004153947503804546
     },
     {
       "test": "M9_reverse",
       "scheme": "within_cay",
       "status": "ok",
-      "n_sectors": 4871.0,
-      "n_transitions": 484,
+      "n_sectors": 4882.0,
+      "n_transitions": 485,
       "n_cays": 62,
-      "coefficient": -0.003148692928357055,
-      "cluster_robust_se": 0.0022661877323942687,
-      "ci95_low": -0.007590339266056316,
-      "ci95_high": 0.0012929534093422054,
-      "p_value": 0.1647042179485798,
+      "coefficient": -0.0031681036957119297,
+      "cluster_robust_se": 0.0022886617977698853,
+      "ci95_low": -0.007653798392133598,
+      "ci95_high": 0.0013175910007097382,
+      "p_value": 0.16627876156921906,
       "note": NaN,
-      "fdr_q_value": 0.2869669515533624
+      "fdr_q_value": 0.29187605937008315
     },
     {
       "test": "M9_reverse",
       "scheme": "within_transition",
       "status": "ok",
-      "n_sectors": 4870.0,
-      "n_transitions": 483,
+      "n_sectors": 4881.0,
+      "n_transitions": 484,
       "n_cays": 62,
-      "coefficient": -0.0016537482355225529,
-      "cluster_robust_se": 0.0013343944604071259,
-      "ci95_low": -0.004269113319090278,
-      "ci95_high": 0.0009616168480451729,
-      "p_value": 0.2152252136650218,
+      "coefficient": -0.001650389618152116,
+      "cluster_robust_se": 0.001342391824621265,
+      "ci95_low": -0.004281429247550804,
+      "ci95_high": 0.000980650011246572,
+      "p_value": 0.21890704452756238,
       "note": NaN,
-      "fdr_q_value": 0.2869669515533624
+      "fdr_q_value": 0.29187605937008315
     },
     {
       "test": "chain_audit",
@@ -138,7 +143,7 @@
       "n_sectors": NaN,
       "n_transitions": 1000,
       "n_cays": 64,
-      "coefficient": 0.5224358974358975,
+      "coefficient": 0.5235042735042735,
       "cluster_robust_se": NaN,
       "ci95_low": NaN,
       "ci95_high": NaN,
@@ -147,173 +152,115 @@
       "fdr_q_value": NaN
     }
   ],
-  "color_proxy_validation": {
-    "status": "completed",
-    "rows": 14,
-    "threshold_perturbations": [
-      -0.02,
-      0.0,
-      0.02
-    ],
-    "manual_label_policy": "audit only; never an analysis input"
-  },
-  "core_by_sensor": {
-    "sentinel2": 1002,
-    "google_earth": 217
-  },
-  "strong_typhoon_candidates": 75,
-  "association_warning": "重复时序和未控制潮位、传感器、礁盘地貌等混杂因素，因此相关系数仅描述关联，不代表因果。",
-  "trajectory_stability": {
-    "unit": "primary cay trajectory (same cay x sensor x reference frame)",
-    "bare_threshold_vegetation_fraction": 0.03,
-    "outcome_columns": [
-      "centroid_net_normalized",
-      "centroid_path_normalized",
-      "perimeter_max_adjacent_ratio",
-      "orientation_max_step_deg",
-      "abs_relative_change",
-      "abs_elongation_relative_change"
-    ],
-    "class_counts": {
-      "Persistent reworking": 61,
-      "Complex": 14,
-      "Net contraction": 10,
-      "Net growth": 8
+  "trajectory_correlations": [
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "centroid_net_normalized",
+      "n": 37,
+      "spearman_rho": -0.43007448062687076,
+      "two_sided_p_value": 0.007888881193723052,
+      "fdr_q_value": 0.023666643581169156
     },
-    "warning": "Vegetation fraction is a remote-sensing color proxy; associations with stability remain observational and tide/sensor/reef confounded.",
-    "modulation": {
-      "unit": "Sentinel-2 background intervals (no typhoon exposure)",
-      "groups": "bare (cay median vegetation < 0.03) vs vegetated",
-      "pairs": [
-        {
-          "driver": "wave_hs_p90",
-          "outcome": "gross_mobility_fraction_per_year"
-        },
-        {
-          "driver": "wave_hs_p90",
-          "outcome": "centroid_shift_normalized_per_year"
-        },
-        {
-          "driver": "current_cross_mean",
-          "outcome": "centroid_cross_shift_normalized_per_year"
-        },
-        {
-          "driver": "current_along_mean",
-          "outcome": "centroid_along_shift_normalized_per_year"
-        }
-      ],
-      "warning": "Modulation is descriptive stratification; reef exposure and cay size co-vary with vegetation and remain uncontrolled."
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "centroid_path_normalized",
+      "n": 37,
+      "spearman_rho": -0.45711794519814497,
+      "two_sided_p_value": 0.004450944423993187,
+      "fdr_q_value": 0.023666643581169156
     },
-    "stabilization_ladder": {
-      "hypothesis": "Vegetation states form a progressive stabilization ladder (cay to island), setting stability level rather than modulating forcing-response slopes.",
-      "threshold_vegetation_fraction": 0.15,
-      "gradient_trend_gross_rho": -0.48269400763820197,
-      "gradient_trend_gross_p": 8.15848552995648e-05,
-      "gradient_trend_centroid_rho": -0.49727699114160906,
-      "gradient_trend_centroid_p": 4.562039735437842e-05,
-      "paired_within_cay": {
-        "n_s2_cays": 0,
-        "n_s2_decreases": 0,
-        "wilcoxon_p_s2": null
-      },
-      "transition_sums": {
-        "google_earth": {
-          "up": 133,
-          "down": 108
-        },
-        "sentinel2": {
-          "up": 363,
-          "down": 396
-        }
-      },
-      "island_like_candidates": 10,
-      "seasonal_amplitude": {
-        "google_earth": {
-          "n_cays": 65,
-          "median_within_year_range": 0.0676812403523924
-        },
-        "sentinel2": {
-          "n_cays": 65,
-          "median_within_year_range": 0.08520040211547708
-        }
-      },
-      "deseasoned_gradient_trend_gross_rho": -0.49765332703089227,
-      "deseasoned_gradient_trend_gross_p": 4.492536082694711e-05,
-      "deseasoned_gradient_trend_centroid_rho": -0.4851201100385622,
-      "deseasoned_gradient_trend_centroid_p": 7.419906293697921e-05,
-      "vegetation_source": "All vegetation variables are continuous color-classification fractions from cay masks (per-cay white balance); manual labels are used only for audit/conflict flags, never as analysis inputs.",
-      "stage_durations": {
-        "method": "Annual-median color-derived surface states collapsed to bright bare / spectral transition / low-moderate green / high green; runs report observed spans and first-passage lower/upper bounds, not exact transition times. First/last runs are left/right censored; missing years break runs.",
-        "transition_lower_years_median": {
-          "bright_to_spectral_transition": {
-            "google_earth": 5.0,
-            "sentinel2": null
-          },
-          "spectral_transition_to_low_green": {
-            "google_earth": 5.0,
-            "sentinel2": null
-          },
-          "direct_bright_to_low_green": {
-            "google_earth": 6.5,
-            "sentinel2": 1.0
-          },
-          "low_green_to_high_green": {
-            "google_earth": 11.5,
-            "sentinel2": 1.0
-          }
-        },
-        "transition_upper_years_median": {
-          "bright_to_spectral_transition": {
-            "google_earth": 6.0,
-            "sentinel2": null
-          },
-          "spectral_transition_to_low_green": {
-            "google_earth": 5.0,
-            "sentinel2": null
-          },
-          "direct_bright_to_low_green": {
-            "google_earth": 6.5,
-            "sentinel2": 1.0
-          },
-          "low_green_to_high_green": {
-            "google_earth": 11.5,
-            "sentinel2": 5.0
-          }
-        },
-        "transition_observed_n": {
-          "bright_to_spectral_transition": {
-            "google_earth": 1,
-            "sentinel2": 0
-          },
-          "spectral_transition_to_low_green": {
-            "google_earth": 9,
-            "sentinel2": 0
-          },
-          "direct_bright_to_low_green": {
-            "google_earth": 36,
-            "sentinel2": 21
-          },
-          "low_green_to_high_green": {
-            "google_earth": 18,
-            "sentinel2": 15
-          }
-        },
-        "path_type_counts": {
-          "google_earth": {
-            "start_not_bright_bare": 64,
-            "bright_bare_persistent": 23,
-            "direct_to_green": 22
-          },
-          "sentinel2": {
-            "start_not_bright_bare": 48,
-            "direct_to_green": 10,
-            "bright_bare_persistent": 8
-          }
-        },
-        "island_persistence_years_median": 13.150167354565802,
-        "caveats": "Observation cadence (S2 ~95 d, GE ~350 d) sets the lower resolution; reported values are interval bounds, not exact durations; states are color-proxy and reversible."
-      },
-      "warning": "State transitions may follow prior stability (reverse causality); vegetation remains a color proxy."
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "perimeter_max_adjacent_ratio",
+      "n": 37,
+      "spearman_rho": -0.3397707531157439,
+      "two_sided_p_value": 0.03964125701571176,
+      "fdr_q_value": 0.05946188552356764
+    },
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "orientation_max_step_deg",
+      "n": 37,
+      "spearman_rho": -0.29021092376926794,
+      "two_sided_p_value": 0.08143584432162516,
+      "fdr_q_value": 0.0977230131859502
+    },
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "abs_relative_change",
+      "n": 37,
+      "spearman_rho": -0.34882495270788855,
+      "two_sided_p_value": 0.03434787495998273,
+      "fdr_q_value": 0.05946188552356764
+    },
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "abs_elongation_relative_change",
+      "n": 37,
+      "spearman_rho": -0.19371221758983156,
+      "two_sided_p_value": 0.250644692733956,
+      "fdr_q_value": 0.250644692733956
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "centroid_net_normalized",
+      "n": 56,
+      "spearman_rho": -0.4343189261861104,
+      "two_sided_p_value": 0.000824317192509726,
+      "fdr_q_value": 0.0012364757887645891
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "centroid_path_normalized",
+      "n": 56,
+      "spearman_rho": -0.4808750711149222,
+      "two_sided_p_value": 0.00017586960091788402,
+      "fdr_q_value": 0.0003517392018357681
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "perimeter_max_adjacent_ratio",
+      "n": 56,
+      "spearman_rho": -0.7012476602162802,
+      "two_sided_p_value": 1.7551028253089074e-09,
+      "fdr_q_value": 1.0530616951853445e-08
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "orientation_max_step_deg",
+      "n": 56,
+      "spearman_rho": -0.5015894792110015,
+      "two_sided_p_value": 8.212000748458906e-05,
+      "fdr_q_value": 0.0002463600224537672
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "abs_relative_change",
+      "n": 56,
+      "spearman_rho": -0.32350026109124425,
+      "two_sided_p_value": 0.015013930041422261,
+      "fdr_q_value": 0.015013930041422261
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "abs_elongation_relative_change",
+      "n": 56,
+      "spearman_rho": -0.3844471086742628,
+      "two_sided_p_value": 0.0034402916531019573,
+      "fdr_q_value": 0.004128349983722348
     }
-  }
+  ],
+  "interpretation": "覆盖水平、同影像岸段对照与严格相邻观测关联；不将其作为植被干预效应。"
 }

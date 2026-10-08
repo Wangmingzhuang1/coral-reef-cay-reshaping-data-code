@@ -90,6 +90,62 @@ def resolve_record_path(raw_path: str, dataset_root: Path, fallback: Path) -> Pa
     return dataset_root / path
 
 
+def calibrated_colour_pixels(image_bgr: np.ndarray, mask: np.ndarray) -> dict:
+    """全景比例、岸段对照和图件共用同一白平衡与绿色像元规则。"""
+    from 构建沙洲观测与变化表 import normalize_cay_mask
+    selected = normalize_cay_mask(mask)
+    if image_bgr.shape[:2] != selected.shape or not selected.any():
+        raise ValueError("颜色判读要求同尺寸影像与非空沙洲主掩膜。")
+    rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB).astype(np.float32) / 255.0
+    raw_pixels = rgb[selected]
+
+    # 以沙洲掩膜内最亮的 10% 像元作为灰白基质参考，校正不同影像的综合色偏。
+    # 这不会把灰白基质进一步解释为珊瑚断枝或沙。
+    raw_value = raw_pixels.max(axis=1)
+    white_cutoff = float(np.quantile(raw_value, WHITE_REFERENCE_QUANTILE))
+    white_candidates = raw_pixels[raw_value >= white_cutoff]
+    white_reference = np.median(white_candidates, axis=0)
+    neutral_level = float(np.mean(white_reference))
+    gains = np.clip(
+        neutral_level / np.maximum(white_reference, 1e-6),
+        WHITE_BALANCE_GAIN_MIN,
+        WHITE_BALANCE_GAIN_MAX,
+    )
+    pixels = np.clip(raw_pixels * gains, 0.0, 1.0)
+    hsv_pixels = cv2.cvtColor(
+        np.round(pixels.reshape(-1, 1, 3) * 255.0).astype(np.uint8),
+        cv2.COLOR_RGB2HSV,
+    ).reshape(-1, 3)
+    hues = hsv_pixels[:, 0].astype(np.float32) * 2.0
+
+    red, green, blue = pixels[:, 0], pixels[:, 1], pixels[:, 2]
+    value = pixels.max(axis=1)
+    channel_min = pixels.min(axis=1)
+    saturation = (value - channel_min) / np.maximum(value, 1e-6)
+    channel_sum = red + green + blue
+    green_ratio = green / np.maximum(channel_sum, 1e-6)
+    green_excess = 2.0 * green - red - blue
+
+    vegetation = (
+        (hues >= GREEN_HUE_MIN_DEG)
+        & (hues <= GREEN_HUE_MAX_DEG)
+        & (saturation >= GREEN_MIN_SATURATION)
+        & (value >= GREEN_MIN_VALUE)
+        & (green_excess >= GREEN_MIN_EXCESS)
+        & (green_ratio >= GREEN_MIN_RATIO)
+    )
+    return dict(selected=selected, pixels=pixels, hues=hues, value=value,
+                saturation=saturation, green_excess=green_excess,
+                white_reference=white_reference, gains=gains, vegetation=vegetation)
+
+
+def vegetation_pixels(image_bgr: np.ndarray, mask: np.ndarray) -> np.ndarray:
+    data = calibrated_colour_pixels(image_bgr, mask)
+    result = np.zeros(mask.shape, dtype=bool)
+    result[data["selected"]] = data["vegetation"]
+    return result
+
+
 def extract_record(record_path: Path, dataset_root: Path, sensor: str) -> dict[str, object]:
     record = json.loads(record_path.read_text(encoding="utf-8"))
     image_id = str(record.get("image_id", record_path.stem))
@@ -138,49 +194,19 @@ def extract_record(record_path: Path, dataset_root: Path, sensor: str) -> dict[s
             "note": f"image={image_bgr.shape[:2]}, mask={mask.shape[:2]}",
         }
 
-    selected = mask > 0
+    from 构建沙洲观测与变化表 import normalize_cay_mask
+    mask = normalize_cay_mask(mask)
+    selected = mask
     pixel_count = int(selected.sum())
     if pixel_count == 0:
         return base | {"status": "empty_mask", "note": "掩膜内没有像元"}
 
-    rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB).astype(np.float32) / 255.0
-    raw_pixels = rgb[selected]
-
-    # 以沙洲掩膜内最亮的 10% 像元作为灰白基质参考，校正不同影像的综合色偏。
-    # 这不会把灰白基质进一步解释为珊瑚断枝或沙。
-    raw_value = raw_pixels.max(axis=1)
-    white_cutoff = float(np.quantile(raw_value, WHITE_REFERENCE_QUANTILE))
-    white_candidates = raw_pixels[raw_value >= white_cutoff]
-    white_reference = np.median(white_candidates, axis=0)
-    neutral_level = float(np.mean(white_reference))
-    gains = np.clip(
-        neutral_level / np.maximum(white_reference, 1e-6),
-        WHITE_BALANCE_GAIN_MIN,
-        WHITE_BALANCE_GAIN_MAX,
-    )
-    pixels = np.clip(raw_pixels * gains, 0.0, 1.0)
-    hsv_pixels = cv2.cvtColor(
-        np.round(pixels.reshape(-1, 1, 3) * 255.0).astype(np.uint8),
-        cv2.COLOR_RGB2HSV,
-    ).reshape(-1, 3)
-    hues = hsv_pixels[:, 0].astype(np.float32) * 2.0
-
+    colour = calibrated_colour_pixels(image_bgr, mask)
+    pixels, hues = colour["pixels"], colour["hues"]
+    value, saturation, green_excess = colour["value"], colour["saturation"], colour["green_excess"]
+    white_reference, gains = colour["white_reference"], colour["gains"]
+    vegetation = colour["vegetation"]
     red, green, blue = pixels[:, 0], pixels[:, 1], pixels[:, 2]
-    value = pixels.max(axis=1)
-    channel_min = pixels.min(axis=1)
-    saturation = (value - channel_min) / np.maximum(value, 1e-6)
-    channel_sum = red + green + blue
-    green_ratio = green / np.maximum(channel_sum, 1e-6)
-    green_excess = 2.0 * green - red - blue
-
-    vegetation = (
-        (hues >= GREEN_HUE_MIN_DEG)
-        & (hues <= GREEN_HUE_MAX_DEG)
-        & (saturation >= GREEN_MIN_SATURATION)
-        & (value >= GREEN_MIN_VALUE)
-        & (green_excess >= GREEN_MIN_EXCESS)
-        & (green_ratio >= GREEN_MIN_RATIO)
-    )
     light_substrate = (
         (~vegetation)
         & (value >= SUBSTRATE_MIN_VALUE)

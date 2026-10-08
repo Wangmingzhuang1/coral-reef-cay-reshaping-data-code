@@ -1,0 +1,125 @@
+{
+  "trajectory_counts": {
+    "near_stable": 63,
+    "exceeds_stability": 52,
+    "path": 52,
+    "area_cv": 16,
+    "area_ratio": 31,
+    "path_and_area": 33,
+    "path_only": 19
+  },
+  "sampling_strata": [
+    {
+      "variable": "n_observations",
+      "median_split": 33.0,
+      "group": "at_or_below_median",
+      "n_tracks": 34,
+      "n_exceeds_stability": 27,
+      "fraction": 0.7941176470588235
+    },
+    {
+      "variable": "n_observations",
+      "median_split": 33.0,
+      "group": "above_median",
+      "n_tracks": 29,
+      "n_exceeds_stability": 25,
+      "fraction": 0.8620689655172413
+    },
+    {
+      "variable": "span_years",
+      "median_split": 8.624407072013799,
+      "group": "at_or_below_median",
+      "n_tracks": 33,
+      "n_exceeds_stability": 26,
+      "fraction": 0.7878787878787878
+    },
+    {
+      "variable": "span_years",
+      "median_split": 8.624407072013799,
+      "group": "above_median",
+      "n_tracks": 30,
+      "n_exceeds_stability": 26,
+      "fraction": 0.8666666666666667
+    }
+  ],
+  "equal_training_template": {
+    "n_images": 796,
+    "n_cays": 57,
+    "mean_gain": 0.04642038149480942,
+    "ci95_low": 0.02903486120000416,
+    "ci95_high": 0.06391081475473355,
+    "positive_cays": 47,
+    "bootstrap": 1999,
+    "seed": 20261008,
+    "scope": "same versus opposite quarter training counts equal; held-out year unchanged"
+  },
+  "high_wave_models": [
+    {
+      "model": "count_duration",
+      "term": "event_storm_days",
+      "estimate": 0.015228857467483875,
+      "ci95_low": 0.008298084349366566,
+      "ci95_high": 0.022159630585601185,
+      "p_value": 1.6578898363371313e-05,
+      "n_intervals": 1228,
+      "n_cays": 54,
+      "n_reefs": 50,
+      "cluster": "reef_id",
+      "formula": "log_speed ~ event_storm_days + time_interval_days + C(sand_cay_id)",
+      "fdr_q_value": 0.0001160522885435
+    },
+    {
+      "model": "count_duration_season",
+      "term": "event_storm_days",
+      "estimate": 0.0200803422585241,
+      "ci95_low": 0.01251152162620766,
+      "ci95_high": 0.027649162890840538,
+      "p_value": 1.9944720015031937e-07,
+      "n_intervals": 1228,
+      "n_cays": 54,
+      "n_reefs": 50,
+      "cluster": "reef_id",
+      "formula": "log_speed ~ event_storm_days + time_interval_days + season_sin + season_cos + C(sand_cay_id)",
+      "fdr_q_value": 3.9889440030063875e-07
+    },
+    {
+      "model": "fraction_duration_season",
+      "term": "high_wave_fraction",
+      "estimate": 2.151744163847287,
+      "ci95_low": 1.3019216915695873,
+      "ci95_high": 3.001566636124987,
+      "p_value": 6.955064875389497e-07,
+      "n_intervals": 1228,
+      "n_cays": 54,
+      "n_reefs": 50,
+      "cluster": "reef_id",
+      "formula": "log_speed ~ high_wave_fraction + time_interval_days + season_sin + season_cos + C(sand_cay_id)",
+      "fdr_q_value": 6.955064875389497e-07
+    }
+  ],
+  "waverys_metadata_source": "data\\environment\\raw\\waverys\\110_10\\199512.nc",
+  "waverys_metadata": {
+    "VSDX": {
+      "long_name": "Stokes drift U",
+      "standard_name": "sea_surface_wave_stokes_drift_x_velocity",
+      "units": "m s-1",
+      "add_offset": 0.0,
+      "scale_factor": 0.01
+    },
+    "VSDY": {
+      "long_name": "Stokes drift V",
+      "standard_name": "sea_surface_wave_stokes_drift_y_velocity",
+      "units": "m s-1",
+      "add_offset": 0.0,
+      "scale_factor": 0.01
+    },
+    "VMDR": {
+      "long_name": "Mean wave direction from (Mdir)",
+      "standard_name": "sea_surface_wave_from_direction",
+      "units": "degree",
+      "add_offset": 180.0,
+      "scale_factor": 0.01
+    }
+  },
+  "scope": "No independent registration RMSE or cumulative-error null model estimated."
+}

@@ -1,28 +1,28 @@
 ﻿setting,outcome,term,label,coefficient,ci95_low,ci95_high,direction_retained
-Primary,along_shift,current_along_mean_z,Along current → along shift,0.1492258903195991,0.048890924930326,0.2495608557088723,True
-Primary,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5337273607952024,0.3509150036644149,0.71653971792599,True
-Primary,cross_shift,current_cross_mean_z,Cross current → cross shift,0.1031834778476314,-0.0169239676715039,0.2232909233667667,True
-Primary,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.5638334513106791,0.2020350643628278,0.9256318382585302,True
-Reef cluster,along_shift,current_along_mean_z,Along current → along shift,0.1492258903195991,0.0525603254415772,0.245891455197621,True
-Reef cluster,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5337273607952024,0.3512740654312095,0.7161806561591955,True
-Reef cluster,cross_shift,current_cross_mean_z,Cross current → cross shift,0.1031834778476314,-0.0169986186823502,0.2233655743776131,True
-Reef cluster,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.5638334513106791,0.2017879550094329,0.9258789476119252,True
-60–365 d,along_shift,current_along_mean_z,Along current → along shift,0.1492258903195991,0.048890924930326,0.2495608557088723,True
-60–365 d,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5337273607952024,0.3509150036644149,0.71653971792599,True
-60–365 d,cross_shift,current_cross_mean_z,Cross current → cross shift,0.1031834778476314,-0.0169239676715039,0.2232909233667667,True
-60–365 d,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.5638334513106791,0.2020350643628278,0.9256318382585302,True
-120–365 d,along_shift,current_along_mean_z,Along current → along shift,0.0502810785949914,-0.0801313719813326,0.1806935291713156,True
-120–365 d,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5824973163898972,0.3236702731797648,0.8413243596000296,True
-120–365 d,cross_shift,current_cross_mean_z,Cross current → cross shift,0.0032405929562612,-0.3005373199569336,0.3070185058694561,True
-120–365 d,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.8908327940875405,0.0931836862693415,1.688481901905739,True
-−1 pixel,along_shift,current_along_mean_z,Along current → along shift,0.121831805256423,0.025571279526638,0.2180923309862081,True
-−1 pixel,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5205914242341467,0.3392943247521066,0.7018885237161868,True
-−1 pixel,cross_shift,current_cross_mean_z,Cross current → cross shift,0.09846672043776,-0.0232173012638645,0.2201507421393845,True
-−1 pixel,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.5486050807550753,0.1846181156572892,0.9125920458528614,True
-+1 pixel,along_shift,current_along_mean_z,Along current → along shift,0.1580550965988811,0.0558305808431955,0.2602796123545667,True
-+1 pixel,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5420592271090554,0.3549661759468602,0.7291522782712506,True
-+1 pixel,cross_shift,current_cross_mean_z,Cross current → cross shift,0.1053514021173553,-0.0110902140266964,0.2217930182614071,True
-+1 pixel,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.5695684889190806,0.2173768147795182,0.921760163058643,True
+Primary,along_shift,current_along_mean_z,Along current → along shift,0.1503011767704697,0.050306602909198,0.2502957506317413,True
+Primary,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5317479066832652,0.3518638887449739,0.7116319246215566,True
+Primary,cross_shift,current_cross_mean_z,Cross current → cross shift,0.1035255078733969,-0.014128099286542,0.2211791150333359,True
+Primary,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.5588877687141346,0.2013556195141723,0.9164199179140968,True
+Reef cluster,along_shift,current_along_mean_z,Along current → along shift,0.1503011767704697,0.0540149269570471,0.2465874265838922,True
+Reef cluster,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5317479066832652,0.3522379113607818,0.7112579020057486,True
+Reef cluster,cross_shift,current_cross_mean_z,Cross current → cross shift,0.1035255078733969,-0.0142013985101831,0.2212524142569771,True
+Reef cluster,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.5588877687141346,0.2011076494310713,0.916667887997198,True
+60–365 d,along_shift,current_along_mean_z,Along current → along shift,0.1503011767704697,0.050306602909198,0.2502957506317413,True
+60–365 d,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5317479066832652,0.3518638887449739,0.7116319246215566,True
+60–365 d,cross_shift,current_cross_mean_z,Cross current → cross shift,0.1035255078733969,-0.014128099286542,0.2211791150333359,True
+60–365 d,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.5588877687141346,0.2013556195141723,0.9164199179140968,True
+120–365 d,along_shift,current_along_mean_z,Along current → along shift,0.0487555359785226,-0.0819038638693686,0.1794149358264138,True
+120–365 d,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.585620291311538,0.3263668875486588,0.8448736950744172,True
+120–365 d,cross_shift,current_cross_mean_z,Cross current → cross shift,0.0078525985253558,-0.2928837399063023,0.3085889369570139,True
+120–365 d,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.8797934644125207,0.0865654029893,1.6730215258357417,True
+−1 pixel,along_shift,current_along_mean_z,Along current → along shift,0.124563716390022,0.0294025295429654,0.2197249032370785,True
+−1 pixel,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5156214229375363,0.3391406507583984,0.6921021951166743,True
+−1 pixel,cross_shift,current_cross_mean_z,Cross current → cross shift,0.097828589420171,-0.0221566132413182,0.2178137920816603,True
+−1 pixel,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.5463573906565349,0.1834433387436914,0.9092714425693784,True
++1 pixel,along_shift,current_along_mean_z,Along current → along shift,0.1626083653109497,0.0611925460867564,0.2640241845351429,True
++1 pixel,along_shift,wave_vector_along_mean_z,Along wave → along shift,0.5359676862435625,0.3537376202462032,0.7181977522409217,True
++1 pixel,cross_shift,current_cross_mean_z,Cross current → cross shift,0.1057545969408341,-0.0085587402890563,0.2200679341707245,True
++1 pixel,cross_shift,wave_vector_cross_mean_z,Cross wave → cross shift,0.5658561107065065,0.2161597408336155,0.9155524805793976,True
 Leave-one-cay,along_shift,current_along_mean_z,Along current → along shift,,,,True
 Leave-one-cay,along_shift,wave_vector_along_mean_z,Along wave → along shift,,,,True
 Leave-one-cay,cross_shift,current_cross_mean_z,Cross current → cross shift,,,,True

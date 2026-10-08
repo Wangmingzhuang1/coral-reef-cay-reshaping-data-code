@@ -9,10 +9,11 @@
     30,
     365
   ],
-  "primary_n_pairs": 1503,
+  "primary_n_pairs": 1501,
   "primary_n_cays": 65,
   "primary_n_state_changes": 172,
-  "left_censoring": "每条沙洲序列首次观测之前的状态历时未知。",
+  "left_censoring": "每条沙洲序列首次观测之前的状态历时未知；似然条件于首次观测状态。",
+  "holding_time_definition": "1 / (-Q_ii): 齐次连续时间模型下的平均停留时间；未按影像窗口截断。",
   "right_censoring": "每条沙洲序列末次观测之后的状态历时未知。",
   "measurement_error_handling": "主分析排除人工标签与颜色代理冲突的记录；仅完全一致标签和更严格间隔窗口为敏感性分析。",
   "not_estimated": [
@@ -23,9 +24,9 @@
   ],
   "bootstrap": {
     "unit": "sand_cay_id",
-    "replicates_requested": 100,
-    "replicates_completed": 100,
+    "replicates_requested": 1999,
+    "replicates_completed": 1999,
     "seed": 20260913
   },
-  "primary_negative_log_likelihood": 645.5191596447514
+  "primary_negative_log_likelihood": 644.7147681596233
 }

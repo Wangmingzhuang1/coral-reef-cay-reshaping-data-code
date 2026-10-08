@@ -125,12 +125,12 @@ def main() -> None:
     parser.add_argument(
         "--train-raw",
         type=Path,
-        default=Path(r"C:/Users/wmz/Desktop/时空模型训练/data/environment/raw/era5"),
+        required=True,
     )
     parser.add_argument(
         "--train-src",
         type=Path,
-        default=Path(r"C:/Users/wmz/Desktop/时空模型训练/src"),
+        required=True,
     )
     parser.add_argument("--quiet-minutes", type=int, default=3)
     parser.add_argument(

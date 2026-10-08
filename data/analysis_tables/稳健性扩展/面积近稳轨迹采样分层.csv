@@ -1,0 +1,5 @@
+﻿variable,median_split,group,n_tracks,n_exceeds_stability,fraction
+n_observations,33.0,at_or_below_median,34,27,0.7941176470588235
+n_observations,33.0,above_median,29,25,0.8620689655172413
+span_years,8.624407072013799,at_or_below_median,33,26,0.7878787878787878
+span_years,8.624407072013799,above_median,30,26,0.8666666666666667

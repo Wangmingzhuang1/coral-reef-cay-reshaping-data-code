@@ -1,0 +1,69 @@
+{
+  "error_propagation": {
+    "pairs": 257,
+    "strata": [
+      {
+        "stratum": "small",
+        "n_stable_tracks": 13,
+        "fraction_p_exceed_ge_095": 0.07692307692307693,
+        "median_observed_reworking": 0.41465156130997716,
+        "median_null_p95": 0.9118799438160715
+      },
+      {
+        "stratum": "medium",
+        "n_stable_tracks": 17,
+        "fraction_p_exceed_ge_095": 0.0,
+        "median_observed_reworking": 0.27938348027767224,
+        "median_null_p95": 0.5541100258563515
+      },
+      {
+        "stratum": "large",
+        "n_stable_tracks": 18,
+        "fraction_p_exceed_ge_095": 0.05555555555555555,
+        "median_observed_reworking": 0.12371134020618557,
+        "median_null_p95": 0.34093404789401
+      }
+    ],
+    "iou_strata": [
+      {
+        "size_stratum": "small",
+        "median": 0.303448275862069,
+        "p95": 0.5094377510040154
+      },
+      {
+        "size_stratum": "medium",
+        "median": 0.1865443425076453,
+        "p95": 0.30501089324618735
+      },
+      {
+        "size_stratum": "large",
+        "median": 0.08122503328894803,
+        "p95": 0.20445522319396398
+      }
+    ]
+  },
+  "centroid_error_perturbed_phase": {
+    "beta_original": -0.03266569559455931,
+    "se_original": 0.004629133239058873,
+    "beta_perturbed": -0.014556819044617662,
+    "se_perturbed": 0.007586753127958704,
+    "n_perturbed_pairs": 900,
+    "centroid_strata": [
+      {
+        "size_stratum": "small",
+        "median": 0.009077394833512354,
+        "p95": 0.06989068734818744
+      },
+      {
+        "size_stratum": "medium",
+        "median": 0.005963184846911569,
+        "p95": 0.04434996105928314
+      },
+      {
+        "size_stratum": "large",
+        "median": 0.006376951880973238,
+        "p95": 0.061081182819317306
+      }
+    ]
+  }
+}

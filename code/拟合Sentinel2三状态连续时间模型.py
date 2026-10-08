@@ -14,6 +14,7 @@ import numpy as np
 import pandas as pd
 from scipy.linalg import expm
 from scipy.optimize import minimize
+from 构建沙洲观测与变化表 import select_analysis_observations
 
 
 ROOT = Path(__file__).resolve().parent
@@ -23,7 +24,7 @@ STATES = ("low_cover", "partial_cover", "dominant_cover")
 STATE_TO_INDEX = {state: index for index, state in enumerate(STATES)}
 PRIMARY_MIN_DAYS = 30
 PRIMARY_MAX_DAYS = 365
-BOOTSTRAPS = 100
+BOOTSTRAPS = 1999
 RNG_SEED = 20260913
 
 
@@ -35,14 +36,14 @@ def make_pairs(
     confirmed_only: bool,
 ) -> pd.DataFrame:
     """返回沙洲内相邻、且处于指定观测窗口的状态对。"""
-    data = observations.copy()
+    data = select_analysis_observations(observations)
     if confirmed_only:
         data = data.loc[data["cover_state_status_3"].eq("confirmed")].copy()
     data = data.loc[data["analysis_cover_state_3"].isin(STATES)].copy()
-    data = data.sort_values(["sand_cay_id", "date", "image_id"])
-    data = data.drop_duplicates(["sand_cay_id", "date"], keep="last")
-    data["next_state"] = data.groupby("sand_cay_id")["analysis_cover_state_3"].shift(-1)
-    data["next_date"] = data.groupby("sand_cay_id")["date"].shift(-1)
+    keys = ["sensor", "sand_cay_id", "reference_frame_id"]
+    data = data.sort_values(keys + ["date", "image_id"])
+    data["next_state"] = data.groupby(keys)["analysis_cover_state_3"].shift(-1)
+    data["next_date"] = data.groupby(keys)["date"].shift(-1)
     pairs = data.loc[data["next_state"].notna()].copy()
     pairs["interval_days"] = (pairs["next_date"] - pairs["date"]).dt.days
     pairs = pairs.loc[pairs["interval_days"].between(min_days, max_days)].copy()
@@ -84,20 +85,40 @@ def initial_theta(pairs: pd.DataFrame) -> np.ndarray:
 
 def collapse_likelihood_terms(pairs: pd.DataFrame) -> pd.DataFrame:
     """合并相同起点、终点和观测间隔，避免重复计算相同矩阵指数。"""
-    return (
+    result = (
         pairs.groupby(["from_index", "to_index", "interval_years"], as_index=False)
         .size()
         .rename(columns={"size": "n_pairs"})
     )
+    times, inverse = np.unique(result["interval_years"].to_numpy(dtype=float), return_inverse=True)
+    result.attrs["likelihood_arrays"] = (times, inverse, result["from_index"].to_numpy(dtype=int),
+                                           result["to_index"].to_numpy(dtype=int), result["n_pairs"].to_numpy(dtype=float))
+    return result
+
+
+def transition_probabilities(q: np.ndarray, times: np.ndarray) -> np.ndarray:
+    """一次分解生成矩阵，计算各观测间隔的相同矩阵指数；退化情形回退到SciPy。"""
+    values, vectors = np.linalg.eig(q)
+    if np.linalg.cond(vectors) < 1e6:
+        candidate = np.einsum("ij,tj,jk->tik", vectors, np.exp(times[:, None] * values), np.linalg.inv(vectors))
+        if np.max(np.abs(candidate.imag)) < 1e-10:
+            real = candidate.real
+            if np.isfinite(real).all() and real.min() >= -1e-10 and real.max() <= 1 + 1e-10:
+                return real
+    return expm(times[:, None, None] * q)
 
 
 def negative_log_likelihood(theta: np.ndarray, terms: pd.DataFrame) -> float:
     q = theta_to_q(theta)
-    total = 0.0
-    for row in terms.itertuples(index=False):
-        probability = expm(q * float(row.interval_years))[int(row.from_index), int(row.to_index)]
-        total -= int(row.n_pairs) * np.log(max(float(probability), 1e-12))
-    return total
+    arrays = terms.attrs.get("likelihood_arrays")
+    if arrays is None:
+        times, inverse = np.unique(terms["interval_years"].to_numpy(dtype=float), return_inverse=True)
+        arrays = (times, inverse, terms["from_index"].to_numpy(dtype=int), terms["to_index"].to_numpy(dtype=int), terms["n_pairs"].to_numpy(dtype=float))
+    times, inverse, origin, target, counts = arrays
+    if not np.isfinite(q).all():
+        return 1e100
+    probabilities = transition_probabilities(q, times)[inverse, origin, target]
+    return float(-np.dot(counts, np.log(np.maximum(probabilities, 1e-12))))
 
 
 def fit_ctmc(pairs: pd.DataFrame) -> tuple[np.ndarray, float]:
@@ -280,6 +301,8 @@ def main() -> None:
             left_on=["record_type", "from_state", "to_state"],
             right_on=["metric", "from_state", "to_state"],
         ).drop(columns="metric")
+        sensitivity = estimates["variant"].ne("primary_30_365d")
+        estimates.loc[sensitivity, ["ci_low", "ci_high", "n_bootstrap"]] = np.nan
     else:
         estimates["ci_low"] = np.nan
         estimates["ci_high"] = np.nan
@@ -309,7 +332,8 @@ def main() -> None:
         "primary_n_pairs": int(len(primary_pairs)),
         "primary_n_cays": int(primary_pairs["sand_cay_id"].nunique()),
         "primary_n_state_changes": int((primary_pairs["from_index"] != primary_pairs["to_index"]).sum()),
-        "left_censoring": "每条沙洲序列首次观测之前的状态历时未知。",
+        "left_censoring": "每条沙洲序列首次观测之前的状态历时未知；似然条件于首次观测状态。",
+        "holding_time_definition": "1 / (-Q_ii): 齐次连续时间模型下的平均停留时间；未按影像窗口截断。",
         "right_censoring": "每条沙洲序列末次观测之后的状态历时未知。",
         "measurement_error_handling": "主分析排除人工标签与颜色代理冲突的记录；仅完全一致标签和更严格间隔窗口为敏感性分析。",
         "not_estimated": [

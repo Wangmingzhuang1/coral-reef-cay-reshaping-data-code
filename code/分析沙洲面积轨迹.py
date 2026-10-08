@@ -316,6 +316,8 @@ def classify(
 
 
 def build_tracks(observations: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    from 构建沙洲观测与变化表 import select_analysis_observations
+    observations = select_analysis_observations(observations)
     keys = ["reef_id", "sand_cay_id", "sensor", "reference_frame_id"]
     metric_rows: list[dict[str, object]] = []
     point_rows: list[pd.DataFrame] = []
@@ -424,10 +426,14 @@ def track_shape_metrics(group: pd.DataFrame) -> dict[str, float]:
         result["centroid_path_normalized"] = float(np.sum(step)) / scale
         result["centroid_net_normalized"] = net / scale
         result["centroid_max_step_normalized"] = float(np.max(step)) / scale
+        positions_m = np.column_stack([cx, cy]) * pixel[:, None]
+        centred = positions_m - positions_m.mean(axis=0)
+        result["centroid_envelope_normalized"] = float(np.linalg.norm(centred, axis=1).max()) / scale
     else:
         result["centroid_path_normalized"] = np.nan
         result["centroid_net_normalized"] = np.nan
         result["centroid_max_step_normalized"] = np.nan
+        result["centroid_envelope_normalized"] = np.nan
     return result
 
 

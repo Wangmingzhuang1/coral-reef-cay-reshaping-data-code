@@ -1,5 +1,5 @@
 ﻿outcome,term,n_deletions,coefficient_min,coefficient_max,all_same_sign_as_full,n_ci_excluding_zero
-along_shift,current_along_mean_z,50,0.1296601722109367,0.2101204475939195,True,50
-along_shift,wave_vector_along_mean_z,50,0.5141446696140768,0.6215345758637926,True,50
-cross_shift,current_cross_mean_z,50,0.0749378605842761,0.1861172679227496,True,1
-cross_shift,wave_vector_cross_mean_z,50,0.4935096530599711,0.6030364830415992,True,50
+along_shift,current_along_mean_z,50,0.1303861052289041,0.2109513922332186,True,50
+along_shift,wave_vector_along_mean_z,50,0.5129537584656461,0.6208911618518066,True,50
+cross_shift,current_cross_mean_z,50,0.0767615709218574,0.1841053162805339,True,1
+cross_shift,wave_vector_cross_mean_z,50,0.4935759731781353,0.5980681008292075,True,50

@@ -1,7 +1,7 @@
-﻿outcome,term,primary_coefficient,primary_ci95_low,primary_ci95_high,primary_q_value,primary_sign,reef_cluster_q_below_005,window_alternative_supported,window_alternative_same_sign,perturbation_same_sign,perturbation_alternative_supported,tide_available,tide_same_sign_or_unavailable,robustness_status,n_windows,n_perturbations
-along_shift,current_along_mean_z,0.1492258903195991,0.048890924930326,0.2495608557088723,0.0213406675045486,1,True,True,True,True,True,False,True,robust,3,2
-along_shift,wave_vector_along_mean_z,0.5337273607952024,0.3509150036644149,0.71653971792599,1.261941184971899e-07,1,True,True,True,True,True,False,True,robust,3,2
-cross_shift,current_cross_mean_z,0.1031834778476314,-0.0169239676715039,0.2232909233667667,0.2766658896343221,1,False,False,True,True,False,False,True,primary_not_supported,3,2
-cross_shift,wave_vector_cross_mean_z,0.5638334513106791,0.2020350643628278,0.9256318382585302,0.0270572864784386,1,True,True,True,True,True,False,True,robust,3,2
-log_gross_mobility,pulse,0.0648055388318206,-0.1618786176388524,0.2914896953024937,0.6903103368655422,1,False,False,True,True,False,False,True,primary_not_supported,3,2
-log_gross_mobility,vegetation_fraction_t_z,0.0254425969170625,-0.0381473572329408,0.089032551067066,0.5772385759387717,1,False,False,True,True,False,False,True,primary_not_supported,3,2
+﻿outcome,term,primary_coefficient,primary_ci95_low,primary_ci95_high,primary_q_value,primary_sign,reef_cluster_q_below_005,window_alternative_supported,window_alternative_same_sign,perturbation_same_sign,perturbation_alternative_supported,robustness_status,n_windows,n_perturbations
+along_shift,current_along_mean_z,0.1503011767704697,0.050306602909198,0.2502957506317413,0.0193141952889291,1,True,True,True,True,True,robust,3,2
+along_shift,wave_vector_along_mean_z,0.5317479066832652,0.3518638887449739,0.7116319246215566,8.258810982817664e-08,1,True,True,True,True,True,robust,3,2
+cross_shift,current_cross_mean_z,0.1035255078733969,-0.014128099286542,0.2211791150333359,0.2537948141200071,1,False,False,True,True,False,primary_not_supported,3,2
+cross_shift,wave_vector_cross_mean_z,0.5588877687141346,0.2013556195141723,0.9164199179140968,0.0262271362495403,1,True,True,True,True,True,robust,3,2
+log_gross_mobility,pulse,0.0685308280767815,-0.1574534414571861,0.2945150976107492,0.6627187229432553,1,False,False,True,True,False,primary_not_supported,3,2
+log_gross_mobility,vegetation_fraction_t_z,0.0211827745797864,-0.037993117442761,0.0803586666023339,0.6439095152241828,1,False,False,False,True,False,primary_not_supported,3,2

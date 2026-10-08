@@ -1,0 +1,73 @@
+{
+  "analysis_question": "Does annualized, size-normalized centroid mobility decline over time within the same cay, and which regions or reefs show that pattern?",
+  "source_logic": "Kench et al. (2018) Figure 2 regional change composition and atoll-level rates, adapted to repeated centroid trajectories.",
+  "primary_outcome": "log1p(centroid displacement / starting equivalent radius / interval years)",
+  "primary_model": "within-cay fixed effects by demeaning; midpoint year + log interval + annual sine/cosine; sand-cay clustered SE",
+  "primary_window_days": [
+    30,
+    400
+  ],
+  "region_inference_gate": {
+    "minimum_intervals": 30,
+    "minimum_cays": 10
+  },
+  "cay_trend_screen": {
+    "minimum_intervals": 6,
+    "minimum_span_years": 3.0,
+    "role": "descriptive direction composition only"
+  },
+  "reef_screen": {
+    "minimum_intervals": 12,
+    "minimum_span_years": 5.0,
+    "covariance": "HC3",
+    "multiple_comparison": "BH-FDR across all screened reefs",
+    "role": "exploratory candidate screen; not regional inference"
+  },
+  "sample": {
+    "intervals": 1635,
+    "cays": 66,
+    "reefs": 61,
+    "regions": 5,
+    "region_counts": [
+      {
+        "analysis_region": "Great Barrier Reef",
+        "intervals": 844,
+        "cays": 28,
+        "reefs": 27
+      },
+      {
+        "analysis_region": "Lakshadweep",
+        "intervals": 14,
+        "cays": 1,
+        "reefs": 1
+      },
+      {
+        "analysis_region": "Maldives",
+        "intervals": 582,
+        "cays": 27,
+        "reefs": 25
+      },
+      {
+        "analysis_region": "Marshall Islands",
+        "intervals": 164,
+        "cays": 7,
+        "reefs": 6
+      },
+      {
+        "analysis_region": "South China Sea",
+        "intervals": 31,
+        "cays": 3,
+        "reefs": 2
+      }
+    ]
+  },
+  "fdr_supported_regional_trends": [],
+  "fdr_supported_decreasing_reefs": [],
+  "interpretation_boundary": "A decline in interval centroid mobility is not proof of geomorphic stabilization, island persistence, or reduced habitability risk. Tide, image timing, sediment supply, vertical change and shoreline redistribution remain unmeasured or incompletely controlled.",
+  "analysis_contract_sha256": "231ca3161530fa5282e3fe0a73480139798d46ad9c1572729fa17cb8bde2ecb3",
+  "input_sha256": {
+    "沙洲变化区间.csv": "961eca34fcd936b0b298df720fa0fff56198dbca4b726519a72e8e93b8c282bf",
+    "沙洲观测主表.csv": "18627213b4fc22eae73ab6472114801f675184ccf551f9bfe7d181e649ae158e"
+  },
+  "software_reference": "Kassis, T., Agarwal, V., He, Y., Patel, D., & Brueckner, A. M. (2026). Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents. arXiv:2609.00065. https://doi.org/10.48550/arXiv.2609.00065"
+}

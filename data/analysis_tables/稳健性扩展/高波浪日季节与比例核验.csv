@@ -1,0 +1,4 @@
+﻿model,term,estimate,ci95_low,ci95_high,p_value,n_intervals,n_cays,n_reefs,cluster,formula,fdr_q_value
+count_duration,event_storm_days,0.0152288574674838,0.0082980843493665,0.0221596305856011,1.6578898363371313e-05,1228,54,50,reef_id,log_speed ~ event_storm_days + time_interval_days + C(sand_cay_id),0.0001160522885435
+count_duration_season,event_storm_days,0.0200803422585241,0.0125115216262076,0.0276491628908405,1.9944720015031937e-07,1228,54,50,reef_id,log_speed ~ event_storm_days + time_interval_days + season_sin + season_cos + C(sand_cay_id),3.9889440030063885e-07
+fraction_duration_season,high_wave_fraction,2.151744163847287,1.3019216915695873,3.001566636124987,6.955064875389497e-07,1228,54,50,reef_id,log_speed ~ high_wave_fraction + time_interval_days + season_sin + season_cos + C(sand_cay_id),6.955064875389497e-07

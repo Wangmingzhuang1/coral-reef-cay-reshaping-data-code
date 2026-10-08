@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
-from PIL import Image
+from 构建沙洲观测与变化表 import read_mask, select_analysis_observations
 from scipy.stats import wilcoxon
 from sklearn.linear_model import LinearRegression
 
@@ -85,6 +85,7 @@ def load_observations(path: Path) -> tuple[pd.DataFrame, dict[int, np.ndarray]]:
     frame = frame[
         frame["sensor"].eq("sentinel2") & ~frame["quality_grade"].eq("C")
     ].copy()
+    frame = select_analysis_observations(frame)
     frame["date"] = pd.to_datetime(frame["date"], errors="raise")
     frame["year"] = frame["date"].dt.year
     frame["doy"] = frame["date"].dt.dayofyear
@@ -94,7 +95,7 @@ def load_observations(path: Path) -> tuple[pd.DataFrame, dict[int, np.ndarray]]:
     )
     frame = frame[frame["mask_path"].map(lambda value: Path(value).is_file())].copy()
     masks = {
-        int(index): (np.asarray(Image.open(path)) > 0)
+        int(index): read_mask(path)
         for index, path in frame["mask_path"].items()
     }
     return frame, masks

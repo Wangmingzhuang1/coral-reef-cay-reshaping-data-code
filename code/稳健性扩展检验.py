@@ -1,8 +1,11 @@
-"""误差传播、方差分解与补充敏感性检验（补充材料 S4 的证据来源）。"""
+"""边界判读与质心位置的必要敏感性检验（补充材料 S4 的证据来源）。"""
 from __future__ import annotations
 import json
+import argparse
+import sys
 from pathlib import Path
 import numpy as np
+from 构建沙洲观测与变化表 import read_mask
 import pandas as pd
 import cv2
 
@@ -11,12 +14,6 @@ OUT = ROOT / 'outputs'
 EXT = OUT / '稳健性扩展'
 EXT.mkdir(exist_ok=True)
 RNG = np.random.default_rng(20260915)
-
-
-def read_mask(path):
-    buf = np.fromfile(Path(path), dtype=np.uint8)
-    img = cv2.imdecode(buf, cv2.IMREAD_GRAYSCALE)
-    return img > 0
 
 
 def perturb(mask, rng, shift=False):
@@ -164,167 +161,158 @@ def block_centroid_error_and_perturbed_phase():
     return out
 
 
-def block_variance_components():
-    obs = pd.read_csv(OUT / '沙洲观测主表.csv')
-    obs['date'] = pd.to_datetime(obs.date)
-    obs['doy'] = obs.date.dt.dayofyear
-    metrics = ['sand_cay_centroid_x_norm', 'sand_cay_centroid_y_norm', 'sand_cay_compactness', 'sand_cay_elongation', 'sand_cay_major_axis_angle', 'sand_cay_area_m2', 'vegetation_fraction']
-    rows = []
-    for metric in metrics:
-        sub = obs[['sand_cay_id', 'doy', metric]].dropna()
-        sub = sub.groupby('sand_cay_id').filter(lambda g: len(g) >= 4)
-        seas, within, between = [], [], []
-        for cay, g in sub.groupby('sand_cay_id'):
-            y = g[metric].to_numpy()
-            t = 2 * np.pi * g.doy.to_numpy() / 365.2425
-            X = np.column_stack([np.ones(len(y)), np.sin(t), np.cos(t)])
-            beta, *_ = np.linalg.lstsq(X, y, rcond=None)
-            pred = X @ beta
-            within_var = y.var(ddof=1)
-            seas_var = pred.var(ddof=1)
-            seas.append(seas_var / within_var if within_var > 0 else np.nan)
-            within.append(within_var)
-            between.append((y.mean() - sub[metric].mean()) ** 2)
-        within = np.mean(within)
-        between = np.mean(between) * 1
-        rows.append({'metric': metric, 'median_seasonal_share_of_within': float(np.nanmedian(seas)), 'between_over_within': float(between / within) if within > 0 else np.nan, 'n_cays': int(sub.sand_cay_id.nunique())})
-    df = pd.DataFrame(rows)
-    df.to_csv(EXT / '季节与年际方差分解.csv', index=False, encoding='utf-8-sig')
-    return df.set_index('metric').median_seasonal_share_of_within.round(3).to_dict()
 
 
-def block_transition_seasonality():
-    obs = pd.read_csv(OUT / '沙洲观测主表.csv')
-    obs['date'] = pd.to_datetime(obs.date)
-    obs = obs[(obs.sensor.eq('sentinel2')) & obs.quality_grade.isin(['A', 'B'])].copy()
-    state_map = {'none': 'low', 'sparse': 'low', 'partial': 'partial', 'dominant': 'dominant'}
-    obs['state'] = obs.automatic_vegetation_state.map(state_map)
-    obs = obs.dropna(subset=['state'])
-    coords = pd.read_csv(OUT / '潮位影像时刻与坐标.csv')
-    cay_lat = coords.groupby('sand_cay_id').sand_cay_center_lat.mean()
-    events, exposure = [], []
-    for cay, g in obs.groupby('sand_cay_id'):
-        g = g.sort_values('date')
-        south = bool(cay_lat.get(cay, 0) < 0)
-        dates = g.date.to_list()
-        states = g.state.to_list()
-        for i in range(len(dates) - 1):
-            mid = dates[i] + (dates[i + 1] - dates[i]) / 2
-            season = 'NovApr' if (((mid.month % 12) in (10, 11, 0, 1, 2, 3)) != south) else 'MayOct'
-            exposure.append({'state': states[i], 'season': season, 'days': (dates[i + 1] - dates[i]).days})
-            if states[i] != states[i + 1]:
-                events.append({'from': states[i], 'to': states[i + 1], 'season': season})
-    ev = pd.DataFrame(events)
-    ex = pd.DataFrame(exposure).groupby(['state', 'season']).days.sum()
-    out = []
-    for (fr, to), grp in ev.groupby(['from', 'to']):
-        tot = len(grp)
-        tot_e = ex.get((fr, 'NovApr'), 0) + ex.get((fr, 'MayOct'), 0)
-        if tot_e == 0:
-            continue
-        for season in ['NovApr', 'MayOct']:
-            e = ex.get((fr, season), 0)
-            out.append({'from': fr, 'to': to, 'season': season, 'observed': int((grp.season == season).sum()), 'expected': float(tot * e / tot_e)})
-    df = pd.DataFrame(out)
-    df['ratio'] = df.observed / df.expected.replace(0, np.nan)
-    from scipy import stats as st
+
+
+
+
+
+
+
+
+def block_reviewer_checks(from_tables=False):
+    """仅核验采样分层、等数量季节模板及高波浪日的窗口/季节口径。"""
     from statsmodels.stats.multitest import multipletests
-    keys = list(df.groupby(['from', 'to']).groups.keys())
-    ps = []
-    for k in keys:
-        grp = df[df[['from', 'to']].eq(pd.Series(k, index=['from', 'to'])).all(axis=1)]
-        o = grp.observed.to_numpy()
-        e = grp.expected.to_numpy()
-        chi = ((o - e) ** 2 / np.where(e > 0, e, 1)).sum()
-        ps.append(st.chi2.sf(chi, 1))
-    qs = multipletests(ps, method='fdr_bh')[1]
-    df['p_value'] = np.repeat(ps, 2)
-    df['fdr_q_value'] = np.repeat(qs, 2)
-    df.to_csv(EXT / '状态转换季节异质性.csv', index=False, encoding='utf-8-sig')
-    sig = df[df.fdr_q_value.lt(.05)][['from', 'to', 'season', 'observed', 'expected', 'ratio']]
-    return {'transitions_tested': int(len(keys)), 'seasonal_significant': sig.to_dict('records')}
+    import xarray as xr
+    import statsmodels.formula.api as smf
 
+    recorded = json.loads((EXT / '审稿意见针对性核验.json').read_text(encoding='utf-8')) if from_tables else None
 
-def block_establishment_pretrend():
-    ev = pd.read_csv(OUT / '植被建立沙洲内前后对照.csv')
-    ev['establishment_date'] = pd.to_datetime(ev.establishment_date)
-    iv = pd.read_csv(OUT / '沙洲变化区间.csv')
-    iv['time_t1'] = pd.to_datetime(iv.time_t1)
+    def fit_clustered(formula, data):
+        return smf.ols(formula, data=data).fit(
+            cov_type='cluster', cov_kwds={'groups': data['reef_id'], 'use_correction': True})
+
+    tracks = pd.read_csv(OUT / '沙洲面积主轨迹分类.csv')
+    near = tracks.loc[tracks.relative_change.abs().lt(.25)].copy()
+    flags = pd.DataFrame({
+        'path': near.centroid_path_normalized.gt(1),
+        'area_cv': near.late_cv.gt(.15),
+        'area_ratio': near.max_adjacent_area_ratio.gt(1.5),
+    }, index=near.index)
+    near['exceeds_stability'] = flags.any(axis=1)
+    strata = []
+    for column in ('n_observations', 'span_years'):
+        median = float(near[column].median())
+        for label, subset in (
+            ('at_or_below_median', near.loc[near[column].le(median)]),
+            ('above_median', near.loc[near[column].gt(median)]),
+        ):
+            strata.append({'variable': column, 'median_split': median, 'group': label,
+                           'n_tracks': len(subset),
+                           'n_exceeds_stability': int(subset.exceeds_stability.sum()),
+                           'fraction': float(subset.exceeds_stability.mean())})
+    pd.DataFrame(strata).to_csv(EXT / '面积近稳轨迹采样分层.csv', index=False, encoding='utf-8-sig')
+
+    template = pd.read_csv(OUT / 'Sentinel2季节模板交叉验证.csv')
+    equal = template.loc[template.n_same_quarter_training.eq(template.n_opposite_quarter_training)]
+    values = equal.groupby('sand_cay_id').gain_same_vs_opposite.mean().to_numpy()
+    rng = np.random.default_rng(20261008)
+    boot = rng.choice(values, size=(1999, len(values)), replace=True).mean(axis=1)
+    low, high = np.quantile(boot, [.025, .975])
+    template_result = {'n_images': len(equal), 'n_cays': len(values),
+                       'mean_gain': float(values.mean()), 'ci95_low': float(low),
+                       'ci95_high': float(high), 'positive_cays': int((values > 0).sum()),
+                       'bootstrap': 1999, 'seed': 20261008,
+                       'scope': 'same versus opposite quarter training counts equal; held-out year unchanged'}
+    pd.DataFrame([template_result]).to_csv(EXT / '等数量季节模板核验.csv', index=False, encoding='utf-8-sig')
+
+    if from_tables:
+        bare = pd.read_csv(EXT / '高波浪日核验区间.csv', parse_dates=['midpoint'])
+    else:
+        archive = ROOT / '额外分析_区域与气候响应' / '归档_裸沙质心轨迹周期与突发'
+        sys.path.insert(0, str(archive))
+        from 分析裸沙质心轨迹风浪对照 import build_usable
+        from 分析裸沙质心轨迹周期与突发 import build_steps
+        from 分析沙洲形状与质心迁移 import load_observations
+    
+        observations = load_observations()
+        steps = build_steps(observations)
+        forcing = pd.read_csv(OUT / '流场波浪区间特征.csv', low_memory=False)
+        daily = pd.read_csv(ROOT / 'data/environment/harmonized/daily/reef_daily_features.csv',
+                            usecols=['reef_id', 'time', 'VHM0', 'u10', 'v10'], low_memory=False)
+        daily['time'] = pd.to_datetime(daily.time, format='ISO8601')
+        usable, _ = build_usable(observations, steps, forcing, daily)
+        bare = usable.loc[usable.stratum.eq('bare')].dropna(subset=['event_storm_days']).copy()
+    assert bare.waverys_complete.eq(1).all(), '高波浪日比例需要完整日覆盖。'
+    bare['high_wave_fraction'] = bare.event_storm_days / bare.time_interval_days
+    assert bare.high_wave_fraction.between(0, 1).all()
+    phase = 2 * np.pi * bare.midpoint.dt.dayofyear / 365.2425
+    bare['season_sin'], bare['season_cos'] = np.sin(phase), np.cos(phase)
+    bare[['transition_id', 'reef_id', 'sand_cay_id', 'midpoint', 'time_interval_days',
+          'speed_norm', 'log_speed', 'event_storm_days', 'waverys_complete',
+          'high_wave_fraction', 'season_sin', 'season_cos']].to_csv(
+              EXT / '高波浪日核验区间.csv', index=False, encoding='utf-8-sig')
     rows = []
-    for _, e in ev.iterrows():
-        g = iv[(iv.sand_cay_id.eq(e.sand_cay_id)) & (iv.sensor.eq(e.sensor)) & (iv.time_t1.le(e.establishment_date))].sort_values('time_t1')
-        pre = np.nan
-        if len(g) >= 2:
-            half = len(g) // 2
-            early = g.centroid_shift_m_per_year.iloc[:half].median()
-            late = g.centroid_shift_m_per_year.iloc[half:].median()
-            if early > 0 and late > 0:
-                pre = float(np.log(late / early))
-        rows.append({'sand_cay_id': e.sand_cay_id, 'sensor': e.sensor, 'establishment_date': str(e.establishment_date.date()), 'log_ratio_after_before': e.log_ratio_after_before, 'pre_trend_log_ratio': pre, 'n_before_intervals': len(g)})
-    df = pd.DataFrame(rows)
-    df.to_csv(EXT / '植被建立前趋势.csv', index=False, encoding='utf-8-sig')
-    pre = df.pre_trend_log_ratio.dropna()
-    return {'n_events': int(len(df)), 'median_log_ratio_after_before': float(df.log_ratio_after_before.median()), 'iqr_after_before': [float(df.log_ratio_after_before.quantile(.25)), float(df.log_ratio_after_before.quantile(.75))], 'n_with_pretrend': int(len(pre)), 'median_pre_trend': float(pre.median()) if len(pre) else None, 'iqr_pre_trend': [float(pre.quantile(.25)), float(pre.quantile(.75))] if len(pre) else None}
+    specs = [
+        ('count_duration', 'event_storm_days', ''),
+        ('count_duration_season', 'event_storm_days', ' + season_sin + season_cos'),
+        ('fraction_duration_season', 'high_wave_fraction', ' + season_sin + season_cos'),
+    ]
+    for label, term, season in specs:
+        formula = f'log_speed ~ {term} + time_interval_days{season} + C(sand_cay_id)'
+        fit = fit_clustered(formula, bare)
+        low, high = fit.conf_int().loc[term]
+        rows.append({'model': label, 'term': term, 'estimate': float(fit.params[term]),
+                     'ci95_low': float(low), 'ci95_high': float(high),
+                     'p_value': float(fit.pvalues[term]), 'n_intervals': len(bare),
+                     'n_cays': bare.sand_cay_id.nunique(), 'n_reefs': bare.reef_id.nunique(),
+                     'cluster': 'reef_id', 'formula': formula})
+    if from_tables:
+        reference = recorded['high_wave_models'][0]
+        reference_estimate, reference_q = reference['estimate'], reference['fdr_q_value']
+    else:
+        reference = pd.read_csv(archive / 'outputs/裸沙质心轨迹风浪对照模型.csv')
+        reference = reference.loc[reference.analysis.eq('E4_event_storm_days_bare')].iloc[0]
+        reference_estimate, reference_q = reference.estimate, reference.fdr_q_value
+    assert np.isclose(rows[0]['estimate'], reference_estimate, rtol=1e-7)
+    # 原模型保留原检验族的 q；两项新增敏感性检验组成独立的校正组。
+    rows[0]['fdr_q_value'] = float(reference_q)
+    for row, q in zip(rows[1:], multipletests([r['p_value'] for r in rows[1:]], method='fdr_bh')[1]):
+        row['fdr_q_value'] = float(q)
+    pd.DataFrame(rows).to_csv(EXT / '高波浪日季节与比例核验.csv', index=False, encoding='utf-8-sig')
 
-
-def block_mde():
-    m = pd.read_csv(OUT / '强迫植被沙洲内模型.csv')
-    rows = []
-    for spec, term, outcome in [('within_cay_fixed_effects', 'current_cross_mean_z', 'cross_shift'), ('within_cay_fixed_effects', 'current_cross_mean_z', 'along_shift'), ('between_within_random_intercept', 'veg_within_z', 'log_gross_mobility')]:
-        r = m[(m.specification.eq(spec)) & (m.term.eq(term)) & (m.outcome.eq(outcome))]
-        if r.empty:
-            continue
-        r = r.iloc[0]
-        se = (r.ci95_high - r.ci95_low) / 3.92
-        rows.append({'outcome': outcome, 'term': term, 'se': float(se), 'mde_80_power': float(2.80 * se), 'observed': float(r.coefficient)})
-    df = pd.DataFrame(rows)
-    df.to_csv(EXT / '空结果最小可检测效应.csv', index=False, encoding='utf-8-sig')
-    return df.to_dict('records')
-
-
-def block_moran():
-    core = pd.read_csv(OUT / '流场波浪沿轴横轴分解.csv')
-    core = core[(core.sensor.eq('sentinel2')) & core.time_interval_days.between(90, 365)]
-    obs = pd.read_csv(OUT / '沙洲观测主表.csv')
-    # 坐标来自潮位影像时刻与坐标表（礁盘级均值）
-    coords = pd.read_csv(OUT / '潮位影像时刻与坐标.csv').groupby('reef_id')[['sand_cay_center_lon', 'sand_cay_center_lat']].mean().rename(columns={'sand_cay_center_lon': 'lon', 'sand_cay_center_lat': 'lat'})
-    terms = [c for c in ['current_along_mean', 'wave_vector_along_mean', 'current_cross_mean', 'wave_vector_cross_mean'] if c in core.columns]
-    resp = 'centroid_along_shift_normalized_per_year'
-    if resp not in core.columns or not terms:
-        return {'status': 'skipped_missing_columns'}
-    sub = core[terms + [resp, 'sand_cay_id', 'reef_id']].dropna()
-    X = sub[terms].to_numpy()
-    X = (X - X.mean(0)) / np.where(X.std(0) > 0, X.std(0), 1)
-    y = sub[resp].to_numpy()
-    dummies = pd.get_dummies(sub.sand_cay_id).to_numpy()
-    A = np.column_stack([X, dummies])
-    beta, *_ = np.linalg.lstsq(A, y, rcond=None)
-    resid = y - A @ beta
-    reef_res = pd.Series(resid, index=sub.reef_id.to_numpy()).groupby(level=0).mean()
-    reef_res = reef_res.reindex(coords.index).dropna()
-    P = coords.loc[reef_res.index].to_numpy()
-    D = np.sqrt(((P[:, None, :] - P[None, :, :]) ** 2).sum(-1))
-    W = 1 / np.where(D > 0, D, np.inf)
-    np.fill_diagonal(W, 0)
-    z = reef_res.to_numpy()
-    z = z - z.mean()
-    n = len(z)
-    def moran(z):
-        return n / W.sum() * (z[:, None] * z[None, :] * W).sum() / (z ** 2).sum()
-    obs_I = moran(z)
-    perm = np.array([moran(z[RNG.permutation(n)]) for _ in range(999)])
-    p = float(np.mean(perm >= obs_I))
-    pd.DataFrame({'reef_id': reef_res.index, 'mean_residual': reef_res.to_numpy()}).to_csv(EXT / '方向模型残差礁盘均值.csv', index=False, encoding='utf-8-sig')
-    return {'morans_I': float(obs_I), 'permutation_p': p, 'n_reefs': n}
+    if from_tables:
+        metadata = recorded['waverys_metadata']
+        metadata_source = recorded['waverys_metadata_source']
+    else:
+        source = next((ROOT / 'data/environment/raw/waverys').rglob('*.nc'))
+        with source.open('rb') as handle, xr.open_dataset(handle, engine='h5netcdf') as dataset:
+            metadata = {key: {
+                **{name: str(value) for name, value in dataset[key].attrs.items()
+                   if name in ('standard_name', 'long_name', 'units')},
+                **{name: float(dataset[key].encoding.get(name, 0))
+                   for name in ('add_offset', 'scale_factor')},
+            } for key in ('VSDX', 'VSDY', 'VMDR')}
+        metadata_source = str(source.relative_to(ROOT))
+    result = {'trajectory_counts': {'near_stable': len(near),
+              'exceeds_stability': int(near.exceeds_stability.sum()),
+              'path': int(flags.path.sum()), 'area_cv': int(flags.area_cv.sum()),
+              'area_ratio': int(flags.area_ratio.sum()),
+              'path_and_area': int((flags.path & (flags.area_cv | flags.area_ratio)).sum()),
+              'path_only': int((flags.path & ~flags.area_cv & ~flags.area_ratio).sum())},
+              'sampling_strata': strata, 'equal_training_template': template_result,
+              'high_wave_models': rows, 'waverys_metadata_source': metadata_source,
+              'waverys_metadata': metadata,
+              'scope': 'No independent registration RMSE or cumulative-error null model estimated.'}
+    (EXT / '审稿意见针对性核验.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+    print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
 def main():
-    summary = {}
-    for name, fn in [('error_propagation', block_error_propagation), ('centroid_error_perturbed_phase', block_centroid_error_and_perturbed_phase), ('variance_components', block_variance_components), ('transition_seasonality', block_transition_seasonality), ('establishment_pretrend', block_establishment_pretrend), ('mde', block_mde), ('moran', block_moran)]:
-        try:
-            summary[name] = fn()
-        except Exception as exc:
-            summary[name] = {'error': f'{type(exc).__name__}: {exc}'}
+    parser = argparse.ArgumentParser(description='边界误差与审稿意见的有限核验。')
+    parser.add_argument('--review-comments-only', action='store_true', help='只核验现有轨迹、模板及高波浪日口径。')
+    parser.add_argument('--review-comments-from-tables', action='store_true',
+                        help='从公开的派生区间表复算本轮核验，无需影像及日环境数据。')
+    args = parser.parse_args()
+    if args.review_comments_only or args.review_comments_from_tables:
+        block_reviewer_checks(from_tables=args.review_comments_from_tables)
+        return
+    # 当前论文只需要边界误差和质心/轮廓敏感性；必需检验失败应直接报错。
+    summary = {
+        "error_propagation": block_error_propagation(),
+        "centroid_error_perturbed_phase": block_centroid_error_and_perturbed_phase(),
+    }
     (EXT / '稳健性扩展汇总.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 

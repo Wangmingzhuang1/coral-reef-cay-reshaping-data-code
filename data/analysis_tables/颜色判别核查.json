@@ -28,10 +28,10 @@
     "within_one_class_accuracy": 0.8970531955606582,
     "quadratic_weighted_kappa": 0.6710055991779998,
     "mean_vegetation_fraction_by_manual_state": {
-      "dominant": 0.4278256928708668,
-      "none": 0.059003519883519,
-      "partial": 0.25271879822091436,
-      "sparse": 0.08727535672667745
+      "dominant": 0.4278389357628553,
+      "none": 0.05900452998395754,
+      "partial": 0.2527898041641393,
+      "sparse": 0.0873678086307385
     },
     "confusion_matrix": {
       "none": {
@@ -68,7 +68,7 @@
       "quadratic_weighted_kappa": 0.5855597677015536,
       "mean_vegetation_fraction_by_manual_state": {
         "dominant": 0.41196104143308715,
-        "none": 0.07553960029504536,
+        "none": 0.07555826916939429,
         "partial": 0.2257910653910679,
         "sparse": 0.0890600236039168
       },
@@ -105,10 +105,10 @@
       "within_one_class_accuracy": 0.9168026101141925,
       "quadratic_weighted_kappa": 0.7067955393411729,
       "mean_vegetation_fraction_by_manual_state": {
-        "dominant": 0.4352036087276837,
-        "none": 0.04920768963973436,
-        "partial": 0.2568569130655901,
-        "sparse": 0.08666781055570236
+        "dominant": 0.43522301027643034,
+        "none": 0.049198238836062946,
+        "partial": 0.25693883083527946,
+        "sparse": 0.08679173544837993
       },
       "confusion_matrix": {
         "none": {

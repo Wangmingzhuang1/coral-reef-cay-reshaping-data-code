@@ -1,0 +1,62 @@
+﻿reef_id,center_lon,center_lat,coordinate_source,coordinate_available,map_region,analysis_region,sensor_scope
+GBR_003,143.3973098427848,-9.95389888026894,cay_registry_median_center,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_007,143.3205766533073,-10.10540939159345,cay_registry_median_center,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_008,143.1988865794023,-10.63241908512203,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_009,143.1096701638018,-10.25493169574466,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_020,143.1806695046027,-11.70135996639639,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_033,143.9543240462504,-13.36457300854275,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_034,143.9716207187183,-13.43779952934995,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_036,143.8349851383185,-13.90980990767461,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_037,144.5039333971055,-13.98099613424572,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_038,144.8503064143105,-14.31902258569141,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_039,144.8818231733001,-14.19817133286576,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_052,152.3657657095059,-21.64373433544864,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_053,152.3801855416618,-21.63499781496207,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_055,152.4506915972496,-21.78858973058263,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_058,151.7781960887856,-23.24693846225382,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_059,151.7268315580673,-23.53903255102727,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_060,152.3926996734677,-23.90739822823699,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_061,152.2904226141005,-23.80712080094817,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_068,150.2887324142636,-16.52608336100836,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_073,151.8532944668411,-17.41324865042008,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_085,158.250128682767,-19.51121402776544,cay_registry_median_center,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_095,150.3355144344874,-16.60187551586006,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_098,149.9643290924095,-16.28733228918298,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_101,149.1980566230748,-16.94354939152624,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_102,149.1347809152052,-16.98562917376909,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_104,144.8800373370448,-14.41725063895966,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+GBR_108,144.0203425240807,-11.40957197568657,standardized_coordinates,True,Great Barrier Reef,Great Barrier Reef,both
+MEDF_001,73.10382398253346,6.861885167271645,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_002,72.92593202218124,6.395543232384902,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_004,73.10951717218366,5.983083063930001,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_005,73.15679192052943,5.92027119469776,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_006,73.20789183747372,5.862869389386924,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_007,72.8331648726539,5.588811425353539,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_008,72.86122941937413,5.588371079447557,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_010,72.91396921465812,5.602115156727072,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_011,72.92851505687582,5.564743789811669,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_014,72.94600908324455,5.556377372798494,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_015,72.9441712042195,5.537608890109478,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_017,72.99746181793272,5.494327283108078,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_018,72.84363170806407,5.472565491470092,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_019,72.95511786061991,5.376460875693901,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_022,72.9443229987465,5.174088313304874,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_026,73.13904217692752,5.23538342126197,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_027,73.16826462733165,5.235803857561796,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_028,72.87778058456726,5.078196594811569,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_032,73.42611012733185,5.498076035084448,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_033,73.36148090130712,5.425073969922674,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_040,72.9008419651975,3.603285156891249,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_044,72.96080737172417,2.923691709831239,cay_registry_median_center,True,Maldives,Maldives,both
+MEDF_050,73.49967100704148,3.551650048163114,standardized_coordinates,True,Maldives,Maldives,both
+MEDF_053,72.98331428154646,2.31431003026373,standardized_coordinates,True,Maldives,Maldives,both
+NH_015,114.2577806591446,11.07456734695805,standardized_coordinates,True,South China Sea,South China Sea,both
+NH_QF_001,111.672269859661,16.5743332814909,standardized_coordinates,True,South China Sea,South China Sea,both
+OTHER_004,165.2544393436189,11.68551166464462,standardized_coordinates,True,Marshall Islands,Marshall Islands,both
+OTHER_005,165.2200408554771,11.57663751039211,standardized_coordinates,True,Marshall Islands,Marshall Islands,both
+OTHER_006,165.2260526097174,11.56961907134908,standardized_coordinates,True,Marshall Islands,Marshall Islands,both
+OTHER_007,165.235264346449,11.56226022042767,standardized_coordinates,True,Marshall Islands,Marshall Islands,both
+OTHER_008,165.2437139308038,11.55610891932098,standardized_coordinates,True,Marshall Islands,Marshall Islands,both
+OTHER_017,169.6196641660976,11.08505498838777,standardized_coordinates,True,Marshall Islands,Marshall Islands,both
+OTHER_024,72.09703139512575,11.19736049430171,standardized_coordinates,True,Lakshadweep,Lakshadweep,both
+OTHER_025,72.91923790083953,7.012883739374322,standardized_coordinates,True,Maldives,Maldives,both

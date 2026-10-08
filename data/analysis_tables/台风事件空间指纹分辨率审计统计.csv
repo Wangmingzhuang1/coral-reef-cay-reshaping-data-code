@@ -1,5 +1,5 @@
 ﻿scope,n,median_area_relative_difference,median_centroid_offset_m,max_centroid_offset_m,median_one_pixel_angular_jitter_deg,max_one_pixel_angular_jitter_deg,mean_axial_residual_deg,resultant_length,rayleigh_p_value,median_pixel_size_m
-pair_extended_sentinel2,132,0.0,0.0,1.7820691223482776,,,,,,
+pair_extended_sentinel2,132,0.0,0.0,6.355287432313019e-13,,,,,,
 pair_strict_sentinel2,22,0.0,0.0,2.842170943040401e-13,,,,,,
 jitter_extended_sentinel2,128,,,,5.45318418074427,89.99999427042206,,,,
 jitter_strict_sentinel2,19,,,,6.44051175108953,36.651979017174405,,,,

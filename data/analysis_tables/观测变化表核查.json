@@ -6,13 +6,13 @@
     "qsat_2017": 6
   },
   "n_observations_with_color": 2615,
-  "n_transitions": 2410,
+  "n_transitions": 2406,
   "transition_counts_by_sensor": {
-    "sentinel2": 1768,
-    "google_earth": 642
+    "sentinel2": 1766,
+    "google_earth": 640
   },
-  "n_transitions_with_boundary_change": 2371,
-  "n_transitions_with_typhoon_data": 2048,
+  "n_transitions_with_boundary_change": 2367,
+  "n_transitions_with_typhoon_data": 2044,
   "n_intervals_with_strong_typhoon": 109,
   "n_intervals_with_r34": 98,
   "typhoon_exposure_definition": "R34 uses the cay-bearing-specific IBTrACS quadrant at the nearest track point; strong exposure is quadrant-R34 or <=100 km with nearest center wind >=17.5 m/s.",
@@ -22,10 +22,10 @@
       0,
       1
     ],
-    "rows": 7230,
-    "transitions": 2410,
+    "rows": 7218,
+    "transitions": 2406,
     "status_counts": {
-      "ok": 7113,
+      "ok": 7101,
       "mask_unavailable_or_shape_mismatch": 117
     }
   },

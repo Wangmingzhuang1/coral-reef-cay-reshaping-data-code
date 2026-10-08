@@ -434,17 +434,22 @@ def decompose_along_cross(
     skimage orientation 约定经合成掩膜实测：phi=0 主轴沿图像行、phi=90 沿列，
     数组方向向量 (cos phi, sin phi)；地理方向 (east, north) = (sin phi, -cos phi)。
     """
-    angle = observations.drop_duplicates(["sand_cay_id", "date"])[
-        ["sand_cay_id", "date", "sand_cay_major_axis_angle", "sand_cay_area_m2"]
+    from 构建沙洲观测与变化表 import select_analysis_observations
+    keys = ["sensor", "sand_cay_id", "reference_frame_id"]
+    angle = select_analysis_observations(observations)[
+        keys + ["date", "sand_cay_major_axis_angle"]
     ].copy()
     angle["t10"] = pd.to_datetime(angle["date"]).dt.strftime("%Y-%m-%d")
     frame = core.copy()
     frame["t10"] = pd.to_datetime(frame["time_t"]).dt.strftime("%Y-%m-%d")
     frame = frame.merge(
-        angle[["sand_cay_id", "t10", "sand_cay_major_axis_angle"]],
-        on=["sand_cay_id", "t10"],
+        angle[keys + ["t10", "sand_cay_major_axis_angle"]],
+        on=keys + ["t10"],
         how="left",
+        validate="many_to_one",
     )
+    if frame["sand_cay_major_axis_angle"].isna().any():
+        raise ValueError("方向区间缺少同源、同固定框的起始主轴信息。")
     phi = np.radians(frame["sand_cay_major_axis_angle"].to_numpy(dtype=float))
     axis_east, axis_north = np.sin(phi), -np.cos(phi)
     perp_east, perp_north = np.cos(phi), np.sin(phi)

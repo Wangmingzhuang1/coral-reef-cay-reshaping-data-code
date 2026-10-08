@@ -363,7 +363,7 @@ def mask_perturbation_sensitivity(
         models, diagnostics, _ = unified_forcing_vegetation_model(
             analysis,
             frame,
-            None,
+            fit_random_intercepts=False,
         )
         selected = models.loc[
             models["specification"].eq("within_cay_fixed_effects")
@@ -539,7 +539,8 @@ BETWEEN_WITHIN_TERMS = (
 def unified_forcing_vegetation_model(
     analysis: pd.DataFrame,
     decomposition: pd.DataFrame,
-    tide: pd.DataFrame | None = None,
+    *,
+    fit_random_intercepts: bool = True,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """沙洲内统一模型：方向分解强迫 + 台风脉冲 + 植被调节（仅 S2，预定义项）。"""
     columns = [
@@ -555,28 +556,6 @@ def unified_forcing_vegetation_model(
     frame = analysis[analysis["sensor"].eq("sentinel2")].merge(
         decomposition[columns], on="transition_id", how="inner"
     )
-    if tide is not None and {
-        "transition_id",
-        "tide_mean_z",
-        "tide_delta_abs_z",
-        "tide_adjusted_status",
-    }.issubset(tide.columns):
-        frame = frame.merge(
-            tide[
-                [
-                    "transition_id",
-                    "tide_mean_z",
-                    "tide_delta_abs_z",
-                    "tide_adjusted_status",
-                ]
-            ],
-            on="transition_id",
-            how="left",
-        )
-    else:
-        frame["tide_mean_z"] = np.nan
-        frame["tide_delta_abs_z"] = np.nan
-        frame["tide_adjusted_status"] = "not_attempted"
     frame = frame[
         frame[["current_along_mean", "wave_hs_p90", "vegetation_fraction_t"]]
         .notna()
@@ -627,9 +606,6 @@ def unified_forcing_vegetation_model(
     )
     frame["area_between_z"] = zscore(grouped_for_bw["log_area_z"].transform("mean"))
     frame["hs_w_x_veg_between"] = frame["wave_hs_p90_w"] * frame["veg_between_z"]
-    frame["tide_mean_w"] = frame["tide_mean_z"] - grouped_for_bw[
-        "tide_mean_z"
-    ].transform("mean")
     positive = frame.loc[
         frame["gross_mobility_fraction_per_year"].gt(0),
         "gross_mobility_fraction_per_year",
@@ -656,20 +632,9 @@ def unified_forcing_vegetation_model(
         specifications = {
             "within_cay_fixed_effects": list(UNIFIED_FORCING_TERMS),
             "within_cay_reef_cluster_sensitivity": list(UNIFIED_FORCING_TERMS),
-            "within_cay_tide_sensitivity": list(UNIFIED_FORCING_TERMS)
-            + ["tide_mean_w", "tide_delta_abs_z"],
         }
         for specification, terms in specifications.items():
-            if specification == "within_cay_tide_sensitivity":
-                informative = (
-                    frame[terms].notna().all(axis=1)
-                    & frame[outcome_column].notna()
-                    & frame["tide_adjusted_status"].eq("ok")
-                )
-            else:
-                informative = (
-                    frame[terms].notna().all(axis=1) & frame[outcome_column].notna()
-                )
+            informative = frame[terms].notna().all(axis=1) & frame[outcome_column].notna()
             sub_frame = frame.loc[informative]
             if len(sub_frame) < 30 or sub_frame["sand_cay_id"].nunique() < 15:
                 diagnostics.append(
@@ -792,6 +757,8 @@ def unified_forcing_vegetation_model(
                         ),
                     }
                 )
+        if not fit_random_intercepts:
+            continue
         re_terms = list(BETWEEN_WITHIN_TERMS)
         informative_re = (
             frame[re_terms].notna().all(axis=1) & frame[outcome_column].notna()
@@ -1118,11 +1085,6 @@ def evaluate_primary_robustness(
             & models["outcome"].eq(outcome)
             & models["term"].eq(term)
         ]
-        tide = models.loc[
-            models["specification"].eq("within_cay_tide_sensitivity")
-            & models["outcome"].eq(outcome)
-            & models["term"].eq(term)
-        ]
         windows = window_sensitivity.loc[
             window_sensitivity["status"].eq("ok")
             & window_sensitivity["outcome"].eq(outcome)
@@ -1145,12 +1107,9 @@ def evaluate_primary_robustness(
             and float(np.sign(reef.iloc[0]["coefficient"])) == primary_sign
             and bool(reef.iloc[0]["fdr_q_value"] < 0.05)
         )
-        tide_ok = bool(tide.empty) or bool(
-            float(np.sign(tide.iloc[0]["coefficient"])) == primary_sign
-        )
         if not primary_supported:
             status = "primary_not_supported"
-        elif reef_ok and window_ok and perturbation_ok and tide_ok:
+        elif reef_ok and window_ok and perturbation_ok:
             status = "robust"
         elif (
             float(np.sign(reef.iloc[0]["coefficient"])) == primary_sign
@@ -1188,8 +1147,6 @@ def evaluate_primary_robustness(
                     and (np.sign(perturbations["coefficient"]) == primary_sign).all()
                 ),
                 "perturbation_alternative_supported": perturbation_ok,
-                "tide_available": bool(not tide.empty),
-                "tide_same_sign_or_unavailable": tide_ok,
                 "robustness_status": status,
                 "n_windows": int(len(windows)),
                 "n_perturbations": int(len(perturbations)),
@@ -1497,17 +1454,8 @@ def main() -> None:
     decomposition = pd.read_csv(
         args.output_dir / "流场波浪沿轴横轴分解.csv", encoding="utf-8-sig"
     )
-    tide_path = args.output_dir / "潮位敏感性区间.csv"
-    tide = None
-    if tide_path.is_file() and tide_path.stat().st_size > 0:
-        try:
-            tide = pd.read_csv(tide_path, encoding="utf-8-sig")
-        except pd.errors.EmptyDataError:
-            tide = None
-    if tide is not None and tide.empty:
-        tide = None
     unified, diagnostics, robustness = unified_forcing_vegetation_model(
-        analysis, decomposition, tide
+        analysis, decomposition
     )
     leave_one_cay, leave_one_cay_summary = directional_leave_one_cay_sensitivity(
         analysis, decomposition
@@ -1544,7 +1492,7 @@ def main() -> None:
             )
             continue
         window_models, _, _ = unified_forcing_vegetation_model(
-            window_analysis, window_decomposition, tide
+            window_analysis, window_decomposition, fit_random_intercepts=False
         )
         selected = window_models.loc[
             window_models["specification"].eq("within_cay_fixed_effects")
@@ -1708,7 +1656,6 @@ def main() -> None:
         "robustness_specifications": [
             "within-cay fixed effects clustered by cay",
             "within-cay fixed effects clustered by reef",
-            "tide-adjusted sensitivity on identical complete sample when tide table exists",
             "predefined interval-window sensitivity",
             "±1 pixel mask-boundary perturbation sensitivity",
         ],
@@ -1716,7 +1663,6 @@ def main() -> None:
             "VIF, residual skew/kurtosis, studentized outliers, Cook's distance, "
             "random-intercept variance, ICC, convergence status and model likelihood"
         ),
-        "tide_status": "not_attempted" if tide is None else "table_present",
         "wind_increment": {
             "rows": int(len(wind_terms)),
             "comparison": wind_comparison.to_dict("records")

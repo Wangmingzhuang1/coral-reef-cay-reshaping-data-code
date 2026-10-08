@@ -12,6 +12,7 @@ from pathlib import Path
 
 import cv2
 import numpy as np
+from 构建沙洲观测与变化表 import read_mask
 import pandas as pd
 from scipy.stats import spearmanr
 from scipy.stats import wilcoxon
@@ -49,20 +50,6 @@ OUTCOMES = [
     "redistribution_balance_index",
 ]
 RANDOM_SEED = 20260903
-
-
-def read_mask(path_text: object) -> np.ndarray | None:
-    path = Path(str(path_text))
-    if not path.is_file():
-        return None
-    try:
-        buffer = np.fromfile(path, dtype=np.uint8)
-    except OSError:
-        return None
-    if buffer.size == 0:
-        return None
-    mask = cv2.imdecode(buffer, cv2.IMREAD_GRAYSCALE)
-    return mask > 0 if mask is not None else None
 
 
 def finite_number(value: object) -> float:
@@ -431,7 +418,6 @@ def eligible_controls(
 def match_controls(
     event_pairs: pd.DataFrame,
     controls: pd.DataFrame,
-    tide: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     if event_pairs.empty:
         return event_pairs
@@ -456,19 +442,7 @@ def match_controls(
         candidates["time_score"] = (
             candidates["control_midpoint"] - event.event_time_utc
         ).abs().dt.days / 365.2425
-        candidates["tide_score"] = np.nan
         candidates["match_score"] = candidates["duration_score"] + 0.05 * candidates["time_score"]
-        if tide is not None and "tide_mean_m" in candidates.columns:
-            candidates["tide_score"] = np.abs(
-                candidates["tide_mean_m"] - event.tide_mean_m
-            )
-            candidates["match_score"] = (
-                candidates["duration_score"]
-                + 0.05 * candidates["time_score"]
-                + 0.25 * candidates["tide_score"].fillna(
-                    candidates["tide_score"].max() if candidates["tide_score"].notna().any() else 0
-                )
-            )
         control = candidates.sort_values(["match_score", "time_score"]).iloc[0]
         used_controls.add(str(control["transition_id"]))
         row = {
@@ -603,66 +577,6 @@ def summarize_matched(matched: pd.DataFrame) -> pd.DataFrame:
     return result
 
 
-def extended_dose_response(extended_pairs: pd.DataFrame) -> pd.DataFrame:
-    valid = extended_pairs.loc[
-        extended_pairs["response_status"].eq("ok")
-        & extended_pairs["nearest_dist_km"].notna()
-        & extended_pairs["gross_mobility_fraction"].notna()
-    ].copy()
-    if valid.empty:
-        return pd.DataFrame()
-    rows: list[dict[str, object]] = []
-    storm_groups = valid.groupby("sid")
-    for dose_name, dose_column in [
-        ("nearest_distance_km", "nearest_dist_km"),
-        ("local_duration_within_250km_h", "local_duration_within_250km_h"),
-        ("wind_at_nearest_ms", "wind_at_nearest_ms"),
-    ]:
-        if dose_column not in valid.columns:
-            continue
-        storm_medians = (
-            storm_groups[[dose_column, "gross_mobility_fraction"]]
-            .median()
-            .dropna()
-        )
-        if len(storm_medians) < MINIMUM_STORMS_FOR_INFERENCE:
-            rows.append(
-                {
-                    "dose": dose_name,
-                    "status": "insufficient_independent_storms",
-                    "n_storms": int(len(storm_medians)),
-                    "n_pairs": int(valid[dose_column].notna().sum()),
-                }
-            )
-            continue
-        rho, p_value = spearmanr(
-            storm_medians[dose_column], storm_medians["gross_mobility_fraction"]
-        )
-        rows.append(
-            {
-                "dose": dose_name,
-                "status": "exploratory_only",
-                "n_storms": int(len(storm_medians)),
-                "n_pairs": int(valid[dose_column].notna().sum()),
-                "storm_median_dose": float(storm_medians[dose_column].median()),
-                "storm_median_response": float(
-                    storm_medians["gross_mobility_fraction"].median()
-                ),
-                "spearman_rho": float(rho),
-                "two_sided_p_value": float(p_value),
-                "interpretation": (
-                    "Exploratory dose association clustered by storm; no causal dose effect"
-                ),
-            }
-        )
-    result = pd.DataFrame(rows)
-    if not result.empty and "two_sided_p_value" in result.columns:
-        valid_p = result["two_sided_p_value"].notna()
-        if valid_p.any():
-            result.loc[valid_p, "fdr_q_value"] = multipletests(
-                result.loc[valid_p, "two_sided_p_value"], method="fdr_bh"
-            )[1]
-    return result
 
 
 BOOTSTRAP_ITERATIONS = 2000
@@ -670,886 +584,71 @@ RAYLEIGH_CONCENTRATION_ALPHA = 0.05
 MECHANISM_MEAN_ANGLE_TOLERANCE_DEG = 45.0
 
 
-def _mask_centroid(mask: np.ndarray) -> tuple[float, float] | None:
-    ys, xs = np.nonzero(mask)
-    if len(xs) == 0:
-        return None
-    return float(xs.mean()), float(ys.mean())
 
 
-def _bearing_deg(east: float, north: float) -> float:
-    return float(np.degrees(np.arctan2(east, north)) % 360.0)
 
 
-def _wrap_deg(angle: float) -> float:
-    return float((angle + 180.0) % 360.0 - 180.0)
 
 
-def _fold_axial_deg(angle: float) -> float:
-    return float((angle + 90.0) % 180.0 - 90.0)
 
 
-def _axial_summary(angles_deg: np.ndarray) -> tuple[float, float, float, int]:
-    angles = np.asarray(angles_deg, dtype=float)
-    angles = angles[np.isfinite(angles)]
-    n = int(len(angles))
-    if n == 0:
-        return np.nan, np.nan, np.nan, 0
-    doubled = np.radians(np.asarray([_fold_axial_deg(a) for a in angles]) * 2.0)
-    c = float(np.cos(doubled).mean())
-    s = float(np.sin(doubled).mean())
-    resultant = float(np.hypot(c, s))
-    mean_axial = float(np.degrees(np.arctan2(s, c)) / 2.0)
-    z = n * resultant**2
-    p_value = float(np.exp(-z))
-    return mean_axial, resultant, p_value, n
 
 
-def _circular_summary(angles_deg: np.ndarray) -> tuple[float, float, float, int]:
-    angles = np.asarray(angles_deg, dtype=float)
-    angles = angles[np.isfinite(angles)]
-    n = int(len(angles))
-    if n == 0:
-        return np.nan, np.nan, np.nan, 0
-    rad = np.radians(angles)
-    c = float(np.cos(rad).mean())
-    s = float(np.sin(rad).mean())
-    resultant = float(np.hypot(c, s))
-    mean_angle = float(np.degrees(np.arctan2(s, c)) % 360.0)
-    z = n * resultant**2
-    p_value = float(np.exp(-z))
-    return mean_angle, resultant, p_value, n
 
 
-def _storm_clustered_circular_bootstrap(
-    frame: pd.DataFrame,
-    angle_column: str,
-    rng: np.random.Generator,
-    axial: bool = False,
-) -> dict[str, float]:
-    storms = frame["sid"].unique()
-    if len(storms) < 3:
-        return {
-            "bootstrap_mean_angle_low": np.nan,
-            "bootstrap_mean_angle_high": np.nan,
-            "bootstrap_resultant_low": np.nan,
-            "bootstrap_resultant_high": np.nan,
-        }
-    means = []
-    resultants = []
-    for _ in range(BOOTSTRAP_ITERATIONS):
-        sampled = rng.choice(storms, size=len(storms), replace=True)
-        parts = []
-        for sid in sampled:
-            subset = frame.loc[frame["sid"].eq(sid), angle_column].dropna()
-            if not subset.empty:
-                parts.append(subset.to_numpy(dtype=float))
-        if not parts:
-            continue
-        mean_angle, resultant, _, n = _circular_summary(np.concatenate(parts))
-        if axial:
-            mean_angle, resultant, _, n = _axial_summary(np.concatenate(parts))
-        if n >= 3:
-            means.append(mean_angle)
-            resultants.append(resultant)
-    if not means:
-        return {
-            "bootstrap_mean_angle_low": np.nan,
-            "bootstrap_mean_angle_high": np.nan,
-            "bootstrap_resultant_low": np.nan,
-            "bootstrap_resultant_high": np.nan,
-        }
-    means_arr = np.asarray(means, dtype=float)
-    resultants_arr = np.asarray(resultants, dtype=float)
-    return {
-        "bootstrap_mean_angle_low": float(np.quantile(means_arr, 0.025)),
-        "bootstrap_mean_angle_high": float(np.quantile(means_arr, 0.975)),
-        "bootstrap_resultant_low": float(np.quantile(resultants_arr, 0.025)),
-        "bootstrap_resultant_high": float(np.quantile(resultants_arr, 0.975)),
-    }
 
 
-def event_spatial_fingerprint(
-    pairs: pd.DataFrame,
-    observations: pd.DataFrame,
-) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """M1：侵蚀/堆积质心方位是否带有风暴几何决定的方向指纹。"""
-    axis_lookup = (
-        observations.drop_duplicates(["image_id"])
-        .set_index("image_id")["sand_cay_major_axis_angle"]
-    )
-    rows: list[dict[str, object]] = []
-    for pair in pairs.itertuples(index=False):
-        if getattr(pair, "response_status", "") != "ok":
-            continue
-        pre_mask = read_mask(getattr(pair, "pre_mask_path", ""))
-        post_mask = read_mask(getattr(pair, "post_mask_path", ""))
-        if pre_mask is None or post_mask is None or pre_mask.shape != post_mask.shape:
-            continue
-        erosion = np.logical_and(pre_mask, ~post_mask)
-        deposition = np.logical_and(~pre_mask, post_mask)
-        origin = _mask_centroid(pre_mask)
-        erosion_centroid = _mask_centroid(erosion)
-        deposition_centroid = _mask_centroid(deposition)
-        if origin is None or erosion_centroid is None or deposition_centroid is None:
-            continue
-        erosion_bearing = _bearing_deg(
-            erosion_centroid[0] - origin[0],
-            -(erosion_centroid[1] - origin[1]),
-        )
-        deposition_bearing = _bearing_deg(
-            deposition_centroid[0] - origin[0],
-            -(deposition_centroid[1] - origin[1]),
-        )
-        windward = float(getattr(pair, "storm_center_bearing_from_cay_deg", np.nan))
-        motion = float(getattr(pair, "storm_motion_bearing_deg", np.nan))
-        axis_angle = float(
-            axis_lookup.get(getattr(pair, "pre_image_id", ""), np.nan)
-        )
-        rows.append(
-            {
-                "event_pair_id": pair.event_pair_id,
-                "sid": pair.sid,
-                "sand_cay_id": pair.sand_cay_id,
-                "window_days": pair.window_days,
-                "sample": "strict" if pair.window_days == MAIN_WINDOW_DAYS else "extended",
-                "erosion_bearing_deg": erosion_bearing,
-                "deposition_bearing_deg": deposition_bearing,
-                "windward_bearing_deg": windward,
-                "leeward_bearing_deg": _wrap_deg(windward + 180.0) % 360.0,
-                "storm_motion_bearing_deg": motion,
-                "cay_axis_bearing_deg": (
-                    _bearing_deg(np.sin(np.radians(axis_angle)), -np.cos(np.radians(axis_angle)))
-                    if np.isfinite(axis_angle)
-                    else np.nan
-                ),
-                "erosion_axis_residual_deg": (
-                    _fold_axial_deg(erosion_bearing - _bearing_deg(np.sin(np.radians(axis_angle)), -np.cos(np.radians(axis_angle))))
-                    if np.isfinite(axis_angle)
-                    else np.nan
-                ),
-                "deposition_axis_residual_deg": (
-                    _fold_axial_deg(deposition_bearing - _bearing_deg(np.sin(np.radians(axis_angle)), -np.cos(np.radians(axis_angle))))
-                    if np.isfinite(axis_angle)
-                    else np.nan
-                ),
-                "erosion_residual_deg": _wrap_deg(erosion_bearing - windward),
-                "deposition_residual_deg": _wrap_deg(
-                    deposition_bearing - (windward + 180.0)
-                ),
-                "transport_residual_deg": _wrap_deg(
-                    _wrap_deg(deposition_bearing - erosion_bearing) - motion
-                ),
-            }
-        )
-    frame = pd.DataFrame(rows)
-    if frame.empty:
-        return frame, pd.DataFrame()
-    rng = np.random.default_rng(RANDOM_SEED)
-    stats_rows: list[dict[str, object]] = []
-    for sample, group in frame.groupby("sample"):
-        for angle_column, prediction in [
-            ("erosion_residual_deg", "erosion on storm-facing side"),
-            ("deposition_residual_deg", "deposition on lee side"),
-            ("transport_residual_deg", "transport aligned with storm motion"),
-            ("erosion_axis_residual_deg", "erosion aligned with cay major axis"),
-            ("deposition_axis_residual_deg", "deposition aligned with cay major axis"),
-        ]:
-            axial = angle_column.endswith("axis_residual_deg")
-            if axial:
-                mean_angle, resultant, p_value, n = _axial_summary(
-                    group[angle_column].to_numpy(dtype=float)
-                )
-                centered = mean_angle
-                tolerance = 30.0
-            else:
-                mean_angle, resultant, p_value, n = _circular_summary(
-                    group[angle_column].to_numpy(dtype=float)
-                )
-                centered = _wrap_deg(mean_angle)
-                tolerance = MECHANISM_MEAN_ANGLE_TOLERANCE_DEG
-            bootstrap = _storm_clustered_circular_bootstrap(
-                group, angle_column, rng, axial=axial
-            )
-            stats_rows.append(
-                {
-                    "sample": sample,
-                    "angle_column": angle_column,
-                    "prediction": prediction,
-                    "n_pairs": n,
-                    "n_storms": int(group["sid"].nunique()),
-                    "mean_residual_deg": mean_angle,
-                    "centered_mean_residual_deg": centered,
-                    "resultant_length": resultant,
-                    "rayleigh_p_value": p_value,
-                    **bootstrap,
-                    "concentrated": bool(
-                        p_value < RAYLEIGH_CONCENTRATION_ALPHA
-                        and abs(centered) < tolerance
-                    ),
-                }
-            )
-    stats = pd.DataFrame(stats_rows)
-    return frame, stats
 
 
-def directional_dose_response(
-    pairs: pd.DataFrame,
-    observations: pd.DataFrame,
-    reef_daily_csv: Path,
-) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """M2：事件响应是否由轴向对齐能量（矢量剂量）而非标量能量解释。"""
-    valid = pairs.loc[pairs["response_status"].eq("ok")].copy()
-    if valid.empty or not reef_daily_csv.is_file():
-        return pd.DataFrame(), pd.DataFrame()
-    daily = pd.read_csv(
-        reef_daily_csv,
-        usecols=["reef_id", "source", "time", "uo", "vo", "VHM0", "VSDX", "VSDY", "u10", "v10"],
-        low_memory=False,
-    )
-    raw_time = daily["time"].copy()
-    daily["time"] = pd.to_datetime(raw_time, errors="coerce", format="mixed")
-    if daily["time"].isna().any():
-        examples = raw_time.loc[daily["time"].isna()].astype(str).head(5).tolist()
-        raise ValueError(
-            "环境日表含无法解析的 time；示例：" + ", ".join(examples)
-        )
-    axis_lookup = (
-        observations.drop_duplicates(["image_id"])
-        .set_index("image_id")["sand_cay_major_axis_angle"]
-    )
-    rows: list[dict[str, object]] = []
-    for pair in valid.itertuples(index=False):
-        pre_date = pd.to_datetime(pair.pre_date)
-        post_date = pd.to_datetime(pair.post_date)
-        window = daily.loc[
-            daily["reef_id"].eq(pair.reef_id)
-            & daily["time"].gt(pre_date)
-            & daily["time"].le(post_date)
-        ]
-        wave = window.loc[window["source"].eq("waverys")]
-        wind = window.loc[window["source"].eq("era5")]
-        expected_days = max(int((post_date - pre_date).days), 1)
-        axis_angle = float(axis_lookup.get(pair.pre_image_id, np.nan))
-        if not np.isfinite(axis_angle):
-            continue
-        phi = np.radians(axis_angle)
-        along_unit = np.array([np.sin(phi), -np.cos(phi)])
-        cross_unit = np.array([np.cos(phi), np.sin(phi)])
-        wave_vector = np.array(
-            [float(wave["VSDX"].mean()), float(wave["VSDY"].mean())]
-        ) if len(wave) else np.array([np.nan, np.nan])
-        wind_vector = np.array(
-            [float(wind["u10"].mean()), float(wind["v10"].mean())]
-        ) if len(wind) else np.array([np.nan, np.nan])
-        pre_mask = read_mask(pair.pre_mask_path)
-        post_mask = read_mask(pair.post_mask_path)
-        along_shift = cross_shift = np.nan
-        if pre_mask is not None and post_mask is not None and pre_mask.shape == post_mask.shape:
-            pre_centroid = _mask_centroid(pre_mask)
-            post_centroid = _mask_centroid(post_mask)
-            if pre_centroid and post_centroid:
-                east = post_centroid[0] - pre_centroid[0]
-                north = -(post_centroid[1] - pre_centroid[1])
-                along_shift = float(np.dot([east, north], along_unit))
-                cross_shift = float(np.dot([east, north], cross_unit))
-        wave_along = float(np.dot(wave_vector, along_unit))
-        wave_cross = float(np.dot(wave_vector, cross_unit))
-        wind_along = float(np.dot(wind_vector, along_unit))
-        wind_cross = float(np.dot(wind_vector, cross_unit))
-        wave_magnitude = float(np.hypot(*wave_vector))
-        years = pair.pair_span_days / 365.2425
-        rows.append(
-            {
-                "event_pair_id": pair.event_pair_id,
-                "sid": pair.sid,
-                "sand_cay_id": pair.sand_cay_id,
-                "reef_id": pair.reef_id,
-                "window_days": pair.window_days,
-                "sample": "strict" if pair.window_days == MAIN_WINDOW_DAYS else "extended",
-                "pair_span_days": pair.pair_span_days,
-                "wave_days_observed": int(len(wave)),
-                "wave_complete": bool(len(wave) >= 0.9 * expected_days),
-                "wind_days_observed": int(len(wind)),
-                "wind_complete": bool(len(wind) >= 0.9 * expected_days),
-                "wave_hs_p90": float(wave["VHM0"].quantile(0.9)) if len(wave) else np.nan,
-                "wave_along": wave_along,
-                "wave_cross": wave_cross,
-                "wave_aligned_energy": abs(wave_along),
-                "wave_magnitude": wave_magnitude,
-                "wave_misalign_cos": (
-                    abs(wave_along) / wave_magnitude if wave_magnitude > 0 else np.nan
-                ),
-                "wind_along": wind_along,
-                "wind_cross": wind_cross,
-                "gross_mobility_fraction": pair.gross_mobility_fraction,
-                "along_shift_normalized_per_year": (
-                    along_shift / np.sqrt(pair.area_pre_m2 / np.pi) / years
-                    if np.isfinite(along_shift)
-                    else np.nan
-                ),
-                "cross_shift_normalized_per_year": (
-                    cross_shift / np.sqrt(pair.area_pre_m2 / np.pi) / years
-                    if np.isfinite(cross_shift)
-                    else np.nan
-                ),
-            }
-        )
-    frame = pd.DataFrame(rows)
-    if frame.empty:
-        return frame, pd.DataFrame()
-    frame = frame.loc[frame["wave_complete"]].copy()
-    if frame.empty:
-        return frame, pd.DataFrame()
-    for column in [
-        "wave_hs_p90",
-        "wave_along",
-        "wave_cross",
-        "wave_aligned_energy",
-        "wave_misalign_cos",
-        "wind_along",
-        "wind_cross",
-        "gross_mobility_fraction",
-        "along_shift_normalized_per_year",
-        "cross_shift_normalized_per_year",
-    ]:
-        frame[column] = pd.to_numeric(frame[column], errors="coerce")
-    frame["log_duration"] = np.log(frame["pair_span_days"])
-    positive = frame.loc[frame["gross_mobility_fraction"].gt(0), "gross_mobility_fraction"]
-    floor = float(positive.quantile(0.01) / 2) if len(positive) else 1e-6
-    frame["log_gross_mobility"] = np.log(frame["gross_mobility_fraction"].clip(lower=0) + floor)
-
-    def z(series: pd.Series) -> pd.Series:
-        values = pd.to_numeric(series, errors="coerce")
-        sd = float(values.std(ddof=0))
-        if not np.isfinite(sd) or sd == 0:
-            return values * 0
-        return (values - float(values.mean())) / sd
-
-    frame["wave_hs_p90_z"] = z(frame["wave_hs_p90"])
-    frame["wave_along_abs_z"] = z(frame["wave_along"].abs())
-    frame["wave_cross_abs_z"] = z(frame["wave_cross"].abs())
-    frame["wave_aligned_energy_z"] = z(frame["wave_aligned_energy"])
-    frame["wave_misalign_cos_z"] = z(frame["wave_misalign_cos"])
-    frame["wave_along_z"] = z(frame["wave_along"])
-    frame["wave_cross_z"] = z(frame["wave_cross"])
-    frame["log_duration_z"] = z(frame["log_duration"])
-
-    model_specs = {
-        "scalar_dose": ("log_gross_mobility", ["wave_hs_p90_z", "log_duration_z"]),
-        "vector_dose": (
-            "log_gross_mobility",
-            ["wave_along_abs_z", "wave_cross_abs_z", "log_duration_z"],
-        ),
-        "aligned_dose": (
-            "log_gross_mobility",
-            ["wave_aligned_energy_z", "wave_misalign_cos_z", "log_duration_z"],
-        ),
-        "directional_along": (
-            "along_shift_normalized_per_year",
-            ["wave_along_z", "log_duration_z"],
-        ),
-        "directional_cross": (
-            "cross_shift_normalized_per_year",
-            ["wave_cross_z", "log_duration_z"],
-        ),
-    }
-    model_rows: list[dict[str, object]] = []
-    for name, (outcome, terms) in model_specs.items():
-        subset = frame.loc[frame[[outcome] + terms].notna().all(axis=1)].copy()
-        if len(subset) < 20 or subset["sid"].nunique() < 5:
-            model_rows.append(
-                {
-                    "model": name,
-                    "outcome": outcome,
-                    "status": "insufficient_sample",
-                    "n_pairs": int(len(subset)),
-                    "n_storms": int(subset["sid"].nunique()),
-                }
-            )
-            continue
-        x = sm.add_constant(subset[terms], has_constant="add")
-        fitted = sm.OLS(subset[outcome], x).fit(
-            cov_type="cluster",
-            cov_kwds={"groups": subset["sid"], "use_correction": True},
-        )
-        for term in terms:
-            ci_low, ci_high = fitted.conf_int().loc[term].astype(float)
-            model_rows.append(
-                {
-                    "model": name,
-                    "outcome": outcome,
-                    "term": term,
-                    "status": "ok",
-                    "n_pairs": int(len(subset)),
-                    "n_storms": int(subset["sid"].nunique()),
-                    "coefficient": float(fitted.params[term]),
-                    "ci95_low": float(ci_low),
-                    "ci95_high": float(ci_high),
-                    "p_value": float(fitted.pvalues[term]),
-                    "model_aic": float(fitted.aic),
-                    "model_bic": float(fitted.bic),
-                    "adj_r_squared": float(fitted.rsquared_adj),
-                }
-            )
-    models = pd.DataFrame(model_rows)
-    return frame, models
 
 
-def resolution_audit(
-    pairs: pd.DataFrame,
-    observations: pd.DataFrame,
-    transitions: pd.DataFrame,
-) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """审计掩膜派生面积/质心/主轴的使用正确性，并量化分辨率对方位的影响。"""
-    obs = observations.drop_duplicates(["image_id"]).set_index("image_id")
-    rows: list[dict[str, object]] = []
-    for pair in pairs.itertuples(index=False):
-        if getattr(pair, "response_status", "") != "ok":
-            continue
-        for tag, image_id, mask_path in [
-            ("pre", pair.pre_image_id, pair.pre_mask_path),
-            ("post", pair.post_image_id, pair.post_mask_path),
-        ]:
-            mask = read_mask(mask_path)
-            if mask is None or image_id not in obs.index:
-                continue
-            feature = obs.loc[image_id]
-            pixel_size = float(pd.to_numeric(pd.Series([feature["pixel_size_m"]]), errors="coerce").iloc[0])
-            mask_area = float(mask.sum()) * pixel_size**2
-            feature_area = float(pd.to_numeric(pd.Series([feature["sand_cay_area_m2"]]), errors="coerce").iloc[0])
-            centroid = _mask_centroid(mask)
-            if centroid is None:
-                continue
-            feat_cx = float(pd.to_numeric(pd.Series([feature["sand_cay_centroid_x"]]), errors="coerce").iloc[0])
-            feat_cy = float(pd.to_numeric(pd.Series([feature["sand_cay_centroid_y"]]), errors="coerce").iloc[0])
-            centroid_dist_m = float(
-                np.hypot(
-                    (feat_cx - centroid[0]) * pixel_size,
-                    (feat_cy - centroid[1]) * pixel_size,
-                )
-            )
-            rows.append(
-                {
-                    "event_pair_id": pair.event_pair_id,
-                    "sample": "strict" if pair.window_days == MAIN_WINDOW_DAYS else "extended",
-                    "sensor": pair.sensor,
-                    "endpoint": tag,
-                    "pixel_size_m": pixel_size,
-                    "mask_area_m2": mask_area,
-                    "feature_area_m2": feature_area,
-                    "area_relative_difference": (
-                        abs(mask_area - feature_area) / feature_area if feature_area > 0 else np.nan
-                    ),
-                    "centroid_offset_m": centroid_dist_m,
-                }
-            )
-    frame = pd.DataFrame(rows)
-    jitter_rows: list[dict[str, object]] = []
-    for pair in pairs.itertuples(index=False):
-        if getattr(pair, "response_status", "") != "ok":
-            continue
-        pre_mask = read_mask(pair.pre_mask_path)
-        post_mask = read_mask(pair.post_mask_path)
-        if pre_mask is None or post_mask is None or pre_mask.shape != post_mask.shape:
-            continue
-        pixel_size = float(
-            pd.to_numeric(pd.Series([obs.loc[pair.pre_image_id, "pixel_size_m"]]), errors="coerce").iloc[0]
-        )
-        origin = _mask_centroid(pre_mask)
-        erosion = np.logical_and(pre_mask, ~post_mask)
-        deposition = np.logical_and(~pre_mask, post_mask)
-        for name, change_mask in [("erosion", erosion), ("deposition", deposition)]:
-            centroid = _mask_centroid(change_mask)
-            if origin is None or centroid is None:
-                continue
-            distance_m = float(
-                np.hypot(centroid[0] - origin[0], centroid[1] - origin[1]) * pixel_size
-            )
-            jitter_rows.append(
-                {
-                    "event_pair_id": pair.event_pair_id,
-                    "sample": "strict" if pair.window_days == MAIN_WINDOW_DAYS else "extended",
-                    "sensor": pair.sensor,
-                    "change": name,
-                    "pixel_size_m": pixel_size,
-                    "centroid_distance_m": distance_m,
-                    "one_pixel_angular_jitter_deg": float(
-                        np.degrees(np.arctan2(pixel_size, max(distance_m, 1e-6)))
-                    ),
-                }
-            )
-    jitter = pd.DataFrame(jitter_rows)
-    stats_rows: list[dict[str, object]] = []
-    if not frame.empty:
-        for (sample, sensor), group in frame.groupby(["sample", "sensor"]):
-            stats_rows.append(
-                {
-                    "scope": f"pair_{sample}_{sensor}",
-                    "n": int(len(group)),
-                    "median_area_relative_difference": float(
-                        group["area_relative_difference"].median()
-                    ),
-                    "median_centroid_offset_m": float(group["centroid_offset_m"].median()),
-                    "max_centroid_offset_m": float(group["centroid_offset_m"].max()),
-                }
-            )
-    if not jitter.empty:
-        for (sample, sensor), group in jitter.groupby(["sample", "sensor"]):
-            stats_rows.append(
-                {
-                    "scope": f"jitter_{sample}_{sensor}",
-                    "n": int(len(group)),
-                    "median_one_pixel_angular_jitter_deg": float(
-                        group["one_pixel_angular_jitter_deg"].median()
-                    ),
-                    "max_one_pixel_angular_jitter_deg": float(
-                        group["one_pixel_angular_jitter_deg"].max()
-                    ),
-                }
-            )
-    ge = transitions.loc[
-        transitions["sensor"].eq("google_earth")
-        & transitions["boundary_change_status"].eq("ok")
-        & transitions["time_interval_days"].between(90, 730)
-    ].copy()
-    ge_rows: list[dict[str, object]] = []
-    date_lookup = (
-        observations.loc[observations["sensor"].eq("google_earth")]
-        .copy()
-    )
-    date_lookup["date"] = pd.to_datetime(date_lookup["date"], errors="coerce")
-    lookup = date_lookup.set_index(["sand_cay_id", "date"])
-    for transition in ge.itertuples(index=False):
-        keys = [
-            (transition.sand_cay_id, pd.to_datetime(transition.time_t)),
-            (transition.sand_cay_id, pd.to_datetime(transition.time_t1)),
-        ]
-        masks = []
-        meta = []
-        for key in keys:
-            if key not in lookup.index:
-                break
-            record = lookup.loc[key]
-            if isinstance(record, pd.DataFrame):
-                record = record.iloc[0]
-            mask = read_mask(record["mask_path"])
-            if mask is None:
-                break
-            masks.append(mask)
-            meta.append(record)
-        if len(masks) != 2 or masks[0].shape != masks[1].shape:
-            continue
-        pre_mask, post_mask = masks
-        pixel_size = float(
-            pd.to_numeric(pd.Series([meta[0]["pixel_size_m"]]), errors="coerce").iloc[0]
-        )
-        origin = _mask_centroid(pre_mask)
-        erosion = np.logical_and(pre_mask, ~post_mask)
-        deposition = np.logical_and(~pre_mask, post_mask)
-        erosion_centroid = _mask_centroid(erosion)
-        deposition_centroid = _mask_centroid(deposition)
-        axis_angle = float(
-            pd.to_numeric(pd.Series([meta[0]["sand_cay_major_axis_angle"]]), errors="coerce").iloc[0]
-        )
-        if origin is None or erosion_centroid is None or deposition_centroid is None:
-            continue
-        if not np.isfinite(axis_angle):
-            continue
-        axis_bearing = _bearing_deg(np.sin(np.radians(axis_angle)), -np.cos(np.radians(axis_angle)))
-        for name, centroid in [("erosion", erosion_centroid), ("deposition", deposition_centroid)]:
-            bearing = _bearing_deg(centroid[0] - origin[0], -(centroid[1] - origin[1]))
-            ge_rows.append(
-                {
-                    "transition_id": transition.transition_id,
-                    "change": name,
-                    "pixel_size_m": pixel_size,
-                    "axis_residual_deg": _fold_axial_deg(bearing - axis_bearing),
-                }
-            )
-    ge_frame = pd.DataFrame(ge_rows)
-    if not ge_frame.empty:
-        for change, group in ge_frame.groupby("change"):
-            mean_axial, resultant, p_value, n = _axial_summary(
-                group["axis_residual_deg"].to_numpy(dtype=float)
-            )
-            stats_rows.append(
-                {
-                    "scope": f"google_earth_axis_{change}",
-                    "n": n,
-                    "mean_axial_residual_deg": mean_axial,
-                    "resultant_length": resultant,
-                    "rayleigh_p_value": p_value,
-                    "median_pixel_size_m": float(group["pixel_size_m"].median()),
-                }
-            )
-    return frame, pd.DataFrame(stats_rows)
 
 
 def main() -> None:
-    research_root = Path(__file__).resolve().parent
-    dataset_root = research_root / "data" / "source_dataset"
+    root = Path(__file__).resolve().parent
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--observation-csv",
-        type=Path,
-        default=research_root / "outputs" / "沙洲观测主表.csv",
-    )
-    parser.add_argument(
-        "--transition-csv",
-        type=Path,
-        default=research_root / "outputs" / "沙洲变化区间.csv",
-    )
-    parser.add_argument(
-        "--event-csv",
-        type=Path,
-        default=research_root / "outputs" / "台风事件正式暴露.csv",
-    )
-    parser.add_argument(
-        "--event-feature-csv",
-        type=Path,
-        default=research_root / "outputs" / "台风事件暴露特征.csv",
-    )
-    parser.add_argument(
-        "--reef-daily-csv",
-        type=Path,
-        default=research_root
-        / "data"
-        / "environment"
-        / "harmonized"
-        / "daily"
-        / "reef_daily_features.csv",
-    )
-    parser.add_argument("--output-dir", type=Path, default=research_root / "outputs")
+    parser.add_argument("--observation-csv", type=Path, default=root / "outputs" / "沙洲观测主表.csv")
+    parser.add_argument("--transition-csv", type=Path, default=root / "outputs" / "沙洲变化区间.csv")
+    parser.add_argument("--event-csv", type=Path, default=root / "outputs" / "台风事件正式暴露.csv")
+    parser.add_argument("--output-dir", type=Path, default=root / "outputs")
     args = parser.parse_args()
-
-    observations = prepare_observations(
-        exclude_reefs(pd.read_csv(args.observation_csv, low_memory=False))
-    )
-    observations_raw = exclude_reefs(
-        pd.read_csv(args.observation_csv, low_memory=False)
-    )
-    events_raw = exclude_reefs(pd.read_csv(args.event_csv, low_memory=False))
-    if args.event_feature_csv.is_file():
-        features = pd.read_csv(args.event_feature_csv, low_memory=False)
-        feature_columns = [
-            "reef_id",
-            "sand_cay_id",
-            "sid",
-            "storm_center_bearing_from_cay_deg",
-            "storm_motion_bearing_deg",
-            "local_duration_within_250km_h",
-            "local_duration_within_100km_h",
-            "local_r34_duration_approx_h",
-            "center_wind_ge17_5_within_250km_h",
-        ]
-        events_raw = events_raw.merge(
-            features[feature_columns],
-            on=["reef_id", "sand_cay_id", "sid"],
-            how="left",
-            validate="one_to_one",
-        )
-    events = prepare_events(events_raw)
-    transitions = exclude_reefs(pd.read_csv(args.transition_csv, low_memory=False))
-    transitions_raw = transitions.copy()
-    transitions = transitions.loc[transitions["sensor"].eq("sentinel2")].copy()
-    tide_path = args.output_dir / "潮位敏感性区间.csv"
-    tide = None
-    if tide_path.is_file() and tide_path.stat().st_size > 0:
-        try:
-            tide = pd.read_csv(tide_path, encoding="utf-8-sig")
-        except pd.errors.EmptyDataError:
-            tide = None
-    if tide is not None and tide.empty:
-        tide = None
-
-    pair_frames = [
-        build_event_pairs(observations, events, window_days)
-        for window_days in SENSITIVITY_WINDOWS
-    ]
-    all_pairs = pd.concat(pair_frames, ignore_index=True)
-    extended_pairs = build_event_pairs(
-        observations,
-        events,
-        window_days=EXTENDED_WINDOW_DAYS,
-        event_flag="event_candidate_250km",
-    )
-    main_pairs = all_pairs[
-        all_pairs["window_days"].eq(MAIN_WINDOW_DAYS)
-        & all_pairs["response_status"].eq("ok")
-    ].copy()
-    controls = eligible_controls(
-        transitions,
-        observations,
-        events[events["event_relevant"]],
-    )
-    if tide is not None and {"transition_id", "tide_mean_m"}.issubset(tide.columns):
-        controls = controls.merge(
-            tide[["transition_id", "tide_mean_m", "tide_delta_m"]],
-            on="transition_id",
-            how="left",
-        )
-        main_pairs = main_pairs.merge(
-            tide.rename(columns={"tide_mean_m": "event_tide_mean_m"})[
-                ["event_pair_id", "event_tide_mean_m", "tide_delta_m"]
-            ]
-            if "event_pair_id" in tide.columns
-            else tide[["transition_id", "tide_mean_m"]].rename(
-                columns={"tide_mean_m": "event_tide_mean_m"}
-            ),
-            how="left",
-        )
-    matched = match_controls(main_pairs, controls, tide)
-    extended_dose = extended_dose_response(extended_pairs)
-    mechanism_pairs = pd.concat([main_pairs, extended_pairs], ignore_index=True)
-    fingerprint, fingerprint_stats = event_spatial_fingerprint(
-        mechanism_pairs, observations
-    )
-    dose_rows, dose_models = directional_dose_response(
-        mechanism_pairs, observations, args.reef_daily_csv
-    )
-    resolution_rows, resolution_stats = resolution_audit(
-        mechanism_pairs, observations_raw, transitions_raw
-    )
-    window_summary = summarize_windows(all_pairs)
-    event_summary = summarize_events(main_pairs)
-    matched_summary = summarize_matched(matched)
+    observations = prepare_observations(exclude_reefs(pd.read_csv(args.observation_csv, low_memory=False)))
+    events = prepare_events(exclude_reefs(pd.read_csv(args.event_csv, low_memory=False)))
+    intervals = exclude_reefs(pd.read_csv(args.transition_csv, low_memory=False))
+    intervals = intervals.loc[intervals.sensor.eq("sentinel2")].copy()
+    all_pairs = pd.concat([build_event_pairs(observations, events, days) for days in SENSITIVITY_WINDOWS], ignore_index=True)
+    main_pairs = all_pairs.loc[all_pairs.window_days.eq(MAIN_WINDOW_DAYS) & all_pairs.response_status.eq("ok")].copy()
+    controls = eligible_controls(intervals, observations, events.loc[events.event_relevant])
+    matched = match_controls(main_pairs, controls)
     funnel = pairing_funnel(observations, events, MAIN_WINDOW_DAYS)
-
+    tables = {
+        "台风事件前后影像配对.csv": all_pairs,
+        "台风事件前后主分析样本.csv": main_pairs,
+        "台风事件窗口敏感性.csv": summarize_windows(all_pairs),
+        "台风事件响应汇总.csv": summarize_events(main_pairs),
+        "台风事件匹配对照.csv": matched,
+        "台风事件匹配对照统计.csv": summarize_matched(matched),
+    }
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    all_pair_path = args.output_dir / "台风事件前后影像配对.csv"
-    main_pair_path = args.output_dir / "台风事件前后主分析样本.csv"
-    window_path = args.output_dir / "台风事件窗口敏感性.csv"
-    event_summary_path = args.output_dir / "台风事件响应汇总.csv"
-    extended_path = args.output_dir / "台风事件扩展候选样本.csv"
-    matched_path = args.output_dir / "台风事件匹配对照.csv"
-    matched_summary_path = args.output_dir / "台风事件匹配对照统计.csv"
-    extended_dose_path = args.output_dir / "台风扩展剂量探索.csv"
-    fingerprint_path = args.output_dir / "台风事件空间指纹.csv"
-    fingerprint_stats_path = args.output_dir / "台风事件空间指纹统计.csv"
-    dose_path = args.output_dir / "台风方向剂量响应.csv"
-    dose_model_path = args.output_dir / "台风方向剂量响应模型.csv"
-    resolution_path = args.output_dir / "台风事件空间指纹分辨率审计.csv"
-    resolution_stats_path = args.output_dir / "台风事件空间指纹分辨率审计统计.csv"
-    check_path = args.output_dir / "台风事件前后分析核查.json"
-    all_pairs.to_csv(all_pair_path, index=False, encoding="utf-8-sig")
-    main_pairs.to_csv(main_pair_path, index=False, encoding="utf-8-sig")
-    window_summary.to_csv(window_path, index=False, encoding="utf-8-sig")
-    event_summary.to_csv(event_summary_path, index=False, encoding="utf-8-sig")
-    extended_pairs.to_csv(extended_path, index=False, encoding="utf-8-sig")
-    matched.to_csv(matched_path, index=False, encoding="utf-8-sig")
-    matched_summary.to_csv(matched_summary_path, index=False, encoding="utf-8-sig")
-    extended_dose.to_csv(extended_dose_path, index=False, encoding="utf-8-sig")
-    fingerprint.to_csv(fingerprint_path, index=False, encoding="utf-8-sig")
-    fingerprint_stats.to_csv(fingerprint_stats_path, index=False, encoding="utf-8-sig")
-    dose_rows.to_csv(dose_path, index=False, encoding="utf-8-sig")
-    dose_models.to_csv(dose_model_path, index=False, encoding="utf-8-sig")
-    resolution_rows.to_csv(resolution_path, index=False, encoding="utf-8-sig")
-    resolution_stats.to_csv(resolution_stats_path, index=False, encoding="utf-8-sig")
-
+    for name, frame in tables.items():
+        frame.to_csv(args.output_dir / name, index=False, encoding="utf-8-sig")
     summary = {
         "analysis_unit": "typhoon event - sand cay - Sentinel-2 - fixed reference frame",
         "analysis_contract_version": ANALYSIS_CONTRACT_VERSION,
         "analysis_contract_sha256": analysis_contract_digest(),
         "excluded_reefs": sorted(load_excluded_reefs()),
-        "event_definition": (
-            "inside the cay-bearing IBTrACS R34 quadrant, or nearest distance <=100 km "
-            "with local nearest wind >=17.5 m/s"
-        ),
+        "event_definition": "R34 toward cay, or distance <=100 km and nearest wind >=17.5 m/s",
         "pairing_funnel": funnel,
         "main_pre_window": [-MAIN_WINDOW_DAYS, -EVENT_BUFFER_DAYS],
         "main_post_window": [EVENT_BUFFER_DAYS, MAIN_WINDOW_DAYS],
-        "competing_event_rule": "exclude pairs containing another relevant event between images",
-        "main_valid_pairs": int(len(main_pairs)),
-        "main_storms": int(main_pairs["sid"].nunique()),
-        "main_cays": int(main_pairs["sand_cay_id"].nunique()),
-        "main_reefs": int(main_pairs["reef_id"].nunique()),
-        "main_sensor_counts": {
-            str(key): int(value) for key, value in main_pairs["sensor"].value_counts().items()
-        },
-        "main_extreme_response_pairs_pending_review": int(
-            main_pairs["response_qc_flag"].eq("extreme_requires_visual_review").sum()
-        ),
+        "main_valid_pairs": int(len(main_pairs)), "main_storms": int(main_pairs.sid.nunique()),
+        "main_cays": int(main_pairs.sand_cay_id.nunique()), "main_reefs": int(main_pairs.reef_id.nunique()),
         "matched_control_pairs": int(len(matched)),
-        "matched_independent_storms": int(matched["sid"].nunique()) if not matched.empty else 0,
-        "extended_analysis_rule": {
-            "window_days": EXTENDED_WINDOW_DAYS,
-            "radius_km": EXTENDED_RADIUS_KM,
-            "status": "exploratory_dose_only",
-            "minimum_independent_storms_for_inference": MINIMUM_STORMS_FOR_INFERENCE,
-        },
-        "extended_valid_pairs": int(
-            extended_pairs["response_status"].eq("ok").sum()
-        ),
-        "extended_storms": int(
-            extended_pairs.loc[extended_pairs["response_status"].eq("ok"), "sid"].nunique()
-        ),
-        "extended_cays": int(
-            extended_pairs.loc[
-                extended_pairs["response_status"].eq("ok"), "sand_cay_id"
-            ].nunique()
-        ),
-        "extended_reefs": int(
-            extended_pairs.loc[
-                extended_pairs["response_status"].eq("ok"), "reef_id"
-            ].nunique()
-        ),
-        "mechanism_tests": {
-            "M1_spatial_fingerprint": {
-                "pairs": int(len(fingerprint)),
-                "strict_pairs": int(fingerprint["sample"].eq("strict").sum())
-                if not fingerprint.empty
-                else 0,
-                "extended_pairs": int(fingerprint["sample"].eq("extended").sum())
-                if not fingerprint.empty
-                else 0,
-                "concentrated_tests": int(fingerprint_stats["concentrated"].sum())
-                if not fingerprint_stats.empty
-                else 0,
-                "total_tests": int(len(fingerprint_stats))
-                if not fingerprint_stats.empty
-                else 0,
-            },
-            "M2_directional_dose_response": {
-                "pairs": int(len(dose_rows)),
-                "models": int(dose_models["model"].nunique())
-                if not dose_models.empty
-                else 0,
-            },
-            "M1_resolution_audit": {
-                "rows": int(len(resolution_rows)),
-                "stats": resolution_stats.to_dict("records")
-                if not resolution_stats.empty
-                else [],
-            },
-        },
-        "tide_matching_status": "not_attempted" if tide is None else "table_present",
-        "inference_warning": (
-            "Event pairs and matched controls are observational and sparse. A non-significant matched contrast means the current CI cannot identify a general excess event effect; it does not demonstrate that typhoons have no effect. Tide, cloud/water color, unmeasured wave/current forcing, and storm-direction alignment remain alternative explanations."
-        ),
+        "matched_independent_storms": int(matched.sid.nunique()) if not matched.empty else 0,
+        "competing_event_rule": "exclude another relevant event between paired observations",
     }
-    check_path.write_text(
-        json.dumps(summary, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    for path in [
-        all_pair_path,
-        main_pair_path,
-        window_path,
-        event_summary_path,
-        extended_path,
-        matched_path,
-        matched_summary_path,
-        extended_dose_path,
-        fingerprint_path,
-        fingerprint_stats_path,
-        dose_path,
-        dose_model_path,
-        resolution_path,
-        resolution_stats_path,
-        check_path,
-    ]:
-        print(path)
+    (args.output_dir / "台风事件前后分析核查.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(json.dumps({"strict_pairs": len(main_pairs), "storms": main_pairs.sid.nunique(), "matched_pairs": len(matched)}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

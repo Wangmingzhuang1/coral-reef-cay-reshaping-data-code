@@ -24,6 +24,33 @@ MASK_STRUCTURING_ELEMENT = np.array(
 )
 
 
+def select_analysis_observations(data: pd.DataFrame) -> pd.DataFrame:
+    """同源、同沙洲、同固定框内每天保留一个观测；按质量和影像编号确定选择。"""
+    required = {"sensor", "sand_cay_id", "reference_frame_id", "date", "image_id", "quality_grade"}
+    if not required.issubset(data.columns):
+        raise ValueError(f"观测表缺少分析键：{sorted(required - set(data.columns))}")
+    selected = data.loc[data["quality_grade"].isin(["A", "B"]) &
+                        data["sensor"].isin(["sentinel2", "google_earth"])].copy()
+    selected["date"] = pd.to_datetime(selected["date"], errors="raise")
+    if selected["reference_frame_id"].isna().any() or selected["reference_frame_id"].astype(str).str.strip().eq("").any():
+        raise ValueError("进入分析的观测必须有固定参考框。")
+    selected["_quality_priority"] = selected["quality_grade"].map(QUALITY_RANK)
+    keys = ["sensor", "sand_cay_id", "reference_frame_id", "date"]
+    selected = selected.sort_values(keys + ["_quality_priority", "image_id"],
+                                    ascending=[True, True, True, True, False, True], kind="stable")
+    return selected.drop_duplicates(keys, keep="first").drop(columns="_quality_priority")
+
+
+def normalize_cay_mask(mask: np.ndarray) -> np.ndarray:
+    """沿用形态特征的主连通域口径，统一所有轮廓比较的分析对象。"""
+    binary = np.asarray(mask > 0, dtype=np.uint8)
+    count, labels, stats, _ = cv2.connectedComponentsWithStats(binary, connectivity=8)
+    if count <= 1:
+        return binary.astype(bool)
+    largest = 1 + int(np.argmax(stats[1:, cv2.CC_STAT_AREA]))
+    return labels == largest
+
+
 def read_mask(path_text: object) -> np.ndarray | None:
     path = Path(str(path_text))
     if not path.is_file():
@@ -35,7 +62,7 @@ def read_mask(path_text: object) -> np.ndarray | None:
     if buffer.size == 0:
         return None
     mask = cv2.imdecode(buffer, cv2.IMREAD_GRAYSCALE)
-    return mask > 0 if mask is not None else None
+    return normalize_cay_mask(mask) if mask is not None else None
 
 
 def load_observations(dataset_root: Path, color_csv: Path) -> pd.DataFrame:
@@ -127,8 +154,8 @@ def load_observations(dataset_root: Path, color_csv: Path) -> pd.DataFrame:
     metadata = pd.concat(metadata_frames, ignore_index=True)
     metadata = metadata.drop_duplicates(["image_id", "sensor"], keep="last")
 
-    observations = morphology.merge(color, on=["image_id", "sensor"], how="left")
-    observations = observations.merge(metadata, on=["image_id", "sensor"], how="left")
+    observations = morphology.merge(color, on=["image_id", "sensor"], how="left", validate="one_to_one")
+    observations = observations.merge(metadata, on=["image_id", "sensor"], how="left", validate="many_to_one")
     observations["date"] = pd.to_datetime(observations["date"], errors="coerce")
     observations["pixel_size_m"] = pd.to_numeric(observations["pixel_size_m"], errors="coerce")
     inferred_pixel_size = np.sqrt(
@@ -396,9 +423,7 @@ def build_transitions(
     observations: pd.DataFrame,
     events_by_cay: dict[str, pd.DataFrame],
 ) -> pd.DataFrame:
-    unique = observations.drop_duplicates(
-        ["sensor", "sand_cay_id", "reference_frame_id", "date"], keep="first"
-    )
+    unique = select_analysis_observations(observations)
     rows: list[dict[str, object]] = []
     group_columns = ["sensor", "reef_id", "sand_cay_id", "reference_frame_id"]
     for _, group in unique.groupby(group_columns, dropna=False):

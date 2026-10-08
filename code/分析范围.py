@@ -12,7 +12,7 @@ import pandas as pd
 DEFAULT_EXCLUSION_CSV = Path(__file__).resolve().parent / "分析排除清单.csv"
 
 
-ANALYSIS_CONTRACT_VERSION = "2026-09-11-s2only-interval-gate-2"
+ANALYSIS_CONTRACT_VERSION = "2026-09-30-observation-keys-3"
 ANALYSIS_MODULES = {
     "directional_background": {
         "primary_sensor": "sentinel2",
@@ -52,32 +52,6 @@ ANALYSIS_MODULES = {
         },
         "fdr_family": "outcome x specification",
     },
-}
-TIDE_CONTRACT = {
-    "model_name": "FES2022b",
-    "variable": "ocean_tide_elevation",
-    "grid": "ocean_tide_extrapolated",
-    "prediction_library": "pyfes",
-    "citation": (
-        "The FES2022 Tide product was funded by CNES, produced by LEGOS, NOVELTIS "
-        "and CLS and made freely available by AVISO. CNES, 2024. FES2022 (Finite "
-        "Element Solution) Ocean Tide (Version 2024) [Data set]. CNES. "
-        "https://doi.org/10.24400/527896/A01-2024.004"
-    ),
-    "url": "https://www.aviso.altimetry.fr/en/data/products/auxiliary-products/global-tide-fes/release-fes22.html",
-    "use": "observation-condition sensitivity proxy, not a geomorphic mechanism variable",
-    "required_fields": (
-        "image_id",
-        "sensor",
-        "acquisition_datetime_utc",
-        "sand_cay_center_lon",
-        "sand_cay_center_lat",
-        "tide_elevation_m",
-        "tide_model",
-        "tide_grid",
-        "prediction_library_version",
-        "prediction_status",
-    ),
 }
 WIND_CONTRACT = {
     "model_name": "ERA5",
@@ -130,7 +104,6 @@ def analysis_contract_digest() -> str:
     payload = {
         "contract_version": ANALYSIS_CONTRACT_VERSION,
         "modules": ANALYSIS_MODULES,
-        "tide": TIDE_CONTRACT,
         "wind": WIND_CONTRACT,
         "excluded_reefs": sorted(load_excluded_reefs()),
     }
@@ -147,7 +120,6 @@ def write_contract_audit(output_dir: Path | str) -> Path:
         "contract_sha256": analysis_contract_digest(),
         "excluded_reefs": sorted(load_excluded_reefs()),
         "modules": ANALYSIS_MODULES,
-        "tide": TIDE_CONTRACT,
         "wind": WIND_CONTRACT,
     }
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
