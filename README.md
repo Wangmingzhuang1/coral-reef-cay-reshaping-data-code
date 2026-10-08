@@ -1,6 +1,6 @@
 # Coral reef cay reworking: derived data, figure source data and analysis code
 
-中文说明：本仓库发布论文《珊瑚礁沙洲持续重塑中的动态稳定及其全球监测意义》的派生数据表、图源数据、环境强迫区间聚合表与分析代码。原始影像与沙洲掩膜因许可与体积原因不在此发布（见下文 Data not included）。
+中文说明：本仓库发布论文《珊瑚礁沙洲的持续重塑与平面相对稳定共存》的派生数据表、图源数据、环境强迫区间聚合表与分析代码。原始影像与沙洲掩膜因许可与体积原因不在此发布（见下文 Data not included）。
 
 ## Contents
 
