@@ -1,0 +1,18 @@
+{
+  "repository": "https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code",
+  "version": "v2.0.0",
+  "commit_sha": "c33136e2f477280c20a9158c4d2e5ac81073f00d",
+  "tree_sha": "3ab8f094a1addc9030b3d7346360d7876848e37a",
+  "previous_commit_sha": "433c0be324d4430d3a9561573db3cd542a848f04",
+  "release_url": "https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code/releases/tag/v2.0.0",
+  "asset_url": "https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code/releases/download/v2.0.0/data-code.zip",
+  "asset_id": 633792301,
+  "release_id": 410600574,
+  "asset_size": 21139296,
+  "asset_sha256": "a2084c23540a2bc670b032e927078c6d8fbf4714dbc22c90cc1e832394ffcc62",
+  "asset_digest_reported_by_github": "sha256:a2084c23540a2bc670b032e927078c6d8fbf4714dbc22c90cc1e832394ffcc62",
+  "public_file_count": 532,
+  "all_remote_git_blob_hashes_verified": true,
+  "doi": null,
+  "asset_name": "data-code.zip"
+}
