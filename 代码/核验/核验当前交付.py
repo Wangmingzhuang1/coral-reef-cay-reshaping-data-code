@@ -52,6 +52,26 @@ def main():
     for x in manifest['图件']:
         for ext, file in x['文件'].items():
             assert digest(ROOT/file['path']) == file['sha256']
+    # S4必须追溯当前敏感性表，并与760时段/46沙洲主模型保持资格一致。
+    s4_src=ROOT/'outputs/figures/source_data'
+    for source_name,result_name in [
+        ('补图S4_时间窗.csv','方向模型时间窗敏感性.csv'),
+        ('补图S4_像素扰动.csv','方向模型掩膜扰动敏感性.csv'),
+        ('补图S4_剔除沙洲.csv','方向模型逐沙洲剔除敏感性汇总.csv')]:
+        pd.testing.assert_frame_equal(pd.read_csv(s4_src/source_name),pd.read_csv(ROOT/'outputs'/result_name))
+    current_direction=pd.read_csv(ROOT/'outputs/审稿问题复核/单一原始网格方向模型.csv')
+    windows=pd.read_csv(ROOT/'outputs/方向模型时间窗敏感性.csv')
+    primary_window=windows[windows.window_days.eq('90-365') & windows.status.eq('ok')]
+    expected=current_direction[current_direction.specification.eq('within_cay_fixed_effects')]
+    aligned=primary_window.merge(expected,on=['outcome','term'],suffixes=('_s4','_primary'),validate='one_to_one')
+    assert len(aligned)==len(primary_window)
+    for field in ['coefficient','ci95_low','ci95_high','fdr_q_value','n_intervals','n_cays']:
+        assert np.allclose(aligned[field+'_s4'],aligned[field+'_primary'],atol=1e-12),field
+    assert primary_window.n_intervals.eq(760).all() and primary_window.n_cays.eq(46).all()
+    perturb=pd.read_csv(ROOT/'outputs/方向模型掩膜扰动敏感性.csv')
+    assert perturb.n_intervals.eq(760).all() and perturb.n_cays.eq(46).all()
+    leave=pd.read_csv(ROOT/'outputs/方向模型逐沙洲剔除敏感性汇总.csv')
+    assert leave.n_deletions.eq(46).all()
     original = json.loads((BASE/'第一阶段审计/复核结果.json').read_text(encoding='utf-8'))['original_sha256']
     assert all(digest(BASE/path)==sha for path,sha in original.items())
     old=(BASE/'论文初稿.md').read_text(encoding='utf-8'); new=(ROOT/'论文初稿.md').read_text(encoding='utf-8')
@@ -263,7 +283,7 @@ def main():
     background=pd.read_csv(revision_dir/'关键案例背景测量筛查.csv')
     accepted=background[background.specification.eq('physical_scale') & background.screen_accepted]
     assert '1012' in new and '994' in new and '平均低0.180' in new and '−0.330至−0.071' in new
-    assert '没有直接检验各指标年度增益之间的差异' in new
+    assert '指标之间的增益差异还需直接比较' in new
     assert '36/167' in (ROOT/'论文补充材料.md').read_text(encoding='utf-8') and len(accepted)==36
     # 校验补充材料中的历史样本标识、交叉引用及其Word同步，避免与现行主模型混用。
     si_text=(ROOT/'论文补充材料.md').read_text(encoding='utf-8')
@@ -341,6 +361,17 @@ def main():
     results['方法与覆盖分组核查']={'方法小节':7,'逐段Word同步':True,'主文补充可编辑公式':equations,
         '覆盖分组由逐时段审校标签验证':True,'旧阶段定义单独保留':True,
         '年度方向覆盖路径岸段原数据保持':True,'高波浪校正q':float(wave_current.fdr_q_value)}
+    names=['Mingzhuang Wang','Xiyang Zhang','Fei Tan','Guotao Zhang','Siqi Chen','Qi Shi','Hongqiang Yang']
+    for author_doc in [main_doc,si_word]:
+        author_line=next(p for p in author_doc.paragraphs if p.text.startswith('Mingzhuang Wang'))
+        assert [r.text.strip(', ') for r in author_line.runs if r.text.strip(', ') in names]==names
+        marks=[r for r in author_line.runs if r.font.superscript]
+        assert [r.text for r in marks]==['a,c','a,c,*','a,c','a,c','a,c','a,c','a,c,*']
+        for mark in ['a','c']:
+            affiliation=next(p for p in author_doc.paragraphs if p.runs and p.runs[0].text==mark)
+            assert affiliation.runs[0].font.superscript
+        assert any('zhangxiyang@scsio.ac.cn, hqyang@scsio.ac.cn' in p.text for p in author_doc.paragraphs)
+    results['作者信息核查']={'作者顺序':names,'单位上标':['a','c'],'通讯作者':['Xiyang Zhang','Hongqiang Yang'],'两份Word一致':True}
     # 交叉引用和摘要分母在当前源稿、Word和原始统计表间对应。
     for manuscript in ['论文初稿.md','论文补充材料.md']:
         value=(ROOT/manuscript).read_text(encoding='utf-8')
@@ -348,7 +379,7 @@ def main():
     abstract=new.split('## 摘要',1)[1].split('**关键词',1)[0].strip()
     assert all(x in abstract for x in ['93条','63条','90条','60条'])
     assert abstract in [p.text for p in main_doc.paragraphs]
-    assert '对应版本v2.0.0' in new and '该仓库尚未包含本轮分析' not in new
+    assert '对应版本'+json.loads((ROOT/'outputs/公开归档核验.json').read_text(encoding='utf-8'))['version'] in new and '该仓库尚未包含本轮分析' not in new
     assert '状态定义同主文 2.5' in si_text and '模型设定见主文 2.6' in si_text
     public=json.loads((ROOT/'outputs/公开归档核验.json').read_text(encoding='utf-8'))
     assert public['all_remote_git_blob_hashes_verified']

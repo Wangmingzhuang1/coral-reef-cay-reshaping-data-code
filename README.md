@@ -3,8 +3,8 @@
 This repository archives the current analysis code, derived measurement/statistical tables,
 and figure source data for a multi-temporal study of coral-reef sand cays.
 
-Current archive: **v2.0.0, 12 October 2026**. Repository: https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code
-Versioned record: https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code/releases/tag/v2.0.0
+Current archive: **v2.0.1, 12 October 2026**. Repository: https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code
+Versioned record: https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code/releases/tag/v2.0.1
 
 ## Scope and primary results
 
@@ -12,6 +12,10 @@ Versioned record: https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-da
 - Comparable position analysis: 90 records, including 60 near-stable records.
 - Annual geometry reconstruction: 52 cays; five position/shape indicators show corrected support.
 - Environmental direction models: 760 intervals from 46 cays.
+- Direction sensitivity checks use the same eligibility: 760 intervals for 90–365 d and ±1 pixel,
+  373 intervals for 120–365 d, and 46 leave-one-cay-out fits. The 60–365 d window has the
+  same effective sample as 90–365 d. All four directions remain positive; corrected support
+  varies with the window and boundary setting.
 - Vegetation–path correlations: 53 Sentinel-2 and 37 Google Earth records, analysed separately.
 - Within-interval shoreline contrasts: 1,012 comparisons from 62 cays.
 - High-speed distribution under the accepted initial-cover labels: 521 bare intervals (94 high-speed)
@@ -40,7 +44,7 @@ the secondary joint-analysis code and results. CSV files use UTF-8 with BOM for 
 
 ## Reproduce checks from the public archive
 
-Download the release asset `data-code.zip` (display label: `数据代码.zip`) and extract it into a new directory. Open that directory
+Download the release asset `data-code.zip` and extract it into a new directory. Open that directory
 as the working directory, install Python 3.11 or later and the packages in `requirements.txt`, then run:
 
 ```text
@@ -49,7 +53,8 @@ python 代码/控制验证/复核审稿主要问题.py --check-derived
 
 This command checks the past-only training dates, two seven-response BH families, 1,490 state pairs,
 90 position-comparable records, shoreline-contrast eligibility, the accepted vegetation grouping,
-the high-speed threshold/counts, the high-wave model family, and every manifest SHA-256.
+the high-speed threshold/counts, the high-wave model family, the current direction sensitivity
+samples and figure-source agreement, and every manifest SHA-256.
 The files can also be read directly on GitHub; use the ZIP asset when byte-for-byte checks are required.
 
 ## Observation definitions and access to original inputs
@@ -83,8 +88,6 @@ the authoritative local measurement files remain unchanged.
 Code: MIT (`LICENSE`). Author-derived tables: CC BY 4.0 (`DATA_LICENSE`).
 Third-party data remain subject to their original providers' terms.
 
-To cite this archive, include the study title above, the version v2.0.0, the date 12 October 2026,
-and https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code/releases/tag/v2.0.0. No DOI is assigned to this release.
+To cite this archive, include the study title above, the version v2.0.1, the date 12 October 2026,
+and https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code/releases/tag/v2.0.1. No DOI is assigned to this release.
 This release supersedes the previous repository layout; prior code/data remain recoverable in GitHub history.
-
-The versioned ZIP is the frozen v2.0.0 analysis snapshot. The default branch additionally records publication metadata and updates local delivery-audit helpers; scientific measurements and statistical results remain unchanged. Its manifest tracks the current branch files.

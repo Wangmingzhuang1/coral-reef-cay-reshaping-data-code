@@ -110,12 +110,14 @@ def direction_controls():
         for k,condition in enumerate(conditions):
             for i,(outcome,term,_) in enumerate(terms):
                 row=frame[(frame[key]==condition)&(frame.outcome==outcome)&(frame.term==term)].iloc[0]
-                ax.errorbar(row.coefficient,i+offsets[k],xerr=[[row.coefficient-row.ci95_low],[row.ci95_high-row.coefficient]],fmt='o',color=['#417998','#D89445','#55966B'][k],ms=3,capsize=1,label=str(condition) if i==0 else None)
+                label=(f'{condition} d; n={int(row.n_intervals)}' + ('*' if condition=='60-365' else '')) if key=='window_days' else f'{int(condition):+d} px; n={int(row.n_intervals)}'
+                ax.errorbar(row.coefficient,i+offsets[k],xerr=[[row.coefficient-row.ci95_low],[row.ci95_high-row.coefficient]],fmt='o',color=['#417998','#D89445','#55966B'][k],ms=3,capsize=1,label=label if i==0 else None)
         ax.axvline(0,color='#777',ls=':');ax.set(yticks=range(4),yticklabels=[x[2] for x in terms] if ax==axes[0] else [],xlabel='Coefficient (95% CI)');ax.set_title(title,loc='left',fontsize=8);ax.legend(fontsize=5.5,frameon=False,loc='upper left',bbox_to_anchor=(0,-.23));ax.invert_yaxis();clean(ax)
     ax=axes[2]
     for i,(outcome,term,_) in enumerate(terms):
         row=loo[(loo.outcome==outcome)&(loo.term==term)].iloc[0];ax.plot([row.coefficient_min,row.coefficient_max],[i,i],lw=3,color=C['navy']);ax.text(row.coefficient_max+.02,i,f'{int(row.n_ci_excluding_zero)}/{int(row.n_deletions)}',fontsize=6,va='center')
     ax.set(yticks=range(4),yticklabels=[],xlabel='Leave-one-cay coefficient range');ax.axvline(0,color='#777',ls=':');ax.invert_yaxis();ax.set_title('c  Cay omission',loc='left',fontsize=8);clean(ax)
+    fig.text(.15,.02,'46 eligible cays; *same effective sample as 90-365 d',fontsize=6,color='#555')
     fig.subplots_adjust(left=.15,right=.96,top=.85,bottom=.3,wspace=.4);save(fig,'图S4_方向关联敏感性')
 
 def state_controls():

@@ -23,6 +23,8 @@ from scipy.stats import wilcoxon
 from statsmodels.stats.multitest import multipletests
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 
+from 原始网格核验 import single_grid_cays
+
 from 分析范围 import (
     ANALYSIS_CONTRACT_VERSION,
     analysis_contract_digest,
@@ -150,6 +152,7 @@ def prepare(
         & data["quality_good_both"]
         & data["typhoon_available"]
         & data["sensor"].eq(DIRECTIONAL_CONTRACT["primary_sensor"])
+        & data["sand_cay_id"].isin(single_grid_cays())
     ].copy()
     analysis.replace([np.inf, -np.inf], np.nan, inplace=True)
     sequential = data.copy()
@@ -164,6 +167,7 @@ def prepare(
         "primary_sensor": sequential["sensor"].eq(
             DIRECTIONAL_CONTRACT["primary_sensor"]
         ),
+        "single_original_grid": sequential["sand_cay_id"].isin(single_grid_cays()),
     }
     funnel_steps = {}
     previous_count = int(len(data))
@@ -1440,6 +1444,8 @@ def main() -> None:
         default=root / "outputs" / "沙洲观测主表.csv",
     )
     parser.add_argument("--output-dir", type=Path, default=root / "outputs")
+    parser.add_argument("--direction-controls-only", action="store_true",
+                        help="仅按现行网格资格重算已有S4方向敏感性，不重算其他结果")
     args = parser.parse_args()
 
     transitions = exclude_reefs(pd.read_csv(args.transition_csv, low_memory=False))
@@ -1461,12 +1467,15 @@ def main() -> None:
         args.output_dir / "流场波浪沿轴横轴分解.csv", encoding="utf-8-sig"
     )
     unified, diagnostics, robustness = unified_forcing_vegetation_model(
-        analysis, decomposition
+        analysis, decomposition, fit_random_intercepts=not args.direction_controls_only
     )
     leave_one_cay, leave_one_cay_summary = directional_leave_one_cay_sensitivity(
         analysis, decomposition
     )
-    wind_terms, wind_comparison = wind_increment_analysis(analysis, decomposition)
+    wind_terms, wind_comparison = (
+        (pd.DataFrame(), pd.DataFrame()) if args.direction_controls_only
+        else wind_increment_analysis(analysis, decomposition)
+    )
     primary_robustness = pd.DataFrame()
     perturbation_path = args.output_dir / "掩膜边界扰动稳健性.csv"
     perturbation = (
@@ -1547,6 +1556,27 @@ def main() -> None:
     )
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
+    if args.direction_controls_only:
+        # 主窗口重算须与已发布的760时段主模型逐项一致。
+        current = pd.read_csv(args.output_dir / "审稿问题复核/单一原始网格方向模型.csv")
+        keys = ["outcome", "specification", "term"]
+        merged = unified.merge(current, on=keys, suffixes=("_recomputed", "_current"), validate="one_to_one")
+        assert len(merged) == len(current)
+        for column in ["coefficient", "ci95_low", "ci95_high", "fdr_q_value", "n_intervals", "n_cays"]:
+            assert np.allclose(merged[column + "_recomputed"], merged[column + "_current"], atol=1e-12)
+    for filename, table in {
+        "方向模型时间窗敏感性.csv": window_sensitivity,
+        "方向模型掩膜扰动敏感性.csv": perturbation_models,
+        "方向模型逐沙洲剔除敏感性.csv": leave_one_cay,
+        "方向模型逐沙洲剔除敏感性汇总.csv": leave_one_cay_summary,
+        "方向主结论稳健性.csv": primary_robustness,
+    }.items():
+        table.to_csv(args.output_dir / filename, index=False, encoding="utf-8-sig")
+    if args.direction_controls_only:
+        print(json.dumps({"S4": "已按现行主模型资格重算", "time_windows": window_sensitivity.groupby("window_days")["n_intervals"].first().to_dict(),
+                          "perturbation_intervals": perturbation_models.groupby("perturbation_pixels")["n_intervals"].first().to_dict(),
+                          "cay_omissions": leave_one_cay_summary["n_deletions"].unique().tolist()}, ensure_ascii=False))
+        return
     sample_path = args.output_dir / "已成洲沙洲定量分析样本.csv"
     descriptive_path = args.output_dir / "已成洲沙洲响应描述统计.csv"
     composition_path = args.output_dir / "已成洲沙洲台风样本构成.csv"
@@ -1573,17 +1603,6 @@ def main() -> None:
     wind_comparison.to_csv(wind_comparison_path, index=False, encoding="utf-8-sig")
     diagnostics.to_csv(diagnostics_path, index=False, encoding="utf-8-sig")
     robustness.to_csv(robustness_path, index=False, encoding="utf-8-sig")
-    primary_robustness.to_csv(
-        primary_robustness_path, index=False, encoding="utf-8-sig"
-    )
-    window_sensitivity.to_csv(window_path, index=False, encoding="utf-8-sig")
-    perturbation_models.to_csv(
-        perturbation_model_path, index=False, encoding="utf-8-sig"
-    )
-    leave_one_cay.to_csv(leave_one_cay_path, index=False, encoding="utf-8-sig")
-    leave_one_cay_summary.to_csv(
-        leave_one_cay_summary_path, index=False, encoding="utf-8-sig"
-    )
 
     checks.update(
         {

@@ -1,0 +1,7 @@
+﻿outcome,term,primary_coefficient,primary_ci95_low,primary_ci95_high,primary_q_value,primary_sign,reef_cluster_q_below_005,window_alternative_supported,window_alternative_same_sign,perturbation_same_sign,perturbation_alternative_supported,robustness_status,n_windows,n_perturbations
+along_shift,current_along_mean_z,0.19919362854199985,0.07461319378172888,0.3237740633022708,0.010352890594343437,1,True,True,True,True,True,robust,3,2
+along_shift,wave_vector_along_mean_z,0.6037672540699531,0.3810204349683988,0.8265140731715075,1.296950627863476e-06,1,True,True,True,True,True,robust,3,2
+cross_shift,current_cross_mean_z,0.17287631187898625,0.05843003981193988,0.2873225839460326,0.03684306185619854,1,True,True,True,True,True,robust,3,2
+cross_shift,wave_vector_cross_mean_z,0.528996960167728,0.15018631191252418,0.9078076084229318,0.037198317360353964,1,True,True,True,True,True,robust,3,2
+log_gross_mobility,pulse,0.09635912358658918,-0.12967639357110783,0.3223946407442862,0.5378893097521625,1,False,False,True,True,False,primary_not_supported,3,2
+log_gross_mobility,vegetation_fraction_t_z,0.014851811474217956,-0.04567194556579505,0.07537556851423097,0.7566608268164594,1,False,False,False,True,False,primary_not_supported,3,2

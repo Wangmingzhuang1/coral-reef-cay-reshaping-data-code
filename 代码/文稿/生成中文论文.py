@@ -190,10 +190,14 @@ def clean_inline(text):
     text = re.sub(r"\^\{?(-?\d+)\}?", lambda m: str(m.group(1)).translate(str.maketrans("0123456789-", "⁰¹²³⁴⁵⁶⁷⁸⁹⁻")), text)
     text = text.replace(r"\mathrm{m\,s^{-1}}", "m s⁻¹")
     text = text.replace(r"\mathrm", "")
-    text = text.replace("_ii", "ᵢᵢ").replace("_ij", "ᵢⱼ").replace("_i", "ᵢ").replace("_1", "₁")
+    # 仅转换独立数学变量的下标，保留GBR_101、sand_cay_id等数据身份。
+    subscripts = {"ii": "ᵢᵢ", "ij": "ᵢⱼ", "i": "ᵢ", "1": "₁"}
+    text = re.sub(r"(?<![\w])([A-Za-z])_(ii|ij|i|1)(?![\w])",
+                  lambda m: m.group(1) + subscripts[m.group(2)], text)
     text = text.replace("{", "").replace("}", "")
     text = text.replace("`", "")
     text = text.replace("**", "")
+    text = re.sub(r"</?sup>", "", text)
     return leading + text.strip() + trailing
 
 
@@ -204,13 +208,16 @@ def add_rich_paragraph(doc, text, style=None, first_indent=True):
     if first_indent and style is None:
         p.paragraph_format.first_line_indent = Pt(22)
 
-    parts = re.split(r"(\*\*[^*]+\*\*|\*[^*]+\*)", text)
+    parts = re.split(r"(<sup>[^<]+</sup>|\*\*[^*]+\*\*|\*[^*]+\*)", text)
     for part in parts:
         if not part:
             continue
+        superscript = part.startswith("<sup>") and part.endswith("</sup>")
         bold = part.startswith("**") and part.endswith("**")
         italic = not bold and part.startswith("*") and part.endswith("*")
-        if bold:
+        if superscript:
+            value = clean_inline(part[5:-6])
+        elif bold:
             value = clean_inline(part[2:-2])
         elif italic:
             value = clean_inline(part[1:-1])
@@ -219,7 +226,24 @@ def add_rich_paragraph(doc, text, style=None, first_indent=True):
         if value:
             run = p.add_run(value)
             set_run_font(run, bold=True if bold else None, italic=True if italic else None)
+            if superscript:
+                run.font.superscript = True
     return p
+
+
+def add_author_information(doc, content):
+    p = add_rich_paragraph(doc, content, first_indent=False)
+    p.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    p.paragraph_format.first_line_indent = Pt(0)
+    p.paragraph_format.line_spacing = 1.1
+    p.paragraph_format.space_after = Pt(6)
+    for run in p.runs:
+        set_run_font(run, size=10 if content.startswith(("<sup>", "* Corresponding", "Email addresses:")) else 11)
+    return p
+
+
+def is_author_information(content):
+    return content.startswith(("Mingzhuang Wang<sup>", "<sup>", "* Corresponding authors:", "Email addresses:"))
 
 
 def parse_markdown(path=MD_PATH):
@@ -418,6 +442,7 @@ def main():
     skip_figure_legend_paragraphs = False
     skip_internal_audit = False
     in_references = False
+    in_results = False
     for kind, content in blocks:
         # 完成当前小节的正文后再插图，保持发现与证据的连续阅读。
         if kind in ("h1", "h2") and pending_figures:
@@ -440,6 +465,7 @@ def main():
             run = p.add_run(content)
             set_run_font(run, east_asia="黑体", size=16, bold=True)
         elif kind == "h1":
+            in_results = content == "3 结果"
             in_references = content == "参考文献"
             skip_figure_legend_paragraphs = content == "图注"
             if skip_figure_legend_paragraphs:
@@ -460,6 +486,9 @@ def main():
         elif kind == "table":
             add_table(doc, content)
         elif kind == "paragraph":
+            if is_author_information(content):
+                add_author_information(doc, content)
+                continue
             if skip_figure_legend_paragraphs:
                 continue
             if content.startswith("**关键词：**"):
@@ -480,7 +509,7 @@ def main():
                     for run in p.runs:
                         set_run_font(run, size=10, italic=run.italic)
             for n in FIGURES:
-                if re.search(rf"(?<!补充)图\s*{n}(?!\d)", clean_inline(content)) and n not in inserted and n not in pending_figures:
+                if in_results and re.search(rf"(?<!补充)图\s*{n}(?!\d)", clean_inline(content)) and n not in inserted and n not in pending_figures:
                     pending_figures.append(n)
 
     for number in pending_figures:
@@ -534,6 +563,9 @@ def main():
             else:
                 append_ctmc_equation(p)
         elif kind == "paragraph":
+            if is_author_information(content):
+                add_author_information(supplement, content)
+                continue
             if skip_supplementary_legends:
                 continue
             add_rich_paragraph(supplement, content)

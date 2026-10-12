@@ -1,9 +1,9 @@
 {
   "title": "珊瑚礁沙洲时空演变的年度重复性与植被相关移动性差异",
-  "version": "v2.0.0",
+  "version": "v2.0.1",
   "date": "2026-10-12",
   "repository": "https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code",
-  "release": "https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code/releases/tag/v2.0.0",
+  "release": "https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code/releases/tag/v2.0.1",
   "code_license": "MIT",
   "derived_tables_license": "CC-BY-4.0",
   "contents": [

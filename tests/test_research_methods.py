@@ -181,5 +181,13 @@ class ResearchMethodsTests(unittest.TestCase):
         self.assertTrue(pairs.interval_days.eq(45).all())
 
 
+class 文稿身份保留检验(unittest.TestCase):
+    def test_math_subscripts_do_not_rewrite_data_identifiers(self):
+        from 生成中文论文 import clean_inline
+        identifiers = "GBR_101 MEDF_015_cay_001 sand_cay_id time_interval_days"
+        self.assertEqual(clean_inline(identifiers), identifiers)
+        self.assertEqual(clean_inline("Q_ii P_ij A_i x_1"), "Qᵢᵢ Pᵢⱼ Aᵢ x₁")
+
+
 if __name__ == "__main__":
     unittest.main()

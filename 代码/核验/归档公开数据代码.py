@@ -4,7 +4,7 @@ import csv,hashlib,importlib.metadata,io,json,re,sys,zipfile
 
 ROOT=Path(__file__).resolve().parents[2]
 REPOSITORY='https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code'
-VERSION='v2.0.0'
+VERSION='v2.0.1'
 TITLE='珊瑚礁沙洲时空演变的年度重复性与植被相关移动性差异'
 
 def public_payload():
@@ -12,7 +12,7 @@ def public_payload():
     files.update(ROOT.glob('outputs/**/*.csv'))
     files.update(p for p in ROOT.glob('outputs/**/*.json')
                  if '引用核验' not in p.parts and p.name not in
-                 {'当前图件索引.json','方法同步核查.json'})
+                 {'当前图件索引.json','方法同步核查.json','公开归档核验.json'})
     files.update(p for p in (ROOT/'额外分析_空间时间覆盖联合规律').glob('*')
                  if p.suffix in {'.py','.csv','.json'})
     files.update(ROOT/p for p in ['运行论文分析.py','分析排除清单.csv'])
@@ -57,6 +57,10 @@ Versioned record: {REPOSITORY}/releases/tag/{VERSION}
 - Comparable position analysis: 90 records, including 60 near-stable records.
 - Annual geometry reconstruction: 52 cays; five position/shape indicators show corrected support.
 - Environmental direction models: 760 intervals from 46 cays.
+- Direction sensitivity checks use the same eligibility: 760 intervals for 90–365 d and ±1 pixel,
+  373 intervals for 120–365 d, and 46 leave-one-cay-out fits. The 60–365 d window has the
+  same effective sample as 90–365 d. All four directions remain positive; corrected support
+  varies with the window and boundary setting.
 - Vegetation–path correlations: 53 Sentinel-2 and 37 Google Earth records, analysed separately.
 - Within-interval shoreline contrasts: 1,012 comparisons from 62 cays.
 - High-speed distribution under the accepted initial-cover labels: 521 bare intervals (94 high-speed)
@@ -85,7 +89,7 @@ the secondary joint-analysis code and results. CSV files use UTF-8 with BOM for 
 
 ## Reproduce checks from the public archive
 
-Download the release asset `数据代码.zip` and extract it into a new directory. Open that directory
+Download the release asset `data-code.zip` and extract it into a new directory. Open that directory
 as the working directory, install Python 3.11 or later and the packages in `requirements.txt`, then run:
 
 ```text
@@ -94,7 +98,8 @@ python 代码/控制验证/复核审稿主要问题.py --check-derived
 
 This command checks the past-only training dates, two seven-response BH families, 1,490 state pairs,
 90 position-comparable records, shoreline-contrast eligibility, the accepted vegetation grouping,
-the high-speed threshold/counts, the high-wave model family, and every manifest SHA-256.
+the high-speed threshold/counts, the high-wave model family, the current direction sensitivity
+samples and figure-source agreement, and every manifest SHA-256.
 The files can also be read directly on GitHub; use the ZIP asset when byte-for-byte checks are required.
 
 ## Observation definitions and access to original inputs
@@ -147,6 +152,11 @@ def main():
     payload['LICENSE']=license_path.read_bytes()
     for n,b in payload.items():
         dest=stage/n;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(b)
+    # 清除上轮不再纳入的公开副本，归档根以当前清单为准。
+    for old in stage.rglob('*'):
+        if old.is_file() and old.relative_to(stage).as_posix() not in payload and old.name!='文件清单.csv':
+            assert stage.resolve() in old.resolve().parents
+            old.unlink()
     rows=io.StringIO(newline='');writer=csv.writer(rows)
     writer.writerow(['relative_path','size_bytes','sha256','packaged_copy_changed'])
     for n,b in sorted(payload.items()):writer.writerow([n,len(b),hashlib.sha256(b).hexdigest(),n in changed])

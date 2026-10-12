@@ -289,6 +289,26 @@ def check_derived():
         seasonal=pd.read_csv(OUT/'覆盖分组高波浪季节与比例核验.csv')
         assert np.isclose(seasonal.iloc[0].estimate,current.estimate)
         assert np.allclose(fdr_bh(seasonal.iloc[1:].p_value),seasonal.iloc[1:].fdr_q_value)
+    # S4必须追溯当前敏感性表，并与760时段/46沙洲主模型保持资格一致。
+    s4_src=ROOT/'outputs/figures/source_data'
+    for source_name,result_name in [
+        ('补图S4_时间窗.csv','方向模型时间窗敏感性.csv'),
+        ('补图S4_像素扰动.csv','方向模型掩膜扰动敏感性.csv'),
+        ('补图S4_剔除沙洲.csv','方向模型逐沙洲剔除敏感性汇总.csv')]:
+        pd.testing.assert_frame_equal(pd.read_csv(s4_src/source_name),pd.read_csv(ROOT/'outputs'/result_name))
+    current_direction=pd.read_csv(ROOT/'outputs/审稿问题复核/单一原始网格方向模型.csv')
+    windows=pd.read_csv(ROOT/'outputs/方向模型时间窗敏感性.csv')
+    primary_window=windows[windows.window_days.eq('90-365') & windows.status.eq('ok')]
+    expected=current_direction[current_direction.specification.eq('within_cay_fixed_effects')]
+    aligned=primary_window.merge(expected,on=['outcome','term'],suffixes=('_s4','_primary'),validate='one_to_one')
+    assert len(aligned)==len(primary_window)
+    for field in ['coefficient','ci95_low','ci95_high','fdr_q_value','n_intervals','n_cays']:
+        assert np.allclose(aligned[field+'_s4'],aligned[field+'_primary'],atol=1e-12),field
+    assert primary_window.n_intervals.eq(760).all() and primary_window.n_cays.eq(46).all()
+    perturb=pd.read_csv(ROOT/'outputs/方向模型掩膜扰动敏感性.csv')
+    assert perturb.n_intervals.eq(760).all() and perturb.n_cays.eq(46).all()
+    leave=pd.read_csv(ROOT/'outputs/方向模型逐沙洲剔除敏感性汇总.csv')
+    assert leave.n_deletions.eq(46).all()
     if (ROOT/'文件清单.csv').exists():
         manifest=pd.read_csv(ROOT/'文件清单.csv')
         for row in manifest.itertuples():
