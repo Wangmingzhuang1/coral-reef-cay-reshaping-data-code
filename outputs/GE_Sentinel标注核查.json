@@ -1,0 +1,109 @@
+{
+  "registry_sand_cays": 208,
+  "reports": [
+    {
+      "sensor": "google_earth",
+      "record_rows": 898,
+      "record_reefs": 120,
+      "record_sand_cays": 134,
+      "record_status_counts": {
+        "accepted": 776,
+        "no_mask_recorded": 53,
+        "prompt_only": 69
+      },
+      "record_geometry_counts": {
+        "mask": 776,
+        "none": 53,
+        "bbox": 69
+      },
+      "record_object_status_counts": {
+        "present": 836,
+        "newly_appeared": 3,
+        "absent": 25,
+        "split": 5,
+        "uncertain": 28,
+        "merged": 1
+      },
+      "records_with_existing_image": 897,
+      "records_with_existing_mask": 776,
+      "records_without_existing_mask": 122,
+      "mask_records_image_mask_shape_ok": 776,
+      "mask_records_image_mask_shape_issues": 0,
+      "feature_rows": 776,
+      "qsat_2017_feature_rows_excluded_from_sentinel2": 0,
+      "qsat_2017_feature_ids": [],
+      "feature_reefs": 120,
+      "feature_sand_cays": 134,
+      "feature_ids_missing_record": [],
+      "feature_ids_missing_existing_mask_record": [],
+      "existing_mask_record_ids_missing_feature": [],
+      "feature_ids_missing_metadata": [],
+      "feature_sand_cays_missing_registry": [
+        "GBR_079_cay_001",
+        "GBR_086_cay_001",
+        "MEDF_034_cay_001",
+        "NH_YSZ_011_cay_001"
+      ],
+      "record_sand_cays_missing_registry": [
+        "GBR_079_cay_001",
+        "GBR_086_cay_001",
+        "MEDF_034_cay_001",
+        "NH_YSZ_011_cay_001"
+      ],
+      "feature_duplicate_image_ids": 0,
+      "feature_duplicate_cay_date": 0,
+      "metadata_rows": 925,
+      "metadata_feature_reference_frame_missing": 0
+    },
+    {
+      "sensor": "sentinel2",
+      "record_rows": 2077,
+      "record_reefs": 62,
+      "record_sand_cays": 67,
+      "record_status_counts": {
+        "accepted": 1839,
+        "prompt_only": 108,
+        "no_mask_recorded": 130
+      },
+      "record_geometry_counts": {
+        "mask": 1839,
+        "bbox": 108,
+        "none": 130
+      },
+      "record_object_status_counts": {
+        "present": 1946,
+        "uncertain": 123,
+        "absent": 7,
+        "split": 1
+      },
+      "records_with_existing_image": 2077,
+      "records_with_existing_mask": 1839,
+      "records_without_existing_mask": 238,
+      "mask_records_image_mask_shape_ok": 1839,
+      "mask_records_image_mask_shape_issues": 0,
+      "feature_rows": 1839,
+      "qsat_2017_feature_rows_excluded_from_sentinel2": 6,
+      "qsat_2017_feature_ids": [
+        "qsat__gbr_034__GBR_034_cay_001__2017-07-01",
+        "qsat__gbr_036__GBR_036_cay_001__2017-07-01",
+        "qsat__gbr_038__GBR_038_cay_001__2017-07-01",
+        "qsat__gbr_058__GBR_058_cay_001__2017-07-01",
+        "qsat__gbr_059__GBR_059_cay_001__2017-07-01",
+        "qsat__gbr_104__GBR_104_cay_001__2017-07-01"
+      ],
+      "feature_reefs": 62,
+      "feature_sand_cays": 67,
+      "feature_ids_missing_record": [],
+      "feature_ids_missing_existing_mask_record": [],
+      "existing_mask_record_ids_missing_feature": [],
+      "feature_ids_missing_metadata": [],
+      "feature_sand_cays_missing_registry": [],
+      "record_sand_cays_missing_registry": [],
+      "feature_duplicate_image_ids": 0,
+      "feature_duplicate_cay_date": 4,
+      "metadata_rows": 3485,
+      "metadata_feature_reference_frame_missing": 0
+    }
+  ],
+  "semantic_warning": "本核查验证数据链路完整性，不等价于掩膜边界的地貌语义完全正确；语义正确性仍需按优先级抽样复核原始影像。"
+}

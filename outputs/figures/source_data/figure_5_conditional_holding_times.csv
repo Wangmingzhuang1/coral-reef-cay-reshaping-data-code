@@ -1,0 +1,4 @@
+﻿variant,record_type,from_state,to_state,rate_per_year,mean_holding_years,probability_1_year,probability_3_years,probability_5_years,n_pairs,n_cays,negative_log_likelihood,ci_low,ci_high,n_bootstrap,label
+primary_30_365d,state_summary,low_cover,,0.3039860650861625,3.289624475768511,,,,1490,64,643.6781458117856,1.9848253042898591,6.212271878792832,1998.0,Low cover
+primary_30_365d,state_summary,partial_cover,,0.6745364777828212,1.4824995132760892,,,,1490,64,643.6781458117856,0.8677812409968505,2.623477385647849,1998.0,Partial cover
+primary_30_365d,state_summary,dominant_cover,,0.5003752648145412,1.9985000664863788,,,,1490,64,643.6781458117856,0.9851832345754956,4.675925253066904,1998.0,Dominant cover

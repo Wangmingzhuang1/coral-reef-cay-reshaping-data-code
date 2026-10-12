@@ -1,0 +1,51 @@
+{
+  "analysis_unit": "same sand cay × same sensor × same fixed reference frame trajectory",
+  "excluded_reefs": [
+    "GBR_066"
+  ],
+  "eligibility": {
+    "minimum_observations": 4,
+    "minimum_span_years": 3.0
+  },
+  "classification_rule": {
+    "growth_threshold": 0.25,
+    "rank_threshold": 0.4,
+    "late_cv_threshold": 0.15,
+    "extreme_step_ratio_for_review": 2.0
+  },
+  "eligible_tracks": 133,
+  "eligible_cays": 93,
+  "primary_cay_trajectories": 93,
+  "class_counts": {
+    "Stable-area reworking": 46,
+    "Requires review": 33,
+    "Sustained growth": 6,
+    "Contraction": 4,
+    "Complex/non-monotonic": 3,
+    "Growth then stable": 1
+  },
+  "review": {
+    "review_date": "2026-09-07",
+    "reviewed_tracks": 33,
+    "verdict_counts": {
+      "not_required": 60,
+      "confirmed_real_large_amplitude": 27,
+      "real_with_tide_optical_modulation": 6
+    },
+    "reviewed_class_counts": {
+      "Stable-area reworking": 61,
+      "Complex/non-monotonic": 14,
+      "Contraction": 10,
+      "Sustained growth": 7,
+      "Growth then stable": 1
+    },
+    "policy": "Extreme area steps were reviewed against series signatures and spot-checked imagery; they are retained as real large-amplitude cay dynamics, with tide/optical modulation flagged separately.",
+    "multimetric_class_counts": {
+      "Persistent reworking": 61,
+      "Complex": 14,
+      "Net contraction": 10,
+      "Net growth": 8
+    }
+  },
+  "interpretation_warning": "Trajectory classes are transparent descriptive rules, not validated geomorphic development stages. Sensor, registration, tide and image quality remain alternative explanations for apparent area changes."
+}

@@ -1,0 +1,3 @@
+﻿outcome,status,contrast,n_cays,n_reefs,n_gbr_cays,n_maldives_cays,coefficient,reef_cluster_se,ci95_low,ci95_high,two_sided_p_value,bootstrap_reps,reef_bootstrap_ci95_low,reef_bootstrap_ci95_high
+gross_mobility_fraction_per_year,ok,Maldives - Great Barrier Reef,55,52,29,26,0.3360979352947799,0.16100491573154413,0.020534099127047012,0.6516617714625128,0.036842863629802686,2000,0.47871029492607725,1.0015310896024292
+centroid_norm_shift_per_year,ok,Maldives - Great Barrier Reef,55,52,29,26,0.22931827068815405,0.21855702722191242,-0.1990456312349345,0.6576821726112426,0.294068735274263,2000,0.27542981477599815,0.7984004014096464

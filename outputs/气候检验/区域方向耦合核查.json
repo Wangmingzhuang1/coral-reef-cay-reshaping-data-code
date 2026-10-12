@@ -1,0 +1,104 @@
+{
+  "contract": "S2, A/B quality, 90-365 d core intervals, flow-wave-wind complete (mirrors main Figure 3)",
+  "model": "within-cay demeaned OLS, cay-clustered robust SE, four pre-specified terms FDR-corrected within each region",
+  "sample_counts": [
+    {
+      "region": "Great Barrier Reef",
+      "n_intervals": 459,
+      "n_cays": 25
+    },
+    {
+      "region": "Lakshadweep",
+      "n_intervals": 7,
+      "n_cays": 1
+    },
+    {
+      "region": "Maldives",
+      "n_intervals": 346,
+      "n_cays": 25
+    },
+    {
+      "region": "Marshall Islands",
+      "n_intervals": 88,
+      "n_cays": 7
+    },
+    {
+      "region": "South China Sea",
+      "n_intervals": 24,
+      "n_cays": 3
+    }
+  ],
+  "fdr_supported_terms": [
+    {
+      "axis": "along",
+      "term": "Along-axis wave",
+      "n_intervals": 922,
+      "n_cays": 59,
+      "status": "ok",
+      "coefficient": 6.784593282739453,
+      "cluster_robust_se": 1.2594973657323023,
+      "ci95_low": 4.316023807281068,
+      "ci95_high": 9.253162758197838,
+      "two_sided_p_value": 7.17444299311553e-08,
+      "region": "ALL_S2",
+      "fdr_q_value": 2.869777197246212e-07
+    },
+    {
+      "axis": "cross",
+      "term": "Cross-axis wave",
+      "n_intervals": 922,
+      "n_cays": 59,
+      "status": "ok",
+      "coefficient": 6.356522375471977,
+      "cluster_robust_se": 2.0051397439417067,
+      "ci95_low": 2.426520693376366,
+      "ci95_high": 10.286524057567588,
+      "two_sided_p_value": 0.0015237893158319617,
+      "region": "ALL_S2",
+      "fdr_q_value": 0.0030475786316639234
+    },
+    {
+      "axis": "along",
+      "term": "Along-axis wave",
+      "n_intervals": 459,
+      "n_cays": 25,
+      "status": "ok",
+      "coefficient": 5.397267468437497,
+      "cluster_robust_se": 1.3166021918213338,
+      "ci95_low": 2.816774590501187,
+      "ci95_high": 7.977760346373807,
+      "two_sided_p_value": 4.14238305739893e-05,
+      "region": "Great Barrier Reef",
+      "fdr_q_value": 0.0001656953222959572
+    },
+    {
+      "axis": "cross",
+      "term": "Cross-axis wave",
+      "n_intervals": 459,
+      "n_cays": 25,
+      "status": "ok",
+      "coefficient": 1.5187231825264942,
+      "cluster_robust_se": 0.6422038179462314,
+      "ci95_low": 0.26002682861776316,
+      "ci95_high": 2.777419536435225,
+      "two_sided_p_value": 0.018036807320758012,
+      "region": "Great Barrier Reef",
+      "fdr_q_value": 0.036073614641516025
+    },
+    {
+      "axis": "along",
+      "term": "Along-axis wave",
+      "n_intervals": 345,
+      "n_cays": 24,
+      "status": "ok",
+      "coefficient": 10.804215813293313,
+      "cluster_robust_se": 1.6118028484089708,
+      "ci95_low": 7.645140280232658,
+      "ci95_high": 13.963291346353968,
+      "two_sided_p_value": 2.0392230021843295e-11,
+      "region": "Maldives",
+      "fdr_q_value": 8.156892008737318e-11
+    }
+  ],
+  "inference": "Observational directional association per region; not causal; OTHER/NH strata below gate reported as insufficient_sample."
+}

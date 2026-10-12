@@ -1,0 +1,130 @@
+{
+  "contract_version": "2026-09-10-coverage-aware-1",
+  "contract_sha256": "25b1173530fdb5f8280c6ea014a984a09acc4df2357bb4b3be06507178194cf9",
+  "excluded_reefs": [
+    "GBR_066"
+  ],
+  "modules": {
+    "directional_background": {
+      "primary_sensor": "sentinel2",
+      "interval_days": [
+        90,
+        365
+      ],
+      "sensitivity_interval_days": [
+        [
+          60,
+          365
+        ],
+        [
+          90,
+          365
+        ],
+        [
+          120,
+          365
+        ]
+      ],
+      "primary_outcomes": [
+        "along_shift",
+        "cross_shift"
+      ],
+      "secondary_outcomes": [
+        "log_gross_mobility"
+      ],
+      "inference_units": {
+        "primary": "interval nested within sand cay",
+        "robustness": "interval nested within reef"
+      },
+      "fdr_family": "outcome x specification"
+    },
+    "typhoon_event": {
+      "primary_sensor": "sentinel2",
+      "event_window_days": [
+        -60,
+        -5,
+        5,
+        60
+      ],
+      "sensitivity_window_days": [
+        [
+          -90,
+          -5,
+          5,
+          90
+        ],
+        [
+          -120,
+          -5,
+          5,
+          120
+        ]
+      ],
+      "primary_outcome": "gross_mobility_fraction",
+      "inference_unit": "independent storm after cay-level matched differences",
+      "fdr_family": "specification"
+    },
+    "vegetation_state": {
+      "primary_sensor": "sentinel2",
+      "interval_days": [
+        90,
+        730
+      ],
+      "sensitivity_interval_days": [
+        [
+          90,
+          540
+        ],
+        [
+          90,
+          730
+        ],
+        [
+          120,
+          730
+        ]
+      ],
+      "primary_outcome": "gross_mobility_fraction_per_year",
+      "surface_state_variable": "green_vegetation_fraction",
+      "transition_surface_variable": "dark_olive_anomaly_fraction",
+      "transition_surface_rule": "spectral contrast with bright substrate; not crust, algae, wet sand, shadow, or a confirmed biological stage",
+      "inference_units": {
+        "between": "sand cay",
+        "within": "interval within sand cay"
+      },
+      "fdr_family": "outcome x specification"
+    }
+  },
+  "tide": {
+    "model_name": "FES2022b",
+    "variable": "ocean_tide_elevation",
+    "grid": "ocean_tide_extrapolated",
+    "prediction_library": "pyfes",
+    "citation": "The FES2022 Tide product was funded by CNES, produced by LEGOS, NOVELTIS and CLS and made freely available by AVISO. CNES, 2024. FES2022 (Finite Element Solution) Ocean Tide (Version 2024) [Data set]. CNES. https://doi.org/10.24400/527896/A01-2024.004",
+    "url": "https://www.aviso.altimetry.fr/en/data/products/auxiliary-products/global-tide-fes/release-fes22.html",
+    "use": "observation-condition sensitivity proxy, not a geomorphic mechanism variable",
+    "required_fields": [
+      "image_id",
+      "sensor",
+      "acquisition_datetime_utc",
+      "sand_cay_center_lon",
+      "sand_cay_center_lat",
+      "tide_elevation_m",
+      "tide_model",
+      "tide_grid",
+      "prediction_library_version",
+      "prediction_status"
+    ]
+  },
+  "wind": {
+    "model_name": "ERA5",
+    "variables": [
+      "u10",
+      "v10"
+    ],
+    "current_use": "Partial ERA5 coverage may be used now in coverage-restricted exploratory and sensitivity analyses. Coverage must be reported by interval, cay, reef, sensor, and calendar period.",
+    "activation_rule": "Inferential wind models require complete GLORYS, WAVERYS, and ERA5 coverage over the identical (time_t, time_t1] analytic window, with sufficient independent cays and reefs and no informative missing-coverage pattern. Tide remains paused and must not gate the current wind-wave-current analysis.",
+    "comparison": "flow_wave versus flow_wave_wind on the wind-complete subset",
+    "likelihood_method": "maximum_likelihood"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "compactness_definition": "same largest 8-connected component area and four-direction Crofton perimeter; raw stored C preserved; primary external perimeter sensitivity",
+  "n_recomputed": 2615,
+  "n_unavailable_outside_analysis": 6,
+  "selected_C_gt1": 20,
+  "annual_comparison": [
+    {
+      "metric": "sand_cay_compactness",
+      "n_observations": 1741,
+      "n_cays": 56,
+      "mean_error_reduction": 0.045987036206079024,
+      "median_error_reduction": 0.019814819261064695,
+      "ci95_low": 0.025790820265973787,
+      "ci95_high": 0.06694080454691716,
+      "positive_cays": 41,
+      "wilcoxon_p_value": 0.00017524838466937876,
+      "fdr_q_value": 0.0006133693463428256,
+      "method": "legacy",
+      "relative_error_reduction": 0.06319696779656248,
+      "fdr_q_seven_metrics": 0.0006133693463428256
+    },
+    {
+      "metric": "sand_cay_compactness",
+      "n_observations": 1741,
+      "n_cays": 56,
+      "mean_error_reduction": 0.048202883555207236,
+      "median_error_reduction": 0.02736859637151385,
+      "ci95_low": 0.027482303611765173,
+      "ci95_high": 0.06888165893231445,
+      "positive_cays": 40,
+      "wilcoxon_p_value": 5.987940539982893e-05,
+      "fdr_q_value": 0.00025759424184224115,
+      "method": "primary_external",
+      "relative_error_reduction": 0.0671364561673952,
+      "fdr_q_seven_metrics": 0.00025759424184224115
+    },
+    {
+      "metric": "sand_cay_compactness",
+      "n_observations": 1741,
+      "n_cays": 56,
+      "mean_error_reduction": 0.04310835182899423,
+      "median_error_reduction": 0.024495176756092335,
+      "ci95_low": 0.0216822052379829,
+      "ci95_high": 0.06428110937663496,
+      "positive_cays": 38,
+      "wilcoxon_p_value": 0.0005429829988011947,
+      "fdr_q_value": 0.001266960330536121,
+      "method": "primary_crofton",
+      "relative_error_reduction": 0.05997211434157924,
+      "fdr_q_seven_metrics": 0.001266960330536121
+    }
+  ],
+  "centroid_support": {
+    "tracks": 93,
+    "sampling_rules": 4,
+    "scenario_sigma_pixels": [
+      0.5,
+      1,
+      2
+    ],
+    "registration_scope": "no independent ground control; NH_015 prior background screen remains a candidate check",
+    "noise_only_scope": "cannot subtract hypothetical noise from observed path"
+  },
+  "matched_support": {
+    "all_same_region_pairs": 32,
+    "unique_cays": 27,
+    "regions": {
+      "Great Barrier Reef": 22,
+      "Maldives": 10
+    },
+    "non_reused_pairs": 13,
+    "median_envelope_difference_r": 0.0925182521136165,
+    "non_reused_median_envelope_difference_r": 0.07393046202003917
+  },
+  "master_sha256": "b6d55ded1c301642ded9f97fa3c2a303d25fc406a66c69bbe34409edb31f0e7f",
+  "continuous_track_sha256": "b27490793da4dc3d2dac3b5073c8ff6ccda0d27e3c70b8ff081791ab970f3763",
+  "code_sha256": "95c0385a77b554941ca7d8023a5dfb753a6c4e544d5363b7bc84d2f3b9ea235c",
+  "primary_geometry_code_sha256": "05d832e5ef15c8607729ccfa2b926424fe8ea61a86b40c4a6c29440761d6e2b4"
+}

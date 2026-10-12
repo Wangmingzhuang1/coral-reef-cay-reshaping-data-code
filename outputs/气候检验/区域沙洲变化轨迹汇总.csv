@@ -1,0 +1,7 @@
+﻿sensor,region,n_trajectories,median_relative_change,median_centroid_path_normalized,n_strict_morphological_stability
+google_earth,MEDF,17,0.0434938570531791,5.9082415307972,0
+google_earth,NH,17,-0.0412667946257197,3.967869354771732,4
+google_earth,OTHER,3,-0.0505938128531751,1.621741681958306,1
+sentinel2,GBR,28,-0.0245304779734597,3.755334864830376,6
+sentinel2,MEDF,22,-0.0964796151994132,6.46866169156492,0
+sentinel2,OTHER,6,0.11069894068616695,5.21433853129149,0

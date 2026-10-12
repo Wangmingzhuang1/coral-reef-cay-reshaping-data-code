@@ -1,0 +1,6 @@
+{
+  "purpose": "Formal contrasts required before promoting the dual-structure claims to the main text.",
+  "family": "12 tests, FDR-BH; robustness variants reported separately.",
+  "bootstrap": "1999 joint reef-cluster draws retaining multiplicity; percentile CI; approximate two-sided percentile-bootstrap tail p values; pooled p90 held fixed",
+  "language_rule": "Observational design supports association/statistical encoding, not causal determination."
+}

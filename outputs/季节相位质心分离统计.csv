@@ -1,0 +1,4 @@
+﻿bucket,n,n_cays,median_normalized_centroid_separation,ci95_low,ci95_high,p90,median_iou
+same_season_cross_year,1363,60,0.126,0.089,0.162,0.507,0.787
+opposite_season_within_year,1650,64,0.144,0.109,0.198,0.646,0.765
+opposite_season_cross_year,2041,63,0.173,0.126,0.246,0.754,0.726

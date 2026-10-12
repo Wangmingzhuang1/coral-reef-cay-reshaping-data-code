@@ -1,0 +1,7 @@
+{
+  "status": "EXPLORATORY addendum; not part of the verified core result",
+  "forcing_source": "outputs/流场波浪区间特征.csv (ERA5 wind, GLORYS current, WaveRYS wave) and data/environment/harmonized/daily/reef_daily_features.csv",
+  "n_steps_merged": 1635,
+  "n_steps_with_wave_wind": 1521,
+  "coverage": 0.9302752293577982
+}

@@ -1,0 +1,14 @@
+﻿analysis,stratum,component,harmonic,amplitude_m,f_stat,p_value,n_observations,n_cays,significant_cays,evidence_role,estimate,smooth_null,mean_day_of_year,fdr_q_value
+harmonic_annual_east_dm_bare,bare,east_dm,annual,5.361232135462828,3.5131082334391155,0.03735821791644081,1410.0,55,,,,,,0.0910496555271802
+harmonic_semiannual_east_dm_bare,bare,east_dm,semiannual,1.5892284450992284,0.9622019481941203,0.3890112153742873,1410.0,55,,,,,,0.3890112153742873
+harmonic_annual_north_dm_bare,bare,north_dm,annual,3.337762742287306,3.1308212076061945,0.052352804931120725,1410.0,55,,,,,,0.0910496555271802
+harmonic_semiannual_north_dm_bare,bare,north_dm,semiannual,1.126080977453762,1.0530980481369996,0.35646415851970353,1410.0,55,,,,,,0.3890112153742873
+harmonic_annual_east_dm_vegetated,vegetated,east_dm,annual,4.307839102411837,3.5510613287049706,0.054629793316308115,411.0,17,,,,,,0.0910496555271802
+harmonic_semiannual_east_dm_vegetated,vegetated,east_dm,semiannual,1.8787033655763006,2.4927738162178628,0.11622887790746342,411.0,17,,,,,,0.16604125415351917
+harmonic_annual_north_dm_vegetated,vegetated,north_dm,annual,3.3157160221815856,10.121404764890794,0.0016506519996278292,411.0,17,,,,,,0.01650651999627829
+harmonic_semiannual_north_dm_vegetated,vegetated,north_dm,semiannual,1.001988922946898,1.2898076100311562,0.304168478164765,411.0,17,,,,,,0.3802105977059562
+lomb_scargle_annual_band_bare,bare,east+north,annual_band,,,,1326.0,43,21.0,exploratory date-exchangeability screening; no population binomial inference,,,,
+episodicity_largest_step_bare,bare,,,,,,,49,,descriptive concentration of observed displacement; no event-time inference,0.09898449885089686,,,
+episodicity_largest_step_vegetated,vegetated,,,,,,,13,,descriptive concentration of observed displacement; no event-time inference,0.07986413835197861,,,
+large_step_doy_rayleigh_bare,bare,,,,,0.012624138739919334,,125,,,0.18702180674494534,,32.16170727469056,0.06312069369959666
+large_step_typhoon_wind_bare,bare,,,,,0.05028526512579883,,16,,,-6.450000000000001,20.6,,0.0910496555271802

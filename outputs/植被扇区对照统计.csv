@@ -1,0 +1,6 @@
+﻿stratum,n_transitions,n_cays,status,mean_mobility_difference,median_mobility_difference,bootstrap_ci_low,bootstrap_ci_high,wilcoxon_p_value,wilcoxon_unit,estimate_weighting,bootstrap_unit,mean_retreat_difference,supported_negative
+all,1012,62,ok,-0.1802686689874625,-0.05905808335101518,-0.32965854885402185,-0.07127988838409188,0.0026016949662357137,cay_mean_difference,interval_weighted_mean,cay_with_all_intervals,-0.0014251806310698353,True
+background,994,61,ok,-0.14080362188408788,-0.05905808335101518,-0.25776685305056396,-0.05271140917842436,0.005380478476928384,cay_mean_difference,interval_weighted_mean,cay_with_all_intervals,-0.04102646754289585,True
+pulse,18,11,ok,-2.359616270140484,-0.06467997492341492,-6.39616292602355,-0.07127933775226696,0.013671875,cay_mean_difference,interval_weighted_mean,cay_with_all_intervals,2.1854458854997665,True
+window_90_540,598,58,ok,-0.10804183679225249,-0.06916691175097767,-0.183568755363024,-0.03493491615133804,0.023063620819436914,cay_mean_difference,interval_weighted_mean,cay_with_all_intervals,-0.10052290303767263,True
+window_120_730,293,57,ok,-0.18687116587123276,-0.06885727165626737,-0.2948026347194819,-0.08415396181423106,0.0018177773526045135,cay_mean_difference,interval_weighted_mean,cay_with_all_intervals,-0.05023735880294017,True

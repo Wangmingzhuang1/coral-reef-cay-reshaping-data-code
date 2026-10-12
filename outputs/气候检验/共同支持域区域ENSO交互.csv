@@ -1,0 +1,17 @@
+﻿outcome,exposure,reference_region,n_intervals,n_cays,compared_regions,status,wald_f,wald_df_denom,wald_p_value,threshold_m2,lag_months
+annualized_log_area_change,nino34_lag_0m,GBR,999,62,"GBR,MEDF",ok,6.4434923093974865e-06,61.0,0.9979829325137834,3000.0,0
+annualized_log_area_change,nino34_lag_3m,GBR,999,62,"GBR,MEDF",ok,0.08906747952375137,61.0,0.7663802946591889,3000.0,3
+annualized_log_area_change,nino34_lag_6m,GBR,999,62,"GBR,MEDF",ok,0.15869230677084298,61.0,0.6917542757614115,3000.0,6
+annualized_log_area_change,nino34_lag_24m,GBR,999,62,"GBR,MEDF",ok,3.03762744300794,61.0,0.08639384187553335,3000.0,24
+log_gross_mobility,nino34_lag_0m,GBR,975,62,"GBR,MEDF",ok,0.2326511881371098,61.0,0.6312912699452957,3000.0,0
+log_gross_mobility,nino34_lag_3m,GBR,975,62,"GBR,MEDF",ok,4.746439630837665,61.0,0.033232644851484396,3000.0,3
+log_gross_mobility,nino34_lag_6m,GBR,975,62,"GBR,MEDF",ok,7.132813312195161,61.0,0.009689351175406655,3000.0,6
+log_gross_mobility,nino34_lag_24m,GBR,975,62,"GBR,MEDF",ok,0.969132890243306,61.0,0.3287852125457925,3000.0,24
+annualized_log_area_change,nino34_lag_0m,GBR,1011,63,"GBR,MEDF",ok,0.1429367808880453,62.0,0.7066700870446039,1500.0,0
+annualized_log_area_change,nino34_lag_3m,GBR,1011,63,"GBR,MEDF",ok,0.41352643290148544,62.0,0.5225563199500274,1500.0,3
+annualized_log_area_change,nino34_lag_6m,GBR,1011,63,"GBR,MEDF",ok,0.3151736595758813,62.0,0.5765463259930186,1500.0,6
+annualized_log_area_change,nino34_lag_24m,GBR,1011,63,"GBR,MEDF",ok,3.659292951499109,62.0,0.06037853607677322,1500.0,24
+log_gross_mobility,nino34_lag_0m,GBR,987,63,"GBR,MEDF",ok,0.4783227162401446,62.0,0.491764841480571,1500.0,0
+log_gross_mobility,nino34_lag_3m,GBR,987,63,"GBR,MEDF",ok,5.336960738276256,62.0,0.024220017531012727,1500.0,3
+log_gross_mobility,nino34_lag_6m,GBR,987,63,"GBR,MEDF",ok,7.378804150421481,62.0,0.008541605781118993,1500.0,6
+log_gross_mobility,nino34_lag_24m,GBR,987,63,"GBR,MEDF",ok,1.0787296591058513,62.0,0.30301556493503945,1500.0,24

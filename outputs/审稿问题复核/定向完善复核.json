@@ -1,0 +1,174 @@
+{
+  "sector": {
+    "before_intervals": 1063,
+    "after_intervals": 1012,
+    "after_cays": 62,
+    "excluded_intervals": 51,
+    "preserved_retained_values": true,
+    "scope": "single-grid metadata eligibility, not independent registration accuracy"
+  },
+  "background": {
+    "fixed_buffer_m": 20,
+    "fixed_edge_m": 10,
+    "support": [
+      {
+        "sand_cay_id": "MEDF_008_cay_001",
+        "specification": "historical",
+        "n_pairs": 29,
+        "n_accepted": 0,
+        "background_fraction": 0.04608853850818678,
+        "median_features": 0.0
+      },
+      {
+        "sand_cay_id": "MEDF_008_cay_001",
+        "specification": "physical_scale",
+        "n_pairs": 29,
+        "n_accepted": 2,
+        "background_fraction": 0.8925611481706085,
+        "median_features": 258.0
+      },
+      {
+        "sand_cay_id": "MEDF_022_cay_001",
+        "specification": "historical",
+        "n_pairs": 33,
+        "n_accepted": 0,
+        "background_fraction": 0.019930833636694577,
+        "median_features": 0.0
+      },
+      {
+        "sand_cay_id": "MEDF_022_cay_001",
+        "specification": "physical_scale",
+        "n_pairs": 33,
+        "n_accepted": 23,
+        "background_fraction": 0.8581179468511103,
+        "median_features": 410.0
+      },
+      {
+        "sand_cay_id": "GBR_039_cay_001",
+        "specification": "historical",
+        "n_pairs": 32,
+        "n_accepted": 16,
+        "background_fraction": 0.47524498486480937,
+        "median_features": 2607.0
+      },
+      {
+        "sand_cay_id": "GBR_039_cay_001",
+        "specification": "physical_scale",
+        "n_pairs": 32,
+        "n_accepted": 5,
+        "background_fraction": 0.9606656063482291,
+        "median_features": 3765.0
+      },
+      {
+        "sand_cay_id": "MEDF_015_cay_001",
+        "specification": "historical",
+        "n_pairs": 35,
+        "n_accepted": 0,
+        "background_fraction": 0.0,
+        "median_features": 0.0
+      },
+      {
+        "sand_cay_id": "MEDF_015_cay_001",
+        "specification": "physical_scale",
+        "n_pairs": 35,
+        "n_accepted": 0,
+        "background_fraction": 0.6695804195804196,
+        "median_features": 0.0
+      },
+      {
+        "sand_cay_id": "OTHER_008_cay_001",
+        "specification": "historical",
+        "n_pairs": 38,
+        "n_accepted": 14,
+        "background_fraction": 0.5004790081713159,
+        "median_features": 1325.0
+      },
+      {
+        "sand_cay_id": "OTHER_008_cay_001",
+        "specification": "physical_scale",
+        "n_pairs": 38,
+        "n_accepted": 6,
+        "background_fraction": 0.9705269089884474,
+        "median_features": 2825.5
+      }
+    ],
+    "scope": "candidate background matching only; no independent controls, no mask correction; acceptance thresholds unchanged"
+  },
+  "lag": [
+    {
+      "test": "M7_forward",
+      "scheme": "within_cay",
+      "status": "ok",
+      "n_sectors": 4851.0,
+      "n_transitions": 466,
+      "n_cays": 58,
+      "coefficient": -0.13636878869502556,
+      "cluster_robust_se": 0.13235876958343643,
+      "ci95_low": -0.3957872101165965,
+      "ci95_high": 0.1230496327265454,
+      "p_value": 0.30287080026608293,
+      "note": NaN,
+      "fdr_q_value": 0.30287080026608293
+    },
+    {
+      "test": "M7_forward",
+      "scheme": "within_transition",
+      "status": "ok",
+      "n_sectors": 4850.0,
+      "n_transitions": 465,
+      "n_cays": 58,
+      "coefficient": -0.5122753292732595,
+      "cluster_robust_se": 0.12068916932339112,
+      "ci95_low": -0.7488217544711624,
+      "ci95_high": -0.27572890407535655,
+      "p_value": 2.1899922160830656e-05,
+      "note": NaN,
+      "fdr_q_value": 8.759968864332262e-05
+    },
+    {
+      "test": "M9_reverse",
+      "scheme": "within_cay",
+      "status": "ok",
+      "n_sectors": 4668.0,
+      "n_transitions": 464,
+      "n_cays": 58,
+      "coefficient": -0.004527351761517491,
+      "cluster_robust_se": 0.0026601271608655765,
+      "ci95_low": -0.009741105191110808,
+      "ci95_high": 0.0006864016680758252,
+      "p_value": 0.0887683824804076,
+      "note": NaN,
+      "fdr_q_value": 0.1775367649608152
+    },
+    {
+      "test": "M9_reverse",
+      "scheme": "within_transition",
+      "status": "ok",
+      "n_sectors": 4667.0,
+      "n_transitions": 463,
+      "n_cays": 58,
+      "coefficient": -0.0021630007334553143,
+      "cluster_robust_se": 0.0017435754170114994,
+      "ci95_low": -0.005580345755127259,
+      "ci95_high": 0.0012543442882166304,
+      "p_value": 0.2147702836088381,
+      "note": NaN,
+      "fdr_q_value": 0.28636037814511744
+    },
+    {
+      "test": "chain_audit",
+      "scheme": "strict_adjacency",
+      "status": "ok",
+      "n_sectors": NaN,
+      "n_transitions": 951,
+      "n_cays": 60,
+      "coefficient": 0.5263748597081931,
+      "cluster_robust_se": NaN,
+      "ci95_low": NaN,
+      "ci95_high": NaN,
+      "p_value": NaN,
+      "note": "coefficient is strict adjacent-link fraction; M7/M9 use only links whose predecessor end date equals successor start date",
+      "fdr_q_value": NaN
+    }
+  ]
+}

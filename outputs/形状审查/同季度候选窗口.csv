@@ -1,0 +1,373 @@
+﻿sand_cay_id,sensor,quarter,n_observations,window_separation_years,maximum_cross_window_season_gap_days,eligible,reason
+GBR_003_cay_001,sentinel2,1,8,5.640088434396326,74.0,True,eligible
+GBR_003_cay_001,sentinel2,2,9,6.523063444150119,39.0,True,eligible
+GBR_003_cay_001,sentinel2,3,5,5.092507032998624,49.0,True,eligible
+GBR_003_cay_001,sentinel2,4,8,5.455279711424601,51.0,True,eligible
+GBR_007_cay_001,sentinel2,1,8,5.6469332019137966,74.0,True,eligible
+GBR_007_cay_001,sentinel2,2,9,6.523063444150119,39.0,True,eligible
+GBR_007_cay_001,sentinel2,3,8,6.550442514220005,29.0,True,eligible
+GBR_007_cay_001,sentinel2,4,10,6.913215192645982,61.0,True,eligible
+GBR_008_cay_001,sentinel2,1,6,5.133575638103451,64.0,True,eligible
+GBR_008_cay_001,sentinel2,2,6,5.564795991704142,39.0,True,eligible
+GBR_008_cay_001,sentinel2,3,5,4.599683771740692,39.0,True,eligible
+GBR_008_cay_001,sentinel2,4,8,6.372478558765751,61.0,True,eligible
+GBR_009_cay_001,sentinel2,1,8,5.6469332019137966,74.0,True,eligible
+GBR_009_cay_001,sentinel2,2,9,6.523063444150119,39.0,True,eligible
+GBR_009_cay_001,sentinel2,3,9,6.550442514220005,39.0,True,eligible
+GBR_009_cay_001,sentinel2,4,7,6.372478558765751,61.0,True,eligible
+GBR_020_cay_001,sentinel2,1,8,6.557287281737476,44.0,True,eligible
+GBR_020_cay_001,sentinel2,2,8,6.557287281737476,39.0,True,eligible
+GBR_020_cay_001,sentinel2,3,8,6.5778215842898895,49.0,True,eligible
+GBR_020_cay_001,sentinel2,4,8,6.386168093800694,61.0,True,eligible
+GBR_033_cay_001,sentinel2,1,8,6.680493097051959,74.0,True,eligible
+GBR_033_cay_001,sentinel2,2,9,6.520325537143131,31.0,True,eligible
+GBR_033_cay_001,sentinel2,3,9,6.480625885541797,38.0,True,eligible
+GBR_033_cay_001,sentinel2,4,9,6.434081466422993,88.0,True,eligible
+GBR_034_cay_001,sentinel2,1,8,6.680493097051959,74.0,True,eligible
+GBR_034_cay_001,sentinel2,2,9,6.520325537143131,31.0,True,eligible
+GBR_034_cay_001,sentinel2,3,9,6.480625885541797,38.0,True,eligible
+GBR_034_cay_001,sentinel2,4,9,6.434081466422993,88.0,True,eligible
+GBR_036_cay_001,sentinel2,1,8,5.527834247109797,46.0,True,eligible
+GBR_036_cay_001,sentinel2,2,7,6.557287281737476,44.0,True,eligible
+GBR_036_cay_001,sentinel2,3,8,6.465567397003361,23.0,True,eligible
+GBR_036_cay_001,sentinel2,4,9,6.639424491947131,54.0,True,eligible
+GBR_037_cay_001,sentinel2,1,8,6.680493097051959,74.0,True,eligible
+GBR_037_cay_001,sentinel2,2,9,6.379323326283223,67.0,True,eligible
+GBR_037_cay_001,sentinel2,3,9,6.502529141597705,61.0,True,eligible
+GBR_037_cay_001,sentinel2,4,9,6.557287281737476,38.0,True,eligible
+GBR_038_cay_001,sentinel2,1,8,6.680493097051959,74.0,True,eligible
+GBR_038_cay_001,sentinel2,2,9,6.523063444150119,64.0,True,eligible
+GBR_038_cay_001,sentinel2,3,9,6.481994839045291,76.0,True,eligible
+GBR_038_cay_001,sentinel2,4,8,5.941258205165061,66.0,True,eligible
+GBR_039_cay_001,sentinel2,1,7,5.640088434396326,59.0,True,eligible
+GBR_039_cay_001,sentinel2,2,9,6.523063444150119,64.0,True,eligible
+GBR_039_cay_001,sentinel2,3,9,6.481994839045291,76.0,True,eligible
+GBR_039_cay_001,sentinel2,4,8,6.481994839045291,66.0,True,eligible
+GBR_052_cay_001,sentinel2,1,9,6.521694490646625,31.0,True,eligible
+GBR_052_cay_001,sentinel2,2,8,5.55795122418667,82.0,True,eligible
+GBR_052_cay_001,sentinel2,3,8,6.424498791898533,28.0,True,eligible
+GBR_052_cay_001,sentinel2,4,9,6.529908211667591,64.0,True,eligible
+GBR_053_cay_001,sentinel2,1,5,4.458681560880785,66.0,True,eligible
+GBR_053_cay_001,sentinel2,2,7,5.55795122418667,67.0,True,eligible
+GBR_053_cay_001,sentinel2,3,9,6.417654024381061,84.0,True,eligible
+GBR_053_cay_001,sentinel2,4,8,5.3799872687324175,51.0,True,eligible
+GBR_055_cay_001,sentinel2,1,9,6.509373909115177,42.0,True,eligible
+GBR_055_cay_001,sentinel2,2,9,6.324565186143452,86.0,True,eligible
+GBR_055_cay_001,sentinel2,3,9,6.47515007152782,87.0,True,eligible
+GBR_055_cay_001,sentinel2,4,9,6.502529141597705,56.0,True,eligible
+GBR_058_cay_001,sentinel2,1,9,6.564132049254947,38.0,True,eligible
+GBR_058_cay_001,sentinel2,2,9,6.520325537143131,21.0,True,eligible
+GBR_058_cay_001,sentinel2,3,9,6.431343559416004,41.0,True,eligible
+GBR_058_cay_001,sentinel2,4,9,6.618890189394717,59.0,True,eligible
+GBR_059_cay_001,sentinel2,1,8,5.478551920984004,46.0,True,eligible
+GBR_059_cay_001,sentinel2,2,9,6.5038980951012,9.0,True,eligible
+GBR_059_cay_001,sentinel2,3,8,5.9645304147244635,20.0,True,eligible
+GBR_059_cay_001,sentinel2,4,9,6.564132049254947,29.0,True,eligible
+GBR_060_cay_001,sentinel2,1,8,6.481994839045291,41.0,True,eligible
+GBR_060_cay_001,sentinel2,2,9,6.529908211667591,34.0,True,eligible
+GBR_060_cay_001,sentinel2,3,9,6.36563379124828,51.0,True,eligible
+GBR_060_cay_001,sentinel2,4,9,6.557287281737476,36.0,True,eligible
+GBR_061_cay_001,sentinel2,1,0,,,False,fewer than five observations
+GBR_061_cay_001,sentinel2,2,9,6.529908211667591,34.0,True,eligible
+GBR_061_cay_001,sentinel2,3,0,,,False,fewer than five observations
+GBR_061_cay_001,sentinel2,4,9,6.557287281737476,36.0,True,eligible
+GBR_061_cay_002,sentinel2,1,0,,,False,fewer than five observations
+GBR_061_cay_002,sentinel2,2,8,6.529908211667591,24.0,True,eligible
+GBR_061_cay_002,sentinel2,3,0,,,False,fewer than five observations
+GBR_061_cay_002,sentinel2,4,8,5.55795122418667,36.0,True,eligible
+GBR_068_cay_001,sentinel2,1,9,6.4546157689754065,42.0,True,eligible
+GBR_068_cay_001,sentinel2,2,8,6.598355886842303,49.0,True,eligible
+GBR_068_cay_001,sentinel2,3,8,6.646269259464602,64.0,True,eligible
+GBR_068_cay_001,sentinel2,4,7,5.044593660376325,36.0,True,eligible
+GBR_073_cay_001,sentinel2,1,8,5.421055873837245,63.0,True,eligible
+GBR_073_cay_001,sentinel2,2,7,5.496348316529429,81.0,True,eligible
+GBR_073_cay_001,sentinel2,3,9,6.5709768167724185,49.0,True,eligible
+GBR_073_cay_001,sentinel2,4,9,6.536752979185062,74.0,True,eligible
+GBR_085_cay_001,sentinel2,1,7,4.469633188908738,44.0,True,eligible
+GBR_085_cay_001,sentinel2,2,8,5.564795991704142,48.0,True,eligible
+GBR_085_cay_001,sentinel2,3,8,5.688001807018624,79.0,True,eligible
+GBR_085_cay_001,sentinel2,4,8,5.653777969431268,64.0,True,eligible
+GBR_095_cay_001,sentinel2,1,9,6.4546157689754065,42.0,True,eligible
+GBR_095_cay_001,sentinel2,2,6,3.511365736462761,49.0,True,eligible
+GBR_095_cay_001,sentinel2,3,9,6.646269259464602,64.0,True,eligible
+GBR_095_cay_001,sentinel2,4,7,4.544925631600923,36.0,True,eligible
+GBR_098_cay_001,sentinel2,1,9,6.509373909115177,79.0,True,eligible
+GBR_098_cay_001,sentinel2,2,8,5.640088434396326,64.0,True,eligible
+GBR_098_cay_001,sentinel2,3,8,5.605864596808969,59.0,True,eligible
+GBR_098_cay_001,sentinel2,4,8,5.530572154116785,51.0,True,eligible
+GBR_101_cay_001,sentinel2,1,8,6.502529141597705,23.0,True,eligible
+GBR_101_cay_001,sentinel2,2,9,6.598355886842303,58.0,True,eligible
+GBR_101_cay_001,sentinel2,3,9,6.427236698905522,46.0,True,eligible
+GBR_101_cay_001,sentinel2,4,8,5.530572154116785,54.0,True,eligible
+GBR_102_cay_001,sentinel2,1,9,6.502529141597705,23.0,True,eligible
+GBR_102_cay_001,sentinel2,2,8,6.598355886842303,58.0,True,eligible
+GBR_102_cay_001,sentinel2,3,9,6.427236698905522,46.0,True,eligible
+GBR_102_cay_001,sentinel2,4,9,6.529908211667591,34.0,True,eligible
+GBR_104_cay_001,sentinel2,1,8,6.680493097051959,74.0,True,eligible
+GBR_104_cay_001,sentinel2,2,9,6.523063444150119,64.0,True,eligible
+GBR_104_cay_001,sentinel2,3,9,6.481994839045291,76.0,True,eligible
+GBR_104_cay_001,sentinel2,4,9,6.481994839045291,66.0,True,eligible
+GBR_108_cay_001,sentinel2,1,8,6.529908211667591,39.0,True,eligible
+GBR_108_cay_001,sentinel2,2,9,6.557287281737476,39.0,True,eligible
+GBR_108_cay_001,sentinel2,3,8,5.5100378515643715,49.0,True,eligible
+GBR_108_cay_001,sentinel2,4,9,6.36563379124828,66.0,True,eligible
+MEDF_001_cay_001,google_earth,1,2,,,False,fewer than five observations
+MEDF_001_cay_001,google_earth,2,2,,,False,fewer than five observations
+MEDF_001_cay_001,google_earth,3,2,,,False,fewer than five observations
+MEDF_001_cay_001,google_earth,4,7,7.084334380582764,85.0,True,eligible
+MEDF_002_cay_001,sentinel2,1,5,4.661286679397934,79.0,True,eligible
+MEDF_002_cay_001,sentinel2,2,5,2.362813747031082,77.0,False,span below three years or phase gap above 90 days
+MEDF_002_cay_001,sentinel2,3,3,,,False,fewer than five observations
+MEDF_002_cay_001,sentinel2,4,5,2.5216123534364154,65.0,False,span below three years or phase gap above 90 days
+MEDF_004_cay_001,sentinel2,1,2,,,False,fewer than five observations
+MEDF_004_cay_001,sentinel2,2,0,,,False,fewer than five observations
+MEDF_004_cay_001,sentinel2,3,2,,,False,fewer than five observations
+MEDF_004_cay_001,sentinel2,4,0,,,False,fewer than five observations
+MEDF_005_cay_001,sentinel2,1,9,6.536752979185062,79.0,True,eligible
+MEDF_005_cay_001,sentinel2,2,9,6.468305304010349,26.0,True,eligible
+MEDF_005_cay_001,sentinel2,3,9,6.4409262339404645,41.0,True,eligible
+MEDF_005_cay_001,sentinel2,4,9,6.516218676632648,52.0,True,eligible
+MEDF_006_cay_001,sentinel2,1,9,6.536752979185062,79.0,True,eligible
+MEDF_006_cay_001,sentinel2,2,9,6.4409262339404645,26.0,True,eligible
+MEDF_006_cay_001,sentinel2,3,9,6.4477710014579355,41.0,True,eligible
+MEDF_006_cay_001,sentinel2,4,9,6.605200654359774,54.0,True,eligible
+MEDF_007_cay_001,sentinel2,1,4,,,False,fewer than five observations
+MEDF_007_cay_001,sentinel2,2,6,4.465526328398256,65.0,True,eligible
+MEDF_007_cay_001,sentinel2,3,9,6.471043211017338,41.0,True,eligible
+MEDF_007_cay_001,sentinel2,4,6,6.009705880339774,57.0,True,eligible
+MEDF_008_cay_001,sentinel2,1,8,5.619554131843912,79.0,True,eligible
+MEDF_008_cay_001,sentinel2,2,8,5.462124478942073,26.0,True,eligible
+MEDF_008_cay_001,sentinel2,3,6,3.4702971313579334,30.0,True,eligible
+MEDF_008_cay_001,sentinel2,4,8,5.462124478942073,57.0,True,eligible
+MEDF_009_cay_001,google_earth,1,2,,,False,fewer than five observations
+MEDF_009_cay_001,google_earth,2,2,,,False,fewer than five observations
+MEDF_009_cay_001,google_earth,3,1,,,False,fewer than five observations
+MEDF_009_cay_001,google_earth,4,0,,,False,fewer than five observations
+MEDF_010_cay_001,sentinel2,1,9,6.536752979185062,79.0,True,eligible
+MEDF_010_cay_001,sentinel2,2,9,6.468305304010349,26.0,True,eligible
+MEDF_010_cay_001,sentinel2,3,9,6.4409262339404645,41.0,True,eligible
+MEDF_010_cay_001,sentinel2,4,8,6.516218676632648,52.0,True,eligible
+MEDF_011_cay_001,sentinel2,1,9,6.536752979185062,79.0,True,eligible
+MEDF_011_cay_001,sentinel2,2,8,6.002861112822303,18.0,True,eligible
+MEDF_011_cay_001,sentinel2,3,9,6.4409262339404645,41.0,True,eligible
+MEDF_011_cay_001,sentinel2,4,9,6.516218676632648,52.0,True,eligible
+MEDF_012_cay_001,google_earth,1,4,,,False,fewer than five observations
+MEDF_012_cay_001,google_earth,2,2,,,False,fewer than five observations
+MEDF_012_cay_001,google_earth,3,1,,,False,fewer than five observations
+MEDF_012_cay_001,google_earth,4,0,,,False,fewer than five observations
+MEDF_013_cay_001,google_earth,1,2,,,False,fewer than five observations
+MEDF_013_cay_001,google_earth,2,1,,,False,fewer than five observations
+MEDF_013_cay_001,google_earth,3,2,,,False,fewer than five observations
+MEDF_013_cay_001,google_earth,4,0,,,False,fewer than five observations
+MEDF_014_cay_001,sentinel2,1,9,6.536752979185062,79.0,True,eligible
+MEDF_014_cay_001,sentinel2,2,9,6.468305304010349,26.0,True,eligible
+MEDF_014_cay_001,sentinel2,3,8,5.462124478942073,31.0,True,eligible
+MEDF_014_cay_001,sentinel2,4,9,6.516218676632648,52.0,True,eligible
+MEDF_015_cay_001,sentinel2,1,9,6.536752979185062,79.0,True,eligible
+MEDF_015_cay_001,sentinel2,2,9,6.468305304010349,26.0,True,eligible
+MEDF_015_cay_001,sentinel2,3,9,6.4409262339404645,41.0,True,eligible
+MEDF_015_cay_001,sentinel2,4,9,6.516218676632648,52.0,True,eligible
+MEDF_017_cay_001,sentinel2,1,9,6.536752979185062,79.0,True,eligible
+MEDF_017_cay_001,sentinel2,2,8,5.592175061774027,49.0,True,eligible
+MEDF_017_cay_001,sentinel2,3,9,6.4409262339404645,41.0,True,eligible
+MEDF_017_cay_001,sentinel2,4,9,6.516218676632648,52.0,True,eligible
+MEDF_018_cay_001,google_earth,1,1,,,False,fewer than five observations
+MEDF_018_cay_001,google_earth,2,2,,,False,fewer than five observations
+MEDF_018_cay_001,google_earth,3,1,,,False,fewer than five observations
+MEDF_018_cay_001,google_earth,4,0,,,False,fewer than five observations
+MEDF_019_cay_001,sentinel2,1,9,6.536752979185062,79.0,True,eligible
+MEDF_019_cay_001,sentinel2,2,8,5.592175061774027,49.0,True,eligible
+MEDF_019_cay_001,sentinel2,3,9,6.4477710014579355,41.0,True,eligible
+MEDF_019_cay_001,sentinel2,4,9,6.516218676632648,52.0,True,eligible
+MEDF_022_cay_001,sentinel2,1,9,6.536752979185062,59.0,True,eligible
+MEDF_022_cay_001,sentinel2,2,9,6.468305304010349,26.0,True,eligible
+MEDF_022_cay_001,sentinel2,3,9,6.550442514220005,73.0,True,eligible
+MEDF_022_cay_001,sentinel2,4,7,6.605200654359774,54.0,True,eligible
+MEDF_023_cay_001,google_earth,1,3,,,False,fewer than five observations
+MEDF_023_cay_001,google_earth,2,3,,,False,fewer than five observations
+MEDF_023_cay_001,google_earth,3,2,,,False,fewer than five observations
+MEDF_023_cay_001,google_earth,4,2,,,False,fewer than five observations
+MEDF_025_cay_001,google_earth,1,2,,,False,fewer than five observations
+MEDF_025_cay_001,google_earth,2,2,,,False,fewer than five observations
+MEDF_025_cay_001,google_earth,3,3,,,False,fewer than five observations
+MEDF_025_cay_001,google_earth,4,1,,,False,fewer than five observations
+MEDF_026_cay_001,sentinel2,1,7,4.579149469188279,64.0,True,eligible
+MEDF_026_cay_001,sentinel2,2,7,4.579149469188279,74.0,True,eligible
+MEDF_026_cay_001,sentinel2,3,7,4.592839004223221,64.0,True,eligible
+MEDF_026_cay_001,sentinel2,4,6,3.5798134116374736,70.0,True,eligible
+MEDF_026_cay_002,sentinel2,1,3,,,False,fewer than five observations
+MEDF_026_cay_002,sentinel2,2,3,,,False,fewer than five observations
+MEDF_026_cay_002,sentinel2,3,2,,,False,fewer than five observations
+MEDF_026_cay_002,sentinel2,4,3,,,False,fewer than five observations
+MEDF_027_cay_001,sentinel2,1,9,6.536752979185062,59.0,True,eligible
+MEDF_027_cay_001,sentinel2,2,9,6.468305304010349,26.0,True,eligible
+MEDF_027_cay_001,sentinel2,3,8,5.482658781494487,73.0,True,eligible
+MEDF_027_cay_001,sentinel2,4,9,6.605200654359774,54.0,True,eligible
+MEDF_028_cay_001,sentinel2,1,9,6.536752979185062,59.0,True,eligible
+MEDF_028_cay_001,sentinel2,2,9,6.468305304010349,26.0,True,eligible
+MEDF_028_cay_001,sentinel2,3,9,6.550442514220005,73.0,True,eligible
+MEDF_028_cay_001,sentinel2,4,9,6.605200654359774,54.0,True,eligible
+MEDF_029_cay_001,google_earth,1,1,,,False,fewer than five observations
+MEDF_029_cay_001,google_earth,2,3,,,False,fewer than five observations
+MEDF_029_cay_001,google_earth,3,5,0.06434081466422993,77.0,False,span below three years or phase gap above 90 days
+MEDF_029_cay_001,google_earth,4,1,,,False,fewer than five observations
+MEDF_030_cay_001,google_earth,1,5,15.506136334079413,58.0,True,eligible
+MEDF_030_cay_001,google_earth,2,4,,,False,fewer than five observations
+MEDF_030_cay_001,google_earth,3,1,,,False,fewer than five observations
+MEDF_030_cay_001,google_earth,4,0,,,False,fewer than five observations
+MEDF_032_cay_001,sentinel2,1,2,,,False,fewer than five observations
+MEDF_032_cay_001,sentinel2,2,6,6.064464020479544,28.0,True,eligible
+MEDF_032_cay_001,sentinel2,3,6,4.490167491461152,34.0,True,eligible
+MEDF_032_cay_001,sentinel2,4,4,,,False,fewer than five observations
+MEDF_033_cay_001,google_earth,1,1,,,False,fewer than five observations
+MEDF_033_cay_001,google_earth,2,4,,,False,fewer than five observations
+MEDF_033_cay_001,google_earth,3,6,0.04791337262229888,65.0,False,span below three years or phase gap above 90 days
+MEDF_033_cay_001,google_earth,4,1,,,False,fewer than five observations
+MEDF_034_cay_001,google_earth,1,7,5.452541804417613,30.0,True,eligible
+MEDF_034_cay_001,google_earth,2,2,,,False,fewer than five observations
+MEDF_034_cay_001,google_earth,3,2,,,False,fewer than five observations
+MEDF_034_cay_001,google_earth,4,2,,,False,fewer than five observations
+MEDF_035_cay_001,google_earth,1,1,,,False,fewer than five observations
+MEDF_035_cay_001,google_earth,2,0,,,False,fewer than five observations
+MEDF_035_cay_001,google_earth,3,2,,,False,fewer than five observations
+MEDF_035_cay_001,google_earth,4,1,,,False,fewer than five observations
+MEDF_036_cay_001,google_earth,1,4,,,False,fewer than five observations
+MEDF_036_cay_001,google_earth,2,3,,,False,fewer than five observations
+MEDF_036_cay_001,google_earth,3,2,,,False,fewer than five observations
+MEDF_036_cay_001,google_earth,4,5,7.662032759057339,76.0,True,eligible
+MEDF_037_cay_001,google_earth,1,3,,,False,fewer than five observations
+MEDF_037_cay_001,google_earth,2,2,,,False,fewer than five observations
+MEDF_037_cay_001,google_earth,3,1,,,False,fewer than five observations
+MEDF_037_cay_001,google_earth,4,4,,,False,fewer than five observations
+MEDF_038_cay_001,google_earth,1,1,,,False,fewer than five observations
+MEDF_038_cay_001,google_earth,2,2,,,False,fewer than five observations
+MEDF_038_cay_001,google_earth,3,1,,,False,fewer than five observations
+MEDF_038_cay_001,google_earth,4,2,,,False,fewer than five observations
+MEDF_039_cay_001,google_earth,1,1,,,False,fewer than five observations
+MEDF_039_cay_001,google_earth,2,1,,,False,fewer than five observations
+MEDF_039_cay_001,google_earth,3,1,,,False,fewer than five observations
+MEDF_039_cay_001,google_earth,4,2,,,False,fewer than five observations
+MEDF_040_cay_001,sentinel2,1,9,6.598355886842303,49.0,True,eligible
+MEDF_040_cay_001,sentinel2,2,9,6.673648329534487,74.0,True,eligible
+MEDF_040_cay_001,sentinel2,3,9,6.495684374080234,33.0,True,eligible
+MEDF_040_cay_001,sentinel2,4,9,6.345099488695866,66.0,True,eligible
+MEDF_041_cay_001,google_earth,1,1,,,False,fewer than five observations
+MEDF_041_cay_001,google_earth,2,2,,,False,fewer than five observations
+MEDF_041_cay_001,google_earth,3,1,,,False,fewer than five observations
+MEDF_041_cay_001,google_earth,4,1,,,False,fewer than five observations
+MEDF_044_cay_001,sentinel2,1,7,4.5859942367057505,44.0,True,eligible
+MEDF_044_cay_001,sentinel2,2,5,2.621545959191496,60.0,False,span below three years or phase gap above 90 days
+MEDF_044_cay_001,sentinel2,3,4,,,False,fewer than five observations
+MEDF_044_cay_001,sentinel2,4,6,3.5250552714977035,15.0,True,eligible
+MEDF_050_cay_001,sentinel2,1,3,,,False,fewer than five observations
+MEDF_050_cay_001,sentinel2,2,3,,,False,fewer than five observations
+MEDF_050_cay_001,sentinel2,3,2,,,False,fewer than five observations
+MEDF_050_cay_001,sentinel2,4,5,6.63257972442966,74.0,True,eligible
+MEDF_053_cay_001,sentinel2,1,13,5.530572154116785,61.0,True,eligible
+MEDF_053_cay_001,sentinel2,2,11,6.516218676632648,79.0,True,eligible
+MEDF_053_cay_001,sentinel2,3,14,6.502529141597705,74.0,True,eligible
+MEDF_053_cay_001,sentinel2,4,10,6.345099488695866,61.0,True,eligible
+NH_002_cay_001,google_earth,1,2,,,False,fewer than five observations
+NH_002_cay_001,google_earth,2,9,14.551975742143918,32.0,True,eligible
+NH_002_cay_001,google_earth,3,3,,,False,fewer than five observations
+NH_002_cay_001,google_earth,4,1,,,False,fewer than five observations
+NH_002_cay_002,google_earth,1,0,,,False,fewer than five observations
+NH_002_cay_002,google_earth,2,3,,,False,fewer than five observations
+NH_002_cay_002,google_earth,3,2,,,False,fewer than five observations
+NH_002_cay_002,google_earth,4,0,,,False,fewer than five observations
+NH_015_cay_001,google_earth,1,13,3.0993107319109905,62.0,True,eligible
+NH_015_cay_001,google_earth,2,6,4.502488072992601,64.0,True,eligible
+NH_015_cay_001,google_earth,3,4,,,False,fewer than five observations
+NH_015_cay_001,google_earth,4,7,2.0903919998357257,65.0,False,span below three years or phase gap above 90 days
+NH_JY_010_cay_001,google_earth,1,3,,,False,fewer than five observations
+NH_JY_010_cay_001,google_earth,2,0,,,False,fewer than five observations
+NH_JY_010_cay_001,google_earth,3,2,,,False,fewer than five observations
+NH_JY_010_cay_001,google_earth,4,5,0.6132911695654257,60.0,False,span below three years or phase gap above 90 days
+NH_KG_012_cay_001,google_earth,1,1,,,False,fewer than five observations
+NH_KG_012_cay_001,google_earth,2,2,,,False,fewer than five observations
+NH_KG_012_cay_001,google_earth,3,0,,,False,fewer than five observations
+NH_KG_012_cay_001,google_earth,4,4,,,False,fewer than five observations
+NH_NE_008_cay_001,google_earth,1,2,,,False,fewer than five observations
+NH_NE_008_cay_001,google_earth,2,6,2.023313278164507,16.0,False,span below three years or phase gap above 90 days
+NH_NE_008_cay_001,google_earth,3,0,,,False,fewer than five observations
+NH_NE_008_cay_001,google_earth,4,1,,,False,fewer than five observations
+NH_NE_008_cay_002,google_earth,1,2,,,False,fewer than five observations
+NH_NE_008_cay_002,google_earth,2,5,1.9931963010876335,16.0,False,span below three years or phase gap above 90 days
+NH_NE_008_cay_002,google_earth,3,0,,,False,fewer than five observations
+NH_NE_008_cay_002,google_earth,4,1,,,False,fewer than five observations
+NH_QF_001_cay_001,google_earth,1,4,,,False,fewer than five observations
+NH_QF_001_cay_001,google_earth,2,9,9.604577780515685,55.0,True,eligible
+NH_QF_001_cay_001,google_earth,3,2,,,False,fewer than five observations
+NH_QF_001_cay_001,google_earth,4,2,,,False,fewer than five observations
+NH_QF_001_cay_002,google_earth,1,4,,,False,fewer than five observations
+NH_QF_001_cay_002,google_earth,2,9,9.604577780515685,55.0,True,eligible
+NH_QF_001_cay_002,google_earth,3,3,,,False,fewer than five observations
+NH_QF_001_cay_002,google_earth,4,2,,,False,fewer than five observations
+NH_QLY_004_cay_001,google_earth,1,2,,,False,fewer than five observations
+NH_QLY_004_cay_001,google_earth,2,5,0.5886500065025291,42.0,False,span below three years or phase gap above 90 days
+NH_QLY_004_cay_001,google_earth,3,3,,,False,fewer than five observations
+NH_QLY_004_cay_001,google_earth,4,3,,,False,fewer than five observations
+NH_QLY_004_cay_002,google_earth,1,2,,,False,fewer than five observations
+NH_QLY_004_cay_002,google_earth,2,4,,,False,fewer than five observations
+NH_QLY_004_cay_002,google_earth,3,3,,,False,fewer than five observations
+NH_QLY_004_cay_002,google_earth,4,3,,,False,fewer than five observations
+NH_QLY_004_cay_003,google_earth,1,2,,,False,fewer than five observations
+NH_QLY_004_cay_003,google_earth,2,6,0.6146601230689199,61.0,False,span below three years or phase gap above 90 days
+NH_QLY_004_cay_003,google_earth,3,3,,,False,fewer than five observations
+NH_QLY_004_cay_003,google_earth,4,3,,,False,fewer than five observations
+NH_QLY_004_cay_004,google_earth,1,2,,,False,fewer than five observations
+NH_QLY_004_cay_004,google_earth,2,6,0.6146601230689199,61.0,False,span below three years or phase gap above 90 days
+NH_QLY_004_cay_004,google_earth,3,3,,,False,fewer than five observations
+NH_QLY_004_cay_004,google_earth,4,3,,,False,fewer than five observations
+NH_QLY_004_cay_005,google_earth,1,2,,,False,fewer than five observations
+NH_QLY_004_cay_005,google_earth,2,6,0.6146601230689199,61.0,False,span below three years or phase gap above 90 days
+NH_QLY_004_cay_005,google_earth,3,3,,,False,fewer than five observations
+NH_QLY_004_cay_005,google_earth,4,3,,,False,fewer than five observations
+NH_TX_013_cay_001,google_earth,1,6,2.464116306289657,17.0,False,span below three years or phase gap above 90 days
+NH_TX_013_cay_001,google_earth,2,4,,,False,fewer than five observations
+NH_TX_013_cay_001,google_earth,3,1,,,False,fewer than five observations
+NH_TX_013_cay_001,google_earth,4,2,,,False,fewer than five observations
+NH_YSZ_011_cay_001,google_earth,1,4,,,False,fewer than five observations
+NH_YSZ_011_cay_001,google_earth,2,4,,,False,fewer than five observations
+NH_YSZ_011_cay_001,google_earth,3,3,,,False,fewer than five observations
+NH_YSZ_011_cay_001,google_earth,4,6,3.473035038364922,82.0,True,eligible
+NH_YSZ_016_cay_001,google_earth,1,4,,,False,fewer than five observations
+NH_YSZ_016_cay_001,google_earth,2,3,,,False,fewer than five observations
+NH_YSZ_016_cay_001,google_earth,3,2,,,False,fewer than five observations
+NH_YSZ_016_cay_001,google_earth,4,1,,,False,fewer than five observations
+OTHER_004_cay_001,sentinel2,1,9,6.338254721178395,61.0,True,eligible
+OTHER_004_cay_001,sentinel2,2,8,7.481330896596097,16.0,True,eligible
+OTHER_004_cay_001,sentinel2,3,10,7.098023915617706,54.0,True,eligible
+OTHER_004_cay_001,sentinel2,4,9,6.399857628835637,53.0,True,eligible
+OTHER_005_cay_001,sentinel2,1,9,6.399857628835637,66.0,True,eligible
+OTHER_005_cay_001,sentinel2,2,9,6.4546157689754065,16.0,True,eligible
+OTHER_005_cay_001,sentinel2,3,10,6.625734956912188,74.0,True,eligible
+OTHER_005_cay_001,sentinel2,4,6,4.503857026496095,38.0,True,eligible
+OTHER_006_cay_001,sentinel2,1,9,6.399857628835637,66.0,True,eligible
+OTHER_006_cay_001,sentinel2,2,8,5.5100378515643715,9.0,True,eligible
+OTHER_006_cay_001,sentinel2,3,14,7.1117134506526485,53.0,True,eligible
+OTHER_006_cay_001,sentinel2,4,9,7.460796594043683,38.0,True,eligible
+OTHER_007_cay_001,google_earth,1,5,17.45278821604824,79.0,True,eligible
+OTHER_007_cay_001,google_earth,2,1,,,False,fewer than five observations
+OTHER_007_cay_001,google_earth,3,1,,,False,fewer than five observations
+OTHER_007_cay_001,google_earth,4,0,,,False,fewer than five observations
+OTHER_008_cay_001,sentinel2,1,9,6.399857628835637,66.0,True,eligible
+OTHER_008_cay_001,sentinel2,2,11,7.077489613065292,39.0,True,eligible
+OTHER_008_cay_001,sentinel2,3,11,7.1117134506526485,54.0,True,eligible
+OTHER_008_cay_001,sentinel2,4,8,6.4477710014579355,26.0,True,eligible
+OTHER_008_cay_002,sentinel2,1,5,2.5804773540866686,60.0,False,span below three years or phase gap above 90 days
+OTHER_008_cay_002,sentinel2,2,7,4.0521023703429915,45.0,True,eligible
+OTHER_008_cay_002,sentinel2,3,7,4.072636672895405,64.0,True,eligible
+OTHER_008_cay_002,sentinel2,4,3,,,False,fewer than five observations
+OTHER_023_cay_001,google_earth,1,2,,,False,fewer than five observations
+OTHER_023_cay_001,google_earth,2,0,,,False,fewer than five observations
+OTHER_023_cay_001,google_earth,3,0,,,False,fewer than five observations
+OTHER_023_cay_001,google_earth,4,8,0.16701232742629896,79.0,False,span below three years or phase gap above 90 days
+OTHER_024_cay_001,sentinel2,1,3,,,False,fewer than five observations
+OTHER_024_cay_001,sentinel2,2,4,,,False,fewer than five observations
+OTHER_024_cay_001,sentinel2,3,3,,,False,fewer than five observations
+OTHER_024_cay_001,sentinel2,4,5,2.416202933667358,50.0,False,span below three years or phase gap above 90 days
+OTHER_025_cay_001,google_earth,1,4,,,False,fewer than five observations
+OTHER_025_cay_001,google_earth,2,2,,,False,fewer than five observations
+OTHER_025_cay_001,google_earth,3,2,,,False,fewer than five observations
+OTHER_025_cay_001,google_earth,4,2,,,False,fewer than five observations

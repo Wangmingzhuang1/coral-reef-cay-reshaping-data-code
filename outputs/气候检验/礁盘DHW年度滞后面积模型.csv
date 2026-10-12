@@ -1,0 +1,13 @@
+﻿analysis,scope,region,lag_label,status,reference,n_pairs,n_cays,n_reefs,n_reference_pairs,n_exposed_pairs,coefficient_log_area_ratio,ci95_low_cay_cluster,ci95_high_cay_cluster,p_value_cay_cluster,area_ratio_percent,fdr_q_value_cay_cluster,reason
+DHW threshold event,reef_area_fraction_ge8_0.50,GBR,0-<1 year,ok_exploratory,No reef-wide DHW>=8 in prior 3 years,228,28,27,149,29,0.09840427456583219,-0.07611735753293626,0.27292590666460065,0.2691039014998672,10.340877505470816,0.2691039014998672,
+DHW threshold event,reef_area_fraction_ge8_0.50,GBR,1-<2 years,ok_exploratory,No reef-wide DHW>=8 in prior 3 years,228,28,27,149,25,0.09651829722391589,-0.028394439696312487,0.22143103414414428,0.12991521177314846,10.132973223615513,0.2691039014998672,
+DHW threshold event,reef_area_fraction_ge8_0.50,GBR,2-<3 years,ok_exploratory,No reef-wide DHW>=8 in prior 3 years,228,28,27,149,25,0.06142082575936709,-0.03246054455473683,0.155302196073471,0.19974293647982233,6.334630355977226,0.2691039014998672,
+DHW threshold event,reef_area_fraction_ge8_0.50,MEDF,0-<1 year,not_estimable,,260,20,20,260,0,,,,,,,missing event or reference contrast
+DHW threshold event,reef_area_fraction_ge8_0.50,MEDF,1-<2 years,not_estimable,,260,20,20,260,0,,,,,,,missing event or reference contrast
+DHW threshold event,reef_area_fraction_ge8_0.50,MEDF,2-<3 years,not_estimable,,260,20,20,260,0,,,,,,,missing event or reference contrast
+DHW threshold event,reef_area_fraction_ge8_0.50,OTHER,0-<1 year,not_estimable,,59,9,8,53,0,,,,,,,missing event or reference contrast
+DHW threshold event,reef_area_fraction_ge8_0.50,OTHER,1-<2 years,not_estimable,,59,9,8,53,0,,,,,,,missing event or reference contrast
+DHW threshold event,reef_area_fraction_ge8_0.50,OTHER,2-<3 years,not_estimable,,59,9,8,53,6,,,,,,,missing event or reference contrast
+DHW threshold event,reef_area_fraction_ge8_0.50,NH,0-<1 year,not_estimable,,1,1,1,1,0,,,,,,,missing event or reference contrast
+DHW threshold event,reef_area_fraction_ge8_0.50,NH,1-<2 years,not_estimable,,1,1,1,1,0,,,,,,,missing event or reference contrast
+DHW threshold event,reef_area_fraction_ge8_0.50,NH,2-<3 years,not_estimable,,1,1,1,1,0,,,,,,,missing event or reference contrast

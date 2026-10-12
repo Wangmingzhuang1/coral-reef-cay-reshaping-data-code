@@ -1,0 +1,2 @@
+﻿source,sensor,quality_filter,n_observations,n_cays,n_reefs,n_reference_frames,pixel_size_constant_within_frame,same_season_pair_rule,reef_platform_shape_test
+outputs/沙洲观测主表.csv,sentinel2,A/B,1837,67,62,67,True,350-380 d and circular day-of-year gap <=15 d; deterministic nearest annual successor,"not run: available reef extent is a geographic bbox, not a validated reef-platform polygon"

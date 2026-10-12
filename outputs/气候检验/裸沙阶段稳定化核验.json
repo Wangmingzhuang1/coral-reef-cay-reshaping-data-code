@@ -1,0 +1,10 @@
+{
+  "question": "Within the observed record, do bare-sand cays show declining centroid mobility, declining shape-change rate, and smaller later-half centroid excursions?",
+  "strata": "Interval baseline development stage: bare = stage2/stage3; vegetated = stage4.",
+  "elapsed_time": "Years since first Sentinel-2 observation of the track; not cay age.",
+  "seasonal_control": "Sentinel-2 pairs restricted to 350-380 d with circular day-of-year gap <=15 d.",
+  "early_stage_boundary": "stage1/stage2 exist only in sparse Google Earth imagery; reported descriptively only.",
+  "n_pairs": 613,
+  "n_excursion_cays": 58,
+  "n_ge_early_intervals": 5
+}

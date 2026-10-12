@@ -1,0 +1,39 @@
+{
+  "analysis_unit": "primary same-cay same-sensor same-reference-frame trajectory",
+  "net_area_type_rule": {
+    "stable": "absolute endpoint relative area change < 0.25",
+    "moderate": "0.25 <= absolute endpoint relative area change < 0.50",
+    "major": "absolute endpoint relative area change >= 0.50",
+    "basis": "0.25 follows the existing trajectory classifier; 0.50 is a transparent major-change boundary, not a geomorphic stage definition"
+  },
+  "strict_morphological_stability_rule": {
+    "required": [
+      "net-area stable",
+      "late CV <= 0.15",
+      "maximum adjacent area ratio <= 1.50",
+      "normalized centroid path <= 1.00 initial equivalent radius"
+    ],
+    "interpretation": "A strict descriptive subset, not evidence that vegetation causes stability."
+  },
+  "primary_cays": 93,
+  "net_area_type_counts": {
+    "Net-area stable (<25%)": 63,
+    "Moderate net change (25-<50%)": 17,
+    "Major net change (>=50%)": 13
+  },
+  "strict_morphological_stability_cays": 11,
+  "region_codes": [
+    "GBR",
+    "MEDF",
+    "NH",
+    "OTHER"
+  ],
+  "region_sensor_confounded": true,
+  "s2_environment_cays": 52,
+  "s2_environment_regions": [
+    "GBR",
+    "MEDF",
+    "OTHER"
+  ],
+  "interpretation_limit": "Regional composition is descriptive because sensor coverage differs by region. Environmental comparisons are S2-only, cay-level, small-sample associations and do not establish type drivers."
+}

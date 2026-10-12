@@ -1,0 +1,11 @@
+﻿sand_cay_id,region,status,n,accepted,adjacent_pairs
+GBR_055_cay_001,Great Barrier Reef,candidate background screen only,36,5,35
+GBR_061_cay_002,Great Barrier Reef,candidate background screen only,16,13,15
+MEDF_008_cay_001,Maldives,candidate background screen only,30,0,29
+MEDF_015_cay_001,Maldives,candidate background screen only,36,0,35
+MEDF_022_cay_001,Maldives,candidate background screen only,34,0,33
+MEDF_034_cay_001,Maldives,candidate background screen only,13,6,12
+NH_015_cay_001,South China Sea,candidate background screen only,30,9,29
+NH_NE_008_cay_002,South China Sea,candidate background screen only,8,2,7
+OTHER_008_cay_001,Marshall Islands,candidate background screen only,39,14,38
+OTHER_008_cay_002,Marshall Islands,candidate background screen only,22,6,21

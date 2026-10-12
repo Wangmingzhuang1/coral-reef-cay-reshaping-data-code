@@ -1,0 +1,2 @@
+﻿contrast,scale,estimate,ci95_low,ci95_high,two_sided_p_value,n_intervals,n_cays,n_reefs
+Maldives minus Great Barrier Reef,difference in log1p normalized mobility trend per decade,0.1590498388937105,-0.016694144719617332,0.3347938225070383,0.07609880116585628,1424,53,51

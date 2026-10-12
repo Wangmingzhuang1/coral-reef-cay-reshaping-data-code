@@ -1,0 +1,11 @@
+{
+  "input": "outputs\\轨迹与转换核查\\连续空间轨迹与首末边界交换.csv",
+  "input_sha256": "b27490793da4dc3d2dac3b5073c8ff6ccda0d27e3c70b8ff081791ab970f3763",
+  "n_primary": 93,
+  "n_four_focus_regions": 91,
+  "unit": "one selected same-source fixed-frame primary series per cay",
+  "quantiles": "pandas linear; cay-level distribution; no regional significance test",
+  "area_bins": "first-two/last-three area medians, relative change thresholds +/-25%; outcome bins, not geomorphic types",
+  "position_scope": "stored positions, uncorrected for registration; cumulative path depends on sampling",
+  "endpoint_exchange_scope": "comparable first/last masks; fraction of first-scene area; not early/late median area balance"
+}

@@ -1,0 +1,282 @@
+{
+  "analysis_contract_version": "2026-09-30-observation-keys-3",
+  "analysis_contract_sha256": "231ca3161530fa5282e3fe0a73480139798d46ad9c1572729fa17cb8bde2ecb3",
+  "primary_window_days": [
+    90,
+    730
+  ],
+  "n_valid_intervals": 2352,
+  "n_core_intervals": 1217,
+  "n_core_cays": 96,
+  "sector_contrasts": [
+    {
+      "stratum": "all",
+      "n_transitions": 1012,
+      "n_cays": 62,
+      "status": "ok",
+      "mean_mobility_difference": -0.1802686689874625,
+      "median_mobility_difference": -0.0590580833510151,
+      "bootstrap_ci_low": -0.3296585488540218,
+      "bootstrap_ci_high": -0.0712798883840918,
+      "wilcoxon_p_value": 0.0026016949662357,
+      "wilcoxon_unit": "cay_mean_difference",
+      "estimate_weighting": "interval_weighted_mean",
+      "bootstrap_unit": "cay_with_all_intervals",
+      "mean_retreat_difference": -0.0014251806310698,
+      "supported_negative": true
+    },
+    {
+      "stratum": "background",
+      "n_transitions": 994,
+      "n_cays": 61,
+      "status": "ok",
+      "mean_mobility_difference": -0.1408036218840878,
+      "median_mobility_difference": -0.0590580833510151,
+      "bootstrap_ci_low": -0.2577668530505639,
+      "bootstrap_ci_high": -0.0527114091784243,
+      "wilcoxon_p_value": 0.0053804784769283,
+      "wilcoxon_unit": "cay_mean_difference",
+      "estimate_weighting": "interval_weighted_mean",
+      "bootstrap_unit": "cay_with_all_intervals",
+      "mean_retreat_difference": -0.0410264675428958,
+      "supported_negative": true
+    },
+    {
+      "stratum": "pulse",
+      "n_transitions": 18,
+      "n_cays": 11,
+      "status": "ok",
+      "mean_mobility_difference": -2.359616270140484,
+      "median_mobility_difference": -0.0646799749234149,
+      "bootstrap_ci_low": -6.39616292602355,
+      "bootstrap_ci_high": -0.0712793377522669,
+      "wilcoxon_p_value": 0.013671875,
+      "wilcoxon_unit": "cay_mean_difference",
+      "estimate_weighting": "interval_weighted_mean",
+      "bootstrap_unit": "cay_with_all_intervals",
+      "mean_retreat_difference": 2.1854458854997665,
+      "supported_negative": true
+    },
+    {
+      "stratum": "window_90_540",
+      "n_transitions": 598,
+      "n_cays": 58,
+      "status": "ok",
+      "mean_mobility_difference": -0.1080418367922524,
+      "median_mobility_difference": -0.0691669117509776,
+      "bootstrap_ci_low": -0.183568755363024,
+      "bootstrap_ci_high": -0.034934916151338,
+      "wilcoxon_p_value": 0.0230636208194369,
+      "wilcoxon_unit": "cay_mean_difference",
+      "estimate_weighting": "interval_weighted_mean",
+      "bootstrap_unit": "cay_with_all_intervals",
+      "mean_retreat_difference": -0.1005229030376726,
+      "supported_negative": true
+    },
+    {
+      "stratum": "window_120_730",
+      "n_transitions": 293,
+      "n_cays": 57,
+      "status": "ok",
+      "mean_mobility_difference": -0.1868711658712327,
+      "median_mobility_difference": -0.0688572716562673,
+      "bootstrap_ci_low": -0.2948026347194819,
+      "bootstrap_ci_high": -0.084153961814231,
+      "wilcoxon_p_value": 0.0018177773526045,
+      "wilcoxon_unit": "cay_mean_difference",
+      "estimate_weighting": "interval_weighted_mean",
+      "bootstrap_unit": "cay_with_all_intervals",
+      "mean_retreat_difference": -0.0502373588029401,
+      "supported_negative": true
+    }
+  ],
+  "adjacent_sector_associations": [
+    {
+      "test": "M7_forward",
+      "scheme": "within_cay",
+      "status": "ok",
+      "n_sectors": 4851.0,
+      "n_transitions": 466,
+      "n_cays": 58,
+      "coefficient": -0.1363687886950255,
+      "cluster_robust_se": 0.1323587695834364,
+      "ci95_low": -0.3957872101165965,
+      "ci95_high": 0.1230496327265454,
+      "p_value": 0.3028708002660829,
+      "note": "",
+      "fdr_q_value": 0.3028708002660829
+    },
+    {
+      "test": "M7_forward",
+      "scheme": "within_transition",
+      "status": "ok",
+      "n_sectors": 4850.0,
+      "n_transitions": 465,
+      "n_cays": 58,
+      "coefficient": -0.5122753292732595,
+      "cluster_robust_se": 0.1206891693233911,
+      "ci95_low": -0.7488217544711624,
+      "ci95_high": -0.2757289040753565,
+      "p_value": 2.1899922160830656e-05,
+      "note": "",
+      "fdr_q_value": 8.759968864332262e-05
+    },
+    {
+      "test": "M9_reverse",
+      "scheme": "within_cay",
+      "status": "ok",
+      "n_sectors": 4668.0,
+      "n_transitions": 464,
+      "n_cays": 58,
+      "coefficient": -0.0045273517615174,
+      "cluster_robust_se": 0.0026601271608655,
+      "ci95_low": -0.0097411051911108,
+      "ci95_high": 0.0006864016680758,
+      "p_value": 0.0887683824804076,
+      "note": "",
+      "fdr_q_value": 0.1775367649608152
+    },
+    {
+      "test": "M9_reverse",
+      "scheme": "within_transition",
+      "status": "ok",
+      "n_sectors": 4667.0,
+      "n_transitions": 463,
+      "n_cays": 58,
+      "coefficient": -0.0021630007334553,
+      "cluster_robust_se": 0.0017435754170114,
+      "ci95_low": -0.0055803457551272,
+      "ci95_high": 0.0012543442882166,
+      "p_value": 0.2147702836088381,
+      "note": "",
+      "fdr_q_value": 0.2863603781451174
+    },
+    {
+      "test": "chain_audit",
+      "scheme": "strict_adjacency",
+      "status": "ok",
+      "n_sectors": "",
+      "n_transitions": 951,
+      "n_cays": 60,
+      "coefficient": 0.5263748597081931,
+      "cluster_robust_se": "",
+      "ci95_low": "",
+      "ci95_high": "",
+      "p_value": "",
+      "note": "coefficient is strict adjacent-link fraction; M7/M9 use only links whose predecessor end date equals successor start date",
+      "fdr_q_value": ""
+    }
+  ],
+  "trajectory_correlations": [
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "centroid_net_normalized",
+      "n": 37,
+      "spearman_rho": -0.43007448062687076,
+      "two_sided_p_value": 0.007888881193723052,
+      "fdr_q_value": 0.023666643581169156
+    },
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "centroid_path_normalized",
+      "n": 37,
+      "spearman_rho": -0.45711794519814497,
+      "two_sided_p_value": 0.004450944423993187,
+      "fdr_q_value": 0.023666643581169156
+    },
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "perimeter_max_adjacent_ratio",
+      "n": 37,
+      "spearman_rho": -0.3397707531157439,
+      "two_sided_p_value": 0.03964125701571176,
+      "fdr_q_value": 0.05946188552356764
+    },
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "orientation_max_step_deg",
+      "n": 37,
+      "spearman_rho": -0.29021092376926794,
+      "two_sided_p_value": 0.08143584432162516,
+      "fdr_q_value": 0.0977230131859502
+    },
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "abs_relative_change",
+      "n": 37,
+      "spearman_rho": -0.34882495270788855,
+      "two_sided_p_value": 0.03434787495998273,
+      "fdr_q_value": 0.05946188552356764
+    },
+    {
+      "sensor": "google_earth",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "abs_elongation_relative_change",
+      "n": 37,
+      "spearman_rho": -0.19371221758983156,
+      "two_sided_p_value": 0.250644692733956,
+      "fdr_q_value": 0.250644692733956
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "centroid_net_normalized",
+      "n": 56,
+      "spearman_rho": -0.4343189261861104,
+      "two_sided_p_value": 0.000824317192509726,
+      "fdr_q_value": 0.0012364757887645891
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "centroid_path_normalized",
+      "n": 56,
+      "spearman_rho": -0.4808750711149222,
+      "two_sided_p_value": 0.00017586960091788402,
+      "fdr_q_value": 0.0003517392018357681
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "perimeter_max_adjacent_ratio",
+      "n": 56,
+      "spearman_rho": -0.7012476602162802,
+      "two_sided_p_value": 1.7551028253089074e-09,
+      "fdr_q_value": 1.0530616951853445e-08
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "orientation_max_step_deg",
+      "n": 56,
+      "spearman_rho": -0.5015894792110015,
+      "two_sided_p_value": 8.212000748458906e-05,
+      "fdr_q_value": 0.0002463600224537672
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "abs_relative_change",
+      "n": 56,
+      "spearman_rho": -0.32350026109124425,
+      "two_sided_p_value": 0.015013930041422261,
+      "fdr_q_value": 0.015013930041422261
+    },
+    {
+      "sensor": "sentinel2",
+      "analysis_unit": "cay_trajectory",
+      "outcome": "abs_elongation_relative_change",
+      "n": 56,
+      "spearman_rho": -0.3844471086742628,
+      "two_sided_p_value": 0.0034402916531019573,
+      "fdr_q_value": 0.004128349983722348
+    }
+  ],
+  "interpretation": "岸段比较使用单一原始栅格序列；覆盖和边界变化为影像代理；不作为植被干预效应。",
+  "sector_grid_policy": "single_original_grid_sequence; 4 mixed-grid sequences excluded"
+}

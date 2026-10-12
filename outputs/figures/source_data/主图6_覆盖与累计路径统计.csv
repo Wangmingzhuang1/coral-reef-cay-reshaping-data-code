@@ -1,0 +1,3 @@
+﻿sensor,analysis_unit,outcome,n,spearman_rho,two_sided_p_value,fdr_q_value
+google_earth,cay_trajectory,centroid_path_normalized,37,-0.4571179451981449,0.0044509444239931,0.0236666435811691
+sentinel2,cay_trajectory,centroid_path_normalized,53,-0.4598572616553991,0.0005317520021599,0.0010635040043199

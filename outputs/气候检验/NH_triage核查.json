@@ -1,0 +1,19 @@
+{
+  "nh_metadata_scenes": 440,
+  "nh_annotated_scenes": 43,
+  "nh_pending_scenes": 397,
+  "action_counts": {
+    "annotate_now": 229,
+    "pixel_check_then_decide": 165,
+    "skip_low_detectability": 3
+  },
+  "cays_with_pending": 11,
+  "cays_reaching_annotate_now_ge4_scenes": 10,
+  "thresholds": {
+    "cloud_good_pct": 20.0,
+    "cloud_ok_pct": 40.0,
+    "area_high_m2": 3000.0,
+    "area_mid_m2": 1500.0
+  },
+  "reuse_note": "清单按 priority_score 降序排列，可直接作为标注工作台队列；pixel_check_then_decide 需先做 10 m 目视/像素预筛。"
+}

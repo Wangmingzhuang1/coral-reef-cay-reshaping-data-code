@@ -1,0 +1,4 @@
+﻿interval_bin,from_state,to_state,n_origin_pairs,observed_pairs,expected_pairs,observed_minus_expected
+30-89 d,dominant_cover,low_cover,109,9,4.733322876667638,4.266677123332362
+90-179 d,dominant_cover,low_cover,156,14,12.811125151572265,1.1888748484277354
+180-365 d,dominant_cover,low_cover,42,1,6.3273715917507625,-5.3273715917507625

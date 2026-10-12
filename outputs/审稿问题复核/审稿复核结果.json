@@ -1,0 +1,728 @@
+{
+  "spectral": {
+    "n": 1821,
+    "statuses": {
+      "ok": 1821
+    },
+    "offset_metadata_available": 0,
+    "summary": [
+      {
+        "offset_dn": 0,
+        "threshold": 0.2,
+        "n_images": 344,
+        "n_cays": 56,
+        "between_cay_rho": 0.832816806518645,
+        "between_cay_p": 1.7387406532615223e-15,
+        "within_cay_centered_rho": 0.33650364535693583
+      },
+      {
+        "offset_dn": 0,
+        "threshold": 0.3,
+        "n_images": 344,
+        "n_cays": 56,
+        "between_cay_rho": 0.8207401618368726,
+        "between_cay_p": 9.695731531218928e-15,
+        "within_cay_centered_rho": 0.43478341131115356
+      },
+      {
+        "offset_dn": 0,
+        "threshold": 0.4,
+        "n_images": 344,
+        "n_cays": 56,
+        "between_cay_rho": 0.8360781565315881,
+        "between_cay_p": 1.0677313043715333e-15,
+        "within_cay_centered_rho": 0.4521798458827055
+      },
+      {
+        "offset_dn": 1000,
+        "threshold": 0.2,
+        "n_images": 78,
+        "n_cays": 28,
+        "between_cay_rho": 0.46073763974223036,
+        "between_cay_p": 0.013609297085038104,
+        "within_cay_centered_rho": 0.06364973340284302
+      },
+      {
+        "offset_dn": 1000,
+        "threshold": 0.3,
+        "n_images": 78,
+        "n_cays": 28,
+        "between_cay_rho": 0.47115288680362527,
+        "between_cay_p": 0.011382551640502394,
+        "within_cay_centered_rho": 0.09171481299626937
+      },
+      {
+        "offset_dn": 1000,
+        "threshold": 0.4,
+        "n_images": 78,
+        "n_cays": 28,
+        "between_cay_rho": 0.5288836685180164,
+        "between_cay_p": 0.0038084727633319257,
+        "within_cay_centered_rho": 0.20086877054570318
+      }
+    ]
+  },
+  "forward": [
+    {
+      "metric": "vegetation_fraction",
+      "comparison": "linear",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": -0.01994792483943702,
+      "ci95_low": -0.19495613518123425,
+      "ci95_high": 0.1829720975081897,
+      "relative_error_reduction": -0.008283483750450849,
+      "wilcoxon_p_value": 0.7319012482671552,
+      "fdr_q_value": 0.9781455352765721
+    },
+    {
+      "metric": "sand_cay_area_m2",
+      "comparison": "linear",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": -0.036135293883824186,
+      "ci95_low": -0.07210297777135535,
+      "ci95_high": -0.0026169808235952637,
+      "relative_error_reduction": -0.03675343309923629,
+      "wilcoxon_p_value": 0.04392562420616869,
+      "fdr_q_value": 0.3074793694431808
+    },
+    {
+      "metric": "sand_cay_centroid_x_norm",
+      "comparison": "linear",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.006397937642421509,
+      "ci95_low": -0.025490143728679557,
+      "ci95_high": 0.03991831872012714,
+      "relative_error_reduction": 0.007015547404125577,
+      "wilcoxon_p_value": 0.8384104588084904,
+      "fdr_q_value": 0.9781455352765721
+    },
+    {
+      "metric": "sand_cay_centroid_y_norm",
+      "comparison": "linear",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.014043614067444907,
+      "ci95_low": -0.024330849024782636,
+      "ci95_high": 0.05634799553417117,
+      "relative_error_reduction": 0.01777625472602995,
+      "wilcoxon_p_value": 0.20610511683896904,
+      "fdr_q_value": 0.48091193929092774
+    },
+    {
+      "metric": "sand_cay_compactness",
+      "comparison": "linear",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.0011063920407288128,
+      "ci95_low": -0.04102158739575085,
+      "ci95_high": 0.04386146896413664,
+      "relative_error_reduction": 0.0012244594154628974,
+      "wilcoxon_p_value": 0.9869837539221719,
+      "fdr_q_value": 0.9869837539221719
+    },
+    {
+      "metric": "sand_cay_elongation",
+      "comparison": "linear",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.025335310199976067,
+      "ci95_low": -0.033270043018470426,
+      "ci95_high": 0.10864159226768223,
+      "relative_error_reduction": 0.026572884723078394,
+      "wilcoxon_p_value": 0.6595876411823418,
+      "fdr_q_value": 0.9781455352765721
+    },
+    {
+      "metric": "sand_cay_major_axis_angle",
+      "comparison": "linear",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.019548067590743477,
+      "ci95_low": 0.005899122565017449,
+      "ci95_high": 0.03438995832495905,
+      "relative_error_reduction": 0.07703720567009364,
+      "wilcoxon_p_value": 0.09131212853229183,
+      "fdr_q_value": 0.3195924498630214
+    },
+    {
+      "metric": "vegetation_fraction",
+      "comparison": "persistence",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": -0.32295067665096877,
+      "ci95_low": -1.0833797098062612,
+      "ci95_high": 0.2237451613120457,
+      "relative_error_reduction": -0.15340954753475988,
+      "wilcoxon_p_value": 0.2180537896970639,
+      "fdr_q_value": 0.21805378969706388
+    },
+    {
+      "metric": "sand_cay_area_m2",
+      "comparison": "persistence",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.012524823208620544,
+      "ci95_low": -0.22562375731644108,
+      "ci95_high": 0.19613338152995016,
+      "relative_error_reduction": 0.01213831999973991,
+      "wilcoxon_p_value": 0.06291166885653623,
+      "fdr_q_value": 0.14679389399858456
+    },
+    {
+      "metric": "sand_cay_centroid_x_norm",
+      "comparison": "persistence",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.02916271144109524,
+      "ci95_low": -0.13374248049004572,
+      "ci95_high": 0.15140579592741835,
+      "relative_error_reduction": 0.031199063809148164,
+      "wilcoxon_p_value": 0.09448443530028414,
+      "fdr_q_value": 0.16534776177549723
+    },
+    {
+      "metric": "sand_cay_centroid_y_norm",
+      "comparison": "persistence",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.022116658204092494,
+      "ci95_low": -0.10575976424928793,
+      "ci95_high": 0.12633897988271892,
+      "relative_error_reduction": 0.027711845609329155,
+      "wilcoxon_p_value": 0.1442576151262213,
+      "fdr_q_value": 0.1683005509805915
+    },
+    {
+      "metric": "sand_cay_compactness",
+      "comparison": "persistence",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.08900141128223957,
+      "ci95_low": -0.04616276975856969,
+      "ci95_high": 0.21247852243911697,
+      "relative_error_reduction": 0.08976703997429514,
+      "wilcoxon_p_value": 0.006440552206042469,
+      "fdr_q_value": 0.04508386544229728
+    },
+    {
+      "metric": "sand_cay_elongation",
+      "comparison": "persistence",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.06145519355642609,
+      "ci95_low": -0.09145307850595603,
+      "ci95_high": 0.19368070231104473,
+      "relative_error_reduction": 0.062104367382644465,
+      "wilcoxon_p_value": 0.05123059140695153,
+      "fdr_q_value": 0.14679389399858456
+    },
+    {
+      "metric": "sand_cay_major_axis_angle",
+      "comparison": "persistence",
+      "n_images": 1029,
+      "n_cays": 56,
+      "mean_gain": 0.03917958940861662,
+      "ci95_low": 0.00800735322197415,
+      "ci95_high": 0.07418935094337589,
+      "relative_error_reduction": 0.14331553434046262,
+      "wilcoxon_p_value": 0.1420294850557989,
+      "fdr_q_value": 0.1683005509805915
+    }
+  ],
+  "geometry": {
+    "n_geometry": 90,
+    "cases": [
+      {
+        "sand_cay_id": "MEDF_008_cay_001",
+        "sensor": "sentinel2",
+        "raw_exchange_fraction": 0.1950207468879668,
+        "centroid_aligned_exchange_fraction": 0.13692946058091288,
+        "raw_iou": 0.821969696969697,
+        "centroid_aligned_iou": 0.8715953307392996,
+        "shift_x_px": 0.7690179806362352,
+        "shift_y_px": 0.6932226832641817
+      },
+      {
+        "sand_cay_id": "MEDF_022_cay_001",
+        "sensor": "sentinel2",
+        "raw_exchange_fraction": 1.0936329588014981,
+        "centroid_aligned_exchange_fraction": 0.6142322097378277,
+        "raw_iou": 0.2663316582914573,
+        "centroid_aligned_iou": 0.5089820359281437,
+        "shift_x_px": 6.342151424643262,
+        "shift_y_px": 0.7797847627174868
+      }
+    ],
+    "n_cover_intervals": 1853,
+    "n_accepted_intervals": 1490,
+    "n_position_tracks": 90,
+    "n_near_stable": 60,
+    "n_envelope_le1": 50,
+    "median_envelope": 0.3872765205681765,
+    "iqr_envelope": [
+      0.16194759534962053,
+      0.821400004419647
+    ],
+    "median_net_over_path": 0.06310762848088017,
+    "n_ratio_lt_half": 59
+  },
+  "master_sha256": "b6d55ded1c301642ded9f97fa3c2a303d25fc406a66c69bbe34409edb31f0e7f",
+  "scope": "No independent ground control or blind relabelling; spectral offset and thresholds are diagnostic scenarios; forward comparisons each use seven-response BH families.",
+  "grid": {
+    "n_images": 1702,
+    "n_cays": 62,
+    "excluded_cays": [
+      "GBR_037_cay_001",
+      "GBR_068_cay_001",
+      "GBR_095_cay_001",
+      "NH_015_cay_001"
+    ],
+    "harmonic": [
+      {
+        "metric": "vegetation_fraction",
+        "n_observations": 1622,
+        "n_cays": 52,
+        "mean_error_reduction": -0.048721600394926234,
+        "median_error_reduction": 0.008577411529805082,
+        "ci95_low": -0.16083737363538783,
+        "ci95_high": 0.036468274305803995,
+        "positive_cays": 28,
+        "wilcoxon_p_value": 0.5417535589685181,
+        "fdr_q_value": 0.6320458187966044
+      },
+      {
+        "metric": "sand_cay_area_m2",
+        "n_observations": 1622,
+        "n_cays": 52,
+        "mean_error_reduction": 0.008024532789311166,
+        "median_error_reduction": -0.004298643046959371,
+        "ci95_low": -0.01444901466351921,
+        "ci95_high": 0.03353718809849445,
+        "positive_cays": 24,
+        "wilcoxon_p_value": 0.7846937140212996,
+        "fdr_q_value": 0.7846937140212996
+      },
+      {
+        "metric": "sand_cay_centroid_x_norm",
+        "n_observations": 1622,
+        "n_cays": 52,
+        "mean_error_reduction": 0.045541694368793566,
+        "median_error_reduction": 0.02024989455974907,
+        "ci95_low": 0.022321506938086266,
+        "ci95_high": 0.07067026779734242,
+        "positive_cays": 34,
+        "wilcoxon_p_value": 0.002424541262940928,
+        "fdr_q_value": 0.004242947210146624
+      },
+      {
+        "metric": "sand_cay_centroid_y_norm",
+        "n_observations": 1622,
+        "n_cays": 52,
+        "mean_error_reduction": 0.03741955464512915,
+        "median_error_reduction": 0.028386285893543292,
+        "ci95_low": 0.020906931042108647,
+        "ci95_high": 0.05369303166551062,
+        "positive_cays": 36,
+        "wilcoxon_p_value": 0.000424480209320977,
+        "fdr_q_value": 0.0014856807326234195
+      },
+      {
+        "metric": "sand_cay_compactness",
+        "n_observations": 1622,
+        "n_cays": 52,
+        "mean_error_reduction": 0.04181958271562011,
+        "median_error_reduction": 0.024495176756092273,
+        "ci95_low": 0.020953034239233063,
+        "ci95_high": 0.06588790031220748,
+        "positive_cays": 35,
+        "wilcoxon_p_value": 0.0016786322822173894,
+        "fdr_q_value": 0.003916808658507242
+      },
+      {
+        "metric": "sand_cay_elongation",
+        "n_observations": 1622,
+        "n_cays": 52,
+        "mean_error_reduction": 0.06323206277263377,
+        "median_error_reduction": 0.019260713887947166,
+        "ci95_low": 0.0192275478229545,
+        "ci95_high": 0.12193186758136475,
+        "positive_cays": 33,
+        "wilcoxon_p_value": 0.01049605777148866,
+        "fdr_q_value": 0.014694480880084126
+      },
+      {
+        "metric": "sand_cay_major_axis_angle",
+        "n_observations": 1622,
+        "n_cays": 52,
+        "mean_error_reduction": 0.023972811043957657,
+        "median_error_reduction": 0.005613965460114001,
+        "ci95_low": 0.01298041729873012,
+        "ci95_high": 0.037577089285881604,
+        "positive_cays": 41,
+        "wilcoxon_p_value": 1.3422209580753195e-05,
+        "fdr_q_value": 9.395546706527237e-05
+      }
+    ],
+    "template": [
+      {
+        "contrast": "gain_same_vs_all",
+        "n_images": 1633,
+        "n_cays": 56,
+        "mean_gain": -0.005057734114838919,
+        "median_gain": -0.0036348098722526244,
+        "ci95_low": -0.01037359836598635,
+        "ci95_high": -0.0004557340384812986,
+        "positive_cays": 22,
+        "wilcoxon_p_value": 0.16803438406019378,
+        "fdr_q_value": 0.16803438406019378
+      },
+      {
+        "contrast": "gain_same_vs_opposite",
+        "n_images": 1633,
+        "n_cays": 56,
+        "mean_gain": 0.051146365384919644,
+        "median_gain": 0.04287960624672275,
+        "ci95_low": 0.03850266741941076,
+        "ci95_high": 0.06388603823331127,
+        "positive_cays": 51,
+        "wilcoxon_p_value": 5.466347582689409e-09,
+        "fdr_q_value": 1.0932695165378818e-08
+      }
+    ],
+    "phase": {
+      "n_pairs": 11054,
+      "n_cays": 62,
+      "coefficient": -0.03303178067837871,
+      "ci": [
+        -0.04242606325795126,
+        -0.023637498098806164
+      ],
+      "p": 5.5190510817715935e-12
+    }
+  },
+  "association": {
+    "direction": [
+      {
+        "outcome": "along_shift",
+        "specification": "within_cay_fixed_effects",
+        "term": "current_along_mean_z",
+        "n_intervals": 760,
+        "n_cays": 46,
+        "n_reefs": 45,
+        "coefficient": 0.19919362854199985,
+        "se_type": "cay_cluster_robust_se",
+        "standard_error": 0.06356261428421417,
+        "ci95_low": 0.07461319378172888,
+        "ci95_high": 0.3237740633022708,
+        "two_sided_p_value": 0.0017254817657239062,
+        "vif": 1.8904046386637048,
+        "vif_unstable": false,
+        "fdr_q_value": 0.010352890594343437
+      },
+      {
+        "outcome": "along_shift",
+        "specification": "within_cay_fixed_effects",
+        "term": "current_cross_mean_z",
+        "n_intervals": 760,
+        "n_cays": 46,
+        "n_reefs": 45,
+        "coefficient": -0.10583262603709215,
+        "se_type": "cay_cluster_robust_se",
+        "standard_error": 0.045476137866022906,
+        "ci95_low": -0.19496421841047523,
+        "ci95_high": -0.016701033663709064,
+        "two_sided_p_value": 0.01995397028984426,
+        "vif": 1.5014730092505495,
+        "vif_unstable": false,
+        "fdr_q_value": 0.07981588115937704
+      },
+      {
+        "outcome": "along_shift",
+        "specification": "within_cay_fixed_effects",
+        "term": "wave_vector_along_mean_z",
+        "n_intervals": 760,
+        "n_cays": 46,
+        "n_reefs": 45,
+        "coefficient": 0.6037672540699531,
+        "se_type": "cay_cluster_robust_se",
+        "standard_error": 0.11364842459277456,
+        "ci95_low": 0.3810204349683988,
+        "ci95_high": 0.8265140731715075,
+        "two_sided_p_value": 1.08079218988623e-07,
+        "vif": 1.7597083560260964,
+        "vif_unstable": false,
+        "fdr_q_value": 1.296950627863476e-06
+      },
+      {
+        "outcome": "along_shift",
+        "specification": "within_cay_fixed_effects",
+        "term": "wave_vector_cross_mean_z",
+        "n_intervals": 760,
+        "n_cays": 46,
+        "n_reefs": 45,
+        "coefficient": 0.13235099268930658,
+        "se_type": "cay_cluster_robust_se",
+        "standard_error": 0.1441179004693057,
+        "ci95_low": -0.15011490175806072,
+        "ci95_high": 0.41481688713667386,
+        "two_sided_p_value": 0.3584345007059425,
+        "vif": 1.6754744333640643,
+        "vif_unstable": false,
+        "fdr_q_value": 0.4950266846896031
+      },
+      {
+        "outcome": "cross_shift",
+        "specification": "within_cay_fixed_effects",
+        "term": "current_along_mean_z",
+        "n_intervals": 760,
+        "n_cays": 46,
+        "n_reefs": 45,
+        "coefficient": 0.16184233102517598,
+        "se_type": "cay_cluster_robust_se",
+        "standard_error": 0.08595950202274104,
+        "ci95_low": -0.006635197068394383,
+        "ci95_high": 0.33031985911874634,
+        "two_sided_p_value": 0.05973097745694095,
+        "vif": 1.8904046386637048,
+        "vif_unstable": false,
+        "fdr_q_value": 0.17919293237082284
+      },
+      {
+        "outcome": "cross_shift",
+        "specification": "within_cay_fixed_effects",
+        "term": "current_cross_mean_z",
+        "n_intervals": 760,
+        "n_cays": 46,
+        "n_reefs": 45,
+        "coefficient": 0.17287631187898625,
+        "se_type": "cay_cluster_robust_se",
+        "standard_error": 0.05839202810346719,
+        "ci95_low": 0.05843003981193988,
+        "ci95_high": 0.2873225839460326,
+        "two_sided_p_value": 0.0030702551546832116,
+        "vif": 1.5014730092505495,
+        "vif_unstable": false,
+        "fdr_q_value": 0.03684306185619854
+      },
+      {
+        "outcome": "cross_shift",
+        "specification": "within_cay_fixed_effects",
+        "term": "wave_vector_along_mean_z",
+        "n_intervals": 760,
+        "n_cays": 46,
+        "n_reefs": 45,
+        "coefficient": -0.08298058660001649,
+        "se_type": "cay_cluster_robust_se",
+        "standard_error": 0.11933228105176485,
+        "ci95_low": -0.31686755965448715,
+        "ci95_high": 0.15090638645445414,
+        "two_sided_p_value": 0.48682083986424607,
+        "vif": 1.7597083560260964,
+        "vif_unstable": false,
+        "fdr_q_value": 0.7760446758255641
+      },
+      {
+        "outcome": "cross_shift",
+        "specification": "within_cay_fixed_effects",
+        "term": "wave_vector_cross_mean_z",
+        "n_intervals": 760,
+        "n_cays": 46,
+        "n_reefs": 45,
+        "coefficient": 0.528996960167728,
+        "se_type": "cay_cluster_robust_se",
+        "standard_error": 0.19327429036615668,
+        "ci95_low": 0.15018631191252418,
+        "ci95_high": 0.9078076084229318,
+        "two_sided_p_value": 0.006199719560058993,
+        "vif": 1.6754744333640643,
+        "vif_unstable": false,
+        "fdr_q_value": 0.037198317360353964
+      }
+    ],
+    "cover_path": [
+      {
+        "sensor": "google_earth",
+        "analysis_unit": "cay_trajectory",
+        "outcome": "centroid_path_normalized",
+        "n": 37,
+        "spearman_rho": -0.45711794519814497,
+        "two_sided_p_value": 0.004450944423993187,
+        "fdr_q_value": 0.023666643581169156
+      },
+      {
+        "sensor": "sentinel2",
+        "analysis_unit": "cay_trajectory",
+        "outcome": "centroid_path_normalized",
+        "n": 53,
+        "spearman_rho": -0.45985726165539914,
+        "two_sided_p_value": 0.0005317520021599667,
+        "fdr_q_value": 0.0010635040043199334
+      }
+    ],
+    "high_wave": [
+      {
+        "analysis": "E4_event_storm_days_bare",
+        "status": "exploratory",
+        "term": "event_storm_days",
+        "estimate": 0.017570583538210765,
+        "reef_cluster_se": 0.006389578155214044,
+        "ci95_low": 0.00504724047758736,
+        "ci95_high": 0.03009392659883417,
+        "p_value": 0.005961679785016512,
+        "n_observations": 497,
+        "n_cays": 34,
+        "fdr_q_value": 0.04173175849511559
+      }
+    ]
+  },
+  "mobility": {
+    "analysis": "T2_top_decile_fraction_bare_minus_vegetated",
+    "estimate": 0.12755387342417132,
+    "ci95_low": 0.054101705042593366,
+    "ci95_high": 0.20959259006847988,
+    "p_value": 0.001,
+    "bare_median": 0.18042226487523993,
+    "vegetated_median": 0.052868391451068614,
+    "n_bare_cays": 36,
+    "n_vegetated_cays": 40,
+    "bootstrap_unit": "reef, jointly sampled across strata with multiplicity",
+    "bootstrap_reps": 1999,
+    "n_reefs": 57,
+    "threshold_scope": "fixed pooled observed p90 for the top-decile contrast",
+    "pooled_p90_speed_radii_per_year": 1.9036824890388906,
+    "n_bare_intervals": 521,
+    "n_bare_high_speed": 94,
+    "n_vegetated_intervals": 889,
+    "n_vegetated_high_speed": 47,
+    "fdr_q_value": NaN,
+    "evidence_role": "Accepted initial cover none versus sparse/partial/dominant; grid-consistent distribution contrast; nominal bootstrap p, no inherited historical q; pooled threshold held fixed."
+  },
+  "cover": {
+    "definition": "accepted_initial_cover_none_vs_sparse_partial_dominant",
+    "all_intervals": 1410,
+    "all_cays": 62,
+    "high_wave": [
+      {
+        "analysis": "E4_event_storm_days_bare",
+        "status": "exploratory",
+        "term": "event_storm_days",
+        "estimate": 0.017570583538210765,
+        "reef_cluster_se": 0.006389578155214044,
+        "ci95_low": 0.00504724047758736,
+        "ci95_high": 0.03009392659883417,
+        "p_value": 0.005961679785016512,
+        "n_observations": 497,
+        "n_cays": 34,
+        "fdr_q_value": 0.04173175849511559
+      }
+    ],
+    "seasonal": [
+      {
+        "model": "count_duration",
+        "term": "event_storm_days",
+        "estimate": 0.017570583538210765,
+        "ci95_low": 0.00504724047758736,
+        "ci95_high": 0.03009392659883417,
+        "p_value": 0.005961679785016512,
+        "n_intervals": 497,
+        "n_cays": 34,
+        "n_reefs": 31,
+        "formula": "log_speed ~ event_storm_days + time_interval_days + C(sand_cay_id)",
+        "fdr_q_value": 0.04173175849511559
+      },
+      {
+        "model": "count_duration_season",
+        "term": "event_storm_days",
+        "estimate": 0.021878125292311708,
+        "ci95_low": 0.009295301172208491,
+        "ci95_high": 0.034460949412414926,
+        "p_value": 0.0006547763168041988,
+        "n_intervals": 497,
+        "n_cays": 34,
+        "n_reefs": 31,
+        "formula": "log_speed ~ event_storm_days + time_interval_days + season_sin + season_cos + C(sand_cay_id)",
+        "fdr_q_value": 0.0006547763168041988
+      },
+      {
+        "model": "fraction_duration_season",
+        "term": "high_wave_fraction",
+        "estimate": 2.702556733628761,
+        "ci95_low": 1.161589270137877,
+        "ci95_high": 4.243524197119645,
+        "p_value": 0.000587338376544132,
+        "n_intervals": 497,
+        "n_cays": 34,
+        "n_reefs": 31,
+        "formula": "log_speed ~ high_wave_fraction + time_interval_days + season_sin + season_cos + C(sand_cay_id)",
+        "fdr_q_value": 0.0006547763168041988
+      }
+    ],
+    "leave_region_out": [
+      {
+        "excluded_region": "GBR",
+        "estimate": 0.023131705893197428,
+        "ci95_low": 0.006570877703430022,
+        "ci95_high": 0.03969253408296483,
+        "p_value": 0.006188490169334534,
+        "n_intervals": 246,
+        "n_cays": 20,
+        "n_reefs": 17
+      },
+      {
+        "excluded_region": "MEDF",
+        "estimate": 0.01593146816546728,
+        "ci95_low": -0.001637390361757328,
+        "ci95_high": 0.03350032669269189,
+        "p_value": 0.07551915981793875,
+        "n_intervals": 339,
+        "n_cays": 22,
+        "n_reefs": 20
+      },
+      {
+        "excluded_region": "NH",
+        "estimate": 0.01866394760421165,
+        "ci95_low": 0.005691817552960388,
+        "ci95_high": 0.03163607765546291,
+        "p_value": 0.004803220625444987,
+        "n_intervals": 485,
+        "n_cays": 32,
+        "n_reefs": 30
+      },
+      {
+        "excluded_region": "OTHER",
+        "estimate": 0.01318422275332675,
+        "ci95_low": 0.0014190889698294552,
+        "ci95_high": 0.024949356536824046,
+        "p_value": 0.02806538071730642,
+        "n_intervals": 421,
+        "n_cays": 28,
+        "n_reefs": 26
+      }
+    ],
+    "mobility": {
+      "analysis": "T2_top_decile_fraction_bare_minus_vegetated",
+      "estimate": 0.12755387342417132,
+      "ci95_low": 0.054101705042593366,
+      "ci95_high": 0.20959259006847988,
+      "p_value": 0.001,
+      "bare_median": 0.18042226487523993,
+      "vegetated_median": 0.052868391451068614,
+      "n_bare_cays": 36,
+      "n_vegetated_cays": 40,
+      "bootstrap_unit": "reef, jointly sampled across strata with multiplicity",
+      "bootstrap_reps": 1999,
+      "n_reefs": 57,
+      "threshold_scope": "fixed pooled observed p90 for the top-decile contrast",
+      "pooled_p90_speed_radii_per_year": 1.9036824890388906,
+      "n_bare_intervals": 521,
+      "n_bare_high_speed": 94,
+      "n_vegetated_intervals": 889,
+      "n_vegetated_high_speed": 47,
+      "fdr_q_value": NaN,
+      "evidence_role": "Accepted initial cover none versus sparse/partial/dominant; grid-consistent distribution contrast; nominal bootstrap p, no inherited historical q; pooled threshold held fixed."
+    }
+  }
+}

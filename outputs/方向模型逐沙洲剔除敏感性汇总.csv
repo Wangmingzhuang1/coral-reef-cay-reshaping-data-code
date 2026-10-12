@@ -1,0 +1,5 @@
+﻿outcome,term,n_deletions,coefficient_min,coefficient_max,all_same_sign_as_full,n_ci_excluding_zero
+along_shift,current_along_mean_z,50,0.13038610522890418,0.21095139223321865,True,50
+along_shift,wave_vector_along_mean_z,50,0.5129537584656461,0.6208911618518066,True,50
+cross_shift,current_cross_mean_z,50,0.07676157092185742,0.1841053162805339,True,1
+cross_shift,wave_vector_cross_mean_z,50,0.49357597317813523,0.5980681008292075,True,50

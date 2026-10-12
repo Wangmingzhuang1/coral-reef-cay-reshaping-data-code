@@ -1,0 +1,125 @@
+{
+  "definition": "accepted_initial_cover_none_vs_sparse_partial_dominant",
+  "all_intervals": 1410,
+  "all_cays": 62,
+  "high_wave": [
+    {
+      "analysis": "E4_event_storm_days_bare",
+      "status": "exploratory",
+      "term": "event_storm_days",
+      "estimate": 0.017570583538210765,
+      "reef_cluster_se": 0.006389578155214044,
+      "ci95_low": 0.00504724047758736,
+      "ci95_high": 0.03009392659883417,
+      "p_value": 0.005961679785016512,
+      "n_observations": 497,
+      "n_cays": 34,
+      "fdr_q_value": 0.04173175849511559
+    }
+  ],
+  "seasonal": [
+    {
+      "model": "count_duration",
+      "term": "event_storm_days",
+      "estimate": 0.017570583538210765,
+      "ci95_low": 0.00504724047758736,
+      "ci95_high": 0.03009392659883417,
+      "p_value": 0.005961679785016512,
+      "n_intervals": 497,
+      "n_cays": 34,
+      "n_reefs": 31,
+      "formula": "log_speed ~ event_storm_days + time_interval_days + C(sand_cay_id)",
+      "fdr_q_value": 0.04173175849511559
+    },
+    {
+      "model": "count_duration_season",
+      "term": "event_storm_days",
+      "estimate": 0.021878125292311708,
+      "ci95_low": 0.009295301172208491,
+      "ci95_high": 0.034460949412414926,
+      "p_value": 0.0006547763168041988,
+      "n_intervals": 497,
+      "n_cays": 34,
+      "n_reefs": 31,
+      "formula": "log_speed ~ event_storm_days + time_interval_days + season_sin + season_cos + C(sand_cay_id)",
+      "fdr_q_value": 0.0006547763168041988
+    },
+    {
+      "model": "fraction_duration_season",
+      "term": "high_wave_fraction",
+      "estimate": 2.702556733628761,
+      "ci95_low": 1.161589270137877,
+      "ci95_high": 4.243524197119645,
+      "p_value": 0.000587338376544132,
+      "n_intervals": 497,
+      "n_cays": 34,
+      "n_reefs": 31,
+      "formula": "log_speed ~ high_wave_fraction + time_interval_days + season_sin + season_cos + C(sand_cay_id)",
+      "fdr_q_value": 0.0006547763168041988
+    }
+  ],
+  "leave_region_out": [
+    {
+      "excluded_region": "GBR",
+      "estimate": 0.023131705893197428,
+      "ci95_low": 0.006570877703430022,
+      "ci95_high": 0.03969253408296483,
+      "p_value": 0.006188490169334534,
+      "n_intervals": 246,
+      "n_cays": 20,
+      "n_reefs": 17
+    },
+    {
+      "excluded_region": "MEDF",
+      "estimate": 0.01593146816546728,
+      "ci95_low": -0.001637390361757328,
+      "ci95_high": 0.03350032669269189,
+      "p_value": 0.07551915981793875,
+      "n_intervals": 339,
+      "n_cays": 22,
+      "n_reefs": 20
+    },
+    {
+      "excluded_region": "NH",
+      "estimate": 0.01866394760421165,
+      "ci95_low": 0.005691817552960388,
+      "ci95_high": 0.03163607765546291,
+      "p_value": 0.004803220625444987,
+      "n_intervals": 485,
+      "n_cays": 32,
+      "n_reefs": 30
+    },
+    {
+      "excluded_region": "OTHER",
+      "estimate": 0.01318422275332675,
+      "ci95_low": 0.0014190889698294552,
+      "ci95_high": 0.024949356536824046,
+      "p_value": 0.02806538071730642,
+      "n_intervals": 421,
+      "n_cays": 28,
+      "n_reefs": 26
+    }
+  ],
+  "mobility": {
+    "analysis": "T2_top_decile_fraction_bare_minus_vegetated",
+    "estimate": 0.12755387342417132,
+    "ci95_low": 0.054101705042593366,
+    "ci95_high": 0.20959259006847988,
+    "p_value": 0.001,
+    "bare_median": 0.18042226487523993,
+    "vegetated_median": 0.052868391451068614,
+    "n_bare_cays": 36,
+    "n_vegetated_cays": 40,
+    "bootstrap_unit": "reef, jointly sampled across strata with multiplicity",
+    "bootstrap_reps": 1999,
+    "n_reefs": 57,
+    "threshold_scope": "fixed pooled observed p90 for the top-decile contrast",
+    "pooled_p90_speed_radii_per_year": 1.9036824890388906,
+    "n_bare_intervals": 521,
+    "n_bare_high_speed": 94,
+    "n_vegetated_intervals": 889,
+    "n_vegetated_high_speed": 47,
+    "fdr_q_value": NaN,
+    "evidence_role": "Accepted initial cover none versus sparse/partial/dominant; grid-consistent distribution contrast; nominal bootstrap p, no inherited historical q; pooled threshold held fixed."
+  }
+}

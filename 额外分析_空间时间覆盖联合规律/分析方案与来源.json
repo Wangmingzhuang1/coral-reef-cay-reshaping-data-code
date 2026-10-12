@@ -1,0 +1,78 @@
+{
+  "性质": "探索性分析，已看到旧结果；非预注册确认研究",
+  "假设": [
+    [
+      "H1",
+      "between",
+      "cover",
+      "envelope",
+      "Cover vs. activity range"
+    ],
+    [
+      "H2",
+      "between",
+      "cover",
+      "net",
+      "Cover vs. net displacement"
+    ],
+    [
+      "H3",
+      "between",
+      "cover",
+      "exchange",
+      "Cover vs. boundary exchange"
+    ],
+    [
+      "H4",
+      "annual",
+      "position_gain",
+      "envelope",
+      "Annual position gain vs. range"
+    ],
+    [
+      "H5",
+      "annual",
+      "elongation_gain",
+      "envelope",
+      "Annual shape gain vs. range"
+    ],
+    [
+      "H6",
+      "annual",
+      "cover",
+      "position_gain",
+      "Cover vs. annual position gain"
+    ],
+    [
+      "H7",
+      "within",
+      "green_fraction_t0",
+      "centroid_speed_normalized",
+      "Within-cay cover vs. speed"
+    ],
+    [
+      "H8",
+      "within",
+      "green_fraction_t0",
+      "boundary_rate",
+      "Within-cay cover vs. boundary rate"
+    ]
+  ],
+  "主检验": "8项统一BH校正；礁盘聚类95%CI；沙洲为长期分析单位；区间等沙洲权重",
+  "样本": "剔除NH_015；共同来源固定框；区间每沙洲≥6对且覆盖范围≥0.05",
+  "敏感性": [
+    "逐区域剔除",
+    "分来源",
+    "逐区域描述",
+    "Sentinel-2初始半径≥3像元",
+    "年度≥4个验证年份",
+    "区间完整环境子集及同子集不调环境对照"
+  ],
+  "普适性": "总体显著不等于普适；报告区域/来源支持和留一稳定性；无因果解释",
+  "输入SHA256": {
+    "tracks": "b27490793da4dc3d2dac3b5073c8ff6ccda0d27e3c70b8ff081791ab970f3763",
+    "intervals": "b03475e9eea5ed778bc9f4555400818a9be2d6df6fe83e812d2ef00917c02ceb",
+    "annual": "096e2ffa21677eaa607d2d0f4912feb82d2a7dd2089dd10d5f23b17f00d1f824",
+    "observations": "b6d55ded1c301642ded9f97fa3c2a303d25fc406a66c69bbe34409edb31f0e7f"
+  }
+}

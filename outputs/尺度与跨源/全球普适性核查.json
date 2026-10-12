@@ -1,0 +1,293 @@
+{
+  "figure_claim": "Regional morphodynamic spectra obey transferable size, process, and measurement rules: relative reworking reflects perimeter-area geometry; vegetation cover corresponds to lower mobility overall, and calibrated cay medians show in-sample cross-source agreement.",
+  "scaling": [
+    {
+      "stratum": "ALL",
+      "n_cays": 120,
+      "slope": -0.423927195171421,
+      "cluster_se": 0.03406642308802589,
+      "p_value": 1.505045264718793e-35,
+      "ci95_low": -0.49069615750605555,
+      "ci95_high": -0.3571582328367865
+    },
+    {
+      "stratum": "Great Barrier Reef",
+      "n_cays": 31,
+      "slope": -0.5497648267328825,
+      "cluster_se": 0.07658194185485333,
+      "p_value": 7.033679656069462e-13,
+      "ci95_low": -0.6998626746345356,
+      "ci95_high": -0.3996669788312295
+    },
+    {
+      "stratum": "Maldives",
+      "n_cays": 50,
+      "slope": -0.25377623878917366,
+      "cluster_se": 0.04286961227338444,
+      "p_value": 3.2248389028560924e-09,
+      "ci95_low": -0.33779913487620344,
+      "ci95_high": -0.16975334270214387
+    },
+    {
+      "stratum": "Marshall Islands",
+      "n_cays": 15,
+      "slope": -0.3462423743193048,
+      "cluster_se": 0.15927140536776555,
+      "p_value": 0.029711577276986915,
+      "ci95_low": -0.6584085926072047,
+      "ci95_high": -0.0340761560314049
+    },
+    {
+      "stratum": "South China Sea",
+      "n_cays": 22,
+      "slope": -0.47982079598924426,
+      "cluster_se": 0.08286709144443387,
+      "p_value": 7.028365571496474e-09,
+      "ci95_low": -0.6422373107239219,
+      "ci95_high": -0.31740428125456666
+    },
+    {
+      "stratum": "ALL_translation",
+      "n_cays": 120,
+      "slope": -0.5382348533716534,
+      "cluster_se": 0.050850784533384714,
+      "p_value": 3.513044824556799e-26,
+      "ci95_low": -0.6379005596426939,
+      "ci95_high": -0.438569147100613
+    }
+  ],
+  "geometry_decomposition": [
+    {
+      "metric": "relative_reworking",
+      "stratum": "ALL",
+      "n_cays": 120,
+      "slope": -0.423927195171421,
+      "ci95_low": -0.49069615750605555,
+      "ci95_high": -0.3571582328367865,
+      "p_value": 1.505045264718793e-35,
+      "se_type": "reef-clustered"
+    },
+    {
+      "metric": "relative_reworking",
+      "stratum": "Great Barrier Reef",
+      "n_cays": 31,
+      "slope": -0.5497648267328825,
+      "ci95_low": -0.6998626746345356,
+      "ci95_high": -0.3996669788312295,
+      "p_value": 7.033679656069462e-13,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "relative_reworking",
+      "stratum": "Maldives",
+      "n_cays": 50,
+      "slope": -0.25377623878917366,
+      "ci95_low": -0.33779913487620344,
+      "ci95_high": -0.16975334270214387,
+      "p_value": 3.2248389028560924e-09,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "relative_reworking",
+      "stratum": "Marshall Islands",
+      "n_cays": 15,
+      "slope": -0.3462423743193048,
+      "ci95_low": -0.6584085926072047,
+      "ci95_high": -0.0340761560314049,
+      "p_value": 0.029711577276986915,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "relative_reworking",
+      "stratum": "South China Sea",
+      "n_cays": 22,
+      "slope": -0.47982079598924426,
+      "ci95_low": -0.6422373107239219,
+      "ci95_high": -0.31740428125456666,
+      "p_value": 7.028365571496474e-09,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "perimeter_area_ratio",
+      "stratum": "ALL",
+      "n_cays": 120,
+      "slope": -0.49565535131520067,
+      "ci95_low": -0.5163909725169282,
+      "ci95_high": -0.4749197301134731,
+      "p_value": 0.0,
+      "se_type": "reef-clustered"
+    },
+    {
+      "metric": "perimeter_area_ratio",
+      "stratum": "Great Barrier Reef",
+      "n_cays": 31,
+      "slope": -0.5090351443814554,
+      "ci95_low": -0.5762455807834018,
+      "ci95_high": -0.4418247079795089,
+      "p_value": 7.576365832869145e-50,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "perimeter_area_ratio",
+      "stratum": "Maldives",
+      "n_cays": 50,
+      "slope": -0.5176717781753584,
+      "ci95_low": -0.5643807271850558,
+      "ci95_high": -0.4709628291656609,
+      "p_value": 1.2675292251066936e-104,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "perimeter_area_ratio",
+      "stratum": "Marshall Islands",
+      "n_cays": 15,
+      "slope": -0.4589705259949731,
+      "ci95_low": -0.5503133963961482,
+      "ci95_high": -0.367627655593798,
+      "p_value": 6.976087181341294e-23,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "perimeter_area_ratio",
+      "stratum": "South China Sea",
+      "n_cays": 22,
+      "slope": -0.47858690629201334,
+      "ci95_low": -0.5162191865726593,
+      "ci95_high": -0.4409546260113674,
+      "p_value": 3.9124477682282906e-137,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "boundary_displacement_m_per_year",
+      "stratum": "ALL",
+      "n_cays": 120,
+      "slope": 0.06166091207688385,
+      "ci95_low": 0.0032797251375007025,
+      "ci95_high": 0.120042099016267,
+      "p_value": 0.03844575242942218,
+      "se_type": "reef-clustered"
+    },
+    {
+      "metric": "boundary_displacement_m_per_year",
+      "stratum": "Great Barrier Reef",
+      "n_cays": 31,
+      "slope": -0.028583082682049954,
+      "ci95_low": -0.1531045361707976,
+      "ci95_high": 0.09593837080669769,
+      "p_value": 0.6527848019778966,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "boundary_displacement_m_per_year",
+      "stratum": "Maldives",
+      "n_cays": 50,
+      "slope": 0.2242423355356401,
+      "ci95_low": 0.15253883824605868,
+      "ci95_high": 0.2959458328252215,
+      "p_value": 8.815324253448567e-10,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "boundary_displacement_m_per_year",
+      "stratum": "Marshall Islands",
+      "n_cays": 15,
+      "slope": 0.11064625708943242,
+      "ci95_low": -0.14883376248966268,
+      "ci95_high": 0.37012627666852754,
+      "p_value": 0.40329067560602827,
+      "se_type": "HC3"
+    },
+    {
+      "metric": "boundary_displacement_m_per_year",
+      "stratum": "South China Sea",
+      "n_cays": 22,
+      "slope": -0.0004644310066797275,
+      "ci95_low": -0.15594185695704768,
+      "ci95_high": 0.15501299494368823,
+      "p_value": 0.9953286808884582,
+      "se_type": "HC3"
+    }
+  ],
+  "vegetation_gradient": [
+    {
+      "state": "none",
+      "metric": "standardized_centroid_translation",
+      "n_cays": 79,
+      "median": 0.46188330439017145,
+      "ci95_low": 0.32417893487861393,
+      "ci95_high": 0.5741017728203338
+    },
+    {
+      "state": "none",
+      "metric": "standardized_gross_boundary_reworking",
+      "n_cays": 79,
+      "median": 0.7842204516715061,
+      "ci95_low": 0.6748282747944911,
+      "ci95_high": 0.983445994088431
+    },
+    {
+      "state": "sparse",
+      "metric": "standardized_centroid_translation",
+      "n_cays": 34,
+      "median": 0.1556348346124887,
+      "ci95_low": 0.1068236159619322,
+      "ci95_high": 0.23404723711664785
+    },
+    {
+      "state": "sparse",
+      "metric": "standardized_gross_boundary_reworking",
+      "n_cays": 34,
+      "median": 0.3761195511689923,
+      "ci95_low": 0.27067270971981927,
+      "ci95_high": 0.48797834707024057
+    },
+    {
+      "state": "partial",
+      "metric": "standardized_centroid_translation",
+      "n_cays": 36,
+      "median": 0.13488859040318674,
+      "ci95_low": 0.09642044301766489,
+      "ci95_high": 0.22044112244015635
+    },
+    {
+      "state": "partial",
+      "metric": "standardized_gross_boundary_reworking",
+      "n_cays": 36,
+      "median": 0.34726820977428013,
+      "ci95_low": 0.2218091496513545,
+      "ci95_high": 0.4711556517816166
+    },
+    {
+      "state": "dominant",
+      "metric": "standardized_centroid_translation",
+      "n_cays": 36,
+      "median": 0.08884059297584782,
+      "ci95_low": 0.052541933808244304,
+      "ci95_high": 0.13825082119109997
+    },
+    {
+      "state": "dominant",
+      "metric": "standardized_gross_boundary_reworking",
+      "n_cays": 36,
+      "median": 0.21675227484597753,
+      "ci95_low": 0.1304680423637138,
+      "ci95_high": 0.2900740352845687
+    }
+  ],
+  "cross_source_agreement": [
+    {
+      "metric": "standardized_gross_boundary_reworking",
+      "n_shared_cays": 55,
+      "spearman_ge_vs_s2": 0.7726551226551229,
+      "median_ge_over_s2": 1.0530518633263592
+    },
+    {
+      "metric": "standardized_centroid_translation",
+      "n_shared_cays": 55,
+      "spearman_ge_vs_s2": 0.6264069264069265,
+      "median_ge_over_s2": 0.9130044396538565
+    }
+  ],
+  "detection_floor": "±1 pixel boundary band using the observation pixel size, annualized over each interval; the plotted reference curve uses 10 m and 365.2425 d.",
+  "statistics": "Scaling slopes use reef-clustered SE overall and HC3 within regions; vegetation intervals are 1,999-replicate cay bootstrap 95% CI; cross-source agreement uses Spearman correlation and median GE/S2 ratio on cays observed by both sources."
+}

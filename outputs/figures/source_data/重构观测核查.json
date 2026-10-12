@@ -1,0 +1,57 @@
+{
+  "primary_sequences": 93,
+  "endpoint_bins": {
+    "Near-stable area": 63,
+    "Net gain": 17,
+    "Net loss": 13
+  },
+  "original_reviewed_classes": {
+    "Persistent reworking": 61,
+    "Complex": 14,
+    "Net contraction": 10,
+    "Net growth": 8
+  },
+  "joint_cays": 93,
+  "joint_observations": 1924,
+  "state_pairs": 1490,
+  "state_cays": 64,
+  "state_changes": 172,
+  "changing_cays": 22,
+  "state_example": "GBR_101_cay_001",
+  "examples": [
+    {
+      "cay_id": "GBR_055_cay_001",
+      "region": "Great Barrier Reef",
+      "n": 36,
+      "span": 8.84343963257288,
+      "delta": 0.0038491147036181
+    },
+    {
+      "cay_id": "OTHER_008_cay_002",
+      "region": "Marshall Islands",
+      "n": 22,
+      "span": 7.885172180126902,
+      "delta": 0.4795698924731182
+    },
+    {
+      "cay_id": "MEDF_015_cay_001",
+      "region": "Maldives",
+      "n": 36,
+      "span": 8.624407072013799,
+      "delta": -0.2586206896551724
+    },
+    {
+      "cay_id": "NH_015_cay_001",
+      "region": "South China Sea",
+      "n": 30,
+      "span": 9.443041267103364,
+      "delta": 0.2862644415917843
+    }
+  ],
+  "strict_label_sensitivity": {
+    "pairs": 793,
+    "cays": 60,
+    "changes": 83,
+    "changing_cays": 19
+  }
+}

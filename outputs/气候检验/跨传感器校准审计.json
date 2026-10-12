@@ -1,0 +1,97 @@
+{
+  "pair_rule": "same cay, |date difference| <= 30 d, both quality A/B",
+  "verdict_rule": "|median area ratio - 1| <= 0.1 and median centroid offset <= 0.25 equivalent radii and scale-dependence slope p >= 0.05",
+  "verdict": "descriptive_only",
+  "scale_dependence_slope_log_ratio_per_log_area": -0.10323897904785113,
+  "scale_dependence_slope_p_value": 0.13756323062665962,
+  "calibration_coefficients": {
+    "ALL": {
+      "area_ratio_median": 1.884378233434178,
+      "perimeter_ratio_median": 1.2928312557577546,
+      "centroid_offset_equiv_radii_median": 0.0007662860635751705
+    },
+    "GBR": {
+      "area_ratio_median": 1.5362089869235367,
+      "perimeter_ratio_median": 1.2502349917424251,
+      "centroid_offset_equiv_radii_median": 0.00037562457887628574
+    },
+    "MEDF": {
+      "area_ratio_median": 1.8106392446891617,
+      "perimeter_ratio_median": 1.2614977936036171,
+      "centroid_offset_equiv_radii_median": 0.0008501667678621552
+    },
+    "NH": {
+      "area_ratio_median": 4.71227821262384,
+      "perimeter_ratio_median": 1.9681719909068816,
+      "centroid_offset_equiv_radii_median": 0.003978461341162744
+    },
+    "OTHER": {
+      "area_ratio_median": 1.901292390973771,
+      "perimeter_ratio_median": 1.2629155092161444,
+      "centroid_offset_equiv_radii_median": 0.0005797305737252448
+    }
+  },
+  "summary": [
+    {
+      "stratum": "ALL",
+      "n_pairs": 70,
+      "n_cays": 36,
+      "median_area_ratio": 1.884378233434178,
+      "area_ratio_ci95_low": 1.5392888778670968,
+      "area_ratio_ci95_high": 2.936921244043644,
+      "median_perimeter_ratio": 1.2928312557577546,
+      "median_centroid_offset_equiv_radii": 0.0007662860635751705,
+      "centroid_offset_ci95_low": 0.0004131208732554146,
+      "centroid_offset_ci95_high": 0.0010083557132868895
+    },
+    {
+      "stratum": "GBR",
+      "n_pairs": 29,
+      "n_cays": 14,
+      "median_area_ratio": 1.5362089869235367,
+      "area_ratio_ci95_low": 1.3906733986886752,
+      "area_ratio_ci95_high": 2.6018223400607727,
+      "median_perimeter_ratio": 1.2502349917424251,
+      "median_centroid_offset_equiv_radii": 0.00037562457887628574,
+      "centroid_offset_ci95_low": 0.00023918744140931538,
+      "centroid_offset_ci95_high": 0.0008257406969105074
+    },
+    {
+      "stratum": "MEDF",
+      "n_pairs": 23,
+      "n_cays": 15,
+      "median_area_ratio": 1.8106392446891617,
+      "area_ratio_ci95_low": 1.5314352708882724,
+      "area_ratio_ci95_high": 3.1092850335314783,
+      "median_perimeter_ratio": 1.2614977936036171,
+      "median_centroid_offset_equiv_radii": 0.0008501667678621552,
+      "centroid_offset_ci95_low": 0.0005982179081001649,
+      "centroid_offset_ci95_high": 0.001243994849252346
+    },
+    {
+      "stratum": "NH",
+      "n_pairs": 8,
+      "n_cays": 1,
+      "median_area_ratio": 4.71227821262384,
+      "area_ratio_ci95_low": NaN,
+      "area_ratio_ci95_high": NaN,
+      "median_perimeter_ratio": 1.9681719909068816,
+      "median_centroid_offset_equiv_radii": 0.003978461341162744,
+      "centroid_offset_ci95_low": NaN,
+      "centroid_offset_ci95_high": NaN
+    },
+    {
+      "stratum": "OTHER",
+      "n_pairs": 10,
+      "n_cays": 6,
+      "median_area_ratio": 1.901292390973771,
+      "area_ratio_ci95_low": 1.5603801265194872,
+      "area_ratio_ci95_high": 2.015765629744988,
+      "median_perimeter_ratio": 1.2629155092161444,
+      "median_centroid_offset_equiv_radii": 0.0005797305737252448,
+      "centroid_offset_ci95_low": 0.00035627882730836235,
+      "centroid_offset_ci95_high": 0.0008386778253801825
+    }
+  ],
+  "reuse_note": "后续敏感性脚本读取 跨传感器校准审计.json 的 calibration_coefficients 对 GE 指标做乘性校正；判定为 descriptive_only 时禁止入模型。"
+}

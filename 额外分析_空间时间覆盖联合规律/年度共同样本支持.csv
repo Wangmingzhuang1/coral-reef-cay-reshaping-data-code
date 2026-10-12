@@ -1,0 +1,9 @@
+﻿region,sensor,position_gain,elongation_gain
+Great Barrier Reef,sentinel2,28,28
+Lakshadweep,google_earth,0,0
+Lakshadweep,sentinel2,1,1
+Maldives,google_earth,0,0
+Maldives,sentinel2,20,20
+Marshall Islands,google_earth,0,0
+Marshall Islands,sentinel2,5,5
+South China Sea,google_earth,0,0

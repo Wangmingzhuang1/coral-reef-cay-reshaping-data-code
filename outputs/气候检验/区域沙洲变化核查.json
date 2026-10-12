@@ -1,0 +1,9 @@
+{
+  "mapping_contract": "registered standardized coordinates, then registered cay-centre median",
+  "area_unit": "one cay x sensor series, A/B observation median",
+  "inferential_unit": "one cay median across S2 90-365 day intervals",
+  "primary_contrast": "Great Barrier Reef vs Maldives",
+  "n_eligible_trajectories": 93,
+  "model": "OLS adjusted for cay median area and median interval; reef-clustered SE; 2,000 reef resamples",
+  "small_regions": "descriptive only"
+}

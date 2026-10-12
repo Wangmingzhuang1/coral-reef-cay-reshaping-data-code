@@ -1,0 +1,4 @@
+﻿sigma_pixels,n_simulations,noise_only_median_r,noise_only_p95_r,observed_perturbed_p025_r,observed_perturbed_p975_r,scope
+1,5000,2.2922570446029678,2.750366898557913,28.01596345095214,29.23482469088828,hypothetical independent isotropic positional error per date; not measured registration uncertainty or a confidence interval
+2,5000,4.584097194776486,5.524451884267366,28.172478754651575,30.682623712433287,hypothetical independent isotropic positional error per date; not measured registration uncertainty or a confidence interval
+5,5000,11.526086331876897,13.853710451011516,29.63384641499238,35.86734032384881,hypothetical independent isotropic positional error per date; not measured registration uncertainty or a confidence interval

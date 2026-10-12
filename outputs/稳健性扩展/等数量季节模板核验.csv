@@ -1,0 +1,2 @@
+﻿n_images,n_cays,mean_gain,ci95_low,ci95_high,positive_cays,bootstrap,seed,scope
+790,56,0.05130879964944353,0.035910306423592615,0.06663439741084243,47,1999,20261008,same versus opposite quarter training counts equal; held-out year unchanged

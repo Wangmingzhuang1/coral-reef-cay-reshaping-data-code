@@ -1,0 +1,174 @@
+{
+  "continuous": {
+    "primary": 93,
+    "endpoint_comparable": 90,
+    "matched_candidates": 71,
+    "same_region_candidates": 32,
+    "display_pair": [
+      "MEDF_008_cay_001",
+      "MEDF_022_cay_001"
+    ],
+    "display_scope": "descriptive contrast selected for illustration, not a hypothesis test"
+  },
+  "flanking": {
+    "support": [
+      {
+        "specification": "eligible_flanks",
+        "n_events": 34,
+        "n_cays": 14,
+        "n_reefs": 14,
+        "increasing": 19,
+        "decreasing": 15,
+        "environment_complete": 8
+      },
+      {
+        "specification": "non_reused",
+        "n_events": 27,
+        "n_cays": 14,
+        "n_reefs": 14,
+        "increasing": 15,
+        "decreasing": 12,
+        "environment_complete": 7
+      },
+      {
+        "specification": "strict_non_reused",
+        "n_events": 1,
+        "n_cays": 1,
+        "n_reefs": 1,
+        "increasing": 1,
+        "decreasing": 0,
+        "environment_complete": 1
+      },
+      {
+        "specification": "observation_matched",
+        "n_events": 0,
+        "n_cays": 0,
+        "n_reefs": 0,
+        "increasing": 0,
+        "decreasing": 0,
+        "environment_complete": 0
+      },
+      {
+        "specification": "environment_complete_matched",
+        "n_events": 0,
+        "n_cays": 0,
+        "n_reefs": 0,
+        "increasing": 0,
+        "decreasing": 0,
+        "environment_complete": 0
+      },
+      {
+        "specification": "observation_matched_90d",
+        "n_events": 1,
+        "n_cays": 1,
+        "n_reefs": 1,
+        "increasing": 1,
+        "decreasing": 0,
+        "environment_complete": 0
+      },
+      {
+        "specification": "observation_matched_120d",
+        "n_events": 3,
+        "n_cays": 3,
+        "n_reefs": 3,
+        "increasing": 3,
+        "decreasing": 0,
+        "environment_complete": 2
+      }
+    ],
+    "adjusted_model": "not fitted: small clustered events, sparse full environment overlap and seasonal matches; no evidence of a stable coupled mechanism is inferred"
+  },
+  "NH_015": {
+    "n_dates": 30,
+    "n_frames": 1,
+    "n_pixel_sizes": 1,
+    "mask_centroid_reproduction": true,
+    "n_background_accepted": 9,
+    "n_adjacent_pairs": 29,
+    "raw_path_r": 28.24063973511941,
+    "net_r": 0.8146252498803077,
+    "envelope_r": 2.7157115450572427,
+    "accepted_raw_sum_r": 4.388308437772738,
+    "accepted_screen_aligned_sum_r": 4.6792975530349,
+    "background_screen_scope": "candidate submerged-reef texture, not independently surveyed stable control points; no mask correction or overwrite",
+    "largest_steps": [
+      {
+        "date0": "2016-03-16",
+        "date1": "2016-09-24",
+        "raw_step_m": 101.35947197771523,
+        "screen_accepted": false,
+        "n_matches": 11,
+        "n_inliers": 2,
+        "inlier_fraction": 0.18181818181818182,
+        "coverage_cells": 2,
+        "scale_factor": 1.080945026715171,
+        "rotation_deg": 68.47416501886568,
+        "median_residual_px": 5.80257510591764e-05,
+        "background_correction_m": 383.00954410887914,
+        "screen_aligned_step_m": 395.4550292767952
+      },
+      {
+        "date0": "2016-09-24",
+        "date1": "2017-02-16",
+        "raw_step_m": 76.3723970075295,
+        "screen_accepted": false,
+        "n_matches": 15,
+        "n_inliers": 2,
+        "inlier_fraction": 0.13333333333333333,
+        "coverage_cells": 2,
+        "scale_factor": 1.1975806163063851,
+        "rotation_deg": -37.12348015000717,
+        "median_residual_px": 0.0,
+        "background_correction_m": 502.25428902925256,
+        "screen_aligned_step_m": 502.81659477551904
+      },
+      {
+        "date0": "2018-06-21",
+        "date1": "2018-09-30",
+        "raw_step_m": 75.42012497541802,
+        "screen_accepted": true,
+        "n_matches": 290,
+        "n_inliers": 196,
+        "inlier_fraction": 0.6758620689655173,
+        "coverage_cells": 9,
+        "scale_factor": 1.0002452773308892,
+        "rotation_deg": -0.1021460156176063,
+        "median_residual_px": 0.9674211144447327,
+        "background_correction_m": 1.4877404174889823,
+        "screen_aligned_step_m": 76.09796795938878
+      },
+      {
+        "date0": "2015-04-28",
+        "date1": "2015-08-17",
+        "raw_step_m": 72.66896615740534,
+        "screen_accepted": false,
+        "n_matches": 55,
+        "n_inliers": 29,
+        "inlier_fraction": 0.5272727272727272,
+        "coverage_cells": 4,
+        "scale_factor": 1.0029252366368255,
+        "rotation_deg": -0.14134619416857883,
+        "median_residual_px": 0.9663707613945007,
+        "background_correction_m": 0.975613678723078,
+        "screen_aligned_step_m": 72.13865591366883
+      },
+      {
+        "date0": "2017-03-11",
+        "date1": "2017-09-17",
+        "raw_step_m": 57.80990984044207,
+        "screen_accepted": false,
+        "n_matches": 19,
+        "n_inliers": 8,
+        "inlier_fraction": 0.42105263157894735,
+        "coverage_cells": 3,
+        "scale_factor": 1.0002127626109776,
+        "rotation_deg": -0.38198969996826393,
+        "median_residual_px": 0.504528820514679,
+        "background_correction_m": 2.8032117592204635,
+        "screen_aligned_step_m": 57.78448232766436
+      }
+    ],
+    "crop_rows": 31,
+    "crop_rectangles": 1
+  }
+}

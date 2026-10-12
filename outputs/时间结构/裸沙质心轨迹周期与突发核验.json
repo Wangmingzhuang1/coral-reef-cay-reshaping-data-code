@@ -1,0 +1,12 @@
+{
+  "question": "Do cay centroid trajectories contain annual position structure and intervals of large displacement?",
+  "position_unit": "metres, demeaned within cay x reference frame",
+  "step_definition": "consecutive Sentinel-2 A/B observations 30-400 d apart, from outputs/沙洲变化区间.csv",
+  "null_models": "reef-clustered harmonic F tests; paired-axis maximum Lomb-Scargle date-exchangeability screening",
+  "ls_permutations": 1999,
+  "ls_scope": "screening assumes exchangeable dates; temporal autocorrelation is not preserved; no binomial aggregate test",
+  "largest_step_scope": "descriptive only; interval observations do not resolve the duration of geomorphic events",
+  "fdr_family_size": 10,
+  "n_positions": 1821,
+  "n_steps": 1635
+}

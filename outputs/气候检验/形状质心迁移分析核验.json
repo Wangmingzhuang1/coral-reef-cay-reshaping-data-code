@@ -1,0 +1,8 @@
+{
+  "estimand": "Observed S2 shape evolution and its association with centroid displacement; no claim about cay genesis or causality.",
+  "shape_metric": "log(major_axis_length / minor_axis_length)",
+  "mobility_metric": "centroid displacement / baseline equivalent radius in the same fixed frame",
+  "seasonal_control": "350-380 d and circular day-of-year gap <=15 d; deterministic nearest annual successor",
+  "reef_platform_boundary": "not run: available reef extent is a geographic bbox, not a validated reef-platform polygon",
+  "exploratory_boundary": "Concurrent mobility--shape-change association is not interpreted as causal because both derive from the same endpoints."
+}

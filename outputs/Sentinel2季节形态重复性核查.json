@@ -1,0 +1,153 @@
+{
+  "analysis_contract": {
+    "scientific_question": "Do Sentinel-2 sand-cay masks and surface metrics contain a repeatable annual component beyond cay identity and secular trend?",
+    "sample_unit": "pair of masks within a fixed reference frame, or one held-out image-year for cross-validation",
+    "season_definition": "continuous circular day-of-year phase for the main pairwise and harmonic tests; calendar quarter only for template construction",
+    "prediction_boundary": "all templates and harmonic models exclude the target calendar year",
+    "inference_boundary": "observational recurrence, not proof of a seasonal hydrodynamic mechanism or vegetation phenology"
+  },
+  "input": {
+    "observations": "outputs\\沙洲观测主表.csv",
+    "n_observations": 1821,
+    "n_cays": 66,
+    "n_reefs": 61,
+    "date_start": "2017-01-07",
+    "date_end": "2025-12-29",
+    "excluded_quality_c": 2
+  },
+  "pairwise_model": {
+    "n_pairs": 11458,
+    "n_cays": 66,
+    "phase_distance_coefficient": -0.03256568069051247,
+    "cluster_robust_se": 0.0046506155517566485,
+    "ci95_low": -0.041680887171955505,
+    "ci95_high": -0.02345047420906944,
+    "two_sided_p_value": 2.5153322862051785e-12,
+    "model_r_squared": 0.6572797907987963,
+    "same_season_cross_year_n": 1474,
+    "same_season_cross_year_median_iou": 0.7832868459974742,
+    "different_season_within_year_n": 2144,
+    "different_season_within_year_median_iou": 0.7698839566690874,
+    "opposite_season_cross_year_n": 2743,
+    "opposite_season_cross_year_median_iou": 0.7339181286549707
+  },
+  "template_tests": [
+    {
+      "contrast": "gain_same_vs_all",
+      "n_images": 1730,
+      "n_cays": 60,
+      "mean_gain": -0.005879813542404777,
+      "median_gain": -0.003776602428725976,
+      "ci95_low": -0.010903729286275803,
+      "ci95_high": -0.0013123196351981937,
+      "positive_cays": 22,
+      "wilcoxon_p_value": 0.06679674955908954,
+      "fdr_q_value": 0.06679674955908954
+    },
+    {
+      "contrast": "gain_same_vs_opposite",
+      "n_images": 1730,
+      "n_cays": 60,
+      "mean_gain": 0.051031438464434024,
+      "median_gain": 0.04202232586348524,
+      "ci95_low": 0.03913978950549566,
+      "ci95_high": 0.06352737339581291,
+      "positive_cays": 55,
+      "wilcoxon_p_value": 1.4373720306251741e-09,
+      "fdr_q_value": 2.8747440612503483e-09
+    }
+  ],
+  "harmonic_tests": [
+    {
+      "metric": "vegetation_fraction",
+      "n_observations": 1741,
+      "n_cays": 56,
+      "mean_error_reduction": -0.0423981056356613,
+      "median_error_reduction": 0.0027180406969165402,
+      "ci95_low": -0.1557937866932184,
+      "ci95_high": 0.03600217870359788,
+      "positive_cays": 29,
+      "wilcoxon_p_value": 0.5246118033338354,
+      "fdr_q_value": 0.6120471038894747
+    },
+    {
+      "metric": "sand_cay_area_m2",
+      "n_observations": 1741,
+      "n_cays": 56,
+      "mean_error_reduction": 0.009439949679287988,
+      "median_error_reduction": -0.004298643046959371,
+      "ci95_low": -0.0142160840000369,
+      "ci95_high": 0.0313186581456584,
+      "positive_cays": 26,
+      "wilcoxon_p_value": 0.683380703167618,
+      "fdr_q_value": 0.683380703167618
+    },
+    {
+      "metric": "sand_cay_centroid_x_norm",
+      "n_observations": 1741,
+      "n_cays": 56,
+      "mean_error_reduction": 0.04043708516839843,
+      "median_error_reduction": 0.02024989455974907,
+      "ci95_low": 0.01881109577524003,
+      "ci95_high": 0.06297752225802061,
+      "positive_cays": 36,
+      "wilcoxon_p_value": 0.004767293700187241,
+      "fdr_q_value": 0.007963046315725236
+    },
+    {
+      "metric": "sand_cay_centroid_y_norm",
+      "n_observations": 1741,
+      "n_cays": 56,
+      "mean_error_reduction": 0.04078933995181217,
+      "median_error_reduction": 0.028386285893543292,
+      "ci95_low": 0.020649761757580695,
+      "ci95_high": 0.0597654439965104,
+      "positive_cays": 38,
+      "wilcoxon_p_value": 0.00048079830772239834,
+      "fdr_q_value": 0.001266960330536121
+    },
+    {
+      "metric": "sand_cay_compactness",
+      "n_observations": 1741,
+      "n_cays": 56,
+      "mean_error_reduction": 0.04310835182899423,
+      "median_error_reduction": 0.024495176756092335,
+      "ci95_low": 0.0216822052379829,
+      "ci95_high": 0.06428110937663496,
+      "positive_cays": 38,
+      "wilcoxon_p_value": 0.0005429829988011947,
+      "fdr_q_value": 0.001266960330536121
+    },
+    {
+      "metric": "sand_cay_elongation",
+      "n_observations": 1741,
+      "n_cays": 56,
+      "mean_error_reduction": 0.06283713691242497,
+      "median_error_reduction": 0.019260713887947166,
+      "ci95_low": 0.022031066439597895,
+      "ci95_high": 0.12133080102075225,
+      "positive_cays": 36,
+      "wilcoxon_p_value": 0.0056878902255180245,
+      "fdr_q_value": 0.007963046315725236
+    },
+    {
+      "metric": "sand_cay_major_axis_angle",
+      "n_observations": 1741,
+      "n_cays": 56,
+      "mean_error_reduction": 0.021564387655495874,
+      "median_error_reduction": 0.004480313044161724,
+      "ci95_low": 0.010748597648686025,
+      "ci95_high": 0.033743609731412855,
+      "positive_cays": 42,
+      "wilcoxon_p_value": 7.35983548120689e-05,
+      "fdr_q_value": 0.0005151884836844823
+    }
+  ],
+  "known_limitations": [
+    "Tide elevation could not be included because the local FES2022b grid is absent.",
+    "Quarterly scene selection and segmentation uncertainty may contribute to apparent seasonality.",
+    "The RGB-derived vegetation fraction is a surface-colour proxy, not a field-validated phenology measure.",
+    "A significant annual component does not identify waves, currents, wind, tide, or vegetation as its cause."
+  ],
+  "compactness_definition": "same largest 8-connected component area and four-direction Crofton perimeter; raw stored C preserved; primary external perimeter sensitivity"
+}

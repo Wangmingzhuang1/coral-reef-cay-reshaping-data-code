@@ -1,0 +1,122 @@
+{
+  "index": "NOAA CPC monthly detrended Nino 3.4 SST anomaly",
+  "lags_months": [
+    0,
+    3,
+    6,
+    9,
+    12,
+    18,
+    24
+  ],
+  "region_gate": ">=30 intervals and >=10 cays per region model",
+  "region_sample_counts": [
+    {
+      "region": "Great Barrier Reef",
+      "n_intervals": 538,
+      "n_cays": 28,
+      "n_reefs": 27
+    },
+    {
+      "region": "Lakshadweep",
+      "n_intervals": 9,
+      "n_cays": 1,
+      "n_reefs": 1
+    },
+    {
+      "region": "Maldives",
+      "n_intervals": 355,
+      "n_cays": 26,
+      "n_reefs": 24
+    },
+    {
+      "region": "Marshall Islands",
+      "n_intervals": 88,
+      "n_cays": 7,
+      "n_reefs": 6
+    },
+    {
+      "region": "South China Sea",
+      "n_intervals": 24,
+      "n_cays": 3,
+      "n_reefs": 2
+    }
+  ],
+  "fdr_supported_region_lag_tests": [
+    {
+      "outcome": "log_gross_mobility",
+      "exposure": "nino34_lag_3m",
+      "n_intervals": 354,
+      "n_cays": 25,
+      "n_reefs": 24,
+      "status": "ok",
+      "coefficient": 0.15152920678689966,
+      "cluster_robust_se": 0.02792780105178141,
+      "ci95_low": 0.09679172255800825,
+      "ci95_high": 0.20626669101579106,
+      "two_sided_p_value": 5.77123810903162e-08,
+      "two_way_cluster_se": 0.049733249748679584,
+      "two_way_ci95_low": 0.054053828445351976,
+      "two_way_ci95_high": 0.24900458512844734,
+      "two_way_p_value": 0.002312615128430598,
+      "minimum_detectable_effect": 0.07819784294498795,
+      "leave_one_year_out_n": 9.0,
+      "leave_one_year_out_same_sign_fraction": 1.0,
+      "region": "Maldives",
+      "lag_months": 3,
+      "two_way_fdr_q_value": 0.016188305899014186,
+      "fdr_q_value": 0.016188305899014186
+    },
+    {
+      "outcome": "log_gross_mobility",
+      "exposure": "nino34_lag_6m",
+      "n_intervals": 354,
+      "n_cays": 25,
+      "n_reefs": 24,
+      "status": "ok",
+      "coefficient": 0.14495711067985612,
+      "cluster_robust_se": 0.03544899768178352,
+      "ci95_low": 0.07547835193551655,
+      "ci95_high": 0.21443586942419568,
+      "two_sided_p_value": 4.3291249969905394e-05,
+      "two_way_cluster_se": 0.055513833452774976,
+      "two_way_ci95_low": 0.03615199646866232,
+      "two_way_ci95_high": 0.25376222489104994,
+      "two_way_p_value": 0.009022801585349868,
+      "minimum_detectable_effect": 0.09925719350899385,
+      "leave_one_year_out_n": 9.0,
+      "leave_one_year_out_same_sign_fraction": 1.0,
+      "region": "Maldives",
+      "lag_months": 6,
+      "two_way_fdr_q_value": 0.03157980554872454,
+      "fdr_q_value": 0.03157980554872454
+    },
+    {
+      "outcome": "log_gross_mobility",
+      "exposure": "nino34_lag_24m",
+      "n_intervals": 354,
+      "n_cays": 25,
+      "n_reefs": 24,
+      "status": "ok",
+      "coefficient": -0.14089089215138298,
+      "cluster_robust_se": 0.043463051542552394,
+      "ci95_low": -0.22607690783299372,
+      "ci95_high": -0.05570487646977225,
+      "two_sided_p_value": 0.0011885051352787325,
+      "two_way_cluster_se": 0.05940373753335011,
+      "two_way_ci95_low": -0.2573200782638194,
+      "two_way_ci95_high": -0.024461706038946526,
+      "two_way_p_value": 0.017704002517292584,
+      "minimum_detectable_effect": 0.1216965443191467,
+      "leave_one_year_out_n": 9.0,
+      "leave_one_year_out_same_sign_fraction": 1.0,
+      "region": "Maldives",
+      "lag_months": 24,
+      "two_way_fdr_q_value": 0.04130933920701603,
+      "fdr_q_value": 0.04130933920701603
+    }
+  ],
+  "fdr_supported_interaction_tests": [],
+  "multiple_testing": "BH-FDR across seven lags within each region-outcome family; interaction family across 7 lags x 2 outcomes",
+  "inference": "Within-cay observational lag associations with cay-clustered SE; two-way clustering and leave-one-year-out reported; regional differences require interaction q and per-region MDE; not causal."
+}

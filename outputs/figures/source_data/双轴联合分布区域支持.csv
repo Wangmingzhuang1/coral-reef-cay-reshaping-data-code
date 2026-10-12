@@ -1,0 +1,35 @@
+﻿region,net_area_bin,analysis_vegetation_state,n_cays,n_observations,equal_cay_mass
+Great Barrier Reef,Near-stable area,dominant,13,167,6.600502414252414
+Great Barrier Reef,Near-stable area,none,15,267,8.83552807486631
+Great Barrier Reef,Near-stable area,partial,12,131,4.28346894118953
+Great Barrier Reef,Near-stable area,sparse,14,168,5.280500569691746
+Great Barrier Reef,Net gain,dominant,1,13,1.0
+Great Barrier Reef,Net gain,none,1,29,1.0
+Great Barrier Reef,Net loss,none,1,13,0.6190476190476191
+Great Barrier Reef,Net loss,partial,1,7,0.3333333333333333
+Great Barrier Reef,Net loss,sparse,1,1,0.047619047619047616
+Lakshadweep,Net gain,none,2,24,2.0
+Maldives,Near-stable area,dominant,4,78,2.280952380952381
+Maldives,Near-stable area,none,12,175,10.47233893557423
+Maldives,Near-stable area,partial,8,183,6.614880952380952
+Maldives,Near-stable area,sparse,6,84,2.631827731092437
+Maldives,Net gain,none,7,105,6.923076923076923
+Maldives,Net gain,partial,1,2,1.0
+Maldives,Net gain,sparse,3,15,2.0769230769230766
+Maldives,Net loss,dominant,2,44,2.0
+Maldives,Net loss,none,5,40,5.0
+Maldives,Net loss,partial,1,36,1.0
+Marshall Islands,Near-stable area,dominant,2,30,1.575
+Marshall Islands,Near-stable area,none,3,71,2.064516129032258
+Marshall Islands,Near-stable area,partial,2,38,1.1604838709677419
+Marshall Islands,Near-stable area,sparse,1,8,0.2
+Marshall Islands,Net gain,dominant,1,2,0.1
+Marshall Islands,Net gain,none,1,1,0.05
+Marshall Islands,Net gain,partial,1,9,0.45
+Marshall Islands,Net gain,sparse,1,8,0.4
+South China Sea,Near-stable area,dominant,2,28,2.0
+South China Sea,Near-stable area,none,6,46,6.0
+South China Sea,Near-stable area,partial,1,14,1.0
+South China Sea,Near-stable area,sparse,2,30,2.0
+South China Sea,Net gain,none,2,32,2.0
+South China Sea,Net loss,none,4,25,4.0

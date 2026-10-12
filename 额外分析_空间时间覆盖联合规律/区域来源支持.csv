@@ -1,0 +1,9 @@
+﻿region,sensor,n_cays,annual_n,median_area,median_years
+Great Barrier Reef,sentinel2,28,28,102950.0,8.67642730514658
+Lakshadweep,google_earth,1,0,25155.896094104308,7.367707755806074
+Lakshadweep,sentinel2,1,1,96550.0,4.024723300273106
+Maldives,google_earth,18,0,3361.6245548036345,12.443787346762768
+Maldives,sentinel2,22,20,29175.0,8.624407072013799
+Marshall Islands,google_earth,1,0,46927.00434153345,22.428934201249856
+Marshall Islands,sentinel2,5,5,39950.0,8.78868149243311
+South China Sea,google_earth,16,0,6403.498991291784,5.06512796292874

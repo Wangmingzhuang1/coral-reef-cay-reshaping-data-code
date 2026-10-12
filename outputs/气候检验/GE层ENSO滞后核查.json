@@ -1,0 +1,28 @@
+{
+  "stratum": "Google Earth only; never pooled with Sentinel-2",
+  "selection_bias_caveat": "GE acquisition is opportunistic (cloud-free screenshots); interval midpoints carry climate-state information, so lag associations are descriptive sign-replication only",
+  "region_sample_counts": [
+    {
+      "region": "GBR",
+      "n_intervals": 15,
+      "n_cays": 5
+    },
+    {
+      "region": "MEDF",
+      "n_intervals": 42,
+      "n_cays": 21
+    },
+    {
+      "region": "NH",
+      "n_intervals": 70,
+      "n_cays": 18
+    },
+    {
+      "region": "OTHER",
+      "n_intervals": 14,
+      "n_cays": 7
+    }
+  ],
+  "fdr_supported_within_stratum": [],
+  "inference": "Within-cay observational lag association inside the GE stratum; cay-clustered SE; FDR within region-outcome family; not causal and not pooled."
+}

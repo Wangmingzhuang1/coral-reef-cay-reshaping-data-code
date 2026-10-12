@@ -1,0 +1,35 @@
+{
+  "analysis_unit": "typhoon event - sand cay - Sentinel-2 - fixed reference frame",
+  "analysis_contract_version": "2026-09-30-observation-keys-3",
+  "analysis_contract_sha256": "231ca3161530fa5282e3fe0a73480139798d46ad9c1572729fa17cb8bde2ecb3",
+  "excluded_reefs": [
+    "GBR_066"
+  ],
+  "event_definition": "R34 toward cay, or distance <=100 km and nearest wind >=17.5 m/s",
+  "pairing_funnel": {
+    "direct_event_cay_records": 1639,
+    "direct_storms": 230,
+    "direct_cays": 126,
+    "event_cay_records_with_any_observation": 309,
+    "event_cay_records_inside_observation_span": 52,
+    "event_cay_records_with_pre_image": 26,
+    "event_cay_records_with_post_image": 24,
+    "event_cay_records_with_same_frame_pair": 12,
+    "isolated_same_frame_pairs": 11
+  },
+  "main_pre_window": [
+    -60,
+    -5
+  ],
+  "main_post_window": [
+    5,
+    60
+  ],
+  "main_valid_pairs": 11,
+  "main_storms": 6,
+  "main_cays": 11,
+  "main_reefs": 11,
+  "matched_control_pairs": 10,
+  "matched_independent_storms": 5,
+  "competing_event_rule": "exclude another relevant event between paired observations"
+}

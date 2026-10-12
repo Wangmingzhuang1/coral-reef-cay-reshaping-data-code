@@ -1,0 +1,202 @@
+﻿sensor,sand_cay_id,reef_id,map_region,analysis_region,median_area_m2,n_observations,plot_region
+google_earth,GBR_003_cay_001,GBR_003,Great Barrier Reef,Great Barrier Reef,177527.86644715746,7,Great Barrier Reef
+google_earth,GBR_007_cay_001,GBR_007,Great Barrier Reef,Great Barrier Reef,119649.8084518478,12,Great Barrier Reef
+google_earth,GBR_008_cay_001,GBR_008,Great Barrier Reef,Great Barrier Reef,39446.04118833885,3,Great Barrier Reef
+google_earth,GBR_009_cay_001,GBR_009,Great Barrier Reef,Great Barrier Reef,122342.45925231883,1,Great Barrier Reef
+google_earth,GBR_020_cay_001,GBR_020,Great Barrier Reef,Great Barrier Reef,50068.08600398597,1,Great Barrier Reef
+google_earth,GBR_023_cay_001,GBR_023,Great Barrier Reef,Great Barrier Reef,3761.188165603575,1,Great Barrier Reef
+google_earth,GBR_026_cay_001,GBR_026,Great Barrier Reef,Great Barrier Reef,3618.461021538481,1,Great Barrier Reef
+google_earth,GBR_027_cay_001,GBR_027,Great Barrier Reef,Great Barrier Reef,661.3659325384101,1,Great Barrier Reef
+google_earth,GBR_029_cay_001,GBR_029,Great Barrier Reef,Great Barrier Reef,20427.5370441953,3,Great Barrier Reef
+google_earth,GBR_030_cay_001,GBR_030,Great Barrier Reef,Great Barrier Reef,8441.720895478571,3,Great Barrier Reef
+google_earth,GBR_033_cay_001,GBR_033,Great Barrier Reef,Great Barrier Reef,24916.92210909677,1,Great Barrier Reef
+google_earth,GBR_034_cay_001,GBR_034,Great Barrier Reef,Great Barrier Reef,19659.49129569557,2,Great Barrier Reef
+google_earth,GBR_036_cay_001,GBR_036,Great Barrier Reef,Great Barrier Reef,38132.8203287322,3,Great Barrier Reef
+google_earth,GBR_037_cay_001,GBR_037,Great Barrier Reef,Great Barrier Reef,36016.33013224499,12,Great Barrier Reef
+google_earth,GBR_038_cay_001,GBR_038,Great Barrier Reef,Great Barrier Reef,26989.27607117003,4,Great Barrier Reef
+google_earth,GBR_039_cay_001,GBR_039,Great Barrier Reef,Great Barrier Reef,11104.335582692,4,Great Barrier Reef
+google_earth,GBR_040_cay_001,GBR_040,Great Barrier Reef,Great Barrier Reef,3038.7150585829445,1,Great Barrier Reef
+google_earth,GBR_041_cay_001,GBR_041,Great Barrier Reef,Great Barrier Reef,8086.117230208468,1,Great Barrier Reef
+google_earth,GBR_052_cay_001,GBR_052,Great Barrier Reef,Great Barrier Reef,19758.591592415123,3,Great Barrier Reef
+google_earth,GBR_053_cay_001,GBR_053,Great Barrier Reef,Great Barrier Reef,34944.2770596507,2,Great Barrier Reef
+google_earth,GBR_054_cay_001,GBR_054,Great Barrier Reef,Great Barrier Reef,5310.486980737967,1,Great Barrier Reef
+google_earth,GBR_055_cay_001,GBR_055,Great Barrier Reef,Great Barrier Reef,29543.73405494916,1,Great Barrier Reef
+google_earth,GBR_056_cay_001,GBR_056,Great Barrier Reef,Great Barrier Reef,4955.487868239246,1,Great Barrier Reef
+google_earth,GBR_058_cay_001,GBR_058,Great Barrier Reef,Great Barrier Reef,115018.36604015624,4,Great Barrier Reef
+google_earth,GBR_059_cay_001,GBR_059,Great Barrier Reef,Great Barrier Reef,325328.6623078688,2,Great Barrier Reef
+google_earth,GBR_060_cay_001,GBR_060,Great Barrier Reef,Great Barrier Reef,179345.1845106562,3,Great Barrier Reef
+google_earth,GBR_061_cay_001,GBR_061,Great Barrier Reef,Great Barrier Reef,76935.19892312116,1,Great Barrier Reef
+google_earth,GBR_061_cay_002,GBR_061,Great Barrier Reef,Great Barrier Reef,14703.394763157754,1,Great Barrier Reef
+google_earth,GBR_066_cay_001,GBR_066,Great Barrier Reef,Great Barrier Reef,6470.433061838024,5,Great Barrier Reef
+google_earth,GBR_068_cay_001,GBR_068,Great Barrier Reef,Great Barrier Reef,141204.43291860173,2,Great Barrier Reef
+google_earth,GBR_073_cay_001,GBR_073,Great Barrier Reef,Great Barrier Reef,47533.80562913725,1,Great Barrier Reef
+google_earth,GBR_079_cay_001,GBR_079,Great Barrier Reef,Great Barrier Reef,15364.019834421792,1,Great Barrier Reef
+google_earth,GBR_085_cay_001,GBR_085,Great Barrier Reef,Great Barrier Reef,44196.04550875146,4,Great Barrier Reef
+google_earth,GBR_086_cay_001,GBR_086,Great Barrier Reef,Great Barrier Reef,6626.25409132885,3,Great Barrier Reef
+google_earth,GBR_095_cay_001,GBR_095,Great Barrier Reef,Great Barrier Reef,238366.9606727775,3,Great Barrier Reef
+google_earth,GBR_098_cay_001,GBR_098,Great Barrier Reef,Great Barrier Reef,57711.6778651935,1,Great Barrier Reef
+google_earth,GBR_101_cay_001,GBR_101,Great Barrier Reef,Great Barrier Reef,564043.1115651911,3,Great Barrier Reef
+google_earth,GBR_102_cay_001,GBR_102,Great Barrier Reef,Great Barrier Reef,158600.79107182156,2,Great Barrier Reef
+google_earth,GBR_104_cay_001,GBR_104,Great Barrier Reef,Great Barrier Reef,84149.62191902858,2,Great Barrier Reef
+google_earth,GBR_106_cay_001,GBR_106,Great Barrier Reef,Great Barrier Reef,78560.05597309543,1,Great Barrier Reef
+google_earth,GBR_108_cay_001,GBR_108,Great Barrier Reef,Great Barrier Reef,51683.33074351039,1,Great Barrier Reef
+google_earth,MEDF_001_cay_001,MEDF_001,Maldives,Maldives,29448.65750389512,13,Maldives
+google_earth,MEDF_002_cay_001,MEDF_002,Maldives,Maldives,55780.79276364457,7,Maldives
+google_earth,MEDF_004_cay_001,MEDF_004,Maldives,Maldives,32348.3723517533,3,Maldives
+google_earth,MEDF_005_cay_001,MEDF_005,Maldives,Maldives,17475.26204880094,6,Maldives
+google_earth,MEDF_006_cay_001,MEDF_006,Maldives,Maldives,42210.61661760696,8,Maldives
+google_earth,MEDF_007_cay_001,MEDF_007,Maldives,Maldives,3165.763625565669,5,Maldives
+google_earth,MEDF_008_cay_001,MEDF_008,Maldives,Maldives,8370.186956780512,6,Maldives
+google_earth,MEDF_009_cay_001,MEDF_009,Maldives,Maldives,3540.8119511769128,5,Maldives
+google_earth,MEDF_010_cay_001,MEDF_010,Maldives,Maldives,9594.874100249206,6,Maldives
+google_earth,MEDF_011_cay_001,MEDF_011,Maldives,Maldives,18088.680196623627,7,Maldives
+google_earth,MEDF_012_cay_001,MEDF_012,Maldives,Maldives,1755.1076468003455,7,Maldives
+google_earth,MEDF_013_cay_001,MEDF_013,Maldives,Maldives,786.114799211894,5,Maldives
+google_earth,MEDF_014_cay_001,MEDF_014,Maldives,Maldives,14010.516109011896,9,Maldives
+google_earth,MEDF_015_cay_001,MEDF_015,Maldives,Maldives,6681.109970425793,9,Maldives
+google_earth,MEDF_017_cay_001,MEDF_017,Maldives,Maldives,43394.822066722045,11,Maldives
+google_earth,MEDF_018_cay_001,MEDF_018,Maldives,Maldives,26621.8140369925,4,Maldives
+google_earth,MEDF_019_cay_001,MEDF_019,Maldives,Maldives,28634.090150225864,8,Maldives
+google_earth,MEDF_020_cay_001,MEDF_020,Maldives,Maldives,3364.432587597312,2,Maldives
+google_earth,MEDF_022_cay_001,MEDF_022,Maldives,Maldives,12912.783200613852,8,Maldives
+google_earth,MEDF_023_cay_001,MEDF_023,Maldives,Maldives,3656.689708072572,10,Maldives
+google_earth,MEDF_025_cay_001,MEDF_025,Maldives,Maldives,4166.400041981725,8,Maldives
+google_earth,MEDF_026_cay_001,MEDF_026,Maldives,Maldives,26519.68420437307,7,Maldives
+google_earth,MEDF_026_cay_002,MEDF_026,Maldives,Maldives,28328.61293994548,9,Maldives
+google_earth,MEDF_027_cay_001,MEDF_027,Maldives,Maldives,25919.62023579428,8,Maldives
+google_earth,MEDF_028_cay_001,MEDF_028,Maldives,Maldives,27316.564946995964,7,Maldives
+google_earth,MEDF_029_cay_001,MEDF_029,Maldives,Maldives,1847.45305364455,10,Maldives
+google_earth,MEDF_030_cay_001,MEDF_030,Maldives,Maldives,17672.86881683889,10,Maldives
+google_earth,MEDF_031_cay_001,MEDF_031,Maldives,Maldives,1107.520451428077,3,Maldives
+google_earth,MEDF_032_cay_001,MEDF_032,Maldives,Maldives,4043.210523456816,13,Maldives
+google_earth,MEDF_033_cay_001,MEDF_033,Maldives,Maldives,24203.66869682926,12,Maldives
+google_earth,MEDF_034_cay_001,MEDF_034,Maldives,Maldives,313.54028265285206,13,Maldives
+google_earth,MEDF_035_cay_001,MEDF_035,Maldives,Maldives,1819.8086100664325,4,Maldives
+google_earth,MEDF_036_cay_001,MEDF_036,Maldives,Maldives,9607.498440500496,14,Maldives
+google_earth,MEDF_037_cay_001,MEDF_037,Maldives,Maldives,1550.8916822287124,10,Maldives
+google_earth,MEDF_038_cay_001,MEDF_038,Maldives,Maldives,3300.842547424517,6,Maldives
+google_earth,MEDF_039_cay_001,MEDF_039,Maldives,Maldives,4916.205970220131,5,Maldives
+google_earth,MEDF_040_cay_001,MEDF_040,Maldives,Maldives,4965.590373404732,7,Maldives
+google_earth,MEDF_041_cay_001,MEDF_041,Maldives,Maldives,1578.3655124580475,5,Maldives
+google_earth,MEDF_043_cay_001,MEDF_043,Maldives,Maldives,4005.05260015616,3,Maldives
+google_earth,MEDF_044_cay_001,MEDF_044,Maldives,Maldives,7376.323552537589,6,Maldives
+google_earth,MEDF_045_cay_001,MEDF_045,Maldives,Maldives,2389.4241984127043,3,Maldives
+google_earth,MEDF_046_cay_001,MEDF_046,Maldives,Maldives,994.116716451504,2,Maldives
+google_earth,MEDF_047_cay_001,MEDF_047,Maldives,Maldives,814.902304493296,3,Maldives
+google_earth,MEDF_048_cay_001,MEDF_048,Maldives,Maldives,914.1993211051948,3,Maldives
+google_earth,MEDF_050_cay_001,MEDF_050,Maldives,Maldives,5259.921043242151,5,Maldives
+google_earth,MEDF_051_cay_001,MEDF_051,Maldives,Maldives,1067.757968764476,2,Maldives
+google_earth,MEDF_052_cay_001,MEDF_052,Maldives,Maldives,324.73957045782146,2,Maldives
+google_earth,MEDF_053_cay_001,MEDF_053,Maldives,Maldives,4930.823861530934,4,Maldives
+google_earth,NH_002_cay_001,NH_002,South China Sea,South China Sea,13077.770238143848,15,South China Sea
+google_earth,NH_002_cay_002,NH_002,South China Sea,South China Sea,2363.762007680224,5,South China Sea
+google_earth,NH_014_cay_001,NH_014,South China Sea,South China Sea,375.866118766598,3,South China Sea
+google_earth,NH_015_cay_001,NH_015,South China Sea,South China Sea,2862.462054948932,30,South China Sea
+google_earth,NH_BK_006_cay_001,NH_BK_006,South China Sea,South China Sea,1333.5362278210598,13,South China Sea
+google_earth,NH_CX_007_cay_001,NH_CX_007,South China Sea,South China Sea,565.762101610541,3,South China Sea
+google_earth,NH_JY_010_cay_001,NH_JY_010,South China Sea,South China Sea,691.0303991431981,10,South China Sea
+google_earth,NH_KG_012_cay_001,NH_KG_012,South China Sea,South China Sea,1591.972111703376,7,South China Sea
+google_earth,NH_NE_008_cay_001,NH_NE_008,South China Sea,South China Sea,564.1675823787909,9,South China Sea
+google_earth,NH_NE_008_cay_002,NH_NE_008,South China Sea,South China Sea,572.1034435119964,8,South China Sea
+google_earth,NH_PSY_003_cay_001,NH_PSY_003,South China Sea,South China Sea,3019.878422246956,3,South China Sea
+google_earth,NH_QF_001_cay_001,NH_QF_001,South China Sea,South China Sea,34745.21474346185,17,South China Sea
+google_earth,NH_QF_001_cay_002,NH_QF_001,South China Sea,South China Sea,18591.166103356467,18,South China Sea
+google_earth,NH_QLY_004_cay_001,NH_QLY_004,South China Sea,South China Sea,11739.44595111153,13,South China Sea
+google_earth,NH_QLY_004_cay_002,NH_QLY_004,South China Sea,South China Sea,30971.82105299941,12,South China Sea
+google_earth,NH_QLY_004_cay_003,NH_QLY_004,South China Sea,South China Sea,46318.973632262525,14,South China Sea
+google_earth,NH_QLY_004_cay_004,NH_QLY_004,South China Sea,South China Sea,62231.63029837668,14,South China Sea
+google_earth,NH_QLY_004_cay_005,NH_QLY_004,South China Sea,South China Sea,47559.94093396343,14,South China Sea
+google_earth,NH_TX_013_cay_001,NH_TX_013,South China Sea,South China Sea,459.3970410531681,13,South China Sea
+google_earth,NH_XM_005_cay_001,NH_XM_005,South China Sea,South China Sea,1837.056532030687,6,South China Sea
+google_earth,NH_YSY_017_cay_001,NH_YSY_017,South China Sea,South China Sea,2579.772712601408,2,South China Sea
+google_earth,NH_YSZ_011_cay_001,NH_YSZ_011,South China Sea,South China Sea,641.8012795968959,17,South China Sea
+google_earth,NH_YSZ_016_cay_001,NH_YSZ_016,South China Sea,South China Sea,1567.0502477051623,10,South China Sea
+google_earth,OTHER_003_cay_001,OTHER_003,Indonesia,Indonesia,1905.939217639053,1,Other
+google_earth,OTHER_004_cay_001,OTHER_004,Marshall Islands,Marshall Islands,43749.56342111444,7,Marshall Islands
+google_earth,OTHER_005_cay_001,OTHER_005,Marshall Islands,Marshall Islands,26008.768255254206,6,Marshall Islands
+google_earth,OTHER_006_cay_001,OTHER_006,Marshall Islands,Marshall Islands,30681.73029337546,6,Marshall Islands
+google_earth,OTHER_007_cay_001,OTHER_007,Marshall Islands,Marshall Islands,46504.52197316795,7,Marshall Islands
+google_earth,OTHER_008_cay_001,OTHER_008,Marshall Islands,Marshall Islands,6858.435138001765,6,Marshall Islands
+google_earth,OTHER_008_cay_002,OTHER_008,Marshall Islands,Marshall Islands,21359.828727751366,6,Marshall Islands
+google_earth,OTHER_009_cay_001,OTHER_009,Marshall Islands,Marshall Islands,9581.425457179535,2,Marshall Islands
+google_earth,OTHER_009_cay_002,OTHER_009,Marshall Islands,Marshall Islands,85408.50122998966,2,Marshall Islands
+google_earth,OTHER_009_cay_003,OTHER_009,Marshall Islands,Marshall Islands,245457.4896634397,2,Marshall Islands
+google_earth,OTHER_010_cay_001,OTHER_010,Marshall Islands,Marshall Islands,30137.88377003492,2,Marshall Islands
+google_earth,OTHER_010_cay_002,OTHER_010,Marshall Islands,Marshall Islands,49053.84200317064,2,Marshall Islands
+google_earth,OTHER_011_cay_001,OTHER_011,Marshall Islands,Marshall Islands,2129.5305827475745,1,Marshall Islands
+google_earth,OTHER_012_cay_001,OTHER_012,Marshall Islands,Marshall Islands,1902.13852536512,1,Marshall Islands
+google_earth,OTHER_013_cay_001,OTHER_013,Marshall Islands,Marshall Islands,2170.5118733964164,1,Marshall Islands
+google_earth,OTHER_014_cay_001,OTHER_014,Marshall Islands,Marshall Islands,2162.1848528135924,2,Marshall Islands
+google_earth,OTHER_014_cay_002,OTHER_014,Marshall Islands,Marshall Islands,4882.239712276047,2,Marshall Islands
+google_earth,OTHER_017_cay_001,OTHER_017,Marshall Islands,Marshall Islands,53709.56168945203,3,Marshall Islands
+google_earth,OTHER_018_cay_001,OTHER_018,Marshall Islands,Marshall Islands,6287.696282617113,2,Marshall Islands
+google_earth,OTHER_023_cay_001,OTHER_023,Lakshadweep,Lakshadweep,26706.97951524313,10,Other
+google_earth,OTHER_024_cay_001,OTHER_024,Lakshadweep,Lakshadweep,9288.27354120939,5,Other
+google_earth,OTHER_025_cay_001,OTHER_025,Maldives,Maldives,16718.555899030187,10,Maldives
+sentinel2,GBR_003_cay_001,GBR_003,Great Barrier Reef,Great Barrier Reef,201700.0,30,Great Barrier Reef
+sentinel2,GBR_007_cay_001,GBR_007,Great Barrier Reef,Great Barrier Reef,197500.0,35,Great Barrier Reef
+sentinel2,GBR_008_cay_001,GBR_008,Great Barrier Reef,Great Barrier Reef,86900.0,25,Great Barrier Reef
+sentinel2,GBR_009_cay_001,GBR_009,Great Barrier Reef,Great Barrier Reef,23600.0,33,Great Barrier Reef
+sentinel2,GBR_020_cay_001,GBR_020,Great Barrier Reef,Great Barrier Reef,106200.0,32,Great Barrier Reef
+sentinel2,GBR_033_cay_001,GBR_033,Great Barrier Reef,Great Barrier Reef,63500.0,35,Great Barrier Reef
+sentinel2,GBR_034_cay_001,GBR_034,Great Barrier Reef,Great Barrier Reef,48900.0,35,Great Barrier Reef
+sentinel2,GBR_036_cay_001,GBR_036,Great Barrier Reef,Great Barrier Reef,78300.0,32,Great Barrier Reef
+sentinel2,GBR_037_cay_001,GBR_037,Great Barrier Reef,Great Barrier Reef,104900.0,35,Great Barrier Reef
+sentinel2,GBR_038_cay_001,GBR_038,Great Barrier Reef,Great Barrier Reef,80300.0,34,Great Barrier Reef
+sentinel2,GBR_039_cay_001,GBR_039,Great Barrier Reef,Great Barrier Reef,61200.0,33,Great Barrier Reef
+sentinel2,GBR_052_cay_001,GBR_052,Great Barrier Reef,Great Barrier Reef,26200.0,34,Great Barrier Reef
+sentinel2,GBR_053_cay_001,GBR_053,Great Barrier Reef,Great Barrier Reef,36600.0,29,Great Barrier Reef
+sentinel2,GBR_055_cay_001,GBR_055,Great Barrier Reef,Great Barrier Reef,63150.0,36,Great Barrier Reef
+sentinel2,GBR_058_cay_001,GBR_058,Great Barrier Reef,Great Barrier Reef,158400.0,36,Great Barrier Reef
+sentinel2,GBR_059_cay_001,GBR_059,Great Barrier Reef,Great Barrier Reef,509150.0,34,Great Barrier Reef
+sentinel2,GBR_060_cay_001,GBR_060,Great Barrier Reef,Great Barrier Reef,218600.0,35,Great Barrier Reef
+sentinel2,GBR_061_cay_001,GBR_061,Great Barrier Reef,Great Barrier Reef,105450.0,18,Great Barrier Reef
+sentinel2,GBR_061_cay_002,GBR_061,Great Barrier Reef,Great Barrier Reef,32700.0,16,Great Barrier Reef
+sentinel2,GBR_066_cay_001,GBR_066,Great Barrier Reef,Great Barrier Reef,85500.0,12,Great Barrier Reef
+sentinel2,GBR_068_cay_001,GBR_068,Great Barrier Reef,Great Barrier Reef,200250.0,32,Great Barrier Reef
+sentinel2,GBR_073_cay_001,GBR_073,Great Barrier Reef,Great Barrier Reef,48100.0,33,Great Barrier Reef
+sentinel2,GBR_085_cay_001,GBR_085,Great Barrier Reef,Great Barrier Reef,65700.0,31,Great Barrier Reef
+sentinel2,GBR_095_cay_001,GBR_095,Great Barrier Reef,Great Barrier Reef,376500.0,31,Great Barrier Reef
+sentinel2,GBR_098_cay_001,GBR_098,Great Barrier Reef,Great Barrier Reef,98100.0,33,Great Barrier Reef
+sentinel2,GBR_101_cay_001,GBR_101,Great Barrier Reef,Great Barrier Reef,532350.0,34,Great Barrier Reef
+sentinel2,GBR_102_cay_001,GBR_102,Great Barrier Reef,Great Barrier Reef,233100.0,35,Great Barrier Reef
+sentinel2,GBR_104_cay_001,GBR_104,Great Barrier Reef,Great Barrier Reef,125800.0,35,Great Barrier Reef
+sentinel2,GBR_108_cay_001,GBR_108,Great Barrier Reef,Great Barrier Reef,148800.0,34,Great Barrier Reef
+sentinel2,MEDF_001_cay_001,MEDF_001,Maldives,Maldives,30300.0,5,Maldives
+sentinel2,MEDF_002_cay_001,MEDF_002,Maldives,Maldives,70750.0,18,Maldives
+sentinel2,MEDF_004_cay_001,MEDF_004,Maldives,Maldives,97500.0,4,Maldives
+sentinel2,MEDF_004_cay_002,MEDF_004,Maldives,Maldives,58900.0,3,Maldives
+sentinel2,MEDF_005_cay_001,MEDF_005,Maldives,Maldives,34000.0,36,Maldives
+sentinel2,MEDF_006_cay_001,MEDF_006,Maldives,Maldives,65100.0,36,Maldives
+sentinel2,MEDF_007_cay_001,MEDF_007,Maldives,Maldives,17900.0,25,Maldives
+sentinel2,MEDF_008_cay_001,MEDF_008,Maldives,Maldives,22200.0,30,Maldives
+sentinel2,MEDF_010_cay_001,MEDF_010,Maldives,Maldives,8500.0,35,Maldives
+sentinel2,MEDF_011_cay_001,MEDF_011,Maldives,Maldives,32400.0,35,Maldives
+sentinel2,MEDF_014_cay_001,MEDF_014,Maldives,Maldives,21500.0,35,Maldives
+sentinel2,MEDF_015_cay_001,MEDF_015,Maldives,Maldives,11000.0,36,Maldives
+sentinel2,MEDF_017_cay_001,MEDF_017,Maldives,Maldives,68700.0,35,Maldives
+sentinel2,MEDF_018_cay_001,MEDF_018,Maldives,Maldives,33650.0,4,Maldives
+sentinel2,MEDF_019_cay_001,MEDF_019,Maldives,Maldives,85100.0,35,Maldives
+sentinel2,MEDF_022_cay_001,MEDF_022,Maldives,Maldives,24850.0,34,Maldives
+sentinel2,MEDF_026_cay_001,MEDF_026,Maldives,Maldives,90900.0,27,Maldives
+sentinel2,MEDF_026_cay_002,MEDF_026,Maldives,Maldives,50200.0,11,Maldives
+sentinel2,MEDF_027_cay_001,MEDF_027,Maldives,Maldives,22400.0,35,Maldives
+sentinel2,MEDF_028_cay_001,MEDF_028,Maldives,Maldives,52700.0,36,Maldives
+sentinel2,MEDF_032_cay_001,MEDF_032,Maldives,Maldives,22100.0,18,Maldives
+sentinel2,MEDF_033_cay_001,MEDF_033,Maldives,Maldives,44700.0,11,Maldives
+sentinel2,MEDF_040_cay_001,MEDF_040,Maldives,Maldives,13350.0,36,Maldives
+sentinel2,MEDF_044_cay_001,MEDF_044,Maldives,Maldives,11500.0,22,Maldives
+sentinel2,MEDF_050_cay_001,MEDF_050,Maldives,Maldives,51400.0,13,Maldives
+sentinel2,MEDF_053_cay_001,MEDF_053,Maldives,Maldives,6400.0,51,Maldives
+sentinel2,NH_015_cay_001,NH_015,South China Sea,South China Sea,16800.0,21,South China Sea
+sentinel2,NH_QF_001_cay_001,NH_QF_001,South China Sea,South China Sea,106800.0,11,South China Sea
+sentinel2,NH_QF_001_cay_002,NH_QF_001,South China Sea,South China Sea,103200.0,11,South China Sea
+sentinel2,OTHER_004_cay_001,OTHER_004,Marshall Islands,Marshall Islands,60800.0,37,Marshall Islands
+sentinel2,OTHER_005_cay_001,OTHER_005,Marshall Islands,Marshall Islands,44100.0,34,Marshall Islands
+sentinel2,OTHER_006_cay_001,OTHER_006,Marshall Islands,Marshall Islands,48500.0,40,Marshall Islands
+sentinel2,OTHER_007_cay_001,OTHER_007,Marshall Islands,Marshall Islands,66300.0,14,Marshall Islands
+sentinel2,OTHER_008_cay_001,OTHER_008,Marshall Islands,Marshall Islands,10100.0,39,Marshall Islands
+sentinel2,OTHER_008_cay_002,OTHER_008,Marshall Islands,Marshall Islands,26200.0,22,Marshall Islands
+sentinel2,OTHER_017_cay_001,OTHER_017,Marshall Islands,Marshall Islands,82400.0,11,Marshall Islands
+sentinel2,OTHER_024_cay_001,OTHER_024,Lakshadweep,Lakshadweep,142500.0,15,Other
+sentinel2,OTHER_025_cay_001,OTHER_025,Maldives,Maldives,31800.0,9,Maldives

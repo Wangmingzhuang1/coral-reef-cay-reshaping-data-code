@@ -1,0 +1,7 @@
+﻿outcome,modifier,cluster_level,n_intervals,n_cays,n_reefs,n_wave_grid_cells,max_vif,n_vif_ge_5,r_squared,adj_r_squared,residual_skew,residual_kurtosis,check,minimum_reefs_per_region,regions_retained
+along_shift,wave_directionality_within_large_region_z,sand_cay_id,784,47,46,35,1.900212552205305,0,0.2300114894483708,0.21702854439367414,0.055979080657452975,5.6184625945639235,within_large_region_directionality,10,"GBR,MEDF"
+cross_shift,wave_directionality_within_large_region_z,sand_cay_id,784,47,46,35,1.9406059934498416,0,0.2540328345421565,0.24145491865246527,-1.3539719062668039,40.888955881984664,within_large_region_directionality,10,"GBR,MEDF"
+along_shift,wave_directionality_within_large_region_z,reef_id,784,47,46,35,1.900212552205305,0,0.2300114894483708,0.21702854439367414,0.055979080657452975,5.6184625945639235,within_large_region_directionality,10,"GBR,MEDF"
+cross_shift,wave_directionality_within_large_region_z,reef_id,784,47,46,35,1.9406059934498416,0,0.2540328345421565,0.24145491865246527,-1.3539719062668039,40.888955881984664,within_large_region_directionality,10,"GBR,MEDF"
+along_shift,wave_directionality_within_large_region_z,wave_grid_id,784,47,46,35,1.900212552205305,0,0.2300114894483708,0.21702854439367414,0.055979080657452975,5.6184625945639235,within_large_region_directionality,10,"GBR,MEDF"
+cross_shift,wave_directionality_within_large_region_z,wave_grid_id,784,47,46,35,1.9406059934498416,0,0.2540328345421565,0.24145491865246527,-1.3539719062668039,40.888955881984664,within_large_region_directionality,10,"GBR,MEDF"

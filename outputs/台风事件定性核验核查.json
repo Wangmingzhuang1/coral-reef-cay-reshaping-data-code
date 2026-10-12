@@ -1,0 +1,28 @@
+{
+  "purpose": "Prioritize visual verification of storm-exposed intervals; not a causal attribution or a fitted model.",
+  "selection_rule": {
+    "event_exposure": "at least one strong-typhoon record or R34 exposure in the interval",
+    "time_interval_days": [
+      30,
+      365
+    ],
+    "quality_grade": [
+      "A",
+      "B"
+    ],
+    "boundary_change_status": "ok"
+  },
+  "input_transitions": 2395,
+  "event_exposed_intervals": 190,
+  "eligible_review_intervals": 116,
+  "priority_counts": {
+    "high": 51,
+    "secondary": 39,
+    "critical": 26
+  },
+  "sensor_counts": {
+    "sentinel2": 82,
+    "google_earth": 34
+  },
+  "interpretation_warning": "The queue ranks evidence for human inspection. Storm exposure and morphological change in one interval do not establish causality, because interval timing, tide, registration, reef setting, and other forcing remain potential alternatives."
+}

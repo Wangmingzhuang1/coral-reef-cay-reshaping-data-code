@@ -1,0 +1,140 @@
+﻿sand_cay_id,net_area_bin,region,analysis_vegetation_state,n_observations,within_cay_fraction
+GBR_003_cay_001,Near-stable area,Great Barrier Reef,dominant,21,1.0
+GBR_007_cay_001,Near-stable area,Great Barrier Reef,dominant,23,1.0
+GBR_008_cay_001,Net loss,Great Barrier Reef,none,13,0.6190476190476191
+GBR_008_cay_001,Net loss,Great Barrier Reef,partial,7,0.3333333333333333
+GBR_008_cay_001,Net loss,Great Barrier Reef,sparse,1,0.047619047619047616
+GBR_009_cay_001,Near-stable area,Great Barrier Reef,none,29,1.0
+GBR_020_cay_001,Near-stable area,Great Barrier Reef,dominant,2,0.08
+GBR_020_cay_001,Near-stable area,Great Barrier Reef,partial,20,0.8
+GBR_020_cay_001,Near-stable area,Great Barrier Reef,sparse,3,0.12
+GBR_033_cay_001,Near-stable area,Great Barrier Reef,partial,22,0.6875
+GBR_033_cay_001,Near-stable area,Great Barrier Reef,sparse,10,0.3125
+GBR_034_cay_001,Near-stable area,Great Barrier Reef,none,29,1.0
+GBR_036_cay_001,Near-stable area,Great Barrier Reef,dominant,2,0.06666666666666667
+GBR_036_cay_001,Near-stable area,Great Barrier Reef,none,7,0.23333333333333334
+GBR_036_cay_001,Near-stable area,Great Barrier Reef,partial,4,0.13333333333333333
+GBR_036_cay_001,Near-stable area,Great Barrier Reef,sparse,17,0.5666666666666667
+GBR_037_cay_001,Near-stable area,Great Barrier Reef,none,20,0.6060606060606061
+GBR_037_cay_001,Near-stable area,Great Barrier Reef,sparse,13,0.3939393939393939
+GBR_038_cay_001,Near-stable area,Great Barrier Reef,none,19,0.5757575757575758
+GBR_038_cay_001,Near-stable area,Great Barrier Reef,partial,5,0.15151515151515152
+GBR_038_cay_001,Near-stable area,Great Barrier Reef,sparse,9,0.2727272727272727
+GBR_039_cay_001,Net gain,Great Barrier Reef,none,29,1.0
+GBR_052_cay_001,Near-stable area,Great Barrier Reef,none,34,1.0
+GBR_053_cay_001,Near-stable area,Great Barrier Reef,none,27,1.0
+GBR_055_cay_001,Near-stable area,Great Barrier Reef,none,35,1.0
+GBR_058_cay_001,Near-stable area,Great Barrier Reef,dominant,24,0.6666666666666666
+GBR_058_cay_001,Near-stable area,Great Barrier Reef,partial,11,0.3055555555555556
+GBR_058_cay_001,Near-stable area,Great Barrier Reef,sparse,1,0.027777777777777776
+GBR_059_cay_001,Near-stable area,Great Barrier Reef,dominant,21,0.65625
+GBR_059_cay_001,Near-stable area,Great Barrier Reef,sparse,11,0.34375
+GBR_060_cay_001,Near-stable area,Great Barrier Reef,dominant,24,1.0
+GBR_061_cay_001,Near-stable area,Great Barrier Reef,dominant,16,1.0
+GBR_061_cay_002,Net gain,Great Barrier Reef,dominant,13,1.0
+GBR_068_cay_001,Near-stable area,Great Barrier Reef,none,20,1.0
+GBR_073_cay_001,Near-stable area,Great Barrier Reef,none,33,1.0
+GBR_085_cay_001,Near-stable area,Great Barrier Reef,dominant,9,0.32142857142857145
+GBR_085_cay_001,Near-stable area,Great Barrier Reef,none,2,0.07142857142857142
+GBR_085_cay_001,Near-stable area,Great Barrier Reef,partial,6,0.21428571428571427
+GBR_085_cay_001,Near-stable area,Great Barrier Reef,sparse,11,0.39285714285714285
+GBR_095_cay_001,Near-stable area,Great Barrier Reef,dominant,7,0.2692307692307692
+GBR_095_cay_001,Near-stable area,Great Barrier Reef,partial,10,0.38461538461538464
+GBR_095_cay_001,Near-stable area,Great Barrier Reef,sparse,9,0.34615384615384615
+GBR_098_cay_001,Near-stable area,Great Barrier Reef,none,1,0.03125
+GBR_098_cay_001,Near-stable area,Great Barrier Reef,partial,9,0.28125
+GBR_098_cay_001,Near-stable area,Great Barrier Reef,sparse,22,0.6875
+GBR_101_cay_001,Near-stable area,Great Barrier Reef,dominant,12,0.36363636363636365
+GBR_101_cay_001,Near-stable area,Great Barrier Reef,none,1,0.030303030303030304
+GBR_101_cay_001,Near-stable area,Great Barrier Reef,partial,18,0.5454545454545454
+GBR_101_cay_001,Near-stable area,Great Barrier Reef,sparse,2,0.06060606060606061
+GBR_102_cay_001,Near-stable area,Great Barrier Reef,dominant,3,0.08571428571428572
+GBR_102_cay_001,Near-stable area,Great Barrier Reef,none,8,0.22857142857142856
+GBR_102_cay_001,Near-stable area,Great Barrier Reef,partial,2,0.05714285714285714
+GBR_102_cay_001,Near-stable area,Great Barrier Reef,sparse,22,0.6285714285714286
+GBR_104_cay_001,Near-stable area,Great Barrier Reef,dominant,3,0.09090909090909091
+GBR_104_cay_001,Near-stable area,Great Barrier Reef,partial,19,0.5757575757575758
+GBR_104_cay_001,Near-stable area,Great Barrier Reef,sparse,11,0.3333333333333333
+GBR_108_cay_001,Near-stable area,Great Barrier Reef,none,2,0.058823529411764705
+GBR_108_cay_001,Near-stable area,Great Barrier Reef,partial,5,0.14705882352941177
+GBR_108_cay_001,Near-stable area,Great Barrier Reef,sparse,27,0.7941176470588235
+MEDF_001_cay_001,Net gain,Maldives,none,12,0.9230769230769231
+MEDF_001_cay_001,Net gain,Maldives,sparse,1,0.07692307692307693
+MEDF_002_cay_001,Near-stable area,Maldives,dominant,3,0.16666666666666666
+MEDF_002_cay_001,Near-stable area,Maldives,partial,15,0.8333333333333334
+MEDF_004_cay_001,Net gain,Maldives,partial,2,1.0
+MEDF_005_cay_001,Near-stable area,Maldives,partial,34,1.0
+MEDF_006_cay_001,Near-stable area,Maldives,partial,36,1.0
+MEDF_007_cay_001,Net gain,Maldives,none,24,1.0
+MEDF_008_cay_001,Near-stable area,Maldives,none,5,0.16666666666666666
+MEDF_008_cay_001,Near-stable area,Maldives,sparse,25,0.8333333333333334
+MEDF_009_cay_001,Near-stable area,Maldives,none,5,1.0
+MEDF_010_cay_001,Near-stable area,Maldives,none,35,1.0
+MEDF_011_cay_001,Near-stable area,Maldives,partial,35,1.0
+MEDF_012_cay_001,Net loss,Maldives,none,7,1.0
+MEDF_013_cay_001,Net loss,Maldives,none,5,1.0
+MEDF_014_cay_001,Near-stable area,Maldives,dominant,4,0.11428571428571428
+MEDF_014_cay_001,Near-stable area,Maldives,partial,31,0.8857142857142857
+MEDF_015_cay_001,Net loss,Maldives,partial,36,1.0
+MEDF_017_cay_001,Near-stable area,Maldives,dominant,35,1.0
+MEDF_018_cay_001,Net gain,Maldives,sparse,4,1.0
+MEDF_019_cay_001,Near-stable area,Maldives,sparse,34,1.0
+MEDF_022_cay_001,Near-stable area,Maldives,none,28,0.8235294117647058
+MEDF_022_cay_001,Near-stable area,Maldives,sparse,6,0.17647058823529413
+MEDF_023_cay_001,Net gain,Maldives,sparse,10,1.0
+MEDF_025_cay_001,Net loss,Maldives,none,8,1.0
+MEDF_026_cay_001,Net gain,Maldives,none,25,1.0
+MEDF_026_cay_002,Near-stable area,Maldives,none,10,1.0
+MEDF_027_cay_001,Net loss,Maldives,dominant,35,1.0
+MEDF_028_cay_001,Near-stable area,Maldives,dominant,36,1.0
+MEDF_029_cay_001,Net loss,Maldives,none,10,1.0
+MEDF_030_cay_001,Near-stable area,Maldives,none,9,1.0
+MEDF_032_cay_001,Near-stable area,Maldives,none,17,1.0
+MEDF_033_cay_001,Near-stable area,Maldives,partial,10,0.8333333333333334
+MEDF_033_cay_001,Near-stable area,Maldives,sparse,2,0.16666666666666666
+MEDF_034_cay_001,Net gain,Maldives,none,13,1.0
+MEDF_035_cay_001,Net gain,Maldives,none,4,1.0
+MEDF_036_cay_001,Near-stable area,Maldives,none,12,0.8571428571428571
+MEDF_036_cay_001,Near-stable area,Maldives,sparse,2,0.14285714285714285
+MEDF_037_cay_001,Net loss,Maldives,none,10,1.0
+MEDF_038_cay_001,Near-stable area,Maldives,none,6,1.0
+MEDF_039_cay_001,Near-stable area,Maldives,none,5,1.0
+MEDF_040_cay_001,Near-stable area,Maldives,partial,19,1.0
+MEDF_041_cay_001,Net gain,Maldives,none,5,1.0
+MEDF_044_cay_001,Net gain,Maldives,none,22,1.0
+MEDF_050_cay_001,Near-stable area,Maldives,none,13,1.0
+MEDF_053_cay_001,Near-stable area,Maldives,none,30,0.625
+MEDF_053_cay_001,Near-stable area,Maldives,partial,3,0.0625
+MEDF_053_cay_001,Near-stable area,Maldives,sparse,15,0.3125
+NH_002_cay_001,Net loss,South China Sea,none,13,1.0
+NH_002_cay_002,Net gain,South China Sea,none,2,1.0
+NH_015_cay_001,Net gain,South China Sea,none,30,1.0
+NH_JY_010_cay_001,Net loss,South China Sea,none,6,1.0
+NH_KG_012_cay_001,Net loss,South China Sea,none,2,1.0
+NH_NE_008_cay_001,Near-stable area,South China Sea,none,4,1.0
+NH_NE_008_cay_002,Net loss,South China Sea,none,4,1.0
+NH_QF_001_cay_001,Near-stable area,South China Sea,none,17,1.0
+NH_QF_001_cay_002,Near-stable area,South China Sea,sparse,18,1.0
+NH_QLY_004_cay_001,Near-stable area,South China Sea,none,11,1.0
+NH_QLY_004_cay_002,Near-stable area,South China Sea,sparse,12,1.0
+NH_QLY_004_cay_003,Near-stable area,South China Sea,partial,14,1.0
+NH_QLY_004_cay_004,Near-stable area,South China Sea,dominant,14,1.0
+NH_QLY_004_cay_005,Near-stable area,South China Sea,dominant,14,1.0
+NH_TX_013_cay_001,Near-stable area,South China Sea,none,3,1.0
+NH_YSZ_011_cay_001,Near-stable area,South China Sea,none,5,1.0
+NH_YSZ_016_cay_001,Near-stable area,South China Sea,none,6,1.0
+OTHER_004_cay_001,Near-stable area,Marshall Islands,none,36,1.0
+OTHER_005_cay_001,Near-stable area,Marshall Islands,none,2,0.06451612903225806
+OTHER_005_cay_001,Near-stable area,Marshall Islands,partial,29,0.9354838709677419
+OTHER_006_cay_001,Near-stable area,Marshall Islands,dominant,23,0.575
+OTHER_006_cay_001,Near-stable area,Marshall Islands,partial,9,0.225
+OTHER_006_cay_001,Near-stable area,Marshall Islands,sparse,8,0.2
+OTHER_007_cay_001,Near-stable area,Marshall Islands,dominant,7,1.0
+OTHER_008_cay_001,Near-stable area,Marshall Islands,none,33,1.0
+OTHER_008_cay_002,Net gain,Marshall Islands,dominant,2,0.1
+OTHER_008_cay_002,Net gain,Marshall Islands,none,1,0.05
+OTHER_008_cay_002,Net gain,Marshall Islands,partial,9,0.45
+OTHER_008_cay_002,Net gain,Marshall Islands,sparse,8,0.4
+OTHER_023_cay_001,Net gain,Lakshadweep,none,10,1.0
+OTHER_024_cay_001,Net gain,Lakshadweep,none,14,1.0
+OTHER_025_cay_001,Net loss,Maldives,dominant,9,1.0

@@ -1,0 +1,11 @@
+﻿sand_cay_id,specification,n_pairs,n_accepted,background_fraction,median_features
+MEDF_008_cay_001,historical,29,0,0.04608853850818678,0.0
+MEDF_008_cay_001,physical_scale,29,2,0.8925611481706085,258.0
+MEDF_022_cay_001,historical,33,0,0.019930833636694577,0.0
+MEDF_022_cay_001,physical_scale,33,23,0.8581179468511103,410.0
+GBR_039_cay_001,historical,32,16,0.47524498486480937,2607.0
+GBR_039_cay_001,physical_scale,32,5,0.9606656063482291,3765.0
+MEDF_015_cay_001,historical,35,0,0.0,0.0
+MEDF_015_cay_001,physical_scale,35,0,0.6695804195804196,0.0
+OTHER_008_cay_001,historical,38,14,0.5004790081713159,1325.0
+OTHER_008_cay_001,physical_scale,38,6,0.9705269089884474,2825.5

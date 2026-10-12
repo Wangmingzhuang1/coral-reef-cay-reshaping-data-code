@@ -1,0 +1,26 @@
+{
+  "figure_2_claim": "Across the manuscript-defined Indo-Pacific regions, net planform change and boundary exchange are distinct dimensions, and both can be described using all source-specific intervals after explicit source and interval standardization.",
+  "figure_3_claim": "Regional sand-cay morphodynamics span centroid translation, perimeter and axial adjustment, and axis reorientation; no single metric represents all regional reworking modes.",
+  "region_definition": "Great Barrier Reef, Maldives, South China Sea, Marshall Islands, and Lakshadweep, matching the Results regional division in the manuscript.",
+  "scope": "Multi-regional Indo-Pacific evidence supporting a transferable global monitoring framework; it does not assert uniform global behaviour.",
+  "input_filter": "Google Earth and Sentinel-2, endpoint quality A/B, baseline area > 0, interval >= 30 d; excluded reefs follow the project analysis contract.",
+  "source_fusion": "Sand-cay fixed effects plus source and cubic log-interval terms. Responses are separately standardized to Sentinel-2 and 365.2425 d: Gamma log-link for non-negative magnitudes and OLS/asinh for signed net area change. Standardized indicators describe separate dimensions; the exact area balance is computed from same-source masks before standardization.",
+  "n_intervals_total": 2159,
+  "n_cays_total": 120,
+  "n_reefs_total": 105,
+  "source_counts": {
+    "sentinel2": 1654,
+    "google_earth": 505
+  },
+  "regional_cay_counts": {
+    "Great Barrier Reef": 31,
+    "Maldives": 50,
+    "South China Sea": 22,
+    "Marshall Islands": 15,
+    "Lakshadweep": 2
+  },
+  "uncertainty": "Regional intervals resample sand cays (1,999 replicates). Regions with fewer than five cays are descriptive and show no interval.",
+  "duplicate_observation_rule": "Same-source/frame/date observations use the common A/B-quality and image-id selection rule; geometry comes from the selected starting observation.",
+  "analysis_contract_sha256": "231ca3161530fa5282e3fe0a73480139798d46ad9c1572729fa17cb8bde2ecb3",
+  "analysis_workflow_reference": "Kassis, T., Agarwal, V., He, Y., Patel, D., & Brueckner, A. M. (2026). Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents. arXiv:2609.00065. https://doi.org/10.48550/arXiv.2609.00065"
+}

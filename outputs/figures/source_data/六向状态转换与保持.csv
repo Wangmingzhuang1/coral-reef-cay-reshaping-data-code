@@ -1,0 +1,10 @@
+﻿analysis_cover_state_3,next_state,n_pairs,n_cays
+dominant_cover,dominant_cover,263,18
+dominant_cover,low_cover,24,9
+dominant_cover,partial_cover,20,8
+low_cover,dominant_cover,22,10
+low_cover,low_cover,754,43
+low_cover,partial_cover,45,15
+partial_cover,dominant_cover,21,9
+partial_cover,low_cover,40,16
+partial_cover,partial_cover,301,23

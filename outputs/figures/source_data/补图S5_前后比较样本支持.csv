@@ -1,0 +1,8 @@
+﻿specification,n_events,n_cays,n_reefs,increasing,decreasing,environment_complete
+eligible_flanks,34,14,14,19,15,8
+non_reused,27,14,14,15,12,7
+strict_non_reused,1,1,1,1,0,1
+observation_matched,0,0,0,0,0,0
+environment_complete_matched,0,0,0,0,0,0
+observation_matched_90d,1,1,1,1,0,0
+observation_matched_120d,3,3,3,3,0,2

@@ -1,0 +1,4 @@
+﻿variant,n_pairs,n_cays,n_state_changes,n_change_cays,interval_median_days,interval_p10_days,interval_p90_days,negative_log_likelihood
+primary_30_365d,1490,64,172,22,100.0,50.0,180.0,643.6781458117856
+sensitivity_confirmed_30_365d,793,60,83,19,115.0,53.400000000000006,245.0,309.3951901762026
+sensitivity_90_365d,960,64,115,22,125.0,95.0,210.0,422.71228276255215

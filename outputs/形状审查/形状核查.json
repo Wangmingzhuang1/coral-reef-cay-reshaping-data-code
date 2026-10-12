@@ -1,0 +1,32 @@
+{
+  "primary": 93,
+  "n_observations": 2115,
+  "early_late_masks": 462,
+  "source_counts": {
+    "google_earth": 37,
+    "sentinel2": 56
+  },
+  "original_metric_reproduction_max_abs_error": {
+    "C": 2.220446049250313e-16,
+    "E": 1.7763568394002505e-15,
+    "P": 1.1368683772161603e-13
+  },
+  "C_gt1_selected_observations": 69,
+  "C_gt1_cays": 9,
+  "invalid_observations": 0,
+  "anchor_overlap": 3,
+  "C_anchor_out_of_range": 4,
+  "usable_nonoverlap_C": 86,
+  "C_preserved_in_usable": 45,
+  "C_preserved_both_perimeters": 39,
+  "E_preserved_nonoverlap": 53,
+  "season_matched_45d": 23,
+  "boundary_scenario": "all combinations of -1/0/+1 pixel morphological boundary perturbations for observed early-two/late-three masks; not empirical uncertainty intervals; no registration, tide or colour calibration",
+  "classification": "not attempted; no independent or physical thresholds supplied; low C does not uniquely identify curvature",
+  "code_sha256": "f76ed4d40444fe6ae4fe56fdaa55d94e2a441dede69ef5b6d24f2e865051b41e",
+  "input_sha256": "b6d55ded1c301642ded9f97fa3c2a303d25fc406a66c69bbe34409edb31f0e7f",
+  "all_anchor_pairs_matched_45d": 0,
+  "all_anchor_pairs_matched_90d": 1,
+  "compactness_scope": "C columns below reproduce legacy stored definition; current annual C uses primary Crofton, see P0 audit",
+  "seasonal_scope": "early_late_season_gap_days compares circular mean phase only; it is not full image-wise seasonal matching"
+}

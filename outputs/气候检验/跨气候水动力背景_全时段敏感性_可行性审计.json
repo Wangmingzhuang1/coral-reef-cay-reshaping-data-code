@@ -1,0 +1,70 @@
+{
+  "analysis_name": "cross_hydroclimatic_background_directional_coupling",
+  "status": "model_permitted",
+  "hypothesis": "Multi-decadal wave background may modify, but does not define, within-cay local wave-direction coupling.",
+  "scope": "Exploratory supplementary analysis only; observational interaction, not a causal climate-mode attribution.",
+  "background_definition": {
+    "reference_window": [
+      "1996-01-01",
+      "2025-12-31"
+    ],
+    "window_role": "overlapping full-period sensitivity only",
+    "primary_modifier": "wave_exposure_z = mean(z(long-term mean VHM0), z(long-term p90 VHM0))",
+    "sensitivity_modifier": "wave_directionality_z = z(multi-decadal resultant wave-vector concentration)",
+    "source": "WAVERYS daily sampled grid cell per reef"
+  },
+  "predefined_model": {
+    "sample": "exact Sentinel-2 source contract of the primary directional model",
+    "outcomes": [
+      "along_shift",
+      "cross_shift"
+    ],
+    "primary_interactions": [
+      "wave_vector_along_mean_z × wave_exposure_z for along_shift",
+      "wave_vector_cross_mean_z × wave_exposure_z for cross_shift"
+    ],
+    "sensitivity": "Replace wave_exposure_z with wave_directionality_z; do not combine both modifiers in one model.",
+    "covariates": [
+      "current_along_mean_z",
+      "current_cross_mean_z",
+      "wave_vector_along_mean_z",
+      "wave_vector_cross_mean_z",
+      "wave_hs_p90_z",
+      "pulse",
+      "vegetation_fraction_t_z",
+      "hs_veg_interaction",
+      "crosscur_veg_interaction",
+      "log_interval",
+      "midpoint_year_z",
+      "log_area_z"
+    ],
+    "estimation": "within-cay fixed effects; cay-clustered SE primary, reef and WAVERYS-cell clustered SE sensitivity; BH-FDR within each two-test family"
+  },
+  "gates": {
+    "matched_primary_sample": {
+      "n_intervals_before_within_demean": 809,
+      "n_cays_before_within_demean": 51,
+      "n_reefs": 49
+    },
+    "daily_coverage": {
+      "window": [
+        "1996-01-01",
+        "2025-12-31"
+      ],
+      "minimum_per_reef": 0.95,
+      "reefs_passing": 49,
+      "reefs_required": 45,
+      "minimum_reef_share": 0.9
+    },
+    "independent_wave_grid_cells": {
+      "n_unique_sampled_cells": 38,
+      "minimum_required": 30
+    },
+    "descriptor_completeness": {
+      "cays_with_complete_background": 51,
+      "cays_in_primary_sample": 51
+    }
+  },
+  "model_permitted": true,
+  "reasons_if_not_permitted": []
+}

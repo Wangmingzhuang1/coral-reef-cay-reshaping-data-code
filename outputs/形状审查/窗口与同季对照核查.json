@@ -1,0 +1,24 @@
+{
+  "n_selected": 63,
+  "n_source_images": 315,
+  "n_preserved": 30,
+  "n_same_sign": 38,
+  "n_both_preserved": 24,
+  "n_both_preserved_same_sign": 18,
+  "by_source": {
+    "google_earth": {
+      "n": 10,
+      "preserved": 7,
+      "same_sign": 6,
+      "median_window_separation_years": 8.633305269786511
+    },
+    "sentinel2": {
+      "n": 53,
+      "preserved": 23,
+      "same_sign": 32,
+      "median_window_separation_years": 6.557287281737476
+    }
+  },
+  "selection": "calendar quarter; >=5 dates; early 2 / late 3; median time separation >=3 years; all six annual phase gaps <=90 days; choose longest median separation, then most quarter observations, then lowest quarter; no outcome selection",
+  "scope": "coarse seasonal sensitivity comparison, not full tide, registration or environmental control; windows and time spans change"
+}

@@ -1,0 +1,11 @@
+﻿outcome,n_intervals,n_cays,n_reefs,median,bootstrap_ci95_low,bootstrap_ci95_high,region
+annualized_log_area_change,538,28,27,-0.0115838391197774,-0.0425193504835073,0.012876544973453467,Great Barrier Reef
+log_gross_mobility,514,28,27,-0.6416970997385187,-0.8783055386328941,-0.4078910661595678,Great Barrier Reef
+annualized_log_area_change,9,1,1,0.3337317515687691,,,Lakshadweep
+log_gross_mobility,9,1,1,0.3893007799459032,,,Lakshadweep
+annualized_log_area_change,355,26,24,-0.019368594589336,-0.0564358368676647,0.0274981954908863,Maldives
+log_gross_mobility,355,26,24,0.2336439000423087,0.0606796774685901,0.4042257064973745,Maldives
+annualized_log_area_change,88,7,6,-0.0028787595521235,-0.0289274016366049,0.01522373109978745,Marshall Islands
+log_gross_mobility,88,7,6,-0.27647055943938403,-0.6065911372267125,0.05596569502048319,Marshall Islands
+annualized_log_area_change,24,3,2,-0.0866798830826222,,,South China Sea
+log_gross_mobility,24,3,2,0.39742782968327534,,,South China Sea

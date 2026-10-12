@@ -1,0 +1,5 @@
+﻿perturbation_pixels,sensor,analysis_unit,outcome,n,spearman_rho,two_sided_p_value,fdr_q_value
+-1,google_earth,cay_median,gross_mobility_fraction_per_year,68,-0.39308921574284117,0.0009132590627123834,0.0009132590627123834
+-1,sentinel2,cay_median,gross_mobility_fraction_per_year,66,-0.48118998174470773,4.3150747716386384e-05,8.630149543277277e-05
+1,google_earth,cay_median,gross_mobility_fraction_per_year,68,-0.40917265612650777,0.0005310852642941803,0.0005310852642941803
+1,sentinel2,cay_median,gross_mobility_fraction_per_year,66,-0.4773486456068698,5.064368161879994e-05,0.00010128736323759988

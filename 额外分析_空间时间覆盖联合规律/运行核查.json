@@ -1,0 +1,80 @@
+{
+  "status": "completed",
+  "python": "3.12.6",
+  "pandas": "2.3.3",
+  "numpy": "2.3.5",
+  "main_tests": [
+    {
+      "hypothesis": "H1",
+      "status": "estimated",
+      "n_cays": 92,
+      "beta": -0.17098109740950793,
+      "q": 0.3175811505634369
+    },
+    {
+      "hypothesis": "H2",
+      "status": "estimated",
+      "n_cays": 92,
+      "beta": -0.07393239454397776,
+      "q": 0.5854578967336751
+    },
+    {
+      "hypothesis": "H3",
+      "status": "estimated",
+      "n_cays": 89,
+      "beta": -0.09933385889594933,
+      "q": 0.45833020909988326
+    },
+    {
+      "hypothesis": "H4",
+      "status": "estimated",
+      "n_cays": 54,
+      "beta": -0.1580741325689111,
+      "q": 0.45833020909988326
+    },
+    {
+      "hypothesis": "H5",
+      "status": "estimated",
+      "n_cays": 54,
+      "beta": -0.05720875720917607,
+      "q": 0.7201736929903265
+    },
+    {
+      "hypothesis": "H6",
+      "status": "estimated",
+      "n_cays": 54,
+      "beta": 0.3914749129962323,
+      "q": 0.004438137327160467
+    },
+    {
+      "hypothesis": "H7",
+      "status": "estimated",
+      "n_cays": 52,
+      "beta": -0.0196826458233555,
+      "q": 0.5854578967336751
+    },
+    {
+      "hypothesis": "H8",
+      "status": "estimated",
+      "n_cays": 52,
+      "beta": 0.0032814017250277702,
+      "q": 0.8759139256940215
+    }
+  ],
+  "input_unchanged": true,
+  "manuscript_unchanged": true,
+  "protected_sha256": {
+    "论文初稿.md": "00978df1af6b8ce49a4a4ccad2919d0dc85e0a7610759b8c0add5bdc934799d4",
+    "论文补充材料.md": "08c2ea9c5e9392655a75d8b3cd6445b4de65ea442819918c85f7e79c2ee9cc15",
+    "论文/中文论文.docx": "2fdfb0148252b59bc8fb2b18cab18ad72cf4ff37da2ac24bba4b4706076fe73b",
+    "论文/中文论文补充材料.docx": "e4d3fdc07920e7b4e5cc292ee80e0b8c4b3ec224809836cce2ae0cdde057c8b2",
+    "outputs/figures/当前图件索引.json": "e6ab5e282868ebb13f5bb35ac2d95f18c7cbe46391460980dad645551608b7dd"
+  },
+  "checks": {
+    "annual_same_sensor_frame": true,
+    "interval_area_independently_reconstructed": true,
+    "eight_hypotheses_preserved": true,
+    "unit_is_cay_or_reef_not_image": true
+  },
+  "figure_review": "已查看本次实际PNG；英文标签及Times New Roman；原始点与CI完整显示"
+}
