@@ -40,7 +40,7 @@ the secondary joint-analysis code and results. CSV files use UTF-8 with BOM for 
 
 ## Reproduce checks from the public archive
 
-Download the release asset `数据代码.zip` and extract it into a new directory. Open that directory
+Download the release asset `data-code.zip` (display label: `数据代码.zip`) and extract it into a new directory. Open that directory
 as the working directory, install Python 3.11 or later and the packages in `requirements.txt`, then run:
 
 ```text
@@ -86,3 +86,5 @@ Third-party data remain subject to their original providers' terms.
 To cite this archive, include the study title above, the version v2.0.0, the date 12 October 2026,
 and https://github.com/Wangmingzhuang1/coral-reef-cay-reshaping-data-code/releases/tag/v2.0.0. No DOI is assigned to this release.
 This release supersedes the previous repository layout; prior code/data remain recoverable in GitHub history.
+
+The versioned ZIP is the frozen v2.0.0 analysis snapshot. The default branch additionally records publication metadata and updates local delivery-audit helpers; scientific measurements and statistical results remain unchanged. Its manifest tracks the current branch files.
