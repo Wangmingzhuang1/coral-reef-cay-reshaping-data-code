@@ -255,7 +255,7 @@ def main():
     results['P0及主线恢复']={'紧致度同对象Crofton':True,'旧观测列保持':True,'紧致度年度增益':float(row.mean_relative_error_reduction),'紧致度年度q':float(row.fdr_q_value),'固定端点采样序列':93,'背景案例':10,'同区域配对':32,'不复用配对':13,'网格一致覆盖负关联保留':True,'表面状态图原影像选择保持且箭头已增强':True}
     results['3.1区域长期汇总']={'主序列':93,'重点四区':91,'首末交换可比':90,'面积分箱':[63,17,13],'源表逐值复核':True,'输入指纹一致':True,'段落数':len(new.split('### 3.1 ',1)[1].split('### 3.2 ',1)[0].strip().split('\n\n'))-1,'新增补充表':['S1-3','S1-4','S1-5']}
     results['章节职责与立意审校']={'标题与权威源稿一致':True,'摘要按审稿证据修订':True,'六主图八补图索引完整':True,'原始统计及阴性结果保留':True,'同季质心配对中位数':[.126,.144,.173],'旧补充编号修正':True,'方法裁剪窗说明与实现一致':True,'关键文献核验范围':'Kench2024、Lazarus2025/2026；2006官方摘要部分支持，不声称全部文献外部核验'}
-    results['审稿主要问题复核']={'原始网格沙洲':66,'单一网格沙洲':62,'当前长期位置序列':90,'前向测试日期':1029,'前向沙洲':56,'状态对分解':1490,'独立配准精度':'未验证','盲重标':'未完成','公开本轮数据':'未发布','测量主表保持及参考文献按核验清单核对':True}
+    results['审稿主要问题复核']={'原始网格沙洲':66,'单一网格沙洲':62,'当前长期位置序列':90,'前向测试日期':1029,'前向沙洲':56,'状态对分解':1490,'独立配准精度':'未验证','盲重标':'未完成','公开本轮数据':('GitHub '+json.loads((ROOT/'outputs/公开归档核验.json').read_text(encoding='utf-8'))['version'] if (ROOT/'outputs/公开归档核验.json').exists() else '未发布'),'测量主表保持及参考文献按核验清单核对':True}
     from 复核审稿主要问题 import check_derived
     check_derived()
     sectors=pd.read_csv(ROOT/'outputs/植被扇区对照.csv')
@@ -341,6 +341,22 @@ def main():
     results['方法与覆盖分组核查']={'方法小节':7,'逐段Word同步':True,'主文补充可编辑公式':equations,
         '覆盖分组由逐时段审校标签验证':True,'旧阶段定义单独保留':True,
         '年度方向覆盖路径岸段原数据保持':True,'高波浪校正q':float(wave_current.fdr_q_value)}
+    # 交叉引用和摘要分母在当前源稿、Word和原始统计表间对应。
+    for manuscript in ['论文初稿.md','论文补充材料.md']:
+        value=(ROOT/manuscript).read_text(encoding='utf-8')
+        assert not re.search(r'(?:主文|方法|见|参见)\s*2\.[89](?![0-9])',value)
+    abstract=new.split('## 摘要',1)[1].split('**关键词',1)[0].strip()
+    assert all(x in abstract for x in ['93条','63条','90条','60条'])
+    assert abstract in [p.text for p in main_doc.paragraphs]
+    assert '对应版本v2.0.0' in new and '该仓库尚未包含本轮分析' not in new
+    assert '状态定义同主文 2.5' in si_text and '模型设定见主文 2.6' in si_text
+    public=json.loads((ROOT/'outputs/公开归档核验.json').read_text(encoding='utf-8'))
+    assert public['all_remote_git_blob_hashes_verified']
+    assert digest(ROOT/'公开数据代码.zip')==public['asset_sha256']
+    results['公开归档与交叉引用']={'GitHub版本':public['version'],'GitHub提交':public['commit_sha'],
+        '公开文件数':public['public_file_count'],'版本链接':public['release_url'],
+        '公开包与远端指纹一致':True,'摘要面积序列及近稳':[93,63],'摘要位置序列及近稳':[90,60],
+        '旧2.8及2.9引用消除':True,'S1模型及状态定义引用修正':True,'DOI':'按作者决定不申请'}
     (ROOT/'排版核验/交付核查.json').write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps(results,ensure_ascii=False,indent=2))
 
