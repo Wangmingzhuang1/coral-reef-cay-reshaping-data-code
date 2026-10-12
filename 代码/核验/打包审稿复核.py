@@ -56,7 +56,7 @@ def main():
             versions[name] = 'not installed under this package name'
     payload['依赖版本.json'] = json.dumps({'python':sys.version,'packages':versions},
                                          ensure_ascii=False,indent=2).encode('utf-8')
-    payload['运行说明.txt'] = '''本轮审稿复核数据与代码（本地包，尚未同步公开仓库）
+    payload['运行说明.txt'] = '''本轮审稿复核数据与代码（本地完整交付包；公开数据版本见归档记录）
 
 解压后，以包含“代码”和“outputs”的目录为工作目录。
 安装依赖版本.json所列科学计算库，然后执行：
@@ -80,6 +80,11 @@ IBTrACS由NOAA NCEI提供。代码使用MIT，作者派生表使用CC-BY-4.0。
 工作区原始未脱敏主表，两者用途不同。清单的packaged_copy_changed标识副本字节变化。
 本包不包含原始第三方影像和逐期掩膜，不包含独立控制点或尚未进行的盲重标结果。
 '''.encode('utf-8')
+    publication_path = ROOT/'outputs/公开归档核验.json'
+    if publication_path.exists():
+        publication = json.loads(publication_path.read_text(encoding='utf-8'))
+        public_link = '公开代码与派生数据：'+publication['release_url']+'\n本地包另含文稿和图件，不能等同于公开数据包。\n\n'
+        payload['运行说明.txt'] = public_link.encode('utf-8') + payload['运行说明.txt']
     stream=io.StringIO(newline='')
     writer=csv.writer(stream)
     writer.writerow(['relative_path','size_bytes','sha256','packaged_copy_changed'])
